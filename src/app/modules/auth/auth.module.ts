@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     AuthRoutingModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatGridListModule
   ]
 })
 export class AuthModule { }
