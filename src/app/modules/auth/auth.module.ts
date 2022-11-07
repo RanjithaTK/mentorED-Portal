@@ -7,7 +7,8 @@ import { RegisterComponent } from './register/register.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import { SharedModule } from 'src/app/shared/shared.module';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AuthRoutingModule,
     MatToolbarModule,
     MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    SharedModule,
+    MatButtonModule
   ]
 })
 export class AuthModule { }
