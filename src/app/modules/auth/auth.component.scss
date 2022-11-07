@@ -1,0 +1,33 @@
+.main-div{
+    height: 100vh;
+}
+.container{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 2px 1px 3px #30323282;
+}
+mat-toolbar {
+    background-color: white;
+    
+}
+.body-style{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.body-left{
+    padding-top: none !important;
+    background: linear-gradient(45deg,  #da807d 0%, #b23836 95%);
+    width: 45% !important;
+    color: white;
+    border-radius: 2px;
+}
+.body-right{
+    padding-top: none !important;
+    background-color: white;
+    width: 55% !important;
+    left: 45% !important;
+}
