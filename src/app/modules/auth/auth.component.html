@@ -1,17 +1,17 @@
-<mat-toolbar class="header shadow bottom">
+<mat-toolbar class="shadow bottom">
   <mat-toolbar-row>
-    <mat-icon>home</mat-icon>
+    <img class="header-logo" src="/assets/images/MentorEd-logo.svg" />
   </mat-toolbar-row>
 </mat-toolbar>
-<mat-grid-list cols="10" rowHeight="2:1" class="body-style">
-  <mat-grid-tile class="body-left" colspan="4">
+<div class="body">
+  <div class="left-div">
     <h1>
-      <b>{{ title }}</b>
+      {{ title }}
     </h1>
-  </mat-grid-tile>
-  <mat-grid-tile class="body-right" colspan="6">
+  </div>
+  <div class="right-div">
     <div>
       <router-outlet></router-outlet>
     </div>
-  </mat-grid-tile>
-</mat-grid-list>
+  </div>
+</div>

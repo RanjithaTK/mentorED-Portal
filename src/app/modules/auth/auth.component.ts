@@ -1,6 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { MatIconRegistry } from "@angular/material/icon";
-import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: "app-auth",
@@ -10,16 +8,7 @@ import { DomSanitizer } from "@angular/platform-browser";
 export class AuthComponent implements OnInit {
   title = "Welcome to mentorED";
 
-  constructor(
-    private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer
-  ) {
-    this.matIconRegistry.addSvgIcon(
-      "demo",
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        "./app/modules/ath/MentorEd-logo.svg"
-      )
-    );
+  constructor() {
   }
 
   ngOnInit(): void {}

@@ -1,29 +1,48 @@
+@import "/src/variables";
+
+
 .shadow {
   width: 100%;
-  background-color: white;
+  background-color: $white;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 2px;
   &.bottom {
-    box-shadow: 0px 9px 10px -15px #111;
+    box-shadow: 0px 9px 10px -15px $black;
   }
 }
-mat-toolbar {
-  background-color: white;
+.header-logo {
+  width: 60px;
+  height: min-content;
 }
-.body-style {
+mat-toolbar{
+  position: absolute;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  z-index: 99;
+}
+.body{
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+.left-div{
+  background: url(/assets/images/IsolationMode.svg) 13% 108% no-repeat,linear-gradient(45deg, #ce6a67 0%, $theme 95%);
+  height: 100vh;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom center;
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-direction: row;
+  justify-content: center;
 }
-.body-left {
-  height: 100vh;
-  background: linear-gradient(45deg, #da807d 0%, #b23836 95%);
-  color: white;
-  background-color: #b23836;
+.left-div h1{
+  color: $white;
+  font-weight: bold;
 }
-.body-right {
+.right-div{
+  background-color: $white;
   height: 100vh;
-  background-color: white;
 }
