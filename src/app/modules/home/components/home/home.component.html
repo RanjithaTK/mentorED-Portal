@@ -1,16 +1,15 @@
-<p>home works!</p>
+<p>header</p>
 
 
 <h3 class="allSection">All Sessions</h3>
 
 <div class="categories">
-    <ng-container *ngFor="let item of cardDetails;index as i;">
-      <div *ngIf = "i < last">
-        <app-sessioncard  class="card" [cardData]="item" ></app-sessioncard>
-      </div>
-     
-    </ng-container>
-  </div>
+  <ng-container *ngFor="let item of cardDetails;index as i;">
+    <div *ngIf="i < last">
+      <app-sessioncard class="card" [cardData]="item"></app-sessioncard>
+    </div>
 
- <h3 class="viewMore" *ngIf = "cardDetails.length > 4 " (click)="onClickViewMore()">{{view}}</h3>
+  </ng-container>
+</div>
 
+<h3 class="viewMore" *ngIf="cardDetails.length > 4 " (click)="onClickViewMore()">{{view}}</h3>

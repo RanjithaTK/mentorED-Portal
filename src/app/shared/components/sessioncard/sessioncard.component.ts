@@ -1,4 +1,4 @@
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-sessioncard',
@@ -7,13 +7,13 @@ import { Router } from '@angular/router';
 })
 export class SessioncardComponent implements OnInit {
   @Input() cardData: any;
-  
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  redirectToviewDetails(){
+  redirectToviewDetails() {
     this.router.navigate([''])
   }
 }

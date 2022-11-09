@@ -1,30 +1,31 @@
-
-.categories{
+.categories {
     display: grid;
-     grid-template-columns: auto auto;
-     gap:30px;
+    grid-template-columns: auto auto;
+    gap: 30px;
     justify-content: center;
 }
 
-.viewMore{
-    cursor: pointer; 
+.viewMore {
+    cursor: pointer;
     text-decoration: underline;
-    font-weight:500;
+    font-weight: 500;
     padding-top: 2%;
     padding-left: 75%;
 
 }
-.allSection{
+
+.allSection {
     padding-left: 20%;
+    font-weight: 500;
 }
 
 
 @media screen and (max-width: 950px) {
-    .categories{
+    .categories {
         display: grid;
-         grid-template-columns: auto;
-         gap:30px;
+        grid-template-columns: auto;
+        gap: 30px;
         justify-content: center;
     }
-    
-  }
+
+}
