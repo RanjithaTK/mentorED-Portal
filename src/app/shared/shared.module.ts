@@ -2,18 +2,23 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-
+import { DynamicFormComponent } from './components';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    DynamicFormComponent
+  ],
   imports: [
     CommonModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
   ],
   exports:[
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    DynamicFormComponent
   ]
 })
 export class SharedModule { }
