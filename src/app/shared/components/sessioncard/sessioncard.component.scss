@@ -1,0 +1,59 @@
+.cardMain{
+    display: grid;
+    
+    grid-template-columns: auto auto ;
+    grid-gap: 60px;
+    padding: 30px;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+}
+
+.cardDetails{
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+}
+.cardComponent{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    // width: 80%;
+    padding:0.5%;
+    box-shadow: 1px 1px 5px 5px rgb(216, 216, 216); 
+}
+.cardImages{
+    padding: 10px;
+}
+.subCardDetails{
+    display: flex;
+    flex-direction: row;
+//    gap: 30px;
+width: 100%;
+}
+.subCardDetails_viewDetails{
+    display: flex;
+    width: 75%;
+    cursor: pointer; 
+    text-decoration: underline;
+    font-weight:500;
+}
+
+.subCardDetails_button{
+    display: flex;
+    width: 30%;
+    cursor: pointer;
+    border-radius: 25px;
+    text-align: center;
+    justify-content: center;
+    background-color: #b23836;
+}
+.cardSessionDate, .cardSessionTime{
+ display: flex;
+ flex-direction: row;
+ gap: 10px;
+ font-size: 12px;
+}
+.cardDetailBold{
+    font-weight:bold;
+}
