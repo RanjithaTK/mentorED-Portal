@@ -1,7 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as _ from 'lodash-es';
-import * as moment from 'moment';
 
 interface JsonFormValidators {
   min?: number;
