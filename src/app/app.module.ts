@@ -8,6 +8,7 @@ import { SharedModule } from "./shared/shared.module"
 import { CoreModule } from "./core/core.module"
 import { MatCardModule } from "@angular/material/card"
 import { MatButtonModule } from "@angular/material/button"
+import { ReactiveFormsModule } from "@angular/forms"
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { MatButtonModule } from "@angular/material/button"
     CoreModule,
     MatCardModule,
     MatButtonModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

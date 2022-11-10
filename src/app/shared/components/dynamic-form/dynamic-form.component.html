@@ -1,0 +1,14 @@
+<div *ngIf="showForm">
+    <form [formGroup]="myForm">
+        <div class="fields" *ngFor="let control of jsonFormData?.controls">
+            <p *ngIf="textBoxTypes.includes(control.type)">
+                <mat-form-field>
+                    <mat-label>{{ control.label }}</mat-label>
+                    <input matInput placeholder="{{ control.label }}" appearance="fill" type="{{control.type}}"
+                        [formControlName]="control?.name">
+                </mat-form-field>
+
+            </p>
+        </div>
+    </form>
+</div>
