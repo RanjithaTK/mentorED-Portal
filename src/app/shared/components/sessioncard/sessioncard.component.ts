@@ -13,7 +13,7 @@ export class SessioncardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  redirectToviewDetails() {
-    this.router.navigate([''])
-  }
+  // redirectToViewDetails() {
+  //   this.router.navigate([''])
+  // }
 }

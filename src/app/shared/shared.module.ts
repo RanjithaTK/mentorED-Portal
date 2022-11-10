@@ -5,13 +5,13 @@ import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import { SessioncardComponent } from './components/sessioncard/sessioncard.component';
 import {MatIconModule} from '@angular/material/icon'
-import { DynamicFormComponent } from './components';
+import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     DynamicFormComponent,
-    SessioncardComponent
+    SessioncardComponent,
 
   ],
   imports: [

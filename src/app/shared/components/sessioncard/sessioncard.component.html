@@ -6,20 +6,20 @@
 
         <p class="cardDetailBold">{{cardData.title}}</p>
 
-        <p class="cardDetailBold">{{cardData.mentor_Name}}</p>
+        <p class="cardDetailBold">{{cardData.mentorName}}</p>
         <div class="cardSessionDate">
             <mat-icon>event</mat-icon>
-            <p>Session date: {{cardData.session_date}}</p>
+            <p>Session date: {{cardData.startDate | date}}</p>
 
         </div>
         <div class="cardSessionTime">
             <mat-icon>alarm</mat-icon>
-            <p>Session time:{{cardData.session_time}}</p>
+            <p>Session time:{{cardData.startDateUtc | date:'shortTime'}}</p>
         </div>
 
         <div class="subCardDetails">
             <p class="subCardDetails_viewDetails">view details</p>
-            <button class="subCardDetails_button" mat-raised-button>{{cardData.session_state}}</button>
+            <button class="subCardDetails_button" mat-raised-button>{{cardData.status}}</button>
         </div>
 
     </div>
