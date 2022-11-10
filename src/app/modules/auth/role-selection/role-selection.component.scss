@@ -1,10 +1,7 @@
 .card-wrapper {
   display: flex;
-  padding-top: 25%;
-  // justify-items: end;
-  // align-items: flex-end;
-  // justify-content: space-between;
-  gap: 50px;
+  padding-top: 20%;
+  gap: 40px;
 }
 .content {
   display: flex;
@@ -25,9 +22,13 @@ mat-card {
     color: white;
   }
 }
-
+mat-card-header {
+  align-items: center;
+  justify-content: center;
+  margin-right: 18%;
+}
 .mentor-image {
-  width: 5rem;
+  width: 7rem;
   height: 7rem;
 }
 .button {
@@ -35,7 +36,6 @@ mat-card {
   background: rgb(105, 104, 104);
   color: white;
   margin-top: 10%;
-  // margin-left: 14%;
   border: 1px solid rgb(200, 198, 198);
   padding: 3px;
 }
@@ -47,7 +47,7 @@ mat-card {
 .heading {
   display: flex;
   justify-content: center;
-  padding-top: 17%;
+  padding-top: 8%;
   font-weight: 600;
   color: #000;
 }
@@ -60,7 +60,7 @@ mat-card {
 @media screen and (max-width: 950px) {
   .card-wrapper {
     display: grid;
-    margin-top: 16%;
+    margin-top: 2%;
     gap: 20px;
   }
   .content {
@@ -68,7 +68,6 @@ mat-card {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // padding-top: 25%;
   }
 
   mat-card {
@@ -78,10 +77,12 @@ mat-card {
     border-radius: 5px;
     justify-content: center;
     align-items: center;
+    margin-left: 3%;
+    padding-bottom: 20%;
   }
 
   .mentor-image {
-    width: 3rem;
+    width: 5rem;
     height: 4rem;
   }
   .button {
@@ -89,9 +90,7 @@ mat-card {
     background: rgb(105, 104, 104);
     color: white;
     margin-top: 20%;
-    // margin-left: 19%;
     border: 1px solid rgb(200, 198, 198);
-    // padding: 1px;
   }
   .button[disabled] {
     background: rgb(225, 223, 223);
@@ -101,7 +100,7 @@ mat-card {
   .heading {
     display: flex;
     justify-content: center;
-    padding-top: 7%;
+    padding-top: 5%;
     font-weight: 500;
     color: #000;
   }
@@ -111,5 +110,20 @@ mat-card {
     justify-content: center;
     justify-items: center;
     font-size: small;
+  }
+  mat-card-header {
+    align-items: center;
+    justify-content: center;
+    margin-right: 23%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .card-wrapper {
+    margin-top: 20%;
+  }
+  .button {
+    margin-top: 10%;
+    margin-left: 8%;
+    padding: 2px;
   }
 }

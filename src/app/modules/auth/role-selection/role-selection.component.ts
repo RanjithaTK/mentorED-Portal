@@ -12,14 +12,12 @@ export class RoleSelectionComponent implements OnInit {
     {
       role: "Mentor",
       description: "Build confidence as a leader, and grow your network.",
-      image:
-        "https://th.bing.com/th/id/R.7572fc14214263e4be04ee0a25833c5e?rik=wY825ELLifKb6g&riu=http%3a%2f%2fwww.aattraininghub.com%2fwp-content%2fuploads%2f2016%2f03%2fmentoring.jpg&ehk=Dlw04aBMGmjmpSC1%2bCESTDOZVxjPzGpLQL88az3SiNI%3d&risl=&pid=ImgRaw&r=0",
+      image: "../../../../assets/images/role-selection/mentor_icon.png",
     },
     {
       role: "Mentee",
       description: "Learn and grow from verified Mentors",
-      image:
-        "https://th.bing.com/th/id/R.7572fc14214263e4be04ee0a25833c5e?rik=wY825ELLifKb6g&riu=http%3a%2f%2fwww.aattraininghub.com%2fwp-content%2fuploads%2f2016%2f03%2fmentoring.jpg&ehk=Dlw04aBMGmjmpSC1%2bCESTDOZVxjPzGpLQL88az3SiNI%3d&risl=&pid=ImgRaw&r=0",
+      image: "../../../../assets/images/role-selection/mentee_icon.png",
     },
   ]
 
