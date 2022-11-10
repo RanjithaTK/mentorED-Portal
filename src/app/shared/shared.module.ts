@@ -3,15 +3,15 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
-import { SessioncardComponent } from './components/sessioncard/sessioncard.component';
 import {MatIconModule} from '@angular/material/icon'
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SessionCardComponent } from './components/session-card/session-card.component';
 
 @NgModule({
   declarations: [
     DynamicFormComponent,
-    SessioncardComponent,
+    SessionCardComponent,
 
   ],
   imports: [
@@ -25,8 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports:[
     MatButtonModule,
     MatInputModule,
-    SessioncardComponent,
-    DynamicFormComponent
+    DynamicFormComponent,
+    SessionCardComponent
   ]
 })
 export class SharedModule { }
