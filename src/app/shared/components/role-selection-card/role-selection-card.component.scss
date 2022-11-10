@@ -1,0 +1,126 @@
+
+
+.card-wrapper {
+  display: flex;
+  gap: 40px;
+}
+
+mat-card {
+  width: 12rem;
+  height: 14rem;
+
+  border-radius: 15px;
+}
+
+.mentor-card-selected {
+  background-color: #b23836;
+  .card-details {
+    color: white;
+  }
+}
+mat-card-header {
+  align-items: center;
+  justify-content: center;
+  margin-right: 18%;
+}
+.mentor-image {
+  width: 7rem;
+  height: 7rem;
+}
+.button {
+  width: 20rem;
+  background: rgb(105, 104, 104);
+  color: white;
+  margin-top: 10%;
+  border: 1px solid rgb(200, 198, 198);
+  padding: 3px;
+}
+.button[disabled] {
+  background: rgb(225, 223, 223);
+  color: #000;
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  padding-top: 8%;
+  font-weight: 600;
+  color: #000;
+}
+.sub-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+@media screen and (max-width: 950px) {
+  .card-wrapper {
+    display: grid;
+    margin-top: 2%;
+    gap: 20px;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  mat-card {
+    width: 8rem;
+    height: 9rem;
+
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3%;
+    padding-bottom: 20%;
+  }
+
+  .mentor-image {
+    width: 5rem;
+    height: 4rem;
+  }
+  .button {
+    width: 6rem;
+    background: rgb(105, 104, 104);
+    color: white;
+    margin-top: 20%;
+    border: 1px solid rgb(200, 198, 198);
+  }
+  .button[disabled] {
+    background: rgb(225, 223, 223);
+    color: #000;
+  }
+
+  .heading {
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    font-weight: 500;
+    color: #000;
+  }
+  .sub-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    font-size: small;
+  }
+  mat-card-header {
+    align-items: center;
+    justify-content: center;
+    margin-right: 23%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .card-wrapper {
+    margin-top: 20%;
+  }
+  .button {
+    margin-top: 10%;
+    margin-left: 8%;
+    padding: 2px;
+  }
+}
+

@@ -21,14 +21,12 @@ export class RoleSelectionComponent implements OnInit {
     },
   ]
 
-  selectedRole = ""
   constructor() {}
 
   ngOnInit(): void {}
 
-  cardSelected(role: any) {
+  cardOneSelected($event: any) {
     this.buttonEnable = true
-    this.selectedRole = role.role
   }
   buttonClick() {
     //TODO navigate to register page
