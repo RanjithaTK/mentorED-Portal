@@ -7,31 +7,31 @@ import { RoleSelectionComponent } from "../auth/role-selection/role-selection.co
 
 const routes: Routes = [
     {
-      path: '',
-      component: AuthComponent,
-      children: [
-          {
-              path: 'login',
-              component: LoginComponent
-          },
-          {
-              path: 'register',
-              component: RegisterComponent
-          },
-          {
-              path: 'roleSelection',
-              component: RoleSelectionComponent
-          },
-          {
-              path: '',
-              redirectTo: 'login',
-              pathMatch: 'full'
-          },
-          {
-              path: '**',
-              redirectTo: '/auth/login'
-          },
-      ],
+        path: '',
+        component: AuthComponent,
+        children: [
+            {
+                path: 'login',
+                component: LoginComponent
+            },
+            {
+                path: 'register',
+                component: RegisterComponent
+            },
+            {
+                path: 'roleSelection',
+                component: RoleSelectionComponent
+            },
+            {
+                path: '',
+                redirectTo: 'login',
+                pathMatch: 'full'
+            },
+            {
+                path: '**',
+                redirectTo: '/auth/login'
+            },
+        ],
     },
 ]
 
