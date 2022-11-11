@@ -30,10 +30,12 @@ const routes: Routes = [
             {
                 path: '**',
                 redirectTo: '/auth/login'
-            },
-        ],
-    },
-]
+            }
+
+        ]
+    }
+
+];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
