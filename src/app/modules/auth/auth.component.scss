@@ -36,7 +36,7 @@ mat-toolbar{
   justify-content: center;
 }
 .left-div{
-  background: url(/assets/images/IsolationMode.svg) 13% 108% no-repeat,linear-gradient(45deg, #ce6a67 0%, $theme 95%);
+  background: url(/assets/images/IsolationMode.svg) 13% 108% no-repeat,$theme-gradient;
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: bottom center;
