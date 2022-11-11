@@ -1,0 +1,14 @@
+
+<h3 class="allSection">All Sessions</h3>
+
+<div class="categories">
+  <ng-container *ngFor="let item of cardDetails;index as i;">
+    <div *ngIf="i < last">
+      <app-session-card class="card" [cardData]="item"></app-session-card>
+    </div>
+
+  </ng-container>
+</div>
+
+<h3 class="viewMore" *ngIf="cardDetails.length > 4 " (click)="onClickViewMore()">{{view}}</h3>
+

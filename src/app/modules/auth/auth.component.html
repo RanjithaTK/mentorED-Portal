@@ -3,13 +3,13 @@
     <img class="header-logo" src="/assets/images/MentorEd-logo.svg" />
   </mat-toolbar-row>
 </mat-toolbar>
-<div class="body">
-  <div class="left-div">
+<div class="body" fxlayout="row" fxlayout.md="column" fxLayout.xs="column" >
+  <div class="body-content left-div" fxFlex.lt-md="100%">
     <h1>
       {{ title }}
     </h1>
   </div>
-  <div class="right-div">
+  <div class="body-content right-div" fxFlex.lt-md="100%">
     <div>
       <router-outlet></router-outlet>
     </div>
