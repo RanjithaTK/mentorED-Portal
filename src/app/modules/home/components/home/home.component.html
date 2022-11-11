@@ -1,15 +1,12 @@
 <div class="home-container">
 <h3 class="all-section">All Sessions</h3>
 
-<div class="categories" >
+<div  class="categories" fxLayout="row wrap" fxLayoutGap="10px grid" fxLayoutAlign="center"  >
   
-    <ng-container *ngFor='let item of cardDetails| slice:start:lastIndex'  >
-      <div>
-        <app-session-card class="card" [cardData]="item"></app-session-card>
-      </div>
-    </ng-container>
+    <div *ngFor='let item of cardDetails| slice:start:lastIndex'  fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="50%"  >    
+        <app-session-card [cardData]="item"></app-session-card>
+    </div>
   </div>
-
 <h3 class="view-more" *ngIf="cardDetails.length > 4 " (click)="onClickViewMore()">{{view}}</h3>
 
 </div>
