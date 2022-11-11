@@ -1,15 +1,12 @@
 .card-details{
     padding: 2%;
     display: flex;
-    flex: 70%;
     flex-direction: column;
     width:300px;
 }
 
 .card-container {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
     padding: 0.5%;
     box-shadow: 1px 1px 5px 5px rgb(216, 216, 216);
 }
@@ -53,7 +50,6 @@
 .card-session-date,
 .card-session-time {
     display: flex;
-    flex-direction: row;
     gap: 10px;
     font-size: 12px;
 }

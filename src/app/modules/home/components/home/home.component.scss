@@ -1,11 +1,14 @@
 @import "/src/variables";
-
+.home-container{
+    padding-top: 3%;
+   
+}
 .categories {
     display: grid;
     grid-template-columns: auto auto;
     gap: 30px;
     justify-content: center;
-    background-color: rgb(247, 243, 243);
+   
 }
 
 .view-more {
@@ -31,7 +34,7 @@
     .categories {
         display: grid;
         grid-template-columns: auto;
-        gap: 30px;
+        gap: 10px;
         justify-content: center;
     }
 
