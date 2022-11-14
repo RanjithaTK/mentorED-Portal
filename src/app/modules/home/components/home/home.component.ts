@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
           "_id": "6347f6cce76c8b07b70a04d4",
           "title": "next year",
           "description": "Hi",
-          "image": [],
+          "image": ['https://thumbs.dreamstime.com/b/sunrise-over-bangalore-beautiful-march-hebbal-neighborhood-india-65291184.jpg'],
           "userId": "6347ab4ec851615a26fbd281",
           "status": "published",
           "startDate": "1697286540",
@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
           "_id": "63312e1161c2f96cd63d58af",
           "title": "testing calendar ",
           "description": "hello",
-          "image": [],
+          "image": ['https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg'],
           "userId": "6328b26798ca7a1a398bf0d4",
           "status": "published",
           "startDate": "1674708120",
@@ -43,9 +43,9 @@ export class HomeComponent implements OnInit {
         },
         {
           "_id": "62ebcb7d5f14aa4377b5f326",
-          "title": "next year ",
+          "title": "next year next to next year next year next to next year ",
           "description": "ok",
-          "image": [],
+          "image": ['https://media.gettyimages.com/id/1246464390/photo/the-lovely-vidhan-soudha.jpg?s=612x612&w=gi&k=20&c=zXOBdw0y-O1QneoVc4YKKsV8nFkZVfWZVj4Nhs9pAQM='],
           "userId": "62ce6090b10ad6e9ec7ba9a7",
           "status": "published",
           "startDate": "1785850560",
@@ -55,7 +55,52 @@ export class HomeComponent implements OnInit {
           "createdAt": "2022-08-04T13:37:01.026Z",
           "isEnrolled": false,
           "mentorName": "ziva k"
-        }
+        },
+        // {
+        //   "_id": "63312e1161c2f96cd63d58af",
+        //   "title": "testing calendar ",
+        //   "description": "hello",
+        //   "image": [''],
+        //   "userId": "6328b26798ca7a1a398bf0d4",
+        //   "status": "published",
+        //   "startDate": "1674708120",
+        //   "endDate": "1674794520",
+        //   "startDateUtc": "2023-01-26T04:42:00",
+        //   "endDateUtc": "2023-01-27T04:42:00",
+        //   "createdAt": "2022-09-26T04:44:01.308Z",
+        //   "isEnrolled": true,
+        //   "mentorName": "bhavana"
+        // },
+        {
+          "_id": "63312e1161c2f96cd63d58af",
+          "title": "testing calendar ",
+          "description": "hello",
+          "image": ['https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8='],
+          "userId": "6328b26798ca7a1a398bf0d4",
+          "status": "published",
+          "startDate": "1674708120",
+          "endDate": "1674794520",
+          "startDateUtc": "2023-01-26T04:42:00",
+          "endDateUtc": "2023-01-27T04:42:00",
+          "createdAt": "2022-09-26T04:44:01.308Z",
+          "isEnrolled": true,
+          "mentorName": "bhavana"
+        },
+        {
+          "_id": "63312e1161c2f96cd63d58af",
+          "title": "testing calendar ",
+          "description": "hello",
+          "image": ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz_Kk2A3YKdr9AjnDs3UaUXAPKnt9da8BwaaQQbIo&s'],
+          "userId": "6328b26798ca7a1a398bf0d4",
+          "status": "published",
+          "startDate": "1674708120",
+          "endDate": "1674794520",
+          "startDateUtc": "2023-01-26T04:42:00",
+          "endDateUtc": "2023-01-27T04:42:00",
+          "createdAt": "2022-09-26T04:44:01.308Z",
+          "isEnrolled": true,
+          "mentorName": "bhavana"
+        },
       ],
       "mySessions": [
         {
@@ -81,7 +126,7 @@ export class HomeComponent implements OnInit {
           "endDate": "1674794520",
           "endDateUtc": "2023-01-27T04:42:00",
           "status": "published",
-          "image": [],
+          "image": [''],
           "mentorName": "bhavana"
         }
       ]
@@ -120,8 +165,8 @@ export class HomeComponent implements OnInit {
   }
   cardDetails  =this.apiCardDetails.result.allSessions
 
-
-  last: any = 4;
+start: any=0;
+  lastIndex: any = 4;
   constructor() { }
 
   ngOnInit(): void {
@@ -134,7 +179,7 @@ export class HomeComponent implements OnInit {
     // this.view = "View More"
     // }
     // else{
-    this.last = 8;
+    this.lastIndex = this.cardDetails.length;
     // this.view = "View Less"
     // }
 
