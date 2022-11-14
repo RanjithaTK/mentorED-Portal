@@ -1,61 +1,47 @@
-.card-details{
+.card-details {
     padding: 2%;
-    display: flex;
-    flex-direction: column;
-    flex: 60%;
-    width:60%;
+    width: 60%;
 }
+
 .card-container {
-    display: flex;
-    flex-direction: row;
     padding: 0.5%;
     box-shadow: 1px 1px 5px 5px rgb(216, 216, 216);
 }
 
 .card-images {
     padding: 10px;
-    display: flex;
-    flex: 25%;
-}
 
-.sub-card-details {
-    display: flex;
-    flex-direction: row;
-   
 }
 
 .mat-icon {
     font-size: 20px;
 }
 
-.sub-card-view-details{
-    display: flex;
+.sub-card-view-details {
     width: 75%;
     cursor: pointer;
     text-decoration: underline;
     font-weight: 500;
-    
+
 }
 
 .sub-card-details-button {
-    display: flex;
     cursor: pointer;
     border-radius: 25px;
     text-align: center;
     justify-content: center;
     color: white;
     font-weight: 100;
-    
+
 }
 
 .card-session-date,
 .card-session-time {
-    display: flex;
     gap: 10px;
     font-size: 12px;
 }
 
 .card-detail-bold {
-    font-weight: 600;
-    
+    font-weight: 500;
+
 }

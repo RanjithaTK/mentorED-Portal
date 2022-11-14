@@ -6,6 +6,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon'
 import { DynamicFormComponent,SessionCardComponent } from './components';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+
 
 @NgModule({
   declarations: [
@@ -19,13 +22,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatCardModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
   exports:[
     MatButtonModule,
     MatInputModule,
     DynamicFormComponent,
-    SessionCardComponent
+    SessionCardComponent,
+    FlexLayoutModule
   ]
 })
 export class SharedModule { }

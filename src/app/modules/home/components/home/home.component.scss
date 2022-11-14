@@ -1,29 +1,12 @@
-@import "/src/variables";
-.home-container{
+.home-container {
     padding-top: 3%;
-}
-.categories {
-  padding-left: 10%;
-  padding-right: 10%;
-    justify-content: center;
-    align-items: center;
 }
 
 .view-more {
-    cursor: pointer;
-    font-weight: 100;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     margin-top: 2%;
-    margin-left: 35%;
-    margin-right: 35%;
-    background-color: $theme;
-    color: white;
 }
 
 .all-section {
     padding-left: 20%;
     font-weight: 500;
 }
-
