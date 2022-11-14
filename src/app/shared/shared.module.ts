@@ -15,6 +15,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { DynamicFormComponent, InputChipComponent, SessionCardComponent } from './components/index';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatNativeDateModule,
     MatDatepickerModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    TranslateModule
   ],
   exports:[
     MatButtonModule,
@@ -51,7 +53,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatFormFieldModule,
     MatIconModule,
     SessionCardComponent,
-    FlexLayoutModule
+    FlexLayoutModule,
+    TranslateModule
   ]
 })
 export class SharedModule { }

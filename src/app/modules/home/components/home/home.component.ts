@@ -165,9 +165,8 @@ export class HomeComponent implements OnInit {
   }
   cardDetails  =this.apiCardDetails.result.allSessions
 
-  start: any = 0;
-  lastIndex: any = 4;
-  view: any = "Load More"
+
+  last: any = 4;
   constructor() { }
 
   ngOnInit(): void {
@@ -180,7 +179,7 @@ export class HomeComponent implements OnInit {
     // this.view = "View More"
     // }
     // else{
-    this.lastIndex = 8;
+    this.last = this.cardDetails.length;
     // this.view = "View Less"
     // }
 
