@@ -1,0 +1,16 @@
+mat-chip.mat-standard-chip::after {
+    background: none !important;
+}
+
+::placeholder {
+    color: var(--dark-grey);
+    opacity: 1;
+}
+  
+:-ms-input-placeholder {
+   color: var(--dark-grey);
+}
+  
+::-ms-input-placeholder {
+   color: var(--dark-grey);
+}
