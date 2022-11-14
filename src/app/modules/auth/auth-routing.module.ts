@@ -19,7 +19,7 @@ const routes: Routes = [
                 component: RegisterComponent
             },
             {
-                path: 'roleSelection',
+                path: 'role-selection',
                 component: RoleSelectionComponent
             },
             {
