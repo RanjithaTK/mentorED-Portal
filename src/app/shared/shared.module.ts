@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { DynamicFormComponent } from './components';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon'
+import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -12,13 +14,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatIconModule } from '@angular/material/icon';
 import { InputChipComponent } from './components/input-chip/input-chip.component';
+import { SessionCardComponent } from './components/session-card/session-card.component';
 
 @NgModule({
   declarations: [
     DynamicFormComponent,
-    InputChipComponent
+    InputChipComponent,
+    SessionCardComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +36,8 @@ import { InputChipComponent } from './components/input-chip/input-chip.component
     MatFormFieldModule,
     MatIconModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatCardModule
   ],
   exports:[
     MatButtonModule,
@@ -45,7 +49,8 @@ import { InputChipComponent } from './components/input-chip/input-chip.component
     MatSlideToggleModule,
     MatSliderModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
+    SessionCardComponent
   ]
 })
 export class SharedModule { }
