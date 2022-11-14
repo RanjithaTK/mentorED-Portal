@@ -14,3 +14,7 @@ mat-chip.mat-standard-chip::after {
 ::-ms-input-placeholder {
    color: var(--dark-grey);
 }
+
+input {
+    padding: 6px;
+}
