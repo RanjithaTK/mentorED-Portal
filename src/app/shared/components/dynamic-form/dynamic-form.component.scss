@@ -1,20 +1,17 @@
 @import "/src/variables";
 
 .form-field-invalid {
-  color: $theme !important;
+  color: red !important;
 }
 
 .mat-form-field-appearance-outline .mat-form-field-outline {
-  color: $theme !important;
+  color: red !important;
 }
 
 .form-wrapper {
   display: flex;
   justify-content: center;
   margin: 20px;
-}
-form {
-  width: 95%;
 }
 .form-group {
   margin-bottom: 20px;
@@ -29,7 +26,7 @@ mat-form-field {
 mat-error {
   display: inline-flex;
   align-items: center;
-  color: $theme !important;
+  color: red !important;
 }
 .error-icon-info{
   margin-right: 5px;

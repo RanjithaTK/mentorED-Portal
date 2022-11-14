@@ -63,7 +63,6 @@ export class DynamicFormComponent implements OnInit {
     this.isScreenTouchable = this.deviceRegexp.test(navigator.userAgent)
     this.jsonFormData.controls.find((element: any, index: number) => {
       if(element.type == "select"){
-        console.log(element, index);
         this.jsonFormData.controls[index].options = _.sortBy(this.jsonFormData.controls[index].options, ['label']);
       }
     });
@@ -134,8 +133,6 @@ export class DynamicFormComponent implements OnInit {
   }
   
   onSubmit() {
-    console.log('Form valid: ', this.myForm.valid);
-    console.log('Form values: ', this.myForm.value);
     this.isFormValid();
   }
   
