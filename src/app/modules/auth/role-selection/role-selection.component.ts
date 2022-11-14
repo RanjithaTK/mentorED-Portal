@@ -20,12 +20,14 @@ export class RoleSelectionComponent implements OnInit {
       image: "../../../../assets/images/role-selection/mentee_icon.png",
     },
   ]
+  selectedRole: any
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  cardOneSelected($event: any) {
+  cardOneSelected(event: any) {
+    this.selectedRole=event.role
     this.buttonEnable = true
   }
   buttonClick() {

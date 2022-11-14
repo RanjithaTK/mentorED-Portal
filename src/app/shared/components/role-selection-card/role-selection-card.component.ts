@@ -5,17 +5,15 @@ import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core"
   styleUrls: ["./role-selection-card.component.scss"],
 })
 export class RoleSelectionCardComponent implements OnInit {
-  @Input() roleList: any
+  @Input() role: any
+  @Input() isSelected:any
   @Output() cardOneSelected = new EventEmitter()
-
-  selectedRole = ""
   constructor() {}
 
   ngOnInit(): void {}
 
   cardSelected(role: any) {
-    this.selectedRole = role.role
-    this.cardOneSelected.emit(this.selectedRole)
+    this.cardOneSelected.emit(role)
   }
   buttonClick() {
     //TODO navigate to register page

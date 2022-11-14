@@ -1,18 +1,17 @@
-<div class="content">
-  <div class="card-wrapper">
-    <app-role-selection-card
-      [roleList]="roleList"
-      (cardOneSelected)="cardOneSelected($event)"
+
+<div class="card-wrapper" fxLayout="row" fxLayout.sm="column" fxLayoutGap="30px ">
+  <app-role-selection-card 
+    *ngFor="let role of roleList"
+    [isSelected]="role.role==selectedRole"
+    [role]="role"
+    (cardOneSelected)="cardOneSelected($event)"
     ></app-role-selection-card>
-  </div>
-  <div>
-    <button
-      class="button"
-      type="submit"
-      [disabled]="!buttonEnable"
-      (click)="buttonClick()"
-    >
-      Next
-    </button>
-  </div>
 </div>
+  <button mat-raised-button disabled 
+    class="button"
+    type="submit"
+    [disabled]="!buttonEnable"
+    (click)="buttonClick()"
+  >
+    Next
+  </button>
