@@ -2,6 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as _ from 'lodash-es';
 import * as moment from 'moment';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 interface JsonFormValidators {
   min?: number;
@@ -27,7 +28,6 @@ interface JsonFormControls {
   type: string;
   class: string;
   position: string;
-  required?: boolean;
   disabled?: boolean;
   options?: JsonFormControlOptions;
   validators: JsonFormValidators;
@@ -35,7 +35,7 @@ interface JsonFormControls {
   errorMessage?:string;
   dependentKey?:string;
   isNumberOnly?: boolean;
-  alertLabel?: string;
+  placeHolder?:string;
 }
 export interface DynamicFormData {
   controls: JsonFormControls[];
@@ -49,14 +49,18 @@ export interface DynamicFormData {
 export class DynamicFormComponent implements OnInit {
 
   @Input() jsonFormData: any;
-  textBoxTypes = ['email', 'number', 'text', 'password', 'search', 'tel', 'date', 'time', 'url'];
+  textBoxTypes = ['email', 'number', 'text', 'password', 'search', 'tel', 'secretCode'];
   public myForm: FormGroup = this.fb.group({});
   showForm:boolean = false
+  isScreenTouchable: boolean;
+  deviceRegexp = /android|iphone|kindle|ipad/i;
+  selectedChips: any;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) { }
 
 
   ngOnInit() {
+    this.isScreenTouchable = this.deviceRegexp.test(navigator.userAgent)
     this.jsonFormData.controls.find((element: any, index: number) => {
       if(element.type == "select"){
         console.log(element, index);
@@ -123,4 +127,32 @@ export class DynamicFormComponent implements OnInit {
     }
   }
 
+  compareWith(a:any, b:any) {
+    a = _.flatten([a]);
+    b = _.flatten([b]);
+    return JSON.stringify(a) == JSON.stringify(b);
+  }
+  
+  onSubmit() {
+    console.log('Form valid: ', this.myForm.valid);
+    console.log('Form values: ', this.myForm.value);
+    this.isFormValid();
+  }
+  
+  reset() {
+    this.myForm.reset();
+  }
+
+  isFormValid() {
+    return this.myForm.statusChanges;
+  }
+
+  hideShowPassword(control:any) {
+    control.type = control.type === 'text' ? 'password' : 'text';
+    control.showPasswordIcon = true;
+  }
+
+  alertToast(){
+    this._snackBar.open("Please refer to the on-boarding email for your secret code");
+  }
 }
