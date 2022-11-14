@@ -122,7 +122,6 @@ export class HomeComponent implements OnInit {
 
 
   last: any = 4;
-  view: any = "View More"
   constructor() { }
 
   ngOnInit(): void {
@@ -136,7 +135,6 @@ export class HomeComponent implements OnInit {
     // }
     // else{
     this.last = 8;
-    this.view = "this.cardDetails.length"
     // this.view = "View Less"
     // }
 

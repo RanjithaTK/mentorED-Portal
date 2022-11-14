@@ -14,6 +14,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { DynamicFormComponent, InputChipComponent, SessionCardComponent } from './components/index';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { DynamicFormComponent, InputChipComponent, SessionCardComponent } from '
     MatIconModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatCardModule
+    MatCardModule,
+    TranslateModule
   ],
   exports:[
     MatButtonModule,
@@ -48,7 +50,8 @@ import { DynamicFormComponent, InputChipComponent, SessionCardComponent } from '
     MatSliderModule,
     MatFormFieldModule,
     MatIconModule,
-    SessionCardComponent
+    SessionCardComponent,
+    TranslateModule
   ]
 })
 export class SharedModule { }
