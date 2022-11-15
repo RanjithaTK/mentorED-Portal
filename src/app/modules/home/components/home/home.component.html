@@ -1,14 +1,16 @@
+<div class="home-container" fxLayoutAlign="center">
+  <div fxLayout="column" fxFlex="80%" fxLayoutAlign="center">
+    <h3 class="all-section">All Sessions</h3>
 
-<h3 class="allSection">All Sessions</h3>
-
-<div class="categories">
-  <ng-container *ngFor="let item of cardDetails;index as i;">
-    <div *ngIf="i < last">
-      <app-session-card class="card" [cardData]="item"></app-session-card>
+    <div fxLayout="row wrap" fxLayoutGap="20px grid">
+      <div *ngFor='let item of cardDetails| slice:start:lastIndex' fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%"
+        fxFlex.md="50%">
+        <app-session-card [cardData]="item"></app-session-card>
+      </div>
     </div>
-
-  </ng-container>
+    <div fxFlex="50%" fxLayoutAlign="center">
+      <button class="view-more" fxFlex="50%" mat-raised-button color="primary" *ngIf="cardDetails.length > 4 "
+        (click)="onClickViewMore()">{{"VIEW_MORE"|translate}}</button>
+    </div>
+  </div>
 </div>
-
-<h3 class="viewMore" *ngIf="cardDetails.length > 4 " (click)="onClickViewMore()">{{view}}</h3>
-

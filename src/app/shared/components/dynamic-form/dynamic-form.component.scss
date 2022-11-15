@@ -1,3 +1,42 @@
-.form-invalid {
-    border-bottom: 1.9px solid red;
-  }
+@import "/src/variables";
+
+.form-field-invalid {
+  color: red !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: red !important;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+mat-form-field {
+  display: flex;
+  flex-direction: column;
+}
+::ng-deep .mat-form-field-wrapper{
+  padding-bottom: 4px;
+}
+mat-error {
+  display: inline-flex;
+  align-items: center;
+  color: red !important;
+}
+.error-icon-info{
+  margin-right: 5px;
+}
+.error-icon-star{
+  font-size: 11px;
+  vertical-align: middle;
+}
+.form-field-label{
+  font-size: 19px;
+}
+mat-slider{
+  width: 100%;
+}
