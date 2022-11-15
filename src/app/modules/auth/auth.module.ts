@@ -10,6 +10,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout'
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { FlexLayoutModule } from '@angular/flex-layout'
     MatGridListModule,
     SharedModule,
     MatButtonModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatCheckboxModule,
+    MatDividerModule
   ]
 })
 export class AuthModule { }

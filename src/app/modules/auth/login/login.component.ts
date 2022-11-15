@@ -97,5 +97,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  onLogin(){
+    console.log("submitted")
+  }
 
 }
