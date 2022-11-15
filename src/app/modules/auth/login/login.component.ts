@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants';
+import { ApiService } from 'src/app/core/services';
 import { DynamicFormComponent } from 'src/app/shared/components';
 
 @Component({
@@ -93,9 +95,24 @@ export class LoginComponent implements OnInit {
     ],
   };
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    const config = {
+      url: API_CONSTANTS.ACCOUNT_LOGIN,
+      payload : {
+        email:"afnan@tunerlabs.com",
+        password:"Welcome@123"
+      }
+    }
+    this.apiService.post(config).subscribe(success => {
+
+    }, error => {
+
+    })
   }
 
 }
