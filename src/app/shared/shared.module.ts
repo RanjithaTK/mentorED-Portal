@@ -13,14 +13,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { DynamicFormComponent, InputChipComponent, SessionCardComponent } from './components/index';
+import { DynamicFormComponent, InputChipComponent, SessionCardComponent, StarRatingComponent } from './components/index';
 import { TranslateModule } from '@ngx-translate/core';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @NgModule({
   declarations: [
     DynamicFormComponent,
     InputChipComponent,
-    SessionCardComponent
+    SessionCardComponent,
+    StarRatingComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +39,9 @@ import { TranslateModule } from '@ngx-translate/core';
     MatNativeDateModule,
     MatDatepickerModule,
     MatCardModule,
-    TranslateModule
+    TranslateModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   exports:[
     MatButtonModule,
@@ -51,7 +55,11 @@ import { TranslateModule } from '@ngx-translate/core';
     MatFormFieldModule,
     MatIconModule,
     SessionCardComponent,
-    TranslateModule
+    TranslateModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    InputChipComponent,
+    StarRatingComponent
   ]
 })
 export class SharedModule { }

@@ -106,19 +106,19 @@
 
             <mat-form-field *ngIf="control?.type==='date'" appearance="outline">
                 <input matInput autocomplete="off"
+                    #date
                     [owlDateTimeTrigger]="dt"
                     [owlDateTime]="dt"
                     [placeholder]="control?.placeHolder"
                     [formControlName]="control?.name"
                     [value]="control?.value"
-                    [selectMode]="control?.selectMode"
-                    [max]="maxDate"
-                    [min]="currentDate"
+                    [max]="(dependedParentDate && control.name === dependedParent)?dependedParentDate:maxDate"
+                    [min]="(control.name === dependedChild)?dependedChildDate:currentDate"
                     [readonly]="control?.readonly"
                     [required]="control?.validators?.required">
                 <owl-date-time #dt
                     [hour12Timer]="true"
-                    (afterPickerClosed)="dateSelected(control)"></owl-date-time>
+                    (afterPickerClosed)="dateSelected(control, date)"></owl-date-time>
             </mat-form-field>
 
             <!-- validation errors -->
