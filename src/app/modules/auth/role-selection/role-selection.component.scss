@@ -1,12 +1,12 @@
 @import "../../../../sb-theme.scss";
-
+@import "../../../../variables";
 .content {
   padding-top: 15%;
 }
 
 .button {
   width: 100%;
-  color: white;
+  color: $white;
   margin-top: 10%;
 }
 .button-enabled{

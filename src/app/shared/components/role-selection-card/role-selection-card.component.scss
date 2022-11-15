@@ -1,6 +1,6 @@
 
 @import '../../../../sb-theme.scss';
-
+@import "../../../../variables";
 .card-wrapper {
   margin-top: 15%;
   
@@ -36,8 +36,8 @@ mat-card-header {
   justify-content: center;
   padding-top: 8%;
   font-weight: 600;
-  color: #000;
+  color: $black;
 }
 .sub-content {
-  color: #000;
+  color: $black;
 }
