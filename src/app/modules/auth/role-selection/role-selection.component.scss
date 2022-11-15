@@ -6,10 +6,9 @@
 
 .button {
   width: 100%;
-  color: $white;
   margin-top: 10%;
 }
 .button-enabled{
   background:mat-color($sb-palette-primary,400) !important;
-
+  color: $white;
 }
