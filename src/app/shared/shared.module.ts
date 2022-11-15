@@ -13,16 +13,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { DynamicFormComponent, InputChipComponent, SessionCardComponent } from './components/index';
+import { DynamicFormComponent, InputChipComponent, SessionCardComponent, RoleSelectionCardComponent } from './components/index';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
-import { RoleSelectionCardComponent } from './components/role-selection-card/role-selection-card.component';
 
 @NgModule({
   declarations: [
     DynamicFormComponent,
     InputChipComponent,
-    SessionCardComponent
+    SessionCardComponent,
+    RoleSelectionCardComponent
   ],
   imports: [
     CommonModule,

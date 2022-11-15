@@ -1,3 +1,4 @@
+@import "../../../../sb-theme.scss";
 
 .content {
   padding-top: 15%;
@@ -5,7 +6,10 @@
 
 .button {
   width: 100%;
-  background: rgb(105, 104, 104);
   color: white;
   margin-top: 10%;
+}
+.button-enabled{
+  background:mat-color($sb-palette-primary,400) !important;
+
 }

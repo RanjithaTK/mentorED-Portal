@@ -8,6 +8,9 @@
     ></app-role-selection-card>
 </div>
   <button mat-raised-button  
+    [ngClass]="{
+      'button-enabled' : buttonEnable
+    }"
     class="button"
     type="submit"
     [disabled]="!buttonEnable"
