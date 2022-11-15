@@ -15,29 +15,23 @@ mat-card {
 
 .mentor-card-selected {
   background-color: mat-color($sb-palette-primary,400) !important;
-  .card-details {
-    color: mat-color($sb-palette-primary, 50) !important;
+  .title , .content {
+    color:$white;
   }
 }
-mat-card-header {
-  align-items: center;
-  justify-content: center;
-  margin-right: 18%;
-}
-.mentor-image {
+
+.image {
   width: 7rem;
   height: 7rem;
 }
-
-
-
-.heading {
-  display: flex;
-  justify-content: center;
-  padding-top: 8%;
+.title{
+  padding-top: 4%;
   font-weight: 600;
   color: $black;
 }
-.sub-content {
-  color: $black;
+
+.content{
+  color:$black;
+  padding-top: 3%;
+  font-weight: 500
 }
