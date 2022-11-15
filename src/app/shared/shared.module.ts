@@ -6,10 +6,13 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon'
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { RoleSelectionCardComponent } from './components/role-selection-card/role-selection-card.component';
+import { SessionCardComponent } from './components/session-card/session-card.component';
 @NgModule({
   declarations: [
     DynamicFormComponent,
+    RoleSelectionCardComponent,
+    SessionCardComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +25,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports: [
     MatButtonModule,
     MatInputModule,
-    DynamicFormComponent
+    DynamicFormComponent,
+    RoleSelectionCardComponent,
+    SessionCardComponent
   ],
 })
 export class SharedModule { }
