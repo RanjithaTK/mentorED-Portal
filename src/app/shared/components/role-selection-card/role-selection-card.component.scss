@@ -1,4 +1,5 @@
 
+@import '../../../../sb-theme.scss';
 
 .card-wrapper {
   margin-top: 15%;
@@ -13,9 +14,9 @@ mat-card {
 }
 
 .mentor-card-selected {
-  background-color: #b23836;
+  background-color: mat-color($sb-palette-primary,400) !important;
   .card-details {
-    color: white;
+    color: mat-color($sb-palette-primary, 50) !important;
   }
 }
 mat-card-header {

@@ -1,20 +1,22 @@
 <div class="card-wrapper" fxLayoutGap="40px">
   <mat-card 
-    class="mentor-card"
+    class="mentor-card" fxFlex="column"
     (click)="cardSelected(role)"
     [ngClass]="{
       'mentor-card-selected' : isSelected
     }"
   >
-    <mat-card-header >
+    <mat-card-header fxFLex="column">
       <img class="mentor-image" src="{{ role?.image }}" />
     </mat-card-header>
+    <div class="content"  >
     <mat-card-subtitle class="heading card-details" >{{
       role?.role
     }}</mat-card-subtitle>
     <mat-card-subtitle class="sub-content card-details" >{{
       role?.description
     }}</mat-card-subtitle>
+  </div>
   </mat-card>
 </div>
  

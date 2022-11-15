@@ -10,12 +10,12 @@ export class RoleSelectionComponent implements OnInit {
 
   roleList = [
     {
-      role: "Mentor",
+      role: "I'm a Mentor",
       description: "Build confidence as a leader, and grow your network.",
       image: "../../../../assets/images/role-selection/mentor_icon.png",
     },
     {
-      role: "Mentee",
+      role: "I'm a Mentee",
       description: "Learn and grow from verified Mentors",
       image: "../../../../assets/images/role-selection/mentee_icon.png",
     },
