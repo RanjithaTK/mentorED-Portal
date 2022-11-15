@@ -8,7 +8,7 @@ import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { RoleSelectionCardComponent } from './components/role-selection-card/role-selection-card.component';
 import { SessionCardComponent } from './components/session-card/session-card.component';
-import { FlexLayoutModule } from '@angular/flex-layout'
+
 @NgModule({
   declarations: [
     DynamicFormComponent,
@@ -21,15 +21,12 @@ import { FlexLayoutModule } from '@angular/flex-layout'
     MatInputModule,
     MatCardModule,
     MatIconModule,
-    ReactiveFormsModule,
-    FlexLayoutModule
+    ReactiveFormsModule
   ],
   exports: [
     MatButtonModule,
     MatInputModule,
-    DynamicFormComponent,
-    RoleSelectionCardComponent,
-    SessionCardComponent
+    DynamicFormComponent
   ],
 })
 export class SharedModule { }
