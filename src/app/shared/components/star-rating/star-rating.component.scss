@@ -1,3 +1,16 @@
-mat-icon {
-    color: #ffd740
+@import "/src/variables";
+
+.star {
+    font-size: 30px;
+    margin-right: 6px;
+    color: $dark-yellow;
+    width: auto;
+    height: auto;
 }
+  
+.star-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+} 

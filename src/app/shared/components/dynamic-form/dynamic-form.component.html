@@ -94,11 +94,11 @@
             </mat-form-field>
 
             <mat-form-field *ngIf="control?.type === 'rating'" appearance="outline">
-                <app-star-rating 
-                    [rating]="control?.value"
-                    [formControlName]="control?.name"
-                    [starCount]="5">
-                </app-star-rating>
+                <app-star-rating
+                    [formControlName]="control.name"
+                    [label]="control.label"
+                    [numberOfStars]="control.noOfstars"
+                ></app-star-rating>
                 <textarea matInput
                     hidden>
                 </textarea>

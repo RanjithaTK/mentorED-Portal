@@ -1,6 +1,5 @@
-<button mat-icon-button *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i" (click)="onClick(i+1)">
-    <mat-icon>
-        {{showIcon(i)}}
-    </mat-icon>
-</button>
-<textarea [required]="true" hidden></textarea>
+<div class="star-wrapper">
+<div *ngFor="let star of range;let i=index">
+    <mat-icon class="star" (click)="onRate(i+1)">{{showIcon(i)}}</mat-icon>
+</div>
+</div>
