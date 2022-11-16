@@ -9,7 +9,10 @@ import { PageNavigatorComponent } from './page-navigator/page-navigator.componen
 import { LayoutComponent } from './layout.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HomeModule } from '../home/home.module';
-
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
+FlexLayoutModule
 @NgModule({
   declarations: [
     LayoutComponent,
@@ -21,8 +24,11 @@ import { HomeModule } from '../home/home.module';
     CommonModule,
     LayoutRoutingModule,
     MatToolbarModule,
-    HomeModule
-   
+    HomeModule,
+    MatListModule,
+    MatIconModule,
+    FlexLayoutModule
+
   ]
 
 
