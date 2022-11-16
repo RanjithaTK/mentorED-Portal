@@ -13,7 +13,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { DynamicFormComponent, InputChipComponent, SessionCardComponent } from './components/index';
+import { DynamicFormComponent, InputChipComponent, SessionCardComponent, RoleSelectionCardComponent } from './components/index';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -21,7 +21,8 @@ import { TranslateModule } from '@ngx-translate/core';
   declarations: [
     DynamicFormComponent,
     InputChipComponent,
-    SessionCardComponent
+    SessionCardComponent,
+    RoleSelectionCardComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +42,7 @@ import { TranslateModule } from '@ngx-translate/core';
     FlexLayoutModule,
     TranslateModule
   ],
-  exports:[
+  exports: [
     MatButtonModule,
     MatInputModule,
     DynamicFormComponent,
@@ -54,7 +55,8 @@ import { TranslateModule } from '@ngx-translate/core';
     MatIconModule,
     SessionCardComponent,
     FlexLayoutModule,
-    TranslateModule
+    TranslateModule,
+    RoleSelectionCardComponent
   ]
 })
 export class SharedModule { }

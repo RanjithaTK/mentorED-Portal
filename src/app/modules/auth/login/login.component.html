@@ -4,26 +4,7 @@
   </h1>
   <div class="dynamic-form">
     <app-dynamic-form [jsonFormData]="formData" #loginForm></app-dynamic-form>
-  </div>
-  <button
-    mat-raised-button
-    color="primary"
-    class="btn login"
-    [disabled]="!loginForm.myForm.valid"
-    (click)="onLogin()">
-    Login
-  </button>
-  <div class="button-row">
-    <mat-checkbox class="example-margin">Remember me</mat-checkbox>
-
-    <a mat-button href="https://www.google.com/" target="_blank">Forgot password?</a>
-  </div>
-
-  <div class="divider">
-    <div class="line"><mat-divider></mat-divider></div>
-    <div class="text mat-typography">New to MentorED?</div>
-    <div class="line"><mat-divider></mat-divider></div>
-  </div>
+    <button mat-raised-button color="primary"  (click)="onSubmit()">{{"LOGIN"|translate}}</button>
 
   <button mat-raised-button color="primary" class="btn signup" routerLink="/auth/register">Sign Up</button>
 </div>
