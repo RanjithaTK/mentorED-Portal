@@ -1,5 +1,5 @@
 <div>
     <app-dynamic-form [jsonFormData]="formData" #loginForm></app-dynamic-form>
-    <button mat-raised-button color="primary" [disabled]="!loginForm.myForm.valid">{{"LOGIN"|translate}}</button>
+    <button mat-raised-button color="primary"  (click)="onSubmit()">{{"LOGIN"|translate}}</button>
 
 </div>

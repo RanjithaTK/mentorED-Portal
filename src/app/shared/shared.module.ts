@@ -13,7 +13,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { DynamicFormComponent, InputChipComponent, SessionCardComponent, StarRatingComponent } from './components/index';
+import { DynamicFormComponent, InputChipComponent, SessionCardComponent, StarRatingComponent, RoleSelectionCardComponent } from './components/index';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
@@ -22,7 +23,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     DynamicFormComponent,
     InputChipComponent,
     SessionCardComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    RoleSelectionCardComponent
   ],
   imports: [
     CommonModule,
@@ -41,9 +43,10 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     MatCardModule,
     TranslateModule,
     OwlDateTimeModule,
-    OwlNativeDateTimeModule
+    OwlNativeDateTimeModule,
+    FlexLayoutModule,
   ],
-  exports:[
+  exports: [
     MatButtonModule,
     MatInputModule,
     DynamicFormComponent,
@@ -59,7 +62,9 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     InputChipComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    FlexLayoutModule,
+    RoleSelectionCardComponent
   ]
 })
 export class SharedModule { }
