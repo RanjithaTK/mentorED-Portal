@@ -1,4 +1,4 @@
-<div class="form-wrapper" *ngIf="showForm">
+<div *ngIf="showForm">
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
         <div *ngFor="let control of jsonFormData?.controls" class="form-group">
 
@@ -91,6 +91,34 @@
                 <textarea matInput
                     hidden>
                 </textarea>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="control?.type === 'rating'" appearance="outline">
+                <app-star-rating
+                    [formControlName]="control.name"
+                    [label]="control.label"
+                    [numberOfStars]="control.noOfstars"
+                ></app-star-rating>
+                <textarea matInput
+                    hidden>
+                </textarea>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="control?.type==='date'" appearance="outline">
+                <input matInput autocomplete="off"
+                    #date
+                    [owlDateTimeTrigger]="dt"
+                    [owlDateTime]="dt"
+                    [placeholder]="control?.placeHolder"
+                    [formControlName]="control?.name"
+                    [value]="control?.value"
+                    [max]="(dependedParentDate && control.name === dependedParent)?dependedParentDate:maxDate"
+                    [min]="(control.name === dependedChild)?dependedChildDate:currentDate"
+                    [readonly]="control?.readonly"
+                    [required]="control?.validators?.required">
+                <owl-date-time #dt
+                    [hour12Timer]="true"
+                    (afterPickerClosed)="dateSelected(control, date)"></owl-date-time>
             </mat-form-field>
 
             <!-- validation errors -->

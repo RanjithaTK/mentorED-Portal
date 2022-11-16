@@ -13,15 +13,17 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { DynamicFormComponent, InputChipComponent, SessionCardComponent, RoleSelectionCardComponent } from './components/index';
+import { DynamicFormComponent, InputChipComponent, SessionCardComponent, StarRatingComponent, RoleSelectionCardComponent } from './components/index';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @NgModule({
   declarations: [
     DynamicFormComponent,
     InputChipComponent,
     SessionCardComponent,
+    StarRatingComponent,
     RoleSelectionCardComponent
   ],
   imports: [
@@ -39,8 +41,10 @@ import { TranslateModule } from '@ngx-translate/core';
     MatNativeDateModule,
     MatDatepickerModule,
     MatCardModule,
+    TranslateModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
     FlexLayoutModule,
-    TranslateModule
   ],
   exports: [
     MatButtonModule,
@@ -54,8 +58,12 @@ import { TranslateModule } from '@ngx-translate/core';
     MatFormFieldModule,
     MatIconModule,
     SessionCardComponent,
-    FlexLayoutModule,
     TranslateModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    InputChipComponent,
+    StarRatingComponent,
+    FlexLayoutModule,
     RoleSelectionCardComponent
   ]
 })
