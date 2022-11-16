@@ -1,0 +1,36 @@
+
+@import "../../../../variables";
+.card-wrapper {
+  margin-top: 15%;
+  
+}
+
+mat-card {
+  width: 14rem;
+  height: 16rem;
+
+  border-radius: 15px;
+}
+
+.mentor-card-selected {
+  background: $theme-gradient !important;
+  .title , .content {
+    color:$white;
+  }
+}
+
+.image {
+  width: 7rem;
+  height: 7rem;
+}
+.title{
+  padding-top: 4%;
+  font-weight: 600;
+  color: $black;
+}
+
+.content{
+  color:$black;
+  padding-top: 3%;
+  font-weight: 500
+}
