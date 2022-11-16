@@ -1,5 +1,4 @@
 
-@import '../../../../sb-theme.scss';
 @import "../../../../variables";
 .card-wrapper {
   margin-top: 15%;
@@ -14,7 +13,7 @@ mat-card {
 }
 
 .mentor-card-selected {
-  background-color: mat-color($sb-palette-primary,400) !important;
+  background: $theme-gradient !important;
   .title , .content {
     color:$white;
   }
