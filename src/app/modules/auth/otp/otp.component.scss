@@ -1,0 +1,14 @@
+@import "../../../../variables";
+
+h1 {
+    font-weight: 500;
+    color: $theme;
+    margin-bottom: 22px;
+}
+.div-center {
+    max-width: 90%;
+}
+.form {
+    align-self: flex-start;
+    width: -webkit-fill-available;
+}
