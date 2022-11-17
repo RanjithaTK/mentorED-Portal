@@ -12,7 +12,7 @@
       <app-dynamic-form
         [jsonFormData]="formData"
         #loginForm
-        fxFlex="65%"
+        fxFlex="60%"
       ></app-dynamic-form>
     </div>
     <div fxLayout="row" fxLayoutAlign="center">
@@ -22,7 +22,7 @@
         [disabled]="!loginForm.myForm.valid"
         class="btn login"
         (click)="onSubmit()"
-        fxFlex="65%"
+        fxFlex="60%"
       >
         {{ "LOGIN" | translate }}
       </button>
@@ -33,10 +33,10 @@
       fxlayout.md="column"
       fxLayout.xs="column"
     >
-      <mat-checkbox fxFlex="50" fxLayoutAlign="center center" class="example-margin">
+      <mat-checkbox fxFlex="45" fxLayoutAlign="center center" class="example-margin">
         {{"REMEMBER_ME" | translate}}
       </mat-checkbox>
-      <a mat-button fxFlex="50" href="https://www.google.com/" target="_blank">{{
+      <a mat-button fxFlex="45" fxLayoutAlign="center center" href="https://www.google.com/" target="_blank">{{
         "FORGOT_PASSWORD" | translate
       }}</a>
     </div>
@@ -53,7 +53,7 @@
     </div>
     <div fxLayout="row" fxLayoutAlign="center">
       <button
-        fxFlex="65"
+        fxFlex="60"
         class="btn-signup"
         mat-raised-button
         color="primary"

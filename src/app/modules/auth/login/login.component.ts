@@ -12,25 +12,12 @@ export class LoginComponent implements OnInit {
   @ViewChild('loginForm') loginForm: DynamicFormComponent;
   formData = {
     controls: [
-      {
-        name: 'name',
-        label: 'Name',
-        value: '',
-        class: 'ion-margin',
-        type: 'text',
-        position: 'floating',
-        errorMessage:'This field can only contain alphabets',
-        validators: {
-          required: true,
-          pattern:'^[a-zA-Z ]*$',
-        },
-      },
       // {
-      //   name: 'Email',
-      //   label: 'Email',
+      //   name: 'name',
+      //   label: 'Name',
       //   value: '',
       //   class: 'ion-margin',
-      //   type: 'email',
+      //   type: 'text',
       //   position: 'floating',
       //   errorMessage:'This field can only contain alphabets',
       //   validators: {
@@ -38,6 +25,19 @@ export class LoginComponent implements OnInit {
       //     pattern:'^[a-zA-Z ]*$',
       //   },
       // },
+      {
+        name: 'Email',
+        label: 'Email ID',
+        value: '',
+        class: 'ion-margin',
+        type: 'email',
+        position: 'floating',
+        errorMessage:'This field can only contain alphabets',
+        validators: {
+          required: true,
+          pattern:'^[a-zA-Z ]*$',
+        },
+      },
       {
         name: 'password',
         label: 'Password',
