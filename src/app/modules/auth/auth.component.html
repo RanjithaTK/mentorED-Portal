@@ -3,14 +3,30 @@
     <img class="header-logo" src="/assets/images/MentorEd-logo.svg" />
   </mat-toolbar-row>
 </mat-toolbar>
-<div class="body" fxlayout="row" fxlayout.md="column" fxLayout.xs="column" >
-  <div class="body-content left-div" fxFlex.lt-md="column" fxlayout.md="column" fxLayout.xs="column" fxLayoutAligmnet="space-between center">
+<div class="body" fxlayout="row" fxlayout.md="column" fxLayout.xs="column">
+  <div
+    class="body-content left-div"
+    fxFlex.lt-md="column"
+    fxlayout.md="column"
+    fxLayout.xs="column"
+    fxLayoutAligmnet="space-between center"
+  >
     <h1>
-      {{"AUTH_WELCOME_MSG"|translate}}
+      {{ "AUTH_WELCOME_MSG" | translate }}
     </h1>
   </div>
-  <div class="body-content right-div" fxFlex.lt-md="column" fxlayout.md="column" fxLayout.xs="column">
-    <div class="router-container">
+  <div
+    class="body-content right-div"
+    fxFlex.lt-md="column"
+    fxlayout.md="column"
+    fxLayout.xs="column"
+    fxLayoutAlign="center stretch"
+    fxLayout="column"
+  >
+    <div
+      fxLayout="column"
+      fxLayoutAlign="center space-evently"
+    >
       <router-outlet></router-outlet>
     </div>
   </div>
