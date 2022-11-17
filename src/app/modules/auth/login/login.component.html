@@ -1,27 +1,66 @@
-<div class="container parent-flex-center" fxLayout="column" fxlayout.md="column" fxLayout.xs="column">
-  <h1>
-    Welcome Back !
-  </h1>
-  <div class="dynamic-form"fxLayout.lt-md="column" fxLayout.md="column"  fxLayout="column" fxFlex.md="50">
-    <app-dynamic-form [jsonFormData]="formData" #loginForm></app-dynamic-form>
-    <button mat-raised-button color="primary" [disabled]="!loginForm.myForm.valid" class="btn login" (click)="onSubmit()">{{"LOGIN"|translate}}</button>
-  
-    <div class="button-row" fxLayout="row" fxlayout.md="column" fxLayout.xs="column">
-      <mat-checkbox class="example-margin">Remember me</mat-checkbox>
-
-      <a mat-button href="https://www.google.com/" target="_blank">Forgot password?</a>
+<div class="container" fxLayoutAlign="center stretch" fxLayout="column">
+  <div
+    fxLayout="column"
+    fxLayoutAlign="center space-evently"
+  >
+    <div>
+      <h1>
+        {{ "WELCOME_BACK" | translate }}
+      </h1>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center">
+      <app-dynamic-form
+        [jsonFormData]="formData"
+        #loginForm
+        fxFlex="65%"
+      ></app-dynamic-form>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!loginForm.myForm.valid"
+        class="btn login"
+        (click)="onSubmit()"
+        fxFlex="65%"
+      >
+        {{ "LOGIN" | translate }}
+      </button>
+    </div>
+    <div
+      fxLayout="row"
+      fxLayoutAlign="center"
+      fxlayout.md="column"
+      fxLayout.xs="column"
+    >
+      <mat-checkbox fxFlex="50" fxLayoutAlign="center center" class="example-margin">
+        {{"REMEMBER_ME" | translate}}
+      </mat-checkbox>
+      <a mat-button fxFlex="50" href="https://www.google.com/" target="_blank">{{
+        "FORGOT_PASSWORD" | translate
+      }}</a>
+    </div>
   </div>
-
-  
+  <div fxLayout="column" fxLayoutAlign="center space-evently">
+    <div fxLayoutAlign="center center">
+      <div class="divider" fxLayoutAlign="center center">
+        <div class="line"><mat-divider></mat-divider></div>
+        <div class="text mat-typography">
+          {{ "NEW_TO_MENTORED" | translate }}
+        </div>
+        <div class="line"><mat-divider></mat-divider></div>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center">
+      <button
+        fxFlex="65"
+        class="btn-signup"
+        mat-raised-button
+        color="primary"
+        routerLink="/auth/register"
+      >
+        {{ "SIGN_UP" | translate }}
+      </button>
+    </div>
   </div>
-</div>
-<div class="parent-divider parent-flex-center">
-  <div class="divider parent-flex-center">
-    <div class="line"><mat-divider></mat-divider></div>
-    <div class="text mat-typography">New to MentorED?</div>
-    <div class="line"><mat-divider></mat-divider></div>
-  </div>
-</div>
-<div class="btn-div parent-flex-center">
-  <button class="btn-signup" mat-raised-button color="primary" routerLink="/auth/register">Sign Up</button>
 </div>

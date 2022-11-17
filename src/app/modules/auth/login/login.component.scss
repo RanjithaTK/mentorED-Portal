@@ -1,69 +1,35 @@
 @import "/src/variables";
 
 
-.parent-flex-center{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .container{
     padding-bottom: 6%;
 }
 
 .container h1{
     font-weight: bold;
-    width: 65%;
     text-align: center;
     letter-spacing: 2px;
     color: $theme;
-    padding-bottom: 5%;
-    padding-top: 5%;
+    padding: 5% 0 5% 0;
 }
 a{
   color: rgb(55, 55, 206);
 }
-.btn{
-    width: 100%;
-}
-.dynamic-form{
-    width: 65%;
-}
 mat-divider {
     border-top-color: $theme;
-}
-.parent-divider{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
 }
 .divider {
     padding-top: 20px;
     padding-bottom: 20px;
     color: $black;
-    width: 85%;
+    width: 80%;
   }
   
   .line {
     flex: 1;
-    width: 100%;
   }
   
   .text {
-    padding-left: 7%;
-    padding-right: 7%;
+    padding: 0 7%;
   }
-.button-row{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.btn-div{
-  width: 100%;
-}
-.btn-signup{
-  width: 65%;
-}
 
