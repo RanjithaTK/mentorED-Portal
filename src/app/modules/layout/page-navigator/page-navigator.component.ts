@@ -1,5 +1,7 @@
 import { Component, OnInit , Input, Output, EventEmitter} from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-page-navigator',
@@ -8,26 +10,26 @@ import { Router } from '@angular/router';
 })
 export class PageNavigatorComponent implements OnInit {
   
-  selectedPage : any;
-  pageNavigatorArray=[{'name':'home','url':'home'},
-  {'name':'enrolled sessions','url':'enrolled-sessions'},
-  {'name':'created sessions','url':'created-sessions'},
-  {'name':'mentor directory','url':'mentor-directory'}]
   
-  constructor( public router: Router) { }
+  pageNavigatorArray=[{'name':'home','url':'home','label':'HOME'},
+  {'name':'enrolled sessions','url':'enrolled-sessions','label':'ENROLLED_SESSIONS'},
+  {'name':'created sessions','url':'created-sessions','label':'CREATED_SESSIONS'},
+  {'name':'mentor directory','url':'mentor-directory','label':'MENTOR_DIRECTORY'}]
+  labels:any;
+  pageNavigationLabel = ['HOME','ENROLLED_SESSIONS','CREATED_SESSIONS','MENTOR_DIRECTORY']
+
+  constructor( private router: Router, private translate:TranslateService) { }
 
   ngOnInit(): void {
+     
+      this.translate.get(this.pageNavigationLabel).subscribe(
+        values => {
+          this.labels  = Object.assign({}, values);;
+        }
+
+     )
+     
   }
-  pageSelected(page:any){
-    this.selectedPage = page;
-    if(page == 'home' ){
-      this.router.navigate(['/home']); 
-    } else if( page == 'enrolled sessions'){
-      this.router.navigate(['/enrolled-sessions']); 
-    }else if(page == 'created sessions'){
-      this.router.navigate(['/created-sessions']); 
-    }else{
-      this.router.navigate(['/mentor-directory']); 
-    }
-  }
+
+
 }

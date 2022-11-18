@@ -1,7 +1,9 @@
 <div fxLayout="row wrap" fxLayoutAlign="center">
-    <div class="page-navigator-conatiner" >
+    <div class="page-navigator-conatiner" fxLayout="row" *ngIf="labels">
+
         <div *ngFor='let page of pageNavigatorArray'>
-            <button (click)="pageSelected(page.name)" routerLink='/{{page.url}}' routerLinkActive="active" class="page-navigator-button" mat-raised-button>{{page.name | titlecase }}</button>
+            <button routerLink='/{{page.url}}' routerLinkActive="active" class="page-navigator-button" mat-raised-button>{{labels[page.label] | titlecase }}</button>
         </div>
     </div>
 </div>
+
