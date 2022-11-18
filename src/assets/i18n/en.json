@@ -1,5 +1,10 @@
 {
     "AUTH_WELCOME_MSG": "Welcome to mentorED",
     "LOGIN": "Login",
-    "VIEW_MORE": "Load more"
+    "VIEW_MORE": "Load more",
+    "WELCOME_BACK": "Welcome Back !",
+    "REMEMBER_ME": "Remember me",
+    "FORGOT_PASSWORD": "Forgot password?",
+    "NEW_TO_MENTORED": "New to MentorED?",
+    "SIGN_UP": "Sign Up"
 }

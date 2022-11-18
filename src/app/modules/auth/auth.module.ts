@@ -6,16 +6,21 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatButtonModule } from '@angular/material/button';
+import { RoleSelectionComponent } from './role-selection/role-selection.component';
 import { FlexLayoutModule } from '@angular/flex-layout'
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDividerModule} from '@angular/material/divider';
 
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     AuthComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    RoleSelectionComponent,
   ],
   imports: [
     CommonModule,
@@ -23,9 +28,12 @@ import { FlexLayoutModule } from '@angular/flex-layout'
     MatToolbarModule,
     MatIconModule,
     MatGridListModule,
-    SharedModule,
+    MatCardModule,
     MatButtonModule,
-    FlexLayoutModule
+    SharedModule,
+    FlexLayoutModule,
+    MatCheckboxModule,
+    MatDividerModule
   ]
 })
 export class AuthModule { }
