@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-session-listing',
   templateUrl: './session-listing.component.html',
@@ -164,8 +165,8 @@ export class SessionListingComponent implements OnInit {
       ]
     }
   }
- cardHeading:any = 'All Sessions'
-cardDetails: any  =this.apiCardDetails.result.allSessions;
+ cardHeading:any;
+cardDetails: any ;
 start: any=0;
   lastIndex: any = 4;
   selectedPage :any;
@@ -175,11 +176,12 @@ start: any=0;
   }
 
   ngOnInit(): void {
+    
       if(this.selectedPage =='/enrolled-sessions'){
-        this.cardHeading = 'My Sessions'
+        this.cardHeading = "MY_SESSIONS"
         this.cardDetails = this.apiCardDetails.result.mySessions;
       } else{
-        this.cardHeading = 'All Sessions'
+        this.cardHeading = "ALL_SESSIONS"
         this.cardDetails = this.apiCardDetails.result.allSessions
       }
    
@@ -187,15 +189,7 @@ start: any=0;
   
 
   onClickViewMore() {
-    // if(this.view =="View Less" ){
-    //   this.last = 4;
-    // this.view = "View More"
-    // }
-    // else{
     this.lastIndex = this.cardDetails.length;
-    // this.view = "View Less"
-    // }
-
   }
 
 }
