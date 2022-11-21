@@ -23,7 +23,7 @@ export class ApiService {
     const headerOptions = {
       headers: new HttpHeaders({
         'timeZone': timezone,
-        // 'acceptLanguage': this.currentLanguage ,
+        'acceptLanguage': 'en' ,
         'Content-Type': 'application/json',
         // 'X-auth-token': token ? token : "",
 
