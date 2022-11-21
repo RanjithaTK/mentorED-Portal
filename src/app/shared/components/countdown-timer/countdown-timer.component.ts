@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { concat, delay, of } from 'rxjs';
 
 @Component({
   selector: 'app-countdown-timer',
@@ -6,9 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./countdown-timer.component.scss']
 })
 export class CountdownTimerComponent implements OnInit {
-  
-  @Input() timeLimit: any;
-  countDownTimer: any;
+
+  @Input() timeLimit = 60;
+  minutes: any = 0;
+  seconds: any = 0
 
   constructor() { }
 
@@ -17,16 +19,18 @@ export class CountdownTimerComponent implements OnInit {
   }
 
   startCountdown() {
-    this.countDownTimer = this.timeLimit;
-    let counter = 0;
-    const interval = setInterval(() => {
-      this.countDownTimer--;
-      counter++;
-      if (counter == this.timeLimit) {
-        clearInterval(interval);
-        this.countDownTimer = null;
-      }
-    }, 1000);
+    const countdown = [];
+    for (let i = this.timeLimit; i >= 0; i--) {
+      countdown.push(i);
+    }
+    concat(...countdown.map(
+      x => of(x).pipe(
+        delay(1000)
+      )
+    )).subscribe(x => {
+      this.minutes = Math.floor(x / 60);
+      this.seconds = x % 60;
+    });
   }
 
 }

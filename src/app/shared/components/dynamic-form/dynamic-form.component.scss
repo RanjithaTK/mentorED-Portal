@@ -1,7 +1,7 @@
 @import "/src/variables";
 
 .form-field-invalid {
-  color: red !important;
+  color: $red !important;
 }
 .form-group {
   margin-bottom: 20px;
@@ -16,7 +16,7 @@ mat-form-field {
 mat-error {
   display: inline-flex;
   align-items: center;
-  color: red !important;
+  color: $red !important;
 }
 .error-icon-info{
   margin-right: 5px;

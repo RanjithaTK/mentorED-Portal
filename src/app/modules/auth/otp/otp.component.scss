@@ -1,14 +1,30 @@
 @import "../../../../variables";
 
 h1 {
-    font-weight: 500;
+    letter-spacing: 1px;
     color: $theme;
-    margin-bottom: 22px;
+    font-weight: 500;
+    margin-top: 10px;
 }
-.div-center {
-    max-width: 90%;
+.resend-otp {
+    color: $blue;
+    padding: 5px;
 }
-.form {
-    align-self: flex-start;
-    width: -webkit-fill-available;
+.checkbox {
+    margin-top: 10px;
+    font-size: 15px;
+}
+::ng-deep .mat-checkbox-layout {
+    white-space: normal !important;
+}
+::ng-deep .mat-checkbox-layout .mat-checkbox-label{
+    margin-left: 15px;
+}
+.text-blue {
+    color: $light-blue;
+    text-decoration: none;
+}
+
+.login-button {
+    margin: 25px auto;
 }

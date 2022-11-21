@@ -7,13 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OtpComponent implements OnInit {
 
+  checked = false;
+  timeLimit=60;
   formData = {
     controls: [
       {
         name: 'otp',
         label: 'OTP',
         value: '',
-        type: 'number',
+        type: 'tel',
         placeHolder: 'Enter OTP',
         errorMessage:'Please enter the OTP',
         validators: {
@@ -26,6 +28,10 @@ export class OtpComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  resendOTP(){
+    
   }
 
 }
