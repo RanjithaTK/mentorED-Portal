@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule} from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { MatButtonModule } from '@angular/material/button';
+import { TranslateModule } from '@ngx-translate/core'; 
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatSelectModule,
     FlexLayoutModule,
     MatButtonModule,
+    TranslateModule,
 
    
   ]
