@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as _ from 'lodash-es';
 import * as moment from 'moment';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 interface JsonFormValidators {
   min?: number;
@@ -55,6 +56,12 @@ export class DynamicFormComponent implements OnInit {
   isScreenTouchable: boolean;
   deviceRegexp = /android|iphone|kindle|ipad/i;
   selectedChips: any;
+  currentDate = new Date();
+  maxDate = new Date(moment(this.currentDate).add(10, "years").format());
+  dependedChild: any;
+  dependedChildDate: any;
+  dependedParent: any;
+  dependedParentDate: any;
 
   constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) { }
 
@@ -151,5 +158,15 @@ export class DynamicFormComponent implements OnInit {
 
   alertToast(){
     this._snackBar.open("Please refer to the on-boarding email for your secret code");
+  }
+
+  dateSelected(control:any, date:any) {
+    if(control.dependedChild){
+      this.dependedChild = control.dependedChild;
+      this.dependedChildDate = new Date(date.value);
+    } else {
+      this.dependedParent = control.dependedParent
+      this.dependedParentDate = new Date(date.value);
+    }
   }
 }
