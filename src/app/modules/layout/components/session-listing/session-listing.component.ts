@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-session-listing',
+  templateUrl: './session-listing.component.html',
+  styleUrls: ['./session-listing.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class SessionListingComponent implements OnInit {
   apiCardDetails ={
     "responseCode": "OK",
     "message": "Session fetched successfully.",
@@ -163,25 +165,31 @@ export class HomeComponent implements OnInit {
       ]
     }
   }
-  cardDetails  =this.apiCardDetails.result.allSessions
-
+ cardHeading:any;
+cardDetails: any ;
 start: any=0;
   lastIndex: any = 4;
-  constructor() { }
+  selectedPage :any;
+
+  constructor(private router:Router) { 
+    this.selectedPage = router.url
+  }
 
   ngOnInit(): void {
-    console.log(this.apiCardDetails.result.allSessions)
+    
+      if(this.selectedPage =='/enrolled-sessions'){
+        this.cardHeading = "MY_SESSIONS"
+        this.cardDetails = this.apiCardDetails.result.mySessions;
+      } else{
+        this.cardHeading = "ALL_SESSIONS"
+        this.cardDetails = this.apiCardDetails.result.allSessions
+      }
+   
   }
- 
-  onClickViewMore() {
-    // if(this.view =="View Less" ){
-    //   this.last = 4;
-    // this.view = "View More"
-    // }
-    // else{
-    this.lastIndex = this.cardDetails.length;
-    // this.view = "View Less"
-    // }
+  
 
+  onClickViewMore() {
+    this.lastIndex = this.cardDetails.length;
   }
+
 }

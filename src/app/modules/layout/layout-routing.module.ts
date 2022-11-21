@@ -1,25 +1,43 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreatedSessionsComponent } from './components/created-sessions/created-sessions.component';
+import { MentorDirectoryComponent } from './components/mentor-directory/mentor-directory.component';
+import { SessionListingComponent } from './components/session-listing/session-listing.component';
 import { LayoutComponent } from './layout.component';
 
-const routes: Routes = [ 
+const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
     children: [
       {
-          path: '',
-          loadChildren: () => import('../home/home.module').then(m => m.HomeModule)
-      },
-      {
-          path: '',
-          redirectTo: 'home',
-          pathMatch: 'full'
+        path: '',
+        component: SessionListingComponent
       },
 
-  ]
+      {
+        path: 'enrolled-sessions',
+        component: SessionListingComponent
+      },
+      {
+        path: 'created-sessions',
+        component: CreatedSessionsComponent
+      },
+      {
+        path: 'mentor-directory',
+        component: MentorDirectoryComponent
+      },
+
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
+
+
+    ]
   }
-  ];
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
