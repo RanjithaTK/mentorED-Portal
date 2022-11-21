@@ -24,10 +24,8 @@ export class AuthService {
       payload: formData
     };
     try {
-        this.apiService.post(config).subscribe((success: any) =>{
-        console.log("success",success,success.result.access_token)
-        this.localStorage.saveLocalData(localKeys.TOKEN, JSON.stringify(success.result.access_token));
-        this.localStorage.saveLocalData(localKeys.USER_DETAILS, JSON.stringify(success.result.user));
+        this.apiService.post(config).subscribe((data: any) =>{
+        this.setUserInLocal(data)
         
       })
       return config
@@ -36,5 +34,11 @@ export class AuthService {
     catch(error){
       return null;
     }
+  }
+  setUserInLocal(data: any) {
+    let token = _.pick(data.result,['access_token','refresh_token'])
+    this.localStorage.saveLocalData(localKeys.TOKEN, JSON.stringify(token));
+    this.localStorage.saveLocalData(localKeys.USER_DETAILS, JSON.stringify(data.result.user));
+    this.localStorage.saveLocalData(localKeys.SELECTED_LANGUAGE, JSON.stringify(data.result.user.preferredLanguage));
   }
 }
