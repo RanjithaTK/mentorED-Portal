@@ -1,1 +1,39 @@
-<p>header works!</p>
+<mat-toolbar class="mat-elevation-z3">
+  <div fxFlex fxLayout="row">
+    <div fxFlex fxFlexAlign="center">
+      <img class="header-logo" src="/assets/images/MentorEd-logo.svg" />
+    </div>
+    <div fxFlex fxLayoutAlign="center center" class="searchBar">
+     
+      <form fxFlex fxLayout="row" class="img-fluid hover-shadow">
+        <mat-icon matPrefix >search</mat-icon>
+        <input matInput type="search" #searchInput autocomplete="off" class="search-input" />
+        <button fxFlex class="button">Search</button>
+      </form>
+      
+    </div>
+    <div fxFlex fxLayoutAlign="space-around center" class="container">
+      <span fxFlex></span>
+      <div class="languageSelection" fxLayoutAlign="space-around">
+        <mat-icon class="language-icon">language</mat-icon>
+        <mat-select
+          class="options"
+          fxFlex
+          fxFlexAlign="center"
+          [(value)]="selectedLanguage"
+        >
+          <mat-option value="option1">English</mat-option>
+          <mat-option value="option2">Hindi</mat-option>
+        </mat-select>
+      </div>
+      
+      <span fxFlex></span>
+      <div class="letter">
+        <button class="name" mat-fab>P</button>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
+
+
+
