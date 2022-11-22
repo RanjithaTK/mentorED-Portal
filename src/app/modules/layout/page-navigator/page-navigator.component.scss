@@ -1,0 +1,21 @@
+@import "../../../../variables";
+.page-navigator-conatiner{
+    background-color: rgb(253, 204, 212);
+    margin-top: 5%;
+    padding: 2%;
+    border-radius: 2rem 2rem 0 0;
+    gap: 20px;
+     overflow-x : auto;
+   
+
+}
+.page-navigator-button{
+    cursor: pointer;
+    font-weight: bold;
+    min-width :200px;
+    box-shadow: 3px 3px rgb(202, 202, 202);
+}
+.active{
+    background: $theme;
+    color: white;
+  }
