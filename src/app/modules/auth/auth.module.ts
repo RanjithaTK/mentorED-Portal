@@ -15,12 +15,14 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDividerModule} from '@angular/material/divider';
 
 import { MatCardModule } from '@angular/material/card';
+import { OtpComponent } from './otp/otp.component';
 @NgModule({
   declarations: [
     AuthComponent,
     LoginComponent,
     RegisterComponent,
     RoleSelectionComponent,
+    OtpComponent,
   ],
   imports: [
     CommonModule,
