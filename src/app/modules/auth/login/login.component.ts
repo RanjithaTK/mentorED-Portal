@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { EmailValidator } from '@angular/forms';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants';
 import { ApiService } from 'src/app/core/services';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { DynamicFormComponent } from 'src/app/shared/components';
 
 @Component({
@@ -26,29 +28,24 @@ export class LoginComponent implements OnInit {
       //   },
       // },
       {
-        name: 'Email',
+        name: 'email',
         label: 'Email ID',
         value: '',
-        class: 'ion-margin',
         type: 'email',
-        position: 'floating',
-        errorMessage:'This field can only contain alphabets',
+        errorMessage:'Please enter registered email ID',
         validators: {
           required: true,
-          pattern:'^[a-zA-Z ]*$',
+          pattern: '[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}'
         },
       },
       {
         name: 'password',
         label: 'Password',
         value: '',
-        class: 'ion-margin',
         type: 'password',
-        position: 'floating',
-        errorMessage:'This field can only contain alphabets',
+        errorMessage:'Please enter password',
         validators: {
-          required: true,
-          pattern:'',
+          required: true
         },
       },
       // {
@@ -94,25 +91,18 @@ export class LoginComponent implements OnInit {
       
     ],
   };
+  userDetails: any;
 
-  constructor(private apiService: ApiService) { }
+  constructor(
+    private authService: AuthService,
+    private apiService: ApiService
+  ) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    const config = {
-      url: API_CONSTANTS.ACCOUNT_LOGIN,
-      payload : {
-        email:"afnan@tunerlabs.com",
-        password:"Welcome@123"
-      }
-    }
-    this.apiService.post(config).subscribe(success => {
-
-    }, error => {
-
-    })
+  async onSubmit() {
+    this.authService.loginAccount(this.loginForm.myForm.value)
   }
 
 }
