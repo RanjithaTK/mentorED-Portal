@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { url } from 'inspector';
+import { Router } from "@angular/router";
 import * as _ from 'lodash';
 import { API_CONSTANTS } from '../../constants/apiUrlConstants';
 import { localKeys } from '../../constants/localStorage.keys';
@@ -15,7 +15,8 @@ export class AuthService {
   constructor(
     private apiService: ApiService,
     private userService: UserService,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private router: Router
     ) { }
 
   async loginAccount(formData: any){
@@ -26,7 +27,7 @@ export class AuthService {
     try {
         this.apiService.post(config).subscribe((data: any) =>{
         this.setUserInLocal(data)
-        
+        this.router.navigate(['/home'])
       })
       return config
       
