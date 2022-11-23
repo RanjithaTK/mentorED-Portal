@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./created-sessions.component.scss']
 })
 export class CreatedSessionsComponent implements OnInit {
-  noData: any = [{ "image": "https://i.pinimg.com/originals/49/e5/8d/49e58d5922019b8ec4642a2e2b9291c2.png", "content": "Share what you know with the community!" }]
+  noData: any = {"content": "Share what you know with the community!" }
   apiCardDetails = {
     "responseCode": "OK",
     "message": "Session fetched successfully.",

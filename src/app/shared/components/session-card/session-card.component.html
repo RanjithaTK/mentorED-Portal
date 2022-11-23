@@ -1,6 +1,9 @@
 <mat-card class="card-container" fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="10px">
     <div class="card-images" fxFlex="40%">
-        <img class="card-image" fxFlex="100%" [src]="cardData.image" alt="card data image" height="180px">
+        <div *ngIf="cardData?.image==''; else elseBlock"><img fxFlex="100%" class="card-image"
+                src="/assets/images/session-default-img.png" height="180px" /></div>
+        <ng-template #elseBlock><img class="card-image" fxFlex="100%" [src]="cardData.image" alt="card data image"
+                height="180px"></ng-template>
     </div>
     <div fxFlex="100%" class="card-details" fxLayout="column" fxLayoutGap="10px">
 
