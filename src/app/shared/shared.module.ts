@@ -17,6 +17,7 @@ import { DynamicFormComponent, InputChipComponent, SessionCardComponent, StarRat
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { NoDataFoundComponent } from './components/no-data-found/no-data-found.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     InputChipComponent,
     SessionCardComponent,
     StarRatingComponent,
-    RoleSelectionCardComponent
+    RoleSelectionCardComponent,
+    NoDataFoundComponent
   ],
   imports: [
     CommonModule,
@@ -64,7 +66,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     InputChipComponent,
     StarRatingComponent,
     FlexLayoutModule,
-    RoleSelectionCardComponent
+    RoleSelectionCardComponent,
+    NoDataFoundComponent
   ]
 })
 export class SharedModule { }
