@@ -1,1 +1,36 @@
-<p>register works!</p>
+<div class="container">
+  <div fxLayout="column" fxLayoutAlign="space-around" flex-wrap="nowrap">
+    <div fxLayout="row" fxLayoutAlign="end" fxFlexOffset="20px" class="signup-link" fxFlex.gt-sm="column">
+      <small>
+        <a routerLink="/auth/login">{{'ALREADY_HAVE_AN_ACCOUNT' | translate}}</a>
+      </small>
+    </div>
+    <div fxLayoutAlign="center" fxFlexOffset="20px">
+      <h1>{{'CREATE_NEW_ACCOUNT' | translate}}</h1>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center">
+      <app-dynamic-form [jsonFormData]="formData" #signup fxFlex="55"></app-dynamic-form>
+    </div>
+    <div fxLayoutAlign="center">
+      <button fxFlex="55" mat-raised-button color="primary">{{ "SIGN_UP" | translate }}</button>
+    </div>
+  </div>
+</div>
+<!-- <div class="container">
+  <div fxLayout="column" fxLayoutAlign="space-between stretch">
+    <div class="signup-link" fxLayout="row" fxLayoutAlign="end">
+      <small>
+        <a routerLink="/auth/login">{{'ALREADY_HAVE_AN_ACCOUNT' | translate}}</a>
+      </small>
+    </div>
+    <div fxLayoutAlign="center">
+      <h1>{{'CREATE_NEW_ACCOUNT' | translate}}</h1>
+    </div>
+    <div fxLayoutAlign="center" fxFlexOffset="20px">
+      <app-dynamic-form [jsonFormData]="formData" #signup fxFlex="55"></app-dynamic-form>
+    </div>
+    <div fxLayoutAlign="center">
+      <button fxFlex="55" mat-raised-button color="primary">{{ "SIGN_UP" | translate }}</button>
+    </div>
+  </div>
+</div> -->
