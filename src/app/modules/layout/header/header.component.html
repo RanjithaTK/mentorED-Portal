@@ -3,20 +3,40 @@
     <div fxFlex fxFlexAlign="center">
       <img class="header-logo" src="/assets/images/MentorEd-logo.svg" />
     </div>
-    <div fxFlex fxLayoutAlign="center center" class="searchBar">
+    <div
+      fxFlex="100%"
+      fxLayoutAlign="center center"
+      class="searchBar"
+      fxFlex.md="40%"
+    >
       <form fxFlex fxLayout="row" class="img-fluid hover-shadow">
-        <mat-icon matPrefix>search</mat-icon>
+        <mat-icon class="search-icon" matPrefix>search</mat-icon>
         <input
+          fxFlex="80%"
+          fxFlex.lt-md="60%"
           matInput
           type="search"
           #searchInput
           autocomplete="off"
           class="search-input"
         />
-        <button fxFlex class="button">{{ 'SEARCH' | translate }}</button>
+        <button
+          fxFlex="16%"
+          fxFlex.lt-md="14%"
+          fxFlex.lt-sm="30%"
+          class="button"
+        >
+          {{ 'SEARCH' | translate }}
+        </button>
       </form>
     </div>
-    <div fxFlex fxLayoutAlign="space-around center" class="container">
+    <div
+      fxFlex
+      fxLayoutAlign="space-around center"
+      class="container"
+      [fxHide.sm]="true"
+      [fxHide.xs]="true"
+    >
       <span fxFlex></span>
       <div class="languageSelection" fxLayoutAlign="space-around">
         <mat-icon class="language-icon">language</mat-icon>
@@ -27,7 +47,9 @@
           [(value)]="selectedLanguage"
           selectedLanguage="en"
         >
-          <mat-option [value]="option.value" *ngFor="let option of options"> {{option.label}}</mat-option>
+          <mat-option [value]="option.value" *ngFor="let option of options">
+            {{ option.label }}
+          </mat-option>
         </mat-select>
       </div>
 
@@ -36,5 +58,16 @@
         <button class="name" mat-fab>P</button>
       </div>
     </div>
+
+    <mat-icon
+      fxFlex
+      fxFlexAlign="center"
+      class="menu-icon"
+      [fxHide.lg]="true"
+      [fxHide.md]="true"
+      (click)="onClick()"
+    >
+      menu
+    </mat-icon>
   </div>
 </mat-toolbar>
