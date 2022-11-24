@@ -16,6 +16,7 @@ import { SessionListingComponent } from './components/session-listing/session-li
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CreatedSessionsComponent } from './components/created-sessions/created-sessions.component';
 import { MentorDirectoryComponent } from './components/mentor-directory/mentor-directory.component';
+import { FaqComponent } from './components/faq/faq.component';
 FlexLayoutModule
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ FlexLayoutModule
     PageNavigatorComponent,
     SessionListingComponent,
     CreatedSessionsComponent,
-    MentorDirectoryComponent
+    MentorDirectoryComponent,
+    FaqComponent
   ],
   imports: [
     CommonModule,

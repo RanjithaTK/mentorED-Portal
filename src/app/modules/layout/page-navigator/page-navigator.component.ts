@@ -16,9 +16,12 @@ export class PageNavigatorComponent implements OnInit {
   {'name':'created sessions','url':'created-sessions','label':'CREATED_SESSIONS'},
   {'name':'mentor directory','url':'mentor-directory','label':'MENTOR_DIRECTORY'}]
   labels:any;
-  pageNavigationLabel = ['HOME','ENROLLED_SESSIONS','CREATED_SESSIONS','MENTOR_DIRECTORY']
+  pageNavigationLabel:any = ['HOME','ENROLLED_SESSIONS','CREATED_SESSIONS','MENTOR_DIRECTORY']
+  selectedPage: any;
 
-  constructor( private router: Router, private translate:TranslateService) { }
+  constructor( private router: Router, private translate:TranslateService) {
+    this.selectedPage = router.url
+   }
 
   ngOnInit(): void {
      
@@ -28,7 +31,7 @@ export class PageNavigatorComponent implements OnInit {
         }
 
      )
-     
+    
   }
 
 

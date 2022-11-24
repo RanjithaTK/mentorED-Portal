@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -9,9 +10,9 @@ import { TranslateService } from '@ngx-translate/core';
 export class FooterComponent implements OnInit {
 
 
-  constructor(private translate:TranslateService) { }
+  constructor(private translate:TranslateService,private router: Router) { }
 
   ngOnInit(): void {
   }
-
+ 
 }
