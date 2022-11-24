@@ -1,0 +1,124 @@
+@import '../../../../variables';
+.header-logo {
+  width: 59px;
+  margin-left: 10px;
+  padding-left: 2%;
+}
+mat-toolbar {
+  min-height: 70px;
+  background: $white;
+}
+
+.language-icon {
+  padding: 2px;
+  font-size: 27px;
+}
+.search-icon {
+  color: $theme;
+  padding-top: 4px;
+}
+
+form {
+  border-radius: 25px;
+  box-shadow: 3px 3px 1px 1px $light-grey;
+  background-color: $lighter-grey;
+  min-height: 49%;
+  padding: 2px;
+  max-width: 80%;
+  transition: all 0.4s ease-in-out;
+  justify-content: space-between;
+}
+form:hover {
+  transform: scale(1.009, 1.009);
+  box-shadow: 3px 3px 1px 1px $grey;
+}
+input[type='search'] {
+  border-style: none !important;
+  background: transparent;
+  font-size: 14px;
+  border: 1px solid transparent;
+  border-radius: inherit;
+}
+.button {
+  border-radius: 25px;
+  border: none;
+  background-color: $grey-shade;
+  color: $white;
+  font-size: 10px;
+}
+.button:hover {
+  background: $grey;
+}
+
+.select {
+  max-height: 50px;
+  border-radius: 50px;
+  box-shadow: 1px 2px 2px 1px $light-grey;
+}
+
+.language-icon {
+  position: relative;
+}
+.select-button {
+  border-radius: 20px;
+  padding: 0px 25px;
+  border: none;
+  box-shadow: 2px 2px 1px 1px $light-grey;
+}
+
+.name {
+  color: $light-red;
+  background: $lighter-grey;
+  box-shadow: 4px 4px 1px 1px $light-grey;
+  float: right !important;
+  width: 50px;
+  height: 50px;
+  font-size: larger;
+  font-weight: 600;
+  transition: all 0.4s ease-in-out;
+}
+.name:hover {
+  transform: scale(1.009, 1.009);
+  box-shadow: 3px 3px 1px 1px $grey;
+}
+.letter {
+  padding-bottom: 2%;
+}
+.options {
+  padding-left: 13%;
+}
+
+.languageSelection {
+  border-radius: 25px;
+  box-shadow: 2px 2px 1px 1px $light-grey;
+  width: 36%;
+  transition: all 0.4s ease-in-out;
+}
+.languageSelection:hover {
+  transform: scale(1.009, 1.009);
+  box-shadow: 3px 3px 1px 1px $grey;
+}
+
+::ng-deep .mat-select-placeholder {
+  font-size: 12px;
+  padding-left: 20%;
+  color: $black;
+}
+mat-select {
+  font-size: 12px;
+  font-weight: 500px;
+  color: $theme;
+}
+.container {
+  padding-right: 3%;
+}
+.search-input {
+  outline: none;
+}
+::ng-deep form {
+  opacity: 1 !important;
+}
+.menu-icon {
+  margin-right: 10px;
+  padding-right: 4%;
+}
