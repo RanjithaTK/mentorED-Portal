@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon'
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -13,18 +13,30 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { DynamicFormComponent, InputChipComponent, SessionCardComponent, StarRatingComponent, RoleSelectionCardComponent } from './components/index';
+import { 
+  DynamicFormComponent,
+  InputChipComponent, 
+  SessionCardComponent, 
+  StarRatingComponent, 
+  RoleSelectionCardComponent, 
+  CountdownTimerComponent 
+} from './components/index';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NoDataFoundComponent } from './components/no-data-found/no-data-found.component';
 
+​
 @NgModule({
   declarations: [
     DynamicFormComponent,
     InputChipComponent,
     SessionCardComponent,
     StarRatingComponent,
-    RoleSelectionCardComponent
+    RoleSelectionCardComponent,
+    CountdownTimerComponent,
+    NoDataFoundComponent
   ],
   imports: [
     CommonModule,
@@ -45,6 +57,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     FlexLayoutModule,
+    MatToolbarModule,
+    FormsModule
   ],
   exports: [
     MatButtonModule,
@@ -64,7 +78,11 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     InputChipComponent,
     StarRatingComponent,
     FlexLayoutModule,
-    RoleSelectionCardComponent
+    RoleSelectionCardComponent,
+    CountdownTimerComponent,
+    MatToolbarModule,
+    FormsModule,
+    NoDataFoundComponent
   ]
 })
 export class SharedModule { }
