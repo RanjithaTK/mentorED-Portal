@@ -18,13 +18,13 @@ export class PageNavigatorComponent implements OnInit {
   labels:any;
   pageNavigationLabel:any = ['HOME','ENROLLED_SESSIONS','CREATED_SESSIONS','MENTOR_DIRECTORY']
   selectedPage: any;
-
+  faq = false;
   constructor( private router: Router, private translate:TranslateService) {
     this.selectedPage = router.url
    }
 
   ngOnInit(): void {
-     
+   
       this.translate.get(this.pageNavigationLabel).subscribe(
         values => {
           this.labels  = Object.assign({}, values);;
@@ -32,6 +32,11 @@ export class PageNavigatorComponent implements OnInit {
 
      )
     
+     if(this.selectedPage == '/faq'){
+      this.faq=true;
+     }else{
+      this.faq=false;
+     }
   }
 
 
