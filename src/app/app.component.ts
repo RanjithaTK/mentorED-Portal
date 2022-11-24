@@ -22,6 +22,7 @@ export class AppComponent {
   }
 
   setHttpHeaders() {
+    this.apiService.setHeader();
     this.userService.userEventEmitted$.subscribe(async ()=>{
       await this.apiService.setHeader();
     })

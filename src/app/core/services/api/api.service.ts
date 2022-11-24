@@ -19,12 +19,15 @@ export class ApiService {
   private timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   private httpHeaders: any;
 
-  constructor(private http: HttpClient, private userService: UserService, private localStorage: LocalStorageService, private injector: Injector) { }
+  constructor(private http: HttpClient, private userService: UserService, private localStorage: LocalStorageService, private injector: Injector) { 
+    this.setHeader();
+  }
 
   async setHeader(): Promise<any> {
-    return new Promise((resolve) => {
+    return new Promise(async (resolve) => {
       try {
-        let userToken = this.userService.token ? 'bearer ' + _.get(JSON.parse(this.userService.token), 'access_token') : '';
+        let token = JSON.parse(await this.localStorage.getLocalData(localKeys.TOKEN));
+        let userToken = token ? 'bearer ' + token?.access_token : '';
         const headers = {
           'X-auth-token': userToken ? userToken : '',
           'Content-Type': 'application/json',
@@ -39,14 +42,15 @@ export class ApiService {
   }
 
   get(config: any) {
-    return this.http.get(`${this.baseUrl}${config.url}`, this.httpHeaders)
+    console.log(this.httpHeaders);
+    return this.http.get(`${this.baseUrl}${config.url}`, {headers: this.httpHeaders})
       .pipe(
         catchError(this.handleError)
       );
   }
 
   post(config: any) {
-    return this.http.post(`${this.baseUrl}${config.url}`, config.payload, this.httpHeaders)
+    return this.http.post(`${this.baseUrl}${config.url}`, config.payload, {headers: this.httpHeaders})
       .pipe(
         catchError(this.handleError)
       );

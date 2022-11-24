@@ -16,7 +16,7 @@ import { SessionListingComponent } from './components/session-listing/session-li
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CreatedSessionsComponent } from './components/created-sessions/created-sessions.component';
 import { MentorDirectoryComponent } from './components/mentor-directory/mentor-directory.component';
-FlexLayoutModule
+
 @NgModule({
   declarations: [
     LayoutComponent,
@@ -36,7 +36,6 @@ FlexLayoutModule
     FlexLayoutModule,
     MatButtonModule,
     SharedModule
-
   ]
 
 
