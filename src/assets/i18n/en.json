@@ -39,5 +39,6 @@
     "CREATE_NEW_SESSION":"Create new session",
     "UPCOMING_SESSIONS":"Upcoming sessions",
     "PAST_SESSIONS":"Past sessions",
-    "CLICK_HERE_TO_CREATE_NEW_SESSION":"Click here to create a new session"
+    "CLICK_HERE_TO_CREATE_NEW_SESSION":"Click here to create a new session",
+    "NOT_IMPLEMENTED":"This feature is not yet implemented"
 }
