@@ -82,7 +82,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private routerParms: ActivatedRoute,
     private authService: AuthService,
-    private Router: Router) { 
+    private router: Router) { 
     routerParms.queryParams.subscribe(data =>{
       this.selectedRole = data['selectedRole'];
       if(this.selectedRole == "Mentor"){
@@ -102,7 +102,7 @@ export class RegisterComponent implements OnInit {
     let formJson = this.signup.myForm.value;
     formJson.isAMentor = this.isAMentor ? this.isAMentor : false;
     if(_.isEqual(formJson.password,formJson.cPassword)){
-      this.Router.navigate(['./auth/otp'])
+      this.router.navigate(['./auth/otp'])
     }
   }
 
