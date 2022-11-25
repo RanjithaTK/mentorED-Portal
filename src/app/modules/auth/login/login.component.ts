@@ -35,16 +35,14 @@ export class LoginComponent implements OnInit {
       },
     ]
   };
-  userDetails: any;
 
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    this.authService.loginAccount(this.loginForm.myForm.value)
-      .subscribe(async (response: any) => {
+  async onSubmit() {
+    (await this.authService.loginAccount(this.loginForm.myForm.value)).subscribe(async (response: any) => {
        this.router.navigate(['/home']);
     })
   }

@@ -18,7 +18,23 @@ export class AuthService {
     private localStorage: LocalStorageService,
     ) { }
 
-  loginAccount(formData: any) {
+    async createAccount(formData: any) {
+      const config = {
+        url: API_CONSTANTS.REGISTRATION_OTP,
+        payload: formData,
+      };
+      try {
+        this.apiService.post(config).subscribe((data: any) =>{
+          this.setUserInLocal(data)
+        })
+        return config;
+      }
+      catch (error) {
+        return null
+      }
+    }
+
+  async loginAccount(formData: any){
     const config = {
       url: API_CONSTANTS.ACCOUNT_LOGIN,
       payload: formData
