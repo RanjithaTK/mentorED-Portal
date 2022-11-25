@@ -11,7 +11,7 @@
             <div class="footer-signup-contains">
                 <p>{{"FOOTER_SIGNUP_CONTAINS" | translate}}</p>
             </div>
-            <button class="footer-signup-button" mat-raised-button ><a class="footer-signup-button-a" href="https://play.google.com/store/apps/details?id=org.elevate.mentoring" target="_blank">{{"SIGNUP"| translate}}</a></button>
+            <button class="footer-signup-button" mat-raised-button ><a class="footer-signup-button-a" href="https://play.google.com/store/apps/details?id=org.elevate.mentoring" target="_blank">{{"DOWNLOAD_NOW"| translate}}</a></button>
                 
         </div>
 
@@ -20,13 +20,13 @@
             <p class="footer-quick-links">{{"QUICK_LINKS"| translate}}</p>
             <div fxLayout="row">
                 <div fxFlex="%" fxLayout="column" fxLayoutGap="2px">
-                    <a href="" target="_blank"class="footer-link">{{"FAQ" | translate}} </a>
-                    <a href="" target="_blank"class="footer-link">{{"HELP_VIDEOS"| translate}}</a>
-                    <a href="" target="_blank" class="footer-link">{{"TERMS_AND_CONDITIONS" | translate}}</a>
-                    <a href="" target="_blank" class="footer-link">{{"PRIVACY_POLICY" | translate}}</a>
+                    <a href="/faq"  routerLinkActive="active" class="footer-link" >{{"FAQ" | translate}} </a>
+                    <a href="/faq" routerLinkActive="active"  class="footer-link">{{"GUIDED_VIDEOS"| translate}}</a>
+                    <a href="https://shikshalokam.org/term-of-use/" target="_blank" class="footer-link">{{"TERMS_AND_CONDITIONS" | translate}}</a>
+                    <a href="https://shikshalokam.org/data-privacy-policy/" target="_blank" class="footer-link">{{"PRIVACY_POLICY" | translate}}</a>
                 </div>
                 <div fxFlex="50%" fxLayout="column" fxLayoutGap="2px">
-                    <a href="" target="_blank" class="footer-link">{{"MENTORING_BLUE_BOOK" | translate}}</a>
+                    <a href="https://ncte.gov.in/WebAdminFiles/PublicNotice/Hindi_0_04_11_2021_637716090580344576.pdf" target="_blank" class="footer-link">{{"MENTORING_BLUE_BOOK" | translate}}</a>
                     <a href="https://elevate.shikshalokam.org/" target="_blank" class="footer-link">{{"ELEVATE" | translate}}</a>
                     <a href="https://shikshalokam.org/" target="_blank" class="footer-link">{{"SHIKSHALOKAM" | translate}} </a>
                 </div>
@@ -37,9 +37,12 @@
         <div class="footer-get-in-touch-container" >
             <p class="footer-get-in-touch">{{"GET_IN_TOUCH" | translate}}</p>
             <div fxLayout="row" fxLayoutGap="4%">
-                <img src="/assets/images/logo-twitter.svg" height="30px" />
-                <img src="/assets/images/logo-linkedin.svg" height="30px" />
-                <img src="/assets/images/logo-youtube.png" height="30px" />
+               <a href="https://twitter.com/shikshalokam" target="_blank"> <img src="/assets/images/logo-twitter.svg" height="30px" /></a>
+               <a href=" https://www.linkedin.com/company/shikshalokam/" target="_blank"> <img src="/assets/images/logo-linkedin.svg" height="30px" /></a>
+               <a href="https://youtube.com/@ShikshaLokam" target="_blank"><img src="/assets/images/logo-youtube.png" height="30px" /></a>
+               
+              
+                
             </div>
             <div class="footer-address-container" fxLayout="column" fxLayoutGap="0">
                 <p class="footer-address">{{"ADDRESS" | translate}}</p>

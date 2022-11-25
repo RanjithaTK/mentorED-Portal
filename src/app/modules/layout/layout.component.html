@@ -1,19 +1,37 @@
-<mat-toolbar>
-  <mat-toolbar-row>
-    <app-header></app-header>
-  </mat-toolbar-row>
-</mat-toolbar>
-
-<div>
-  <app-page-navigator></app-page-navigator>
-</div>
-<div class="layout-sections">
-
-  <div>
-    <router-outlet></router-outlet>
-  </div>
-  <div class="footer">
-    <app-footer></app-footer>
-  </div>
-
-</div>
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer class="drawer" position="end">
+    <div fxLayoutAlign="center" >
+      <div class="languageSelection" fxLayoutAlign="center">
+        <mat-icon class="language-icon">language</mat-icon>
+        <mat-select
+          fxFlexAlign="center"
+          [(value)]="selectedLanguage"
+          selectedLanguage="en"
+        >
+          <mat-option
+            fxFlex
+            class="options"
+            [value]="option.value"
+            *ngFor="let option of options"
+          >
+            {{ option.label }}
+          </mat-option>
+        </mat-select>
+      </div>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-header (menuToggleEvent)="drawer.toggle()"></app-header>
+    <div>
+      <app-page-navigator></app-page-navigator>
+    </div>
+    <div class="layout-sections">
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+      <div class="footer">
+        <app-footer></app-footer>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
