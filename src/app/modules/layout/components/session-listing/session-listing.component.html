@@ -1,0 +1,17 @@
+<div class="home-container" fxLayoutAlign="center">
+
+    <div class="session-listing-container" fxLayout="column" fxFlex="90%" fxFlex.xs="100%" fxLayoutAlign="center">
+        <h3 class="all-section">{{cardHeading | translate}}</h3>
+        <div fxLayout="row wrap" fxLayoutGap="20px grid">
+            <div *ngFor='let item of cardDetails| slice:start:lastIndex' fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%"
+                fxFlex.md="50%">
+                <app-session-card [cardData]="item"></app-session-card>
+            </div>
+        </div>
+        <div fxFlex="50%" fxLayoutAlign="center">
+            <button class="view-more" fxFlex="50%" mat-raised-button color="primary" *ngIf="cardDetails.length > 4 "
+                (click)="onClickViewMore()">{{"VIEW_MORE"|translate}}</button>
+        </div>
+    </div>
+
+</div>

@@ -1,1 +1,12 @@
-<p>page-navigator works!</p>
+<div fxLayout="row wrap" fxLayoutAlign="center">
+    <div class="page-navigator-conatiner" fxLayout="row" *ngIf="labels">
+
+        <div *ngIf="faq; else elseBlock"> </div>
+        <ng-template #elseBlock>
+            <div *ngFor='let page of pageNavigatorArray'>
+                <button routerLink='/{{page.url}}' routerLinkActive="active" class="page-navigator-button"
+                    mat-raised-button>{{labels[page.label] | titlecase }}</button>
+            </div>
+        </ng-template>
+    </div>
+</div>

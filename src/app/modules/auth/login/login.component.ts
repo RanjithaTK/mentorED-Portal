@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants';
-import { ApiService } from 'src/app/core/services';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { DynamicFormComponent } from 'src/app/shared/components';
 
 @Component({
@@ -13,106 +13,37 @@ export class LoginComponent implements OnInit {
   formData = {
     controls: [
       {
-        name: 'name',
-        label: 'Name',
+        name: 'email',
+        label: 'Email ID',
         value: '',
-        class: 'ion-margin',
-        type: 'text',
-        position: 'floating',
-        errorMessage:'This field can only contain alphabets',
+        type: 'email',
+        errorMessage:'Please enter registered email ID',
         validators: {
           required: true,
-          pattern:'^[a-zA-Z ]*$',
+          pattern: '[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}'
         },
       },
-      // {
-      //   name: 'Email',
-      //   label: 'Email',
-      //   value: '',
-      //   class: 'ion-margin',
-      //   type: 'email',
-      //   position: 'floating',
-      //   errorMessage:'This field can only contain alphabets',
-      //   validators: {
-      //     required: true,
-      //     pattern:'^[a-zA-Z ]*$',
-      //   },
-      // },
       {
         name: 'password',
         label: 'Password',
         value: '',
-        class: 'ion-margin',
         type: 'password',
-        position: 'floating',
-        errorMessage:'This field can only contain alphabets',
+        errorMessage: 'Minimum 8 charectors needed',
         validators: {
-          required: true,
-          pattern:'',
+          required: true
         },
       },
-      // {
-      //   name: 'number',
-      //   label: 'Number',
-      //   value: '',
-      //   class: 'ion-margin',
-      //   type: 'number',
-      //   position: 'floating',
-      //   errorMessage:'This field can only contain alphabets',
-      //   validators: {
-      //     required: true,
-      //     pattern:'^[a-zA-Z ]*$',
-      //   },
-      // },
-
-      // {
-      //   name: 'dob',
-      //   label: 'DOB',
-      //   value: '',
-      //   class: 'ion-margin',
-      //   type: 'date',
-      //   position: 'floating',
-      //   errorMessage:'This field can only contain alphabets',
-      //   validators: {
-      //     required: true,
-      //     pattern:'^[a-zA-Z ]*$',
-      //   },
-      // },
-      // {
-      //   name: 'time',
-      //   label: 'Time',
-      //   value: '',
-      //   class: 'ion-margin',
-      //   type: 'time',
-      //   position: 'floating',
-      //   errorMessage:'This field can only contain alphabets',
-      //   validators: {
-      //     required: true,
-      //     pattern:'^[a-zA-Z ]*$',
-      //   },
-      // }
-      
-    ],
+    ]
   };
 
-  constructor(private apiService: ApiService) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    const config = {
-      url: API_CONSTANTS.ACCOUNT_LOGIN,
-      payload : {
-        email:"afnan@tunerlabs.com",
-        password:"Welcome@123"
-      }
-    }
-    this.apiService.post(config).subscribe(success => {
-
-    }, error => {
-
+  async onSubmit() {
+    (await this.authService.loginAccount(this.loginForm.myForm.value)).subscribe(async (response: any) => {
+       this.router.navigate(['/home']);
     })
   }
-
 }

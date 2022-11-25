@@ -1,0 +1,16 @@
+@import "/src/variables";
+
+
+.container h1{
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 2px;
+    color: $theme;
+}
+.signup-link{
+    padding-right: 20px;
+} a{
+    letter-spacing: 2px;
+    color: $blue;
+    text-decoration: none;
+}
