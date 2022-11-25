@@ -25,10 +25,10 @@
     "MENTOR_DIRECTORY": "Mentor directory",
     "FOOTER_SIGNUP_TEXT": "Connect to a community of Mentor and Mentees anywhere, anytime, with just one App!",
     "FOOTER_SIGNUP_CONTAINS": "MentorEd is a NDEAR Compliant offering that is also available on Playstore.",
-    "SIGNUP": "Signup now !",
+    "DOWNLOAD_NOW": "Download now !",
     "QUICK_LINKS": "Quick links",
     "FAQ": "FaQs",
-    "HELP_VIDEOS": "Help Videos",
+    "GUIDED_VIDEOS": "Guided Videos",
     "TERMS_AND_CONDITIONS": "Terms and conditions ",
     "PRIVACY_POLICY": "Privacy policy",
     "MENTORING_BLUE_BOOK": "Mentoring blue book",
@@ -39,5 +39,6 @@
     "CREATE_NEW_SESSION":"Create new session",
     "UPCOMING_SESSIONS":"Upcoming sessions",
     "PAST_SESSIONS":"Past sessions",
-    "CLICK_HERE_TO_CREATE_NEW_SESSION":"Click here to create a new session"
+    "CLICK_HERE_TO_CREATE_NEW_SESSION":"Click here to create a new session",
+    "NOT_IMPLEMENTED":"This feature is not yet implemented"
 }
