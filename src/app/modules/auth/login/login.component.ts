@@ -91,7 +91,6 @@ export class LoginComponent implements OnInit {
       
     ],
   };
-  userDetails: any;
 
   constructor(
     private authService: AuthService,

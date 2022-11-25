@@ -19,6 +19,22 @@ export class AuthService {
     private router: Router
     ) { }
 
+    async createAccount(formData: any) {
+      const config = {
+        url: API_CONSTANTS.REGISTRATION_OTP,
+        payload: formData,
+      };
+      try {
+        this.apiService.post(config).subscribe((data: any) =>{
+          this.setUserInLocal(data)
+        })
+        return config;
+      }
+      catch (error) {
+        return null
+      }
+    }
+
   async loginAccount(formData: any){
     const config = {
       url: API_CONSTANTS.ACCOUNT_LOGIN,
@@ -40,6 +56,6 @@ export class AuthService {
     let token = _.pick(data.result,['access_token','refresh_token'])
     this.localStorage.saveLocalData(localKeys.TOKEN, JSON.stringify(token));
     this.localStorage.saveLocalData(localKeys.USER_DETAILS, JSON.stringify(data.result.user));
-    this.localStorage.saveLocalData(localKeys.SELECTED_LANGUAGE, data.result.user.preferredLanguage);
+    // this.localStorage.saveLocalData(localKeys.SELECTED_LANGUAGE, data.result.user.preferredLanguage);
   }
 }

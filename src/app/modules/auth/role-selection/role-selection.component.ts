@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core"
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-role-selection",
@@ -10,19 +11,20 @@ export class RoleSelectionComponent implements OnInit {
 
   roleList = [
     {
-      role: "I'm a Mentor",
+      role: "Mentor",
       description: "Build confidence as a leader, and grow your network.",
       image: "../../../../assets/images/role-selection/mentor_icon.png",
     },
     {
-      role: "I'm a Mentee",
+      role: "Mentee",
       description: "Learn and grow from verified Mentors",
       image: "../../../../assets/images/role-selection/mentee_icon.png",
     },
   ]
   selectedRole: any
+  userType: any;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -31,6 +33,6 @@ export class RoleSelectionComponent implements OnInit {
     this.buttonEnable = true
   }
   buttonClick() {
-    //TODO navigate to register page
+    this.router.navigate(['./auth/register'],{queryParams:{ selectedRole: this.selectedRole }})
   }
 }

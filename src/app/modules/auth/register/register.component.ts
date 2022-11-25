@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { createSecureServer } from 'http2';
+import * as _ from 'lodash';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { DynamicFormComponent } from 'src/app/shared/components';
 
 @Component({
   selector: 'app-register',
@@ -6,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  @ViewChild('signup') signup: DynamicFormComponent;
   formData = {
     controls: [
       {
@@ -16,7 +22,7 @@ export class RegisterComponent implements OnInit {
         type: 'text',
         placeHolder: 'Enter full name',
         position: 'floating',
-        errorMessage:'This field can only contain alphabets',
+        errorMessage:'Enter your full name',
         validators: {
           required: true,
           pattern:'^[a-zA-Z ]*$',
@@ -28,7 +34,7 @@ export class RegisterComponent implements OnInit {
         value: '',
         placeHolder: 'yourname@gmail.com',
         type: 'email',
-        errorMessage:'Please enter registered email ID',
+        errorMessage:'Please enter valid email ID',
         validators: {
           required: true,
           pattern: '[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}'
@@ -46,7 +52,7 @@ export class RegisterComponent implements OnInit {
         },
       },
       {
-        name: 'confirm password',
+        name: 'cPassword',
         label: 'Confirm Password',
         value: '',
         placeHolder: 'Enter password again',
@@ -58,10 +64,46 @@ export class RegisterComponent implements OnInit {
       },
     ]
   }
+  secretCodeControl = {
+    name: 'secretCode',
+    label: 'Secret code',
+    value: '',
+    placeHolder: 'Secret code',
+    type: 'secretCode',
+    errorMessage:'Please enter secret code',
+    validators: {
+      required: true,
+    },
+  };
+  selectedRole: any;
+  isAMentor: boolean;
+  secretCode: string = "";
 
-  constructor() { }
+  constructor(
+    private routerParms: ActivatedRoute,
+    private authService: AuthService,
+    private Router: Router) { 
+    routerParms.queryParams.subscribe(data =>{
+      this.selectedRole = data['selectedRole'];
+      if(this.selectedRole == "Mentor"){
+        this.formData.controls.push(this.secretCodeControl);
+        this.isAMentor = true;
+      }
+    })
+  }
 
   ngOnInit(): void {
+  }
+  onSignUp(){
+    this.authService.createAccount(this.signup.myForm.value);
+    this.createUser();
+  }
+  async createUser(){
+    let formJson = this.signup.myForm.value;
+    formJson.isAMentor = this.isAMentor ? this.isAMentor : false;
+    if(_.isEqual(formJson.password,formJson.cPassword)){
+      this.Router.navigate(['./auth/otp'])
+    }
   }
 
 }
