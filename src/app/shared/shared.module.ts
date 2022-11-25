@@ -27,7 +27,6 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NoDataFoundComponent } from './components/no-data-found/no-data-found.component';
 
-​
 @NgModule({
   declarations: [
     DynamicFormComponent,
