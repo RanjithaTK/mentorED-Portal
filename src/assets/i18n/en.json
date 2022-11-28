@@ -42,5 +42,10 @@
     "UPCOMING_SESSIONS":"Upcoming sessions",
     "PAST_SESSIONS":"Past sessions",
     "CLICK_HERE_TO_CREATE_NEW_SESSION":"Click here to create a new session",
-    "NOT_IMPLEMENTED":"This feature is not yet implemented"
+    "NOT_IMPLEMENTED":"This feature is not yet implemented",
+    "NEXT":"Next",
+    "MENTOR":"I'm a Mentor",
+    "MENTEE":"I'm a Mentee",
+    "MENTOR_DESCRIPTION":"Build confidence as a leader, and grow your network",
+    "MENTEE_DESCRIPTION":"Learn and grow from verified Mentors"
 }

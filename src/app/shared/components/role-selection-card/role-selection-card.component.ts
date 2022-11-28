@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core"
+import { TranslateService } from '@ngx-translate/core'
 @Component({
   selector: "app-role-selection-card",
   templateUrl: "./role-selection-card.component.html",
@@ -8,7 +9,7 @@ export class RoleSelectionCardComponent implements OnInit {
   @Input() role: any
   @Input() isSelected:any
   @Output() cardOneSelected = new EventEmitter()
-  constructor() {}
+  constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {}
 
