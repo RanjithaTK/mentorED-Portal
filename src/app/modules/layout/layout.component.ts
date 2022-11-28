@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-layout',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
+  options=[{label:"English",value:"en"},{label:"Hindi",value:"hi"}]
+  selectedLanguage="en"
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

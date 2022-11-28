@@ -25,6 +25,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { NoDataFoundComponent } from './components/no-data-found/no-data-found.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     SessionCardComponent,
     StarRatingComponent,
     RoleSelectionCardComponent,
-    CountdownTimerComponent
+    CountdownTimerComponent,
+    NoDataFoundComponent
   ],
   imports: [
     CommonModule,
@@ -78,7 +80,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     RoleSelectionCardComponent,
     CountdownTimerComponent,
     MatToolbarModule,
-    FormsModule
+    FormsModule,
+    NoDataFoundComponent
   ]
 })
 export class SharedModule { }
