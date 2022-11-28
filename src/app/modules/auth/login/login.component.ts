@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
         label: 'Email ID',
         value: '',
         type: 'email',
+        placeHolder: 'yourname@gmail.com',
         errorMessage:'Please enter registered email ID',
         validators: {
           required: true,
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
         label: 'Password',
         value: '',
         type: 'password',
+        placeHolder: 'Enter password',
         errorMessage: 'Minimum 8 charectors needed',
         validators: {
           required: true
