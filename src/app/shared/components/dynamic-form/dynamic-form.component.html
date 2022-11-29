@@ -7,7 +7,9 @@
                 class="form-field-label" 
                 [ngClass]="{
                     'form-field-invalid':myForm.get(control?.name)?.touched && myForm.get(control?.name)?.invalid
-                }">
+                }"
+                *ngIf="['chip', 'rating', 'date'].includes(control?.type)"
+                >
                 {{control?.label}}
                 <mat-icon *ngIf="control?.validators?.required"
                     class="error-icon-star">star
@@ -16,6 +18,7 @@
 
             <!-- field -->
             <mat-form-field *ngIf="textBoxTypes.includes(control?.type)" appearance="outline">
+                <mat-label>{{control?.label}}</mat-label>
                 <input matInput 
                     [placeholder]="control?.placeHolder"
                     [type]="control?.type"
@@ -34,6 +37,7 @@
             </mat-form-field>
 
             <mat-form-field *ngIf="control?.type==='textarea'" appearance="outline">
+                <mat-label>{{control?.label}}</mat-label>
                 <textarea matInput 
                     [formControlName]="control?.name"
                     [placeholder]="control?.placeHolder"
@@ -43,6 +47,7 @@
             </mat-form-field>
 
             <mat-form-field *ngIf="control?.type==='select'" appearance="outline">
+                <mat-label>{{control?.label}}</mat-label>
                 <mat-select 
                     [value]="control?.value"
                     [formControlName]="control?.name"
@@ -57,6 +62,7 @@
             </mat-form-field>
 
             <mat-form-field *ngIf="control?.type === 'toggle'" appearance="outline">
+                <mat-label>{{control?.label}}</mat-label>
                 <mat-slide-toggle
                     [formControlName]="control?.name" 
                     [checked]="control?.value"
@@ -69,6 +75,7 @@
             </mat-form-field>
 
             <mat-form-field *ngIf="control?.type==='range'" appearance="outline">
+                <mat-label>{{control?.label}}</mat-label>
                 <mat-slider
                     thumbLabel
                     [step]="control?.step"
