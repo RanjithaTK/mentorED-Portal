@@ -10,8 +10,8 @@
             <app-countdown-timer [timeLimit]="timeLimit" fxFlex="50%"></app-countdown-timer>
         </div>
         <div fxLayoutAlign="center">
-            <button class="resend-otp" mat-button (click)="resendOTP()"
-                fxLayout="row wrap">{{"RESEND_OTP"|translate}}</button>
+            <a class="resend-otp"  (click)="resendOTP()"
+                fxLayout="row wrap">{{"RESEND_OTP"|translate}}</a>
         </div>
         <div fxLayout="row" fxLayoutAlign="center center">
             <mat-checkbox class="checkbox" [(ngModel)]="checked" fxFlex="50%">
