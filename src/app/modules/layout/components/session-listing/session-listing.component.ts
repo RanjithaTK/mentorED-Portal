@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { ApiService } from 'src/app/core/services';
+import { API_CONSTANTS} from 'src/app/core/constants/apiUrlConstants'
+
 
 @Component({
   selector: 'app-session-listing',
@@ -170,15 +173,22 @@ export class SessionListingComponent implements OnInit {
   start: any = 0;
   lastIndex: any = 4;
   selectedPage: any;
+page:any=1;
+limit:any=4;
+type:any="all-sessions"
+status:any = "allSessions"
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private apiService: ApiService) {
     this.selectedPage = router.url
+    
   }
 
   ngOnInit(): void {
+    this.getAllSession();
 
     if (this.selectedPage == '/enrolled-sessions') {
       this.cardHeading = "MY_SESSIONS"
+      
       this.cardDetails = this.apiCardDetails.result.mySessions;
     } else {
       this.cardHeading = "ALL_SESSIONS"
@@ -187,9 +197,25 @@ export class SessionListingComponent implements OnInit {
 
   }
 
-
   onClickViewMore() {
     this.lastIndex = this.cardDetails.length;
+  }
+  getAllSession(){
+    // let type = this.type == "all-sessions" ? false : true
+    let config = {
+      url: API_CONSTANTS.HOME_SESSION + this?.page + '&limit=' + this?.limit ,
+      payload:{}
+    };
+   
+    // let data = this.apiService.get(config);
+    let data: any = this.apiService.get(config);
+    console.log(data)
+
+    
+    // this.apiService.get(config).subscribe(data =>{
+    //   console.log(data)
+    // })
+  
   }
 
 }
