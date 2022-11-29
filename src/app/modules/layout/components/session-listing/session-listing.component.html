@@ -9,7 +9,7 @@
             </div>
         </div>
         <div fxFlex="50%" fxLayoutAlign="center">
-            <button class="view-more" fxFlex="50%" mat-raised-button color="primary" *ngIf="cardDetails.length > 4 "
+            <button class="view-more" fxFlex="50%" mat-raised-button color="primary" *ngIf="cardDetails?.length > lastIndex"
                 (click)="onClickViewMore()">{{"VIEW_MORE"|translate}}</button>
         </div>
     </div>
