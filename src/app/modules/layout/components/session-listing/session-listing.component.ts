@@ -28,7 +28,7 @@ export class SessionListingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllSession();
+    
     if (this.selectedPage == '/enrolled-sessions') {
       this.cardHeading = "MY_SESSIONS"
       this.status = "enrolled-sessions";
@@ -36,7 +36,7 @@ export class SessionListingComponent implements OnInit {
       this.cardHeading = "ALL_SESSIONS"
       this.status = "all-sessions";
     }
-
+    this.getAllSession();
   }
 
   onClickViewMore() {
