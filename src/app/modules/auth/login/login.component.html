@@ -1,64 +1,44 @@
 <div class="container" fxLayoutAlign="center stretch" fxLayout="column">
-  <div
-    fxLayout="column"
-    fxLayoutAlign="center space-evently"
-  >
+  <div fxLayout="column" fxLayoutAlign="center space-evently">
     <div>
       <h1>
         {{ "WELCOME_BACK" | translate }}
       </h1>
     </div>
     <div fxLayout="row" fxLayoutAlign="center">
-      <app-dynamic-form
-        [jsonFormData]="formData"
-        #loginForm
-        fxFlex="60%"
-      ></app-dynamic-form>
-    </div>
-    <div fxLayout="row" fxLayoutAlign="center">
-      <button
-        mat-raised-button
-        color="primary"
-        [disabled]="!loginForm.myForm.valid"
-        class="btn login"
-        (click)="onSubmit()"
-        fxFlex="60%"
-      >
-        {{ "LOGIN" | translate }}
-      </button>
-    </div>
-    <div
-      fxLayout="row"
-      fxLayoutAlign="center"
-      fxlayout.md="column"
-      fxLayout.xs="column"
-    >
-      <mat-checkbox fxFlex="40" fxFlex.sm="30" fxFlex.gt-md="45" fxLayoutAlign="center center" class="example-margin">
-        {{"REMEMBER_ME" | translate}}
-      </mat-checkbox>
-      <a fxFlex="40" fxFlex.sm="30" fxFlex.gt-md="45" fxLayoutAlign="center center" href="https://www.google.com/" target="_blank" class="button">{{
-        "FORGOT_PASSWORD" | translate
-      }}</a>
+      <div fxFlex="50" fxFlex.sm="80" fxFlex.xs="95" fxLayout="column">
+        <app-dynamic-form [jsonFormData]="formData" #loginForm fxFlex="100"></app-dynamic-form>
+        <button mat-raised-button color="primary" [disabled]="!loginForm.myForm.valid" class="btn login"
+          (click)="onSubmit()" fxFlex="100">
+          {{ "LOGIN" | translate }}
+        </button>
+        <div  fxLayout="row" fxLayoutAlign="space-between" >
+          <mat-checkbox class="remember-me" [(ngModel)]="rememberMe">
+            {{"REMEMBER_ME" | translate}}
+          </mat-checkbox>
+          <a mat-button href="https://www.google.com/"  class="forgot-password">{{
+          "FORGOT_PASSWORD" | translate
+          }}</a>
+        </div>
+      </div>
     </div>
   </div>
   <div fxLayout="column" fxLayoutAlign="center space-evently" fxFlex fxFlexOffset="20px">
     <div fxLayoutAlign="center center">
       <div class="divider" fxLayoutAlign="center center">
-        <div class="line"><mat-divider></mat-divider></div>
+        <div class="line">
+          <mat-divider></mat-divider>
+        </div>
         <div class="text mat-typography">
           {{ "NEW_TO_MENTORED" | translate }}
         </div>
-        <div class="line"><mat-divider></mat-divider></div>
+        <div class="line">
+          <mat-divider></mat-divider>
+        </div>
       </div>
     </div>
     <div fxLayout="row" fxLayoutAlign="center">
-      <button
-        fxFlex="60"
-        class="btn-signup"
-        mat-raised-button
-        color="primary"
-        routerLink="/auth/role-selection"
-      >
+      <button fxFlex="50" fxFlex.sm="80" fxFlex.xs="95" class="btn-signup" mat-raised-button color="primary" routerLink="/auth/role-selection">
         {{ "SIGN_UP" | translate }}
       </button>
     </div>
