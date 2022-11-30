@@ -41,7 +41,6 @@ export class ProfileService {
     };
     return this.apiService.get(config).pipe(
       map((result: any) => {
-        console.log(result)
         let data = _.get(result, 'result');
         this.localStorage.saveLocalData(localKeys.USER_DETAILS, JSON.stringify(data));
         return data;
