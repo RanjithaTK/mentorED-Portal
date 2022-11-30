@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {MatSnackBar} from '@angular/material/snack-bar';
+
 import { ApiService } from 'src/app/core/services';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants'
 
@@ -21,7 +21,7 @@ export class SessionListingComponent implements OnInit {
   page: any = 1;
   limit: any = 4;
 
-  constructor(private router: Router, private apiService: ApiService,private _snackBar: MatSnackBar) {
+  constructor(private router: Router, private apiService: ApiService) {
     this.selectedPage = router.url
 
   }
@@ -42,13 +42,7 @@ export class SessionListingComponent implements OnInit {
 
     this.apiService.get(config).subscribe((data: any) => {
       this.cardDetails = (this.selectedPage == '/enrolled-sessions') ? data.result.mySessions : data.result.allSessions;
-      if(!this.cardDetails.length){
-        this._snackBar.open("No sessions","Ok", {
-          horizontalPosition: "center",
-          verticalPosition: "top",
-        });
-       
-      }
+
     })
 
   }
