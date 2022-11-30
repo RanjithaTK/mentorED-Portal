@@ -19,13 +19,14 @@ mat-card {
 }
 
 .image {
-  width: 7rem;
-  height: 7rem;
+  max-width: 7rem;
+  max-height: 7rem;
 }
 .title{
   padding-top: 4%;
   font-weight: 600;
   color: $black;
+  text-align:center
 }
 
 .content{

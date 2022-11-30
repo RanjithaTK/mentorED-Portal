@@ -4,6 +4,7 @@
     fxLayout="row"
     fxLayout.sm="column"
     fxLayoutGap="4% "
+    fxLayout.lt-md="2%"
     fxLayoutAlign="center center"
   >
     <app-role-selection-card
@@ -11,6 +12,8 @@
       [isSelected]="role.role == selectedRole"
       [role]="role"
       (cardOneSelected)="cardOneSelected($event)"
+    fxFlex.lt-md="42%"
+
     ></app-role-selection-card>
   </div>
 
