@@ -1,13 +1,12 @@
 @import "../../../../variables";
-.content {
-  padding-top: 15%;
-}
-
 .button {
-  width: 100%;
-  margin-top: 10%;
+  min-width: 70%;
+  margin-top: 6%;
 }
 .button-enabled{
   background:$theme-gradient !important;
   color: $white;
+}
+.card-wrapper{
+  width:75%
 }

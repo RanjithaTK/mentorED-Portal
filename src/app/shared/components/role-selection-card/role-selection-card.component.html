@@ -1,4 +1,4 @@
-<div class="card-wrapper" fxLayoutGap="40px" >
+<div class="card-wrapper"  fxFlex fxLayoutAlign="space-evenly"  >
   <mat-card fxLayout="column"
   fxLayoutAlign="start center"
     class="mentor-card" 
@@ -11,10 +11,10 @@
     <img class="image" src="{{role?.image}}"/>
   </div>
   <div class="title">
-{{role.role}}
+{{role.role|translate}}
   </div>
-  <div class="content" fxLayoutAlign="center center">
-    {{role.description}}
+  <div class="content" fxLayoutAlign="center center"  >
+    {{role.description|translate}}
   </div>
    
   </mat-card>

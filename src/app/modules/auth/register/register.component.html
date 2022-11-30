@@ -9,10 +9,10 @@
       <h1>{{'CREATE_NEW_ACCOUNT' | translate}}</h1>
     </div>
     <div fxLayoutAlign="center" fxFlexOffset="20px">
-      <app-dynamic-form [jsonFormData]="formData" #signup fxFlex="55"></app-dynamic-form>
+      <app-dynamic-form [jsonFormData]="formData" #signup fxFlex="50" fxFlex.sm="80" fxFlex.xs="95"></app-dynamic-form>
     </div>
     <div fxLayoutAlign="center">
-      <button fxFlex="55" mat-raised-button color="primary" (click)="onSignUp()">{{ "SIGN_UP" | translate }}</button>
+      <button fxFlex="50" fxFlex.sm="80" fxFlex.xs="95" mat-raised-button color="primary" (click)="onSignUp()">{{ "SIGN_UP" | translate }}</button>
     </div>
   </div>
 </div>

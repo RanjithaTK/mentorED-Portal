@@ -11,7 +11,7 @@
     "SEARCH":"Search",
     "OTP_LABEL_REGISTER": "We just sent a confirmation code over to your@email id",
     "MINUTES_REMAINING": "minutes remaining",
-    "RESEND_OTP": "Didn't recieve? Send another code",
+    "RESEND_OTP": "Didn't receive? Send another code",
     "BY_CONTINUING_AGREE_TO_ACCEPT": "By continuing, you agree to accept our",
     "PRIVACY_POLICY_CAPS": "Privacy Policy",
     "TERMS_OF_USE": "Terms of Service",
@@ -50,5 +50,10 @@
     "LOGIN_HEADER":"Welcome to MentorED.",
     "LOGIN_SUB_HEADER":"We missed you! Sign in to catch up with the community.",
     "SIGNUP_HEADER":"Welcome to MentorED!",
-    "SIGNUP_SUB_HEADER":"Search for top Mentors, enroll for live masterclass and enhance your learning"
+    "SIGNUP_SUB_HEADER":"Search for top Mentors, enroll for live masterclass and enhance your learning",
+    "NEXT":"Next",
+    "MENTOR":"I'm a Mentor",
+    "MENTEE":"I'm a Mentee",
+    "MENTOR_DESCRIPTION":"Build confidence as a leader, and grow your network",
+    "MENTEE_DESCRIPTION":"Learn and grow from verified Mentors"
 }

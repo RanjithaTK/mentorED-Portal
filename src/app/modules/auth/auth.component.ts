@@ -1,7 +1,7 @@
-import { Location } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
 import { filter } from 'rxjs/operators';
+import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 
 @Component({
   selector: "app-auth",
@@ -11,11 +11,12 @@ import { filter } from 'rxjs/operators';
 export class AuthComponent implements OnInit {
   header: any;
   subHeader: any;
+  isPhone: boolean;
 
-  constructor(private router: Router, private location: Location) {
+  constructor(private responsive: BreakpointObserver, private router: Router) {
     router.events.pipe(
-      filter((event:any) => event instanceof NavigationEnd)
-    ).subscribe(data=>{
+      filter((event: any) => event instanceof NavigationEnd)
+    ).subscribe(data => {
       let key = data.url.split('?')[0].split('/').pop()
       switch (key) {
         case 'login':
@@ -38,8 +39,10 @@ export class AuthComponent implements OnInit {
         default:
           break;
       }
+      this.responsive.observe(Breakpoints.Handset).subscribe(result => {
+        this.isPhone = result.matches
+      })
     })
   }
-
-  ngOnInit(): void {}
-}
+    ngOnInit(): void {}
+  }
