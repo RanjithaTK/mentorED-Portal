@@ -6,14 +6,18 @@
 <div class="body" fxlayout="row" fxlayout.md="column" fxLayout.xs="column">
   <div
     class="body-content left-div"
+    fxLayout="column"
     fxFlex.lt-md="column"
     fxlayout.md="column"
     fxLayout.xs="column"
     fxLayoutAligmnet="space-between center"
   >
-    <h1>
-      {{ "AUTH_WELCOME_MSG" | translate }}
+    <h1 class="text">
+      {{ header | translate }}
     </h1>
+    <label class=text>
+      {{subHeader | translate}}
+    </label>
   </div>
   <div
     class="body-content right-div"

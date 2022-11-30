@@ -31,8 +31,7 @@ mat-toolbar{
 }
 .body-content{
   display: flex;
-  align-items: center;
-  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
 }
 .left-div{
@@ -41,10 +40,20 @@ mat-toolbar{
   background-repeat: no-repeat;
   background-position: bottom center;
 }
-.left-div h1{
-  color: $white;
-  font-weight: bold;
-}
+
 .right-div{
   background-color: $white;
+}
+.text{
+  color: $white;
+  font-weight: bold;
+  margin-left: 55px;
+  font-size: 45px;
+  line-height: 50px;
+  width: 60%;
+}
+label.text{
+  font-size: 25px;
+  font-weight: normal;
+  line-height: 35px;
 }
