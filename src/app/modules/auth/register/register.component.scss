@@ -1,11 +1,16 @@
 @import "/src/variables";
 
+.container{
+   padding-top: 3%;
+   padding-bottom: 3%;
 
+}
 .container h1{
     font-weight: bold;
     text-align: center;
     letter-spacing: 2px;
     color: $theme;
+    padding-top: 3%;
 }
 .signup-link{
     padding-right: 20px;
@@ -13,4 +18,5 @@
     letter-spacing: 2px;
     color: $blue;
     text-decoration: none;
+    font-weight: 500
 }
