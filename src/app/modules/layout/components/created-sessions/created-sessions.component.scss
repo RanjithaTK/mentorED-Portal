@@ -8,7 +8,6 @@
     padding-left: 12%;
     font-weight: 500;
 }
-
 .create-session-button {
     padding: 0 3% 0 3%;
     background-color: $green ;
@@ -37,4 +36,12 @@
 
 .create-session-horizontal-line {
     margin: 2% 0 1% 0;
+}
+
+::ng-deep .mat-snack-bar-container{
+background-color: $red;
+color:$white; 
+}
+::ng-deep .mat-button{
+    color:$white;    
 }

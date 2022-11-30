@@ -16,7 +16,6 @@ export class SessionCardComponent implements OnInit {
   constructor(private localStorage:LocalStorageService,private translate: TranslateService) { }
 
   async ngOnInit() {
-    console.log(this.cardData)
     this.isCreator = await this.checkIfCreator();
     this.setButtonConfig(this.isCreator);
   }

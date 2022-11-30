@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/core/services';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants'
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-created-sessions',
@@ -17,7 +18,7 @@ export class CreatedSessionsComponent implements OnInit {
   page: any = 1;
   limit: any = 4;
   status: any = "completed"
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     let user: any = localStorage.getItem('user')
@@ -41,7 +42,14 @@ export class CreatedSessionsComponent implements OnInit {
       payload: {}
     };
     this.apiService.get(config).subscribe((data: any) => {
-      this.upcomingCardDetails = data.result[0]
+      this.upcomingCardDetails = data.result[0].data
+      if(!this.upcomingCardDetails.length){
+        this._snackBar.open("No upcoming sessions","Ok", {
+          horizontalPosition: "center",
+          verticalPosition: "top",
+        });
+        
+      }
     })
 
   }
@@ -53,6 +61,12 @@ export class CreatedSessionsComponent implements OnInit {
     };
     this.apiService.get(config).subscribe((data: any) => {
       this.pastCardDetails = data.result.data
+      if(!this.pastCardDetails.length){
+        this._snackBar.open("No past sessions","Ok", {
+          horizontalPosition: "center",
+          verticalPosition: "top",
+        });
+      }
 
     })
   }

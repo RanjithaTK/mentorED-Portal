@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { ApiService } from 'src/app/core/services';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants'
 
@@ -20,22 +20,15 @@ export class SessionListingComponent implements OnInit {
   selectedPage: any;
   page: any = 1;
   limit: any = 4;
-  status: any = "allSessions"
 
-  constructor(private router: Router, private apiService: ApiService) {
+  constructor(private router: Router, private apiService: ApiService,private _snackBar: MatSnackBar) {
     this.selectedPage = router.url
 
   }
 
   ngOnInit(): void {
     
-    if (this.selectedPage == '/enrolled-sessions') {
-      this.cardHeading = "MY_SESSIONS"
-      this.status = "enrolled-sessions";
-    } else {
-      this.cardHeading = "ALL_SESSIONS"
-      this.status = "all-sessions";
-    }
+    this.cardHeading = (this.selectedPage == '/enrolled-sessions') ? "MY_SESSIONS" : "ALL_SESSIONS";
     this.getAllSession();
   }
 
@@ -44,13 +37,18 @@ export class SessionListingComponent implements OnInit {
   }
   getAllSession() {
     let config = {
-      url: API_CONSTANTS.HOME_SESSION + this?.page + '&limit=' + this?.limit,
-      payload: {}
+      url: API_CONSTANTS.HOME_SESSION + this?.page + '&limit=' + this?.limit
     };
 
     this.apiService.get(config).subscribe((data: any) => {
-      this.cardDetails = (this.status == "enrolled-sessions") ? data.result.mySessions : data.result.allSessions;
-
+      this.cardDetails = (this.selectedPage == '/enrolled-sessions') ? data.result.mySessions : data.result.allSessions;
+      if(!this.cardDetails.length){
+        this._snackBar.open("No sessions","Ok", {
+          horizontalPosition: "center",
+          verticalPosition: "top",
+        });
+       
+      }
     })
 
   }
