@@ -3,20 +3,25 @@
     <img class="header-logo" src="/assets/images/MentorEd-logo.svg" />
   </mat-toolbar-row>
 </mat-toolbar>
-<div class="body" fxlayout="row" fxlayout.md="column" fxLayout.xs="column">
+<div class="body" [ngClass]="{'body-height': !isPhone}"  fxlayout="row" fxlayout.md="column" fxLayout.xs="column">
   <div
     class="body-content left-div"
+    fxLayout="column"
     fxFlex.lt-md="column"
     fxlayout.md="column"
     fxLayout.xs="column"
     fxLayoutAligmnet="space-between center"
   >
-    <h1>
-      {{ "AUTH_WELCOME_MSG" | translate }}
+    <h1 class="text">
+      {{ header | translate }}
     </h1>
+    <label class=text>
+      {{subHeader | translate}}
+    </label>
   </div>
   <div
-    class="body-content right-div"
+    class="body-content "
+    [ngClass]= "{'right-div': !isPhone,'right-div-mobile': isPhone }"
     fxFlex.lt-md="column"
     fxlayout.md="column"
     fxLayout.xs="column"

@@ -16,35 +16,51 @@
   width: 60px;
   height: min-content;
 }
-mat-toolbar{
-  position: sticky;
-  width: 100%;
-  top: 0%;
-  left: 0%;
-  z-index: 99;
-}
+
 .body{
   height: 100%;
   width: 100%;
   display: grid;
   grid-template-columns: 40% 60%;
 }
+.body-height {
+  height: calc(100vh - 66px);
+}
 .body-content{
   display: flex;
-  align-items: center;
-  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
+
 }
 .left-div{
   background: url(/assets/images/IsolationMode.svg) 13% 108% no-repeat,$theme-gradient;
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: bottom center;
+  min-height: 50vh;
 }
-.left-div h1{
+
+.right-div{
+  background-color: $white;
+}
+.text{
   color: $white;
   font-weight: bold;
+  margin-left: 55px;
+  font-size: 45px;
+  line-height: 50px;
+  width: 60%;
+}
+label.text{
+  font-size: 25px;
+  font-weight: normal;
+  line-height: 35px;
 }
 .right-div{
+  background-color: $white;
+  overflow-y: auto;
+}
+
+.right-div-mobile {
   background-color: $white;
 }

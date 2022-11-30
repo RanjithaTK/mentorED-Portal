@@ -4,15 +4,13 @@
   color: $red !important;
 }
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 mat-form-field {
   display: flex;
   flex-direction: column;
 }
-::ng-deep .mat-form-field-wrapper{
-  padding-bottom: 4px;
-}
+
 mat-error {
   display: inline-flex;
   align-items: center;
