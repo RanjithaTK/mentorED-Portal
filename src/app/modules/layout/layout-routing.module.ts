@@ -5,11 +5,14 @@ import { FaqComponent } from './components/faq/faq.component';
 import { MentorDirectoryComponent } from './components/mentor-directory/mentor-directory.component';
 import { SessionListingComponent } from './components/session-listing/session-listing.component';
 import { LayoutComponent } from './layout.component';
+import { PrivateGuard } from '../../core/guards/private.guard';
+
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    canActivate: [PrivateGuard],
     children: [
       {
         path: '',
