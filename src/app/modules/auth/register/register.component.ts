@@ -85,7 +85,7 @@ export class RegisterComponent implements OnInit {
     private router: Router) { 
     routerParms.queryParams.subscribe(data =>{
       this.selectedRole = data['selectedRole'];
-      if(this.selectedRole == "Mentor"){
+      if(this.selectedRole == "MENTOR"){
         this.formData.controls.push(this.secretCodeControl);
         this.isAMentor = true;
       }
