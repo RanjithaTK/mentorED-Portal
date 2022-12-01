@@ -20,7 +20,6 @@ export class PrivateGuard implements CanActivate {
           this.router.navigate(['/auth/login'])
           return false
         }
-    })
-  }
-  
+      })
+    }
 }

@@ -14,12 +14,6 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot) {
-      return true
-    }
-
-  canActivateChild(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot){
       return this.localStorage.getLocalData(localKeys.TOKEN).then((token: any) => {
         if(token){
           this.router.navigate(['/home'])
@@ -27,6 +21,6 @@ export class AuthGuard implements CanActivate {
         } else {
           return true
         }
-    })
-  }
+      })
+    }
 }
