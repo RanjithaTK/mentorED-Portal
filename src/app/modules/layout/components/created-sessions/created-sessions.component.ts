@@ -17,7 +17,9 @@ export class CreatedSessionsComponent implements OnInit {
   pastCardDetails: any;
   page: any = 1;
   limit: any = 4;
-  status: any = "completed"
+  status: any = "completed";
+  loading: boolean = false;
+
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
@@ -41,8 +43,12 @@ export class CreatedSessionsComponent implements OnInit {
       url: API_CONSTANTS.UPCOMING_SESSIONS + id + "?page=1&limit=100",
       payload: {}
     };
+    this.loading = true;
     this.apiService.get(config).subscribe((data: any) => {
-      this.upcomingCardDetails = data.result[0].data
+      this.loading = false;
+      this.upcomingCardDetails = (data.result && data.result.length) ? data.result[0].data : [];
+    }, error => {
+      this.loading = false;
     })
 
   }
@@ -52,8 +58,12 @@ export class CreatedSessionsComponent implements OnInit {
       url: API_CONSTANTS.GET_SESSIONS_LIST + this.status + "?page=1&limit=100",
       payload: {}
     };
+    this.loading = true;
     this.apiService.get(config).subscribe((data: any) => {
+      this.loading = false;
       this.pastCardDetails = data.result.data
+    }, error => {
+      this.loading = false;
     })
   }
 
