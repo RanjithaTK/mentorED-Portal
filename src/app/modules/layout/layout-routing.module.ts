@@ -15,7 +15,7 @@ const routes: Routes = [
     canActivate: [PrivateGuard],
     children: [
       {
-        path: '',
+        path: 'home',
         component: SessionListingComponent
       },
 

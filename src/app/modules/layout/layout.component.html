@@ -1,19 +1,10 @@
 <mat-drawer-container class="example-container">
   <mat-drawer #drawer class="drawer" position="end">
-    <div fxLayoutAlign="center" >
+    <div fxLayoutAlign="center">
       <div class="languageSelection" fxLayoutAlign="center">
         <mat-icon class="language-icon">language</mat-icon>
-        <mat-select
-          fxFlexAlign="center"
-          [(value)]="selectedLanguage"
-          selectedLanguage="en"
-        >
-          <mat-option
-            fxFlex
-            class="options"
-            [value]="option.value"
-            *ngFor="let option of options"
-          >
+        <mat-select fxFlexAlign="center" [(value)]="selectedLanguage" selectedLanguage="en">
+          <mat-option fxFlex class="options" [value]="option.value" *ngFor="let option of options">
             {{ option.label }}
           </mat-option>
         </mat-select>
@@ -22,6 +13,7 @@
   </mat-drawer>
   <mat-drawer-content>
     <app-header (menuToggleEvent)="drawer.toggle()"></app-header>
+
     <div>
       <app-page-navigator></app-page-navigator>
     </div>
