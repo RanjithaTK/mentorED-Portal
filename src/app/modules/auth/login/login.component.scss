@@ -1,36 +1,35 @@
 @import "/src/variables";
 
-
-.container{
-    padding-bottom: 6%;
+.container {
+  padding-bottom: 6%;
 }
-
-.container h1{
-    font-weight: bold;
-    text-align: center;
-    letter-spacing: 2px;
-    color: $theme;
-    padding: 5% 0 5% 0;
+.container h1 {
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 2px;
+  color: $theme;
+  padding: 5% 0 5% 0;
 }
-a{
+.forgot-password {
   color: rgb(55, 55, 206);
   text-decoration: none;
 }
 mat-divider {
-    border-top-color: $theme;
+  border-top-color: $theme;
 }
 .divider {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: $black;
-    width: 80%;
-  }
-  
-  .line {
-    flex: 1;
-  }
-  
-  .text {
-    padding: 0 7%;
-  }
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: $black;
+  width: 80%;
+}
+.line {
+  flex: 1;
+}
+.text {
+  padding: 0 7%;
+}
+.remember-me {
+  margin-top: 5px;
+}
 

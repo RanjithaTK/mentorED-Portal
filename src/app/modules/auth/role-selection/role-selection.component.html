@@ -1,20 +1,31 @@
+<div fxLayout="column">
+  <div
+    class="content"
+    fxLayout="row"
+    fxLayout.sm="column"
+    fxLayoutGap="4% "
+    fxLayout.lt-md="2%"
+    fxLayoutAlign="center center"
+  >
+    <app-role-selection-card
+      *ngFor="let role of roleList"
+      [isSelected]="role.role == selectedRole"
+      [role]="role"
+      (cardOneSelected)="cardOneSelected($event)"
+    fxFlex.lt-md="42%"
 
-<div class="card-wrapper" fxLayout="row" fxLayout.sm="column" fxLayoutGap="30px ">
-  <app-role-selection-card 
-    *ngFor="let role of roleList"
-    [isSelected]="role.role==selectedRole"
-    [role]="role"
-    (cardOneSelected)="cardOneSelected($event)"
     ></app-role-selection-card>
-</div>
-  <button mat-raised-button  
+  </div>
+
+  <div fxFlex="50%" fxLayoutAlign="center">
+    <button fxFlex="30%" mat-raised-button color="primary" mat-raised-button
     [ngClass]="{
-      'button-enabled' : buttonEnable
+      'button-enabled': buttonEnable
     }"
     class="button"
     type="submit"
     [disabled]="!buttonEnable"
     (click)="buttonClick()"
-  >
-    Next
-  </button>
+        >{{"NEXT" | translate}}</button>
+</div>
+</div>
