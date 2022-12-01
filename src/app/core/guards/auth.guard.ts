@@ -10,21 +10,16 @@ import { LocalStorageService } from '../services/local-storage/local-storage.ser
 export class AuthGuard implements CanActivate {
 
   constructor(private router: Router, private localStorage: LocalStorageService) { }
+
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      return this.localStorage.getLocalData(localKeys.TOKEN).then((token: any) => {
-        if(token){
-          return true
-        } else {
-          this.router.navigate(['/auth/login'])
-          return false
-        }
-    })
-  }
+    state: RouterStateSnapshot) {
+      return true
+    }
+
   canActivateChild(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    state: RouterStateSnapshot){
       return this.localStorage.getLocalData(localKeys.TOKEN).then((token: any) => {
         if(token){
           this.router.navigate(['/home'])
