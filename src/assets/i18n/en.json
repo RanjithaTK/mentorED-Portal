@@ -58,5 +58,7 @@
     "MENTEE_DESCRIPTION":"Learn and grow from verified Mentors",
     "ENROLL":"Enroll",
     "JOIN":"Join",
-    "START":"Start"
+    "START":"Start",
+    "LOGIN_SUCCESS_MESSAGE":"You have loggedin successfully",
+    "LOGIN_ERROR_MESSAGE":"Credential mismatch"
 }

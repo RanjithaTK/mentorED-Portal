@@ -42,42 +42,40 @@ export class LoginComponent implements OnInit {
     ]
   };
   formData :any= {controls: []}
-
   constructor(
-    private router: Router, 
+    private router: Router,
     private authService: AuthService,
-    private toastService : ToastService,
-    private localStorage: LocalStorageService ) { }
+    private toastService: ToastService,
+    private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
     this.getRemeberdDetails();
   }
 
-  async getRemeberdDetails () {
+  async getRemeberdDetails() {
     const rememberdDetails = await this.localStorage.getLocalData(localKeys.REMEMBER_ME);
-    let details:any = null;
+    let details: any = null;
     details
-    if(rememberdDetails){
+    if (rememberdDetails) {
       details = JSON.parse(atob(rememberdDetails));
     }
     for (const control of this.controls.controls) {
       control["value"] = details ? details[control.type] : '';
     }
     this.formData.controls = this.controls.controls;
-    
+
   }
 
   async onSubmit() {
     (await this.authService.loginAccount(this.loginForm.myForm.value)).subscribe(async (response: any) => {
-      if(this.rememberMe){
-        this.localStorage.saveLocalData(localKeys.REMEMBER_ME, btoa(JSON.stringify(this.loginForm.myForm.value)) )
-      } 
+      if (this.rememberMe) {
+        this.localStorage.saveLocalData(localKeys.REMEMBER_ME, btoa(JSON.stringify(this.loginForm.myForm.value)))
+      }
       this.router.navigate(['/home']);
-      this.toastService.showMessage("You have loggedin successfully",'success');
-    },error =>{
-      console.log(error)
-      this.toastService.showMessage("Credential mismatch",'error');
+      this.toastService.showMessage("LOGIN_SUCCESS_MESSAGE", 'success');
+    }, error => {
+      this.toastService.showMessage("LOGIN_ERROR_MESSAGE", 'error');
     })
-   
+
   }
 }
