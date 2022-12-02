@@ -26,7 +26,7 @@ export class ApiService {
   async setHeader(): Promise<any> {
     return new Promise(async (resolve) => {
       try {
-        let token = this.userService.token ? this.userService.token : await this.localStorage.getLocalData(localKeys.TOKEN);
+        let token = this.userService.token ? this.userService.token : JSON.parse(await this.localStorage.getLocalData(localKeys.TOKEN));
         let userToken = token ? 'bearer ' + token?.access_token : '';
         const headers = {
           'X-auth-token': userToken ? userToken : '',
