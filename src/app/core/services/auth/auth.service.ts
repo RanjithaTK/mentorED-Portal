@@ -20,7 +20,7 @@ export class AuthService {
 
     async createAccount(formData: any) {
       const config = {
-        url: API_CONSTANTS.REGISTRATION_OTP,
+        url: API_CONSTANTS.CREATE_ACCOUNT,
         payload: formData,
       };
       try {
