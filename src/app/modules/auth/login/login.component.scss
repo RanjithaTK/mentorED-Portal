@@ -12,6 +12,11 @@
 }
 .forgot-password {
   color: rgb(55, 55, 206);
+  text-decoration: none;
+  padding-top: 2%;
+}
+.validation{
+  padding-top: 3%;
 }
 mat-divider {
   border-top-color: $theme;
