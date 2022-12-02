@@ -9,7 +9,6 @@
 
 .card-images {
     padding: 10px;
-
 }
 .mat-icon {
     font-size: 20px;
@@ -43,4 +42,13 @@
 .card-detail-bold {
     font-weight: 500;
 
+}
+
+.image {
+    width:100%;
+    height:100%;    
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 180px;
+    background-position: center;
 }

@@ -25,7 +25,7 @@
     "CREATED_SESSIONS": "Created sessions",
     "MENTOR_DIRECTORY": "Mentor directory",
     "FOOTER_SIGNUP_TEXT": "Connect to a community of Mentor and Mentees anywhere, anytime, with just one App!",
-    "FOOTER_SIGNUP_CONTAINS": "MentorEd is a NDEAR Compliant offering that is also available on Playstore.",
+    "FOOTER_SIGNUP_CONTAINS": "MentorED is a NDEAR Compliant offering that is also available on Playstore.",
     "DOWNLOAD_NOW": "Download now",
     "QUICK_LINKS": "Quick links",
     "FAQ": "FaQs",
@@ -60,5 +60,8 @@
     "JOIN":"Join",
     "START":"Start",
     "LOGIN_SUCCESS_MESSAGE":"You have loggedin successfully",
-    "LOGIN_ERROR_MESSAGE":"Credential mismatch"
+    "LOGIN_ERROR_MESSAGE":"Credential mismatch",
+    "NO_ENROLL_SESSION_CONTENT":"Enroll for live session hosted by verified education leaders!",
+    "NO_ALL_SESSION_CONTENT":"Sorry, no results found. Try searchng for something else.",
+    "NO_CREATED_SESSION_CONTENT":"Share what you know with the community!"
 }

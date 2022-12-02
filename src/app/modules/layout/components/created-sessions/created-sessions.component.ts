@@ -9,7 +9,7 @@ import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants'
   styleUrls: ['./created-sessions.component.scss']
 })
 export class CreatedSessionsComponent implements OnInit {
-  noData: any = { "content": "Share what you know with the community!" }
+  noData: any = "NO_CREATED_SESSION_CONTENT"
   start: any = 0;
   lastIndexUpcomingSessions: any = 2;
   lastIndexPastSessions: any = 2;
