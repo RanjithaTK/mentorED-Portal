@@ -56,9 +56,6 @@ input[type='search'] {
   box-shadow: 1px 2px 2px 1px $light-grey;
 }
 
-.language-icon {
-  position: relative;
-}
 .select-button {
   border-radius: 20px;
   padding: 0px 25px;
@@ -88,13 +85,13 @@ input[type='search'] {
   padding-left: 13%;
 }
 
-.languageSelection {
+.menu-button {
   border-radius: 25px;
   box-shadow: 2px 2px 1px 1px $light-grey;
   width: 36%;
   transition: all 0.4s ease-in-out;
 }
-.languageSelection:hover {
+.menu-button:hover {
   transform: scale(1.009, 1.009);
   box-shadow: 3px 3px 1px 1px $grey;
 }
