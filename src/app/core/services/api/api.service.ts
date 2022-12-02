@@ -45,14 +45,14 @@ export class ApiService {
     console.log(this.httpHeaders);
     return this.http.get(`${this.baseUrl}${config.url}`, {headers: this.httpHeaders})
       .pipe(
-        catchError(this.handleError.bind)
+        catchError(this.handleError.bind(this))
       );
   }
 
   post(config: any) {
     return this.http.post(`${this.baseUrl}${config.url}`, config.payload, {headers: this.httpHeaders})
       .pipe(
-        catchError(this.handleError.bind)
+        catchError(this.handleError.bind(this))
       );
   }
 
