@@ -6,6 +6,7 @@ import { API_CONSTANTS } from '../../constants/apiUrlConstants';
 import { localKeys } from '../../constants/localStorage.keys';
 import { ApiService } from '../api/api.service';
 import { LocalStorageService } from '../local-storage/local-storage.service';
+import { ToastService } from '../toast.service';
 import { UserService } from '../user/user.service';
 
 @Injectable({
@@ -16,6 +17,7 @@ export class AuthService {
   constructor(
     private apiService: ApiService,
     private userService: UserService,
+    private toastService:ToastService,
     private localStorage: LocalStorageService,
     private router: Router
     ) { }
@@ -43,6 +45,7 @@ export class AuthService {
     };
     return this.apiService.post(config).pipe(
       map((result:any) => {
+        this.toastService.showMessage(result.message, 'success');
         this.setUserInLocal(result).then(()=>{
           return result;
         })

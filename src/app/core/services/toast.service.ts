@@ -4,6 +4,7 @@ import {
   MatSnackBar,
 } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
+import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class ToastService {
     this.translate.get([msg]).subscribe(resp => {
       texts = resp;
     })
-    this._snackBar.open(texts[msg], '', {
+    this._snackBar.open((_.isEmpty(texts))?msg:texts[msg], '', {
       horizontalPosition: 'center',
       verticalPosition: 'top',
       duration: this.durationInSeconds * 1000,
