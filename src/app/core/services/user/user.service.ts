@@ -21,7 +21,7 @@ export class UserService {
       this.baseUrl = environment.base_url;
     }
 
-  async getUserValue() {
+  async getUserToken() {
     if(this.token)
       return this.token;
     return this.localStorage

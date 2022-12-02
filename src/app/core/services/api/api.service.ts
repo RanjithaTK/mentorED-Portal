@@ -26,7 +26,7 @@ export class ApiService {
   async setHeader(): Promise<any> {
     return new Promise(async (resolve) => {
       try {
-        let userToken = (await this.userService.getUserValue()) ? 'bearer ' + (await this.userService.getUserValue()).access_token : '';
+        let userToken = (await this.userService.getUserToken()) ? 'bearer ' + (await this.userService.getUserToken()).access_token : '';
         const headers = {
           'X-auth-token': userToken ? userToken : '',
           'Content-Type': 'application/json',
