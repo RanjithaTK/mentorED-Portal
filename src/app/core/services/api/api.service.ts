@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Injectable, Injector, NgZone } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import * as _ from 'lodash';
 import { catchError, map, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -20,7 +20,7 @@ export class ApiService {
   private timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   private httpHeaders: any;
 
-  constructor(private http: HttpClient, private zone: NgZone,private toastService : ToastService,private userService: UserService, private localStorage: LocalStorageService, private injector: Injector) { 
+  constructor(private http: HttpClient,private toastService : ToastService,private userService: UserService, private localStorage: LocalStorageService, private injector: Injector) { 
     this.setHeader();
   }
 
