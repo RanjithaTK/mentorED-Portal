@@ -26,7 +26,7 @@
     "MENTOR_DIRECTORY": "Mentor directory",
     "FOOTER_SIGNUP_TEXT": "Connect to a community of Mentor and Mentees anywhere, anytime, with just one App!",
     "FOOTER_SIGNUP_CONTAINS": "MentorEd is a NDEAR Compliant offering that is also available on Playstore.",
-    "DOWNLOAD_NOW": "Download now !",
+    "DOWNLOAD_NOW": "Download now",
     "QUICK_LINKS": "Quick links",
     "FAQ": "FaQs",
     "GUIDED_VIDEOS": "Guided Videos",
@@ -55,5 +55,10 @@
     "MENTOR":"I'm a Mentor",
     "MENTEE":"I'm a Mentee",
     "MENTOR_DESCRIPTION":"Build confidence as a leader, and grow your network",
-    "MENTEE_DESCRIPTION":"Learn and solve with verified Mentors"
+    "MENTEE_DESCRIPTION":"Learn and solve with verified Mentors",
+    "ENROLL":"Enroll",
+    "JOIN":"Join",
+    "START":"Start",
+    "LOGIN_SUCCESS_MESSAGE":"You have loggedin successfully",
+    "LOGIN_ERROR_MESSAGE":"Credential mismatch"
 }

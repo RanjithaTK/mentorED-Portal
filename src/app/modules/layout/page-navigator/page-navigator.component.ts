@@ -11,10 +11,10 @@ import { TranslateService } from '@ngx-translate/core';
 export class PageNavigatorComponent implements OnInit {
   
   
-  pageNavigatorArray=[{'name':'home','url':'home','label':'HOME'},
-  {'name':'enrolled sessions','url':'enrolled-sessions','label':'ENROLLED_SESSIONS'},
-  {'name':'created sessions','url':'created-sessions','label':'CREATED_SESSIONS'},
-  {'name':'mentor directory','url':'mentor-directory','label':'MENTOR_DIRECTORY'}]
+  pageNavigatorArray=[{'name':'home','url':'/home','label':'HOME'},
+  {'name':'enrolled sessions','url':'/enrolled-sessions','label':'ENROLLED_SESSIONS'},
+  {'name':'created sessions','url':'/created-sessions','label':'CREATED_SESSIONS'},
+  {'name':'mentor directory','url':'/mentor-directory','label':'MENTOR_DIRECTORY'}]
   labels:any;
   pageNavigationLabel:any = ['HOME','ENROLLED_SESSIONS','CREATED_SESSIONS','MENTOR_DIRECTORY']
   selectedPage: any;

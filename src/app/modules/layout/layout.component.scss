@@ -1,9 +1,11 @@
-@import '../../../variables';
+@import "../../../variables";
 .layout-sections {
   background-color: rgb(247, 243, 243);
   border-radius: 2rem 2rem 0 0;
 }
-
+.router-container {
+  min-height: 60vh;
+}
 .footer {
   margin-top: 2%;
 }
@@ -29,7 +31,7 @@
   width: 100%;
   transition: all 0.4s ease-in-out;
   margin-top: 20%;
-  padding:2%
+  padding: 2%;
 }
 .languageSelection:hover {
   transform: scale(1.009, 1.009);

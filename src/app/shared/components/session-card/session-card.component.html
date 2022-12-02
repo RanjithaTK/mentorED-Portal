@@ -23,8 +23,7 @@
         </div>
         <div class="sub-card-details" fxLayout="row">
             <p class="sub-card-view-details">View details</p>
-            <button class="sub-card-details-button" mat-raised-button color="primary">{{cardData.status |
-                titlecase}}</button>
+            <button *ngIf="cardData?.status != 'completed'" class="sub-card-details-button" mat-raised-button color="primary">{{ buttonConfig?.label | translate}}</button>
         </div>
 
     </div>

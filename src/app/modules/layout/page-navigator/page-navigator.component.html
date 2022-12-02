@@ -1,10 +1,11 @@
-<div fxLayout="row wrap" fxLayoutAlign="center">
-    <div class="page-navigator-conatiner" fxLayout="row" *ngIf="labels">
+<div fxLayout="row wrap" fxLayoutAlign="center" fxFlex="100%">
+    <div class="page-navigator-conatiner" fxLayout="row" *ngIf="labels" fxFlex="70%" fxFlex.xs="100%" fxFlex.sm="100%"
+    fxFlex.md="90%" fxLayoutAlign="start end">
 
         <div *ngIf="faq; else elseBlock"> </div>
         <ng-template #elseBlock>
             <div *ngFor='let page of pageNavigatorArray'>
-                <button routerLink='/{{page.url}}' routerLinkActive="active" class="page-navigator-button"
+                <button routerLink='{{page.url}}' routerLinkActive="active" class="page-navigator-button"
                     mat-raised-button>{{labels[page.label] | titlecase }}</button>
             </div>
         </ng-template>
