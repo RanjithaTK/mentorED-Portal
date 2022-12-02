@@ -9,6 +9,9 @@ import { TranslateService } from '@ngx-translate/core';
   providedIn: 'root'
 })
 export class ToastService {
+  showToast(arg0: string, arg1: string) {
+    throw new Error('Method not implemented.');
+  }
   durationInSeconds = 3;
   constructor(private _snackBar: MatSnackBar, private translate: TranslateService) { }
 

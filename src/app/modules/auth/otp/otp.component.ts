@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-otp',
@@ -6,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./otp.component.scss']
 })
 export class OtpComponent implements OnInit {
+  @ViewChild('otpForm', {static: false}) otpFormRef: any;
 
   checked = false;
   timeLimit=60;
@@ -25,13 +29,23 @@ export class OtpComponent implements OnInit {
     ]
   }
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private localStorage: LocalStorageService
+  ) { 
+    
+  }
 
   ngOnInit(): void {
   }
 
   resendOTP(){
     
+  }
+  async onSubmit(){
+    console.log(this.otpFormRef.myForm.value);
+    this.router.navigate(['/home'])
   }
 
 }
