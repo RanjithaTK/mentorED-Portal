@@ -72,10 +72,7 @@ export class LoginComponent implements OnInit {
         this.localStorage.saveLocalData(localKeys.REMEMBER_ME, btoa(JSON.stringify(this.loginForm.myForm.value)))
       }
       this.router.navigate(['/home']);
-      this.toastService.showMessage("LOGIN_SUCCESS_MESSAGE", 'success');
-    }, error => {
-      this.toastService.showMessage("LOGIN_ERROR_MESSAGE", 'error');
-    })
+        })
 
   }
 }
