@@ -21,13 +21,15 @@ export class UserService {
       this.baseUrl = environment.base_url;
     }
 
-  async getUserValue() {
+  async getUserToken() {
+    if(this.token)
+      return this.token;
     return this.localStorage
-      .getLocalData(localKeys.TOKEN)
-      .then((data: any) => {
-        this.token=data;
-        return data;
-      })
+    .getLocalData(localKeys.TOKEN)
+    .then((data: any) => {
+      this.token=JSON.parse(data);
+      return data;
+    })
       .catch((error) => { });
   }
 
