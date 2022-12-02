@@ -3,7 +3,7 @@
     class="content"
     fxLayout="row"
     fxLayout.sm="column"
-    fxLayoutGap="4% "
+    fxLayoutGap="10% "
     fxLayout.lt-md="2%"
     fxLayoutAlign="center center"
   >
@@ -12,12 +12,12 @@
       [isSelected]="role.role == selectedRole"
       [role]="role"
       (cardOneSelected)="cardOneSelected($event)"
-    fxFlex.lt-md="42%"
+    fxFlex.lt-md="39%"
 
     ></app-role-selection-card>
   </div>
 
-  <div fxFlex="50%" fxLayoutAlign="center">
+  <div fxFlex="30%" fxLayoutAlign="center">
     <button fxFlex="30%" mat-raised-button color="primary" mat-raised-button
     [ngClass]="{
       'button-enabled': buttonEnable
