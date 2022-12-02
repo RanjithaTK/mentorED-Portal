@@ -22,7 +22,8 @@
           class="search-input"
         />
         <button
-          fxFlex="16%"
+          fxFlex="13%"
+          fxFlex.lt-lg="17%"
           fxFlex.lt-md="14%"
           fxFlex.lt-sm="30%"
           class="button"
@@ -56,7 +57,7 @@
 
       <span fxFlex></span>
       <div class="letter">
-        <button class="name" mat-fab>P</button>
+        <button class="name" mat-fab>{{letter|titlecase}}</button>
       </div>
     </div>
 

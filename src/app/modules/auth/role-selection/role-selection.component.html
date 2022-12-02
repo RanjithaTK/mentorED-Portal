@@ -1,11 +1,10 @@
-<div fxLayout="column">
+<div fxLayout="column" >
   <div
-    class="content"
     fxLayout="row"
     fxLayout.sm="column"
-    fxLayoutGap="10% "
-    fxLayout.lt-md="2%"
-    fxLayoutAlign="center center"
+    fxLayout.lt-sm="column"
+    fxLayoutGap="10%"
+    fxLayoutAlign="center"
   >
     <app-role-selection-card
       *ngFor="let role of roleList"
@@ -13,11 +12,10 @@
       [role]="role"
       (cardOneSelected)="cardOneSelected($event)"
     fxFlex.lt-md="39%"
-
     ></app-role-selection-card>
   </div>
 
-  <div fxFlex="30%" fxLayoutAlign="center">
+  <div  fxLayoutAlign="center">
     <button fxFlex="30%" mat-raised-button color="primary" mat-raised-button
     [ngClass]="{
       'button-enabled': buttonEnable

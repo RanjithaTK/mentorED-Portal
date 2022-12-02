@@ -7,13 +7,17 @@ import { TranslateService } from '@ngx-translate/core'
 })
 export class HeaderComponent implements OnInit {
   @Output() menuToggleEvent = new EventEmitter()
+  letter:any;
   options = [
     { label: 'English', value: 'en' },
     { label: 'Hindi', value: 'hi' },
   ]
   selectedLanguage = 'en'
   constructor(private translate: TranslateService) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let user: any = localStorage.getItem('user')
+    this.letter = (JSON.parse(user).name)[0]
+  }
   onClick() {
     this.menuToggleEvent.emit()
   }

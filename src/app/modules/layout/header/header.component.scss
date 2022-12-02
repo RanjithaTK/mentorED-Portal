@@ -5,7 +5,7 @@
   padding-left: 1%;
 }
 mat-toolbar {
-  min-height: 70px;
+  min-height: 80px;
   background: $white;
 }
 
@@ -23,7 +23,7 @@ form {
   border-radius: 25px;
   box-shadow: 3px 3px 1px 1px $light-grey;
   background-color: $lighter-grey;
-  min-height: 49%;
+  min-height: 50%;
   padding: 2px;
   max-width: 80%;
   transition: all 0.4s ease-in-out;
