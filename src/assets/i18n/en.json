@@ -60,5 +60,6 @@
     "JOIN":"Join",
     "START":"Start",
     "LOGIN_SUCCESS_MESSAGE":"You have loggedin successfully",
-    "LOGIN_ERROR_MESSAGE":"Credential mismatch"
+    "LOGIN_ERROR_MESSAGE":"Credential mismatch",
+    "LOGOUT":"Logout"
 }

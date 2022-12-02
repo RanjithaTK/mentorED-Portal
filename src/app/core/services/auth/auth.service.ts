@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import * as _ from 'lodash';
 import { map } from 'rxjs';
 import { API_CONSTANTS } from '../../constants/apiUrlConstants';
@@ -16,6 +17,7 @@ export class AuthService {
     private apiService: ApiService,
     private userService: UserService,
     private localStorage: LocalStorageService,
+    private router: Router
     ) { }
 
     async createAccount(formData: any) {
@@ -46,6 +48,13 @@ export class AuthService {
         })
       })
     )
+  }
+
+  logoutAccount() {
+    this.localStorage.clearData();
+    this.userService.token='';
+    this.userService.userEvent.next({});
+    this.router.navigate(['/auth/login']);
   }
   
   async setUserInLocal(data: any) {
