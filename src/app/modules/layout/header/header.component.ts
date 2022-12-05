@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/core/services/auth/auth.service'
 })
 export class HeaderComponent implements OnInit {
   @Output() menuToggleEvent = new EventEmitter()
+  letter:any;
   options = [
     { label: 'English', value: 'en' },
     { label: 'Hindi', value: 'hi' },
