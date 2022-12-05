@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { createSecureServer } from 'http2';
 import * as _ from 'lodash';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { ProfileService } from 'src/app/core/services/profile/profile.service';
+import { ToastService } from 'src/app/core/services/toast.service';
 import { DynamicFormComponent } from 'src/app/shared/components';
 
 @Component({
@@ -82,7 +84,9 @@ export class RegisterComponent implements OnInit {
   constructor(
     private routerParms: ActivatedRoute,
     private authService: AuthService,
-    private router: Router) { 
+    private router: Router,
+    private profileService: ProfileService,
+    private toastService: ToastService) { 
     routerParms.queryParams.subscribe(data =>{
       this.selectedRole = data['selectedRole'];
       if(this.selectedRole == "MENTOR"){
@@ -95,14 +99,22 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   onSignUp(){
-    this.authService.createAccount(this.signup.myForm.value);
+    this.signup.onSubmit();
     this.createUser();
   }
   async createUser(){
     let formJson = this.signup.myForm.value;
     formJson.isAMentor = this.isAMentor ? this.isAMentor : false;
-    if(_.isEqual(formJson.password,formJson.cPassword)){
-      this.router.navigate(['./auth/otp'])
+    if (_.isEqual(formJson.password, formJson.cPassword)) {
+
+      this.profileService.registrationOtp(formJson).subscribe(async (response: any) => {
+        if(response){
+          this.toastService.showMessage("OTP send to mail", "success")
+          this.router.navigate(['/auth/otp'], { state: { type: "signup", formData: formJson } });
+        }
+      })
+    } else {
+      this.toastService.showMessage('Password does not match.', 'danger');
     }
   }
 

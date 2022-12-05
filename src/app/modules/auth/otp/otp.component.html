@@ -22,7 +22,7 @@
                     rel="noreferrer noopener">{{"TERMS_OF_USE"|translate}}</a> </mat-checkbox>
         </div>
         <div fxLayout="row" fxLayoutAlign="center">
-            <button mat-raised-button color="primary" [disabled]="!checked || !otpForm.myForm.valid" class="login-button" fxFlex="50%">
+            <button mat-raised-button color="primary" [disabled]="!checked || !otpForm.myForm.valid" class="login-button" fxFlex="50%" (click)="onSubmit()">
                 {{ "VERIFY_AND_LOGIN" | translate }}
             </button>
         </div>
