@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { ProfileService } from 'src/app/core/services/profile/profile.service';
 import { ToastService } from 'src/app/core/services/toast.service';
 import { DynamicFormComponent } from 'src/app/shared/components';
+import { TranslateService } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-register',
@@ -86,7 +87,8 @@ export class RegisterComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private profileService: ProfileService,
-    private toastService: ToastService) { 
+    private toastService: ToastService,
+    private translate: TranslateService) { 
     routerParms.queryParams.subscribe(data =>{
       this.selectedRole = data['selectedRole'];
       if(this.selectedRole == "MENTOR"){
@@ -109,12 +111,12 @@ export class RegisterComponent implements OnInit {
 
       this.profileService.registrationOtp(formJson).subscribe(async (response: any) => {
         if(response){
-          this.toastService.showMessage("OTP send to mail", "success")
+          this.toastService.showMessage(response.message, 'success');
           this.router.navigate(['/auth/otp'], { state: { type: "signup", formData: formJson } });
         }
       })
     } else {
-      this.toastService.showMessage('Password does not match.', 'danger');
+      this.toastService.showMessage(this.translate.instant("PASSWORD_NOT_MATCH"), 'danger');
     }
   }
 

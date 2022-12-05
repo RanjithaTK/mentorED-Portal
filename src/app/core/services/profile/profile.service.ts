@@ -81,7 +81,6 @@ export class ProfileService {
       url: API_CONSTANTS.REGISTRATION_OTP,
       payload: formData,
     };
-    console.log('config : ',config)
     return this.apiService.post(config).pipe(
       map((result: any) => {
         return result;

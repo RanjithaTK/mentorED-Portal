@@ -44,9 +44,8 @@ export class OtpComponent implements OnInit {
   resendOTP() {}
   async onSubmit() {
     this.signupData.formData.otp = this.otpFormRef.myForm.value.otp;
-    let result = await this.authService.createAccount(this.signupData.formData);
-    if (result) {
-      this.router.navigate(["/home"], { replaceUrl: true });
-    }
+    (await this.authService.createAccount(this.signupData.formData)).subscribe(async (response: any) => {
+      this.router.navigate(['/home']);
+        })
   }
 }
