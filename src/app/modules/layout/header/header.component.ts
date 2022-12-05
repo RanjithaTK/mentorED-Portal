@@ -16,7 +16,10 @@ export class HeaderComponent implements OnInit {
   ]
   selectedLanguage = 'en'
   constructor(private translate: TranslateService, private authService: AuthService) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let user: any = localStorage.getItem('user')
+    this.letter = (JSON.parse(user).name)[0]
+  }
   onClick() {
     this.menuToggleEvent.emit()
   }
