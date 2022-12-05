@@ -60,5 +60,7 @@
     "JOIN":"Join",
     "START":"Start",
     "LOGIN_SUCCESS_MESSAGE":"You have loggedin successfully",
-    "LOGIN_ERROR_MESSAGE":"Credential mismatch"
+    "LOGIN_ERROR_MESSAGE":"Credential mismatch",
+    "OTP_MESSAGE":"OTP send to mail",
+    "PASSWORD_NOT_MATCH":"Password & Confirm Password do not match"
 }
