@@ -1,13 +1,19 @@
 <mat-drawer-container class="example-container">
   <mat-drawer #drawer class="drawer" position="end">
-    <div fxLayoutAlign="center">
-      <div class="languageSelection" fxLayoutAlign="center">
-        <mat-icon class="language-icon">language</mat-icon>
-        <mat-select fxFlexAlign="center" [(value)]="selectedLanguage" selectedLanguage="en">
+    <div fxLayout="column" fxLayoutAlign="center">
+      <div class="menu-button" fxLayoutAlign="space-evenly center">
+        <mat-icon class="icon">language</mat-icon>
+        <mat-select fxFlexAlign="center" [(value)]="selectedLanguage">
           <mat-option fxFlex class="options" [value]="option.value" *ngFor="let option of options">
             {{ option.label }}
           </mat-option>
         </mat-select>
+      </div>
+      <div class="menu-button" fxLayoutAlign="space-evenly center">
+        <mat-button fxFlex="100%" fxLayoutAlign="space-evenly center" (click)="onLogout()">
+          <mat-icon class="icon">exit_to_app</mat-icon>
+          {{"LOGOUT"|translate}}
+        </mat-button>
       </div>
     </div>
   </mat-drawer>

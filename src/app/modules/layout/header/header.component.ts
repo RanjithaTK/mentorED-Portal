@@ -1,5 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core'
+import { Router } from '@angular/router'
 import { TranslateService } from '@ngx-translate/core'
+import { AuthService } from 'src/app/core/services/auth/auth.service'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -13,12 +15,12 @@ export class HeaderComponent implements OnInit {
     { label: 'Hindi', value: 'hi' },
   ]
   selectedLanguage = 'en'
-  constructor(private translate: TranslateService) {}
-  ngOnInit(): void {
-    let user: any = localStorage.getItem('user')
-    this.letter = (JSON.parse(user).name)[0]
-  }
+  constructor(private translate: TranslateService, private authService: AuthService) {}
+  ngOnInit(): void {}
   onClick() {
     this.menuToggleEvent.emit()
+  }
+  onLogout(){
+    this.authService.logoutAccount()
   }
 }
