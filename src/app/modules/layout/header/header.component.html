@@ -13,8 +13,8 @@
       <form fxFlex fxLayout="row" class="img-fluid hover-shadow">
         <mat-icon class="search-icon" matPrefix>search</mat-icon>
         <input
-          fxFlex="80%"
-          fxFlex.lt-md="60%"
+          fxFlex="70%"
+          fxFlex.lt-md="50%"
           matInput
           type="search"
           #searchInput
@@ -22,7 +22,8 @@
           class="search-input"
         />
         <button
-          fxFlex="16%"
+          fxFlex="13%"
+          fxFlex.lt-lg="17%"
           fxFlex.lt-md="14%"
           fxFlex.lt-sm="30%"
           class="button"
@@ -39,7 +40,7 @@
       [fxHide.xs]="true"
     >
       <span fxFlex></span>
-      <div class="languageSelection" fxLayoutAlign="space-around">
+      <div class="menu-button" fxLayoutAlign="space-around">
         <mat-icon class="language-icon">language</mat-icon>
         <mat-select
           class="options"
@@ -56,7 +57,13 @@
 
       <span fxFlex></span>
       <div class="letter">
-        <button class="name" mat-fab>P</button>
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="name" mat-fab>P</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="onLogout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>{{"LOGOUT"|translate}}</span>
+          </button>
+        </mat-menu>
       </div>
     </div>
 

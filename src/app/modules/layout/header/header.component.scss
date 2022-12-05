@@ -1,11 +1,11 @@
 @import '../../../../variables';
 .header-logo {
-  width: 59px;
+  max-width: 59px;
   margin-left: 10px;
-  padding-left: 2%;
+  padding-left: 1%;
 }
 mat-toolbar {
-  min-height: 70px;
+  min-height: 80px;
   background: $white;
 }
 
@@ -16,13 +16,14 @@ mat-toolbar {
 .search-icon {
   color: $theme;
   padding-top: 4px;
+  padding-left: 2%;
 }
 
 form {
   border-radius: 25px;
   box-shadow: 3px 3px 1px 1px $light-grey;
   background-color: $lighter-grey;
-  min-height: 49%;
+  min-height: 50%;
   padding: 2px;
   max-width: 80%;
   transition: all 0.4s ease-in-out;
@@ -44,7 +45,7 @@ input[type='search'] {
   border: none;
   background-color: $grey-shade;
   color: $white;
-  font-size: 10px;
+  font-size: 13px;
 }
 .button:hover {
   background: $grey;
@@ -56,9 +57,6 @@ input[type='search'] {
   box-shadow: 1px 2px 2px 1px $light-grey;
 }
 
-.language-icon {
-  position: relative;
-}
 .select-button {
   border-radius: 20px;
   padding: 0px 25px;
@@ -88,13 +86,13 @@ input[type='search'] {
   padding-left: 13%;
 }
 
-.languageSelection {
+.menu-button {
   border-radius: 25px;
   box-shadow: 2px 2px 1px 1px $light-grey;
   width: 36%;
   transition: all 0.4s ease-in-out;
 }
-.languageSelection:hover {
+.menu-button:hover {
   transform: scale(1.009, 1.009);
   box-shadow: 3px 3px 1px 1px $grey;
 }
