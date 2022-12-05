@@ -61,13 +61,10 @@
     "START":"Start",
     "LOGIN_SUCCESS_MESSAGE":"You have loggedin successfully",
     "LOGIN_ERROR_MESSAGE":"Credential mismatch",
-<<<<<<< HEAD
     "OTP_MESSAGE":"OTP send to mail",
-    "PASSWORD_NOT_MATCH":"Password & Confirm Password do not match"
-=======
+    "PASSWORD_NOT_MATCH":"Password & Confirm Password do not match",
     "LOGOUT":"Logout",
     "NO_ENROLL_SESSION_CONTENT":"Enroll for live session hosted by verified education leaders!",
     "NO_ALL_SESSION_CONTENT":"Sorry, no results found. Try searchng for something else.",
     "NO_CREATED_SESSION_CONTENT":"Share what you know with the community!"
->>>>>>> upstream/release-1.0.0
 }
