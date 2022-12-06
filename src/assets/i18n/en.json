@@ -65,5 +65,6 @@
     "LOGOUT":"Logout",
     "NO_ENROLL_SESSION_CONTENT":"Enroll for live session hosted by verified education leaders!",
     "NO_ALL_SESSION_CONTENT":"Sorry, no results found. Try searchng for something else.",
-    "NO_CREATED_SESSION_CONTENT":"Share what you know with the community!"
+    "NO_CREATED_SESSION_CONTENT":"Share what you know with the community!",
+    "SECRET_CODE_TOAST_MESSAGE" : "Please refer to the on-boarding email for your secret code"
 }

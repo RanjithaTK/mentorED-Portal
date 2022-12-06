@@ -10,7 +10,7 @@ import * as _ from 'lodash';
   providedIn: 'root'
 })
 export class ToastService {
-  durationInSeconds = 3;
+  durationInSeconds = 2;
   constructor(private _snackBar: MatSnackBar, private translate: TranslateService) { }
 
   showMessage(msg: any, cssclass: any) {
