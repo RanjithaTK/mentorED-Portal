@@ -157,7 +157,11 @@ export class DynamicFormComponent implements OnInit {
   }
 
   alertToast(){
-    this._snackBar.open("Please refer to the on-boarding email for your secret code");
+    this._snackBar.open("Please refer to the on-boarding email for your secret code","close",{
+      duration: 2000,
+      verticalPosition: 'top',
+      panelClass: ['warning']
+    });
   }
 
   dateSelected(control:any, date:any) {

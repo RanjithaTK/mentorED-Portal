@@ -69,9 +69,9 @@ export class RegisterComponent implements OnInit {
   }
   secretCodeControl = {
     name: 'secretCode',
-    label: 'Secret code',
+    label: 'Enter valid secret code',
     value: '',
-    placeHolder: 'Secret code',
+    placeHolder: 'Enter valid secret code',
     type: 'secretCode',
     errorMessage:'Please enter secret code',
     validators: {
