@@ -159,12 +159,6 @@ export class DynamicFormComponent implements OnInit {
   }
 
   alertToast(){
-    // this._snackBar.open("Please refer to the on-boarding email for your secret code","close",{
-    //   duration: 2000,
-    //   horizontalPosition: 'center',
-    //   verticalPosition: 'top',
-    //   panelClass: ['warning']
-    // });
     this.toastService.showMessage(this.translate.instant("SECRET_CODE_TOAST_MESSAGE"),'warning')
   }
 
