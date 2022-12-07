@@ -39,10 +39,6 @@
   background-position: bottom center;
   min-height: 50vh;
 }
-
-.right-div{
-  background-color: $white;
-}
 .text{
   color: $white;
   font-weight: bold;
@@ -58,7 +54,6 @@ label.text{
 }
 .right-div{
   background-color: $white;
-  overflow-y: auto;
 }
 
 .right-div-mobile {
