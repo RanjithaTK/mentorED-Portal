@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
         name: 'email',
         label: 'Email ID',
         value: '',
-        placeHolder: 'yourname@gmail.com',
+        placeHolder: 'yourname@email.com',
         type: 'email',
         errorMessage:'Please enter valid email ID',
         validators: {
@@ -69,7 +69,7 @@ export class RegisterComponent implements OnInit {
   }
   secretCodeControl = {
     name: 'secretCode',
-    label: 'Enter valid secret code',
+    label: 'Secret code',
     value: '',
     placeHolder: 'Enter valid secret code',
     type: 'secretCode',
