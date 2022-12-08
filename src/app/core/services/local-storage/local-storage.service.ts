@@ -21,10 +21,12 @@ export class LocalStorageService {
       })
     }
     
-    public removeLocalData(key: string): Promise<any> {
+    public removeLocalData(key: Array<string>): Promise<any> {
       return new Promise((resolve, reject) => {
-        let data = localStorage.removeItem(key)
-        resolve(data)
+        for (const keys of key) {
+          localStorage.removeItem(keys);
+      }
+        resolve(key)
       })
     }
     
