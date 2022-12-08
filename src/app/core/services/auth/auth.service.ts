@@ -53,7 +53,7 @@ export class AuthService {
   }
 
   logoutAccount() {
-    this.localStorage.clearData();
+    this.localStorage.removeLocalData([localKeys.USER_DETAILS,localKeys.TOKEN,localKeys.SELECTED_LANGUAGE]);
     this.userService.token='';
     this.userService.userEvent.next({});
     this.router.navigate(['/auth/login']);
