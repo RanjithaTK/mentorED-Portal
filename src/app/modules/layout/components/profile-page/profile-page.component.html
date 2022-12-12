@@ -1,0 +1,44 @@
+<div *ngIf="details" fxLayoutAlign="center">
+  <mat-card class="card" fxLayout="column" fxLayoutAlign="center">
+    <mat-card-header fxLayout="column" fxLayoutAlign="center center">
+      <div>
+        <img src="{{ details?.image }}" alt="profilepic" />
+      </div>
+      <div class="title">{{ details?.name | titlecase }}</div>
+      <div
+        fxLayout="row"
+        fxLayoutAlign="space-around center"
+        class="title"
+        *ngFor="let location of details?.location"
+      >
+        <mat-icon class="location-icon">room</mat-icon>
+        <div>{{ location?.label }}</div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-around center" class="title">
+        <mat-icon class="star-icon">grade</mat-icon>
+
+        <div>{{ details?.rating?.average }}(19+ sessions)</div>
+      </div>
+
+      <button
+        class="edit-button"
+        fxLayoutAlign="center"
+        fxLayout="row"
+        fxFlex.lt-md="20%"
+        fxFlex.lt-sm="8%"
+      >
+        <mat-icon class="edit-icon">mode_edit_outline</mat-icon>
+        <h4 class="edit-text">Edit profile</h4>
+      </button>
+    </mat-card-header>
+
+    <span layout="row"><hr flex /></span>
+
+    <mat-card-content>
+      
+      <app-generic-details
+        [details]="details"
+      ></app-generic-details>
+    </mat-card-content>
+  </mat-card>
+</div>

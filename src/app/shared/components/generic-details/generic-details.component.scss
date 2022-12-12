@@ -1,0 +1,35 @@
+@import '../../../../variables';
+.title {
+  font-weight: 500;
+  font-size: small;
+}
+.data {
+  padding: 1% 0 0 0;
+}
+.description {
+  text-align: center;
+  align-items: center;
+  background-color: $white;
+  padding: 1%;
+  font-weight: 400;
+}
+mat-label {
+  border: 1px solid $theme;
+  background-color: $white;
+  color: $theme;
+  border-radius: 5px;
+  font-size: smaller;
+  padding: 4px;
+}
+
+span {
+  background-color: $white;
+}
+.mat-chip.mat-standard-chip {
+  background-color: $white;
+}
+.details {
+  text-align: center;
+  font-size: small;
+  font-weight: 400;
+}

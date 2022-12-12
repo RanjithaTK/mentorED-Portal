@@ -27,6 +27,7 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NoDataFoundComponent } from './components/no-data-found/no-data-found.component';
 import { MatMenuModule} from '@angular/material/menu';
+import { GenericDetailsComponent } from './components/generic-details/generic-details.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MatMenuModule} from '@angular/material/menu';
     StarRatingComponent,
     RoleSelectionCardComponent,
     CountdownTimerComponent,
-    NoDataFoundComponent
+    NoDataFoundComponent,
+    GenericDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -84,7 +86,8 @@ import { MatMenuModule} from '@angular/material/menu';
     MatToolbarModule,
     FormsModule,
     NoDataFoundComponent,
-    MatMenuModule
+    MatMenuModule,
+    GenericDetailsComponent
   ]
 })
 export class SharedModule { }
