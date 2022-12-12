@@ -8,6 +8,8 @@
     class="description"
     fxLayoutAlign="center"
     *ngIf="isArray((details?.data)[detail?.key]); else elseBlock"
+    fxLayout.lt-sm="column"
+    fxLayoutGap.lt-sm="7%"
   >
     <mat-chip *ngFor="let chip of (details?.data)[detail?.key]" class="chip">
       <mat-label>{{ chip.label }}</mat-label><span>&nbsp;</span>
