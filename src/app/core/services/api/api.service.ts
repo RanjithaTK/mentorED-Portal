@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { API_CONSTANTS } from '../../constants/apiUrlConstants';
 import { localKeys } from '../../constants/localStorage.keys';
 import { HttpOptions } from '../../interfaces/httpOptions';
+import { AuthService } from '../auth/auth.service';
 import { LocalStorageService } from '../local-storage/local-storage.service';
 import { ToastService } from '../toast/toast.service';
 import { UserService } from '../user/user.service';
@@ -66,10 +67,11 @@ export class ApiService {
     this.errorToast(error.error.message);
     switch (error.status) {
       case 401:
-        return throwError("UNAUTHORIZED")
+        this.injector.get(AuthService).logoutAccount();
+        return throwError(() => console.log(error));
 
       default:
-        return throwError(error)
+        return throwError(() => console.log(error));
     }
    
   }
