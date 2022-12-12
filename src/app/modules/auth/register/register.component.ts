@@ -51,7 +51,9 @@ export class RegisterComponent implements OnInit {
         type: 'password',
         errorMessage:'Please enter password',
         validators: {
-          required: true
+          required: true,
+          minLength: 8,
+          pattern: "^[a-zA-Z0-9!@#%$&()\\-`.+,/\"]*$",
         },
       },
       {
@@ -62,7 +64,9 @@ export class RegisterComponent implements OnInit {
         type: 'password',
         errorMessage:'Please enter password',
         validators: {
-          required: true
+          required: true,
+          minLength: 8,
+          pattern: "^[a-zA-Z0-9!@#%$&()\\-`.+,/\"]*$",
         },
       },
     ]
@@ -76,6 +80,8 @@ export class RegisterComponent implements OnInit {
     errorMessage:'Please enter secret code',
     validators: {
       required: true,
+      minLength: 4,
+      pattern: ''
     },
   };
   selectedRole: any;
