@@ -31,11 +31,11 @@ export class ProfileService {
             if (data) {
               resolve(data);
             } else {
-              var res = await this.getProfileDetailsAPI();
-              await this.localStorage.saveLocalData(
-                localKeys.USER_DETAILS,
-                JSON.stringify(res)
-              );
+              //var res = await this.getProfileDetailsAPI();
+              // await this.localStorage.saveLocalData(
+              //   localKeys.USER_DETAILS,
+              //   JSON.stringify(res)
+              // );
               data = _.get(data, "user");
               resolve(data);
             }
@@ -44,9 +44,9 @@ export class ProfileService {
     });
   }
 
-  getProfileDetailsAPI() {
+  getProfileDetailsAPI(id: string, isAMentor: boolean) {
     const config = {
-      url: API_CONSTANTS.PROFILE_DETAILS,
+      url: (isAMentor === true) ? API_CONSTANTS.MENTOR_PROFILE_DETAILS + id : API_CONSTANTS.MENTEE_PROFILE_DETAILS + id,
       payload: {},
     };
     return this.apiService.get(config).pipe(
@@ -68,14 +68,15 @@ export class ProfileService {
     };
     return this.apiService.post(config).pipe(
       map(async (response: any) => {
-        let profileData = await this.getProfileDetailsAPI();
-        await this.localStorage.saveLocalData(
-          localKeys.USER_DETAILS,
-          JSON.stringify(profileData)
-        );
-        this.userService.userEvent.next(profileData);
-        this._location.back();
-        return profileData;
+        // this.getProfileDetailsAPI().subscribe(async (user: any) => {
+        //   await this.localStorage.saveLocalData(
+        //     localKeys.USER_DETAILS,
+        //     JSON.stringify(user)
+        //   )
+        //   this.userService.userEvent.next(user);
+        //   this._location.back();
+        //   return user;
+        // });
       })
     );
   }
