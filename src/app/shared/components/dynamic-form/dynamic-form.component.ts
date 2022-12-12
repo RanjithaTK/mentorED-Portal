@@ -4,7 +4,7 @@ import * as _ from 'lodash-es';
 import * as moment from 'moment';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
-import { ToastService } from 'src/app/core/services/toast.service';
+import { ToastService } from 'src/app/core/services/toast/toast.service';
 import { TranslateService } from '@ngx-translate/core';
 
 interface JsonFormValidators {
