@@ -29,7 +29,7 @@ export class ProfileService {
           .getLocalData(localKeys.USER_DETAILS)
           .then(async (data) => {
             if (data) {
-              resolve(data);
+              resolve(JSON.parse(data));
             } else {
               //var res = await this.getProfileDetailsAPI();
               // await this.localStorage.saveLocalData(

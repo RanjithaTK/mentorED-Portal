@@ -23,6 +23,8 @@ import { CreatedSessionsComponent } from './components/created-sessions/created-
 import { MentorDirectoryComponent } from './components/mentor-directory/mentor-directory.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     SessionListingComponent,
     CreatedSessionsComponent,
     MentorDirectoryComponent,
-    FaqComponent
+    FaqComponent,
+    ProfilePageComponent
+    
+
   ],
   imports: [
     CommonModule,
@@ -52,7 +57,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     FlexLayoutModule,
     MatButtonModule,
     SharedModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCardModule
 
   ]
 

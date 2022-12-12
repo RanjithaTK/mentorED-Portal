@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { CreatedSessionsComponent } from './components/created-sessions/created-sessions.component';
-import { FaqComponent } from './components/faq/faq.component';
-import { MentorDirectoryComponent } from './components/mentor-directory/mentor-directory.component';
-import { SessionListingComponent } from './components/session-listing/session-listing.component';
-import { LayoutComponent } from './layout.component';
-import { PrivateGuard } from '../../core/guards/private.guard';
-
+import { NgModule } from '@angular/core'
+import { RouterModule, Routes } from '@angular/router'
+import { CreatedSessionsComponent } from './components/created-sessions/created-sessions.component'
+import { FaqComponent } from './components/faq/faq.component'
+import { MentorDirectoryComponent } from './components/mentor-directory/mentor-directory.component'
+import { SessionListingComponent } from './components/session-listing/session-listing.component'
+import { LayoutComponent } from './layout.component'
+import { PrivateGuard } from '../../core/guards/private.guard'
+import { ProfilePageComponent } from './components/profile-page/profile-page.component'
 
 const routes: Routes = [
   {
@@ -41,14 +41,15 @@ const routes: Routes = [
         redirectTo: 'home',
         pathMatch: 'full'
       },
-
-
-    ]
-  }
-];
+      { path: 'profile',
+        component: ProfilePageComponent
+      }
+    ],
+  },
+]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class LayoutRoutingModule { }
+export class LayoutRoutingModule {}

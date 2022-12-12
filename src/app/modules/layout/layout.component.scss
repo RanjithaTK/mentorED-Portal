@@ -1,13 +1,13 @@
 @import "../../../variables";
 .layout-sections {
-  background-color: rgb(247, 243, 243);
+  background-color: $grey-bg;
   border-radius: 2rem 2rem 0 0;
 }
 .router-container {
   min-height: 60vh;
 }
 .footer {
-  margin-top: 2%;
+  margin-top: 11%;
 }
 .drawer {
   width: 25%;
@@ -56,4 +56,7 @@ mat-select {
 }
 mat-button {
   padding-right: 22px;
+}
+mat-drawer-content{
+  background-color: $white;
 }
