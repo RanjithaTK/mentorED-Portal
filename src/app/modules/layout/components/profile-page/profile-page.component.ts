@@ -41,6 +41,5 @@ export class ProfilePageComponent implements OnInit {
   }
   async getDetails() {
     this.details.data = await this.profileService.profileDetails()
-    console.log(this.details)
   }
 }
