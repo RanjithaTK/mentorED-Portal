@@ -1,5 +1,5 @@
 <div *ngIf="showForm">
-    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="myForm" (keyup.enter)="onSubmit()">
         <div *ngFor="let control of jsonFormData?.controls" class="form-group">
 
             <!-- field labels -->
