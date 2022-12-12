@@ -1,12 +1,13 @@
-import { Location } from '@angular/common'
-import { Injectable } from '@angular/core'
-import * as _ from 'lodash'
-import { map } from 'rxjs'
-import { API_CONSTANTS } from '../../constants/apiUrlConstants'
-import { localKeys } from '../../constants/localStorage.keys'
-import { ApiService } from '../api/api.service'
-import { LocalStorageService } from '../local-storage/local-storage.service'
-import { UserService } from '../user/user.service'
+import { Location } from "@angular/common";
+import { Injectable } from "@angular/core";
+import * as _ from "lodash";
+import { map } from "rxjs";
+import { API_CONSTANTS } from "../../constants/apiUrlConstants";
+import { localKeys } from "../../constants/localStorage.keys";
+import { ApiService } from "../api/api.service";
+import { LocalStorageService } from "../local-storage/local-storage.service";
+import { ToastService } from "../toast.service";
+import { UserService } from "../user/user.service";
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +18,8 @@ export class ProfileService {
     private apiService: ApiService,
     private userService: UserService,
     private _location: Location,
+    private toastService: ToastService,
+    private toast: ToastService
   ) {}
 
   async profileDetails(): Promise<any> {
@@ -76,12 +79,23 @@ export class ProfileService {
     const config = {
       url: API_CONSTANTS.REGISTRATION_OTP,
       payload: formData,
-    }
-    console.log('config : ', config)
+    };
     return this.apiService.post(config).pipe(
       map((result: any) => {
         return result
       }),
     )
+  }
+  generateOtp(formData: any) {
+    const config = {
+      url: API_CONSTANTS.GENERATE_OTP,
+      payload: formData,
+    };
+    return this.apiService.post(config).pipe(
+      map((result: any) => {
+        this.toast.showMessage(result.message, "success");
+        return result;
+      })
+    );
   }
 }

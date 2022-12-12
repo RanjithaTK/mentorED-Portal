@@ -27,15 +27,14 @@ export class AuthService {
         url: API_CONSTANTS.CREATE_ACCOUNT,
         payload: formData,
       };
-      try {
-        this.apiService.post(config).subscribe((data: any) =>{
-          this.setUserInLocal(data)
+      return this.apiService.post(config).pipe(
+        map((result:any) => {
+          this.toastService.showMessage(result.message, 'success');
+          this.setUserInLocal(result).then(()=>{
+            return result;
+          })
         })
-        return config;
-      }
-      catch (error) {
-        return null
-      }
+      )
     }
 
   async loginAccount(formData: any){
@@ -54,7 +53,7 @@ export class AuthService {
   }
 
   logoutAccount() {
-    this.localStorage.clearData();
+    this.localStorage.removeLocalData([localKeys.USER_DETAILS,localKeys.TOKEN,localKeys.SELECTED_LANGUAGE]);
     this.userService.token='';
     this.userService.userEvent.next({});
     this.router.navigate(['/auth/login']);

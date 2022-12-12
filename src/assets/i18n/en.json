@@ -1,6 +1,6 @@
 {
     "AUTH_WELCOME_MSG": "Welcome to mentorED",
-    "CREATE_NEW_ACCOUNT": "Create New Account",
+    "CREATE_NEW_ACCOUNT": "Create My Account",
     "LOGIN": "Login",
     "VIEW_MORE": "Load more",
     "WELCOME_BACK": "Welcome Back !",
@@ -61,6 +61,7 @@
     "START":"Start",
     "LOGIN_SUCCESS_MESSAGE":"You have loggedin successfully",
     "LOGIN_ERROR_MESSAGE":"Credential mismatch",
+    "PASSWORD_NOT_MATCH":"Password & Confirm Password do not match",
     "LOGOUT":"Logout",
     "NO_ENROLL_SESSION_CONTENT":"Enroll for live session hosted by verified education leaders!",
     "NO_ALL_SESSION_CONTENT":"Sorry, no results found. Try searchng for something else.",
@@ -71,5 +72,6 @@
     "YEAR_OF_EXPERIENCE":"Years of experience",
     "KEY_AREAS_OF_EXPERTISE":"Areas of expertise",
     "EDUCATION_QUALIFICATION":"Education qualification",
-    "YEARS":" years"
+    "YEARS":" years",
+    "SECRET_CODE_TOAST_MESSAGE" : "Please refer to the on-boarding email for your secret code"
 }

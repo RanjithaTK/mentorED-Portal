@@ -1,9 +1,11 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as _ from 'lodash-es';
 import * as moment from 'moment';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { ToastService } from 'src/app/core/services/toast.service';
+import { TranslateService } from '@ngx-translate/core';
 
 interface JsonFormValidators {
   min?: number;
@@ -48,7 +50,7 @@ export interface DynamicFormData {
   styleUrls: ['./dynamic-form.component.scss']
 })
 export class DynamicFormComponent implements OnInit {
-
+  @Output() onEnter = new EventEmitter();
   @Input() jsonFormData: any;
   textBoxTypes = ['email', 'number', 'text', 'password', 'search', 'tel', 'secretCode'];
   public myForm: FormGroup = this.fb.group({});
@@ -63,7 +65,7 @@ export class DynamicFormComponent implements OnInit {
   dependedParent: any;
   dependedParentDate: any;
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) { }
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar,private toastService: ToastService,private translate: TranslateService) { }
 
 
   ngOnInit() {
@@ -141,6 +143,7 @@ export class DynamicFormComponent implements OnInit {
   
   onSubmit() {
     this.isFormValid();
+    this.onEnter.emit(this.isFormValid())
   }
   
   reset() {
@@ -157,7 +160,7 @@ export class DynamicFormComponent implements OnInit {
   }
 
   alertToast(){
-    this._snackBar.open("Please refer to the on-boarding email for your secret code");
+    this.toastService.showMessage(this.translate.instant("SECRET_CODE_TOAST_MESSAGE"),'warning')
   }
 
   dateSelected(control:any, date:any) {

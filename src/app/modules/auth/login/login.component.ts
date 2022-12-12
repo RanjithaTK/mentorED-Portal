@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { localKeys } from 'src/app/core/constants/localStorage.keys';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
@@ -36,7 +36,9 @@ export class LoginComponent implements OnInit {
         placeHolder: 'Enter password',
         errorMessage: 'Minimum 8 characters needed',
         validators: {
-          required: true
+          required: true,
+          minLength: 8,
+          pattern: "^[a-zA-Z0-9!@#%$&()\\-`.+,/\"]*$"
         },
       },
     ]
@@ -73,6 +75,5 @@ export class LoginComponent implements OnInit {
       }
       this.router.navigate(['/home']);
         })
-
   }
 }

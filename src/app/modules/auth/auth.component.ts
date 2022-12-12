@@ -17,7 +17,7 @@ export class AuthComponent implements OnInit {
     router.events.pipe(
       filter((event: any) => event instanceof NavigationEnd)
     ).subscribe(data => {
-      let key = data.url.split('?')[0].split('/').pop()
+      let key = data.urlAfterRedirects.split('?')[0].split('/').pop()
       switch (key) {
         case 'login':
           this.header = "LOGIN_HEADER"
