@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as _ from 'lodash-es';
 import * as moment from 'moment';
@@ -50,7 +50,7 @@ export interface DynamicFormData {
   styleUrls: ['./dynamic-form.component.scss']
 })
 export class DynamicFormComponent implements OnInit {
-
+  @Output() onEnter = new EventEmitter();
   @Input() jsonFormData: any;
   textBoxTypes = ['email', 'number', 'text', 'password', 'search', 'tel', 'secretCode'];
   public myForm: FormGroup = this.fb.group({});
@@ -143,6 +143,7 @@ export class DynamicFormComponent implements OnInit {
   
   onSubmit() {
     this.isFormValid();
+    this.onEnter.emit(this.isFormValid())
   }
   
   reset() {
