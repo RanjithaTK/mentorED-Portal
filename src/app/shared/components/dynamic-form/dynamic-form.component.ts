@@ -2,7 +2,7 @@ import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as _ from 'lodash-es';
 import * as moment from 'moment';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { ToastService } from 'src/app/core/services/toast/toast.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -160,7 +160,12 @@ export class DynamicFormComponent implements OnInit {
   }
 
   alertToast(){
-    this.toastService.showMessage(this.translate.instant("SECRET_CODE_TOAST_MESSAGE"),'warning')
+    this._snackBar.open(this.translate.instant("SECRET_CODE_TOAST_MESSAGE"),'',{
+      duration: 2000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+      panelClass: 'snack_bar'
+    })
   }
 
   dateSelected(control:any, date:any) {

@@ -26,13 +26,11 @@
                     [maxlength]="control?.validators.maxLength" 
                     [required]="control?.validators?.required">
                 <mat-icon matSuffix 
-                    color="warn"
                     *ngIf="control?.type === 'password' || control?.showPasswordIcon"
                     (click)="hideShowPassword(control)">
                     {{control?.type === 'password' ? 'visibility_off' : 'visibility'}}
                 </mat-icon>
                 <mat-icon matSuffix 
-                    color="warn"
                     *ngIf="control?.type === 'secretCode'" 
                     (click)="alertToast()">info
                 </mat-icon>
