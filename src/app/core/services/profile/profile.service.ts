@@ -16,9 +16,6 @@ export class ProfileService {
   constructor(
     private localStorage: LocalStorageService,
     private apiService: ApiService,
-    private userService: UserService,
-    private _location: Location,
-    private toastService: ToastService,
     private toast: ToastService
   ) {}
 
@@ -31,20 +28,30 @@ export class ProfileService {
             if (data) {
               resolve(JSON.parse(data));
             } else {
-              //var res = await this.getProfileDetailsAPI();
-              // await this.localStorage.saveLocalData(
-              //   localKeys.USER_DETAILS,
-              //   JSON.stringify(res)
-              // );
-              data = _.get(data, "user");
-              resolve(data);
+              this.getProfileDetails().subscribe((user) => {
+                this.getProfileDetailsWithRole(user._id, user.isAMentor).subscribe((user)=>{
+                  resolve(user);
+                })
+              })
             }
           });
-      } catch (error) {}
+      } catch (error) { }
     });
   }
 
-  getProfileDetailsAPI(id: string, isAMentor: boolean) {
+  getProfileDetails() {
+    const config = {
+      url: API_CONSTANTS.PROFILE_DETAILS,
+      payload: {},
+    };
+    return this.apiService.get(config).pipe(
+      map((result: any) => {
+        return result.result;
+      })
+    );
+  }
+
+  getProfileDetailsWithRole(id: string, isAMentor: boolean) {
     const config = {
       url: (isAMentor === true) ? API_CONSTANTS.MENTOR_PROFILE_DETAILS + id : API_CONSTANTS.MENTEE_PROFILE_DETAILS + id,
       payload: {},
@@ -68,15 +75,7 @@ export class ProfileService {
     };
     return this.apiService.post(config).pipe(
       map(async (response: any) => {
-        // this.getProfileDetailsAPI().subscribe(async (user: any) => {
-        //   await this.localStorage.saveLocalData(
-        //     localKeys.USER_DETAILS,
-        //     JSON.stringify(user)
-        //   )
-        //   this.userService.userEvent.next(user);
-        //   this._location.back();
-        //   return user;
-        // });
+          return response;
       })
     );
   }
