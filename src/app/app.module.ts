@@ -10,6 +10,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from './modules/layout/layout.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgxIndexedDBModule, DBConfig } from 'ngx-indexed-db';
+import { DbConfig } from './core/constants/dbConfig';
+
+const dbConfig:DBConfig = DbConfig;
 
 export function translateHttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -35,6 +39,7 @@ export function translateHttpLoaderFactory(httpClient: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    NgxIndexedDBModule.forRoot(dbConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
