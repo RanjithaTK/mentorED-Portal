@@ -121,7 +121,7 @@ export class RegisterComponent implements OnInit {
         }
       })
     } else {
-      this.toastService.showMessage(this.translate.instant("PASSWORD_NOT_MATCH"), 'danger');
+      this.toastService.showMessage(this.translate.instant("PASSWORD_NOT_MATCH"), 'warning');
     }
   }
 

@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   constructor(private translate: TranslateService, private authService: AuthService) {}
   ngOnInit(): void {
     let user: any = localStorage.getItem('user')
-    this.letter = (JSON.parse(user)?.name)[0]
+    this.letter = (user)?JSON.parse(user)?.name[0]:'U'
   }
   onClick() {
     this.menuToggleEvent.emit()
