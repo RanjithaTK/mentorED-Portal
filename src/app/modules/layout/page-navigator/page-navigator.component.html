@@ -6,7 +6,7 @@
         <ng-template #elseBlock>
             <div *ngFor='let page of pageNavigatorArray'>
                 <button routerLink='{{page.url}}' routerLinkActive="active" class="page-navigator-button"
-                    mat-raised-button>{{labels[page.label] | titlecase }}</button>
+                    mat-raised-button>{{labels[page.label] | translate}}</button>
             </div>
         </ng-template>
     </div>
