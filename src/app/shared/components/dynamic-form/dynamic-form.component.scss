@@ -34,3 +34,6 @@ mat-slider{
   background: $warning !important;
   color: $white;
 }
+::ng-deep .mat-form-field-label span{
+  color: $red;
+}
