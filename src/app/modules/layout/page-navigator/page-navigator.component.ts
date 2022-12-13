@@ -29,7 +29,7 @@ export class PageNavigatorComponent implements OnInit {
 
   ngOnInit(): void {
     let userDetails: any = localStorage.getItem('user')
-    let user = JSON.parse(userDetails)
+    let user = userDetails?JSON.parse(userDetails):{};
     this.pageNavigatorArray = (user.isAMentor) ? this.mentorArray : this.menteeArray;
     this.translate.get(this.pageNavigationLabel).subscribe(
       values => {
