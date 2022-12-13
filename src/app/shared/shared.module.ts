@@ -28,6 +28,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NoDataFoundComponent } from './components/no-data-found/no-data-found.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { GenericDetailsComponent } from './components/generic-details/generic-details.component';
+import { ProfileHeaderComponent } from './components/profile-header/profile-header.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { GenericDetailsComponent } from './components/generic-details/generic-de
     RoleSelectionCardComponent,
     CountdownTimerComponent,
     NoDataFoundComponent,
-    GenericDetailsComponent
+    GenericDetailsComponent,
+    ProfileHeaderComponent
   ],
   imports: [
     CommonModule,
@@ -87,7 +89,8 @@ import { GenericDetailsComponent } from './components/generic-details/generic-de
     FormsModule,
     NoDataFoundComponent,
     MatMenuModule,
-    GenericDetailsComponent
+    GenericDetailsComponent,
+    ProfileHeaderComponent
   ]
 })
 export class SharedModule { }
