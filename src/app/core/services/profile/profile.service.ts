@@ -1,5 +1,7 @@
 import { Location } from "@angular/common";
 import { Injectable } from "@angular/core";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { TranslateService } from "@ngx-translate/core";
 import * as _ from "lodash";
 import { map } from "rxjs";
 import { API_CONSTANTS } from "../../constants/apiUrlConstants";
@@ -19,7 +21,9 @@ export class ProfileService {
     private userService: UserService,
     private _location: Location,
     private toastService: ToastService,
-    private toast: ToastService
+    private toast: ToastService,
+    private translate: TranslateService,
+    private _snackBar: MatSnackBar
   ) {}
 
   async profileDetails(): Promise<any> {
@@ -86,6 +90,11 @@ export class ProfileService {
     };
     return this.apiService.post(config).pipe(
       map((result: any) => {
+        this._snackBar.open(result.message,'',{
+          duration: 2000,
+          verticalPosition: "top",
+          panelClass: "success"
+        })
         return result;
       })
     );
@@ -97,7 +106,11 @@ export class ProfileService {
     };
     return this.apiService.post(config).pipe(
       map((result: any) => {
-        this.toast.showMessage(result.message, "success");
+        this._snackBar.open(result.message,'',{
+          duration: 2000,
+          verticalPosition: "top",
+          panelClass: "success"
+        })
         return result;
       })
     );

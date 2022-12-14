@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import * as _ from 'lodash';
 import { map } from 'rxjs';
@@ -21,7 +22,8 @@ export class AuthService {
     private toastService:ToastService,
     private localStorage: LocalStorageService,
     private router: Router,
-    private profile: ProfileService
+    private profile: ProfileService,
+    private _snackBar: MatSnackBar
     ) { }
 
     async createAccount(formData: any) {
@@ -31,7 +33,11 @@ export class AuthService {
       };
       return this.apiService.post(config).pipe(
         map((result:any) => {
-          this.toastService.showMessage(result.message, 'success');
+          this._snackBar.open(result.message, '',{
+            duration: 2000,
+            verticalPosition: "top",
+            panelClass: "success"
+          })
           this.setUserInLocal(result).then(()=>{
             return result;
           })
@@ -46,7 +52,11 @@ export class AuthService {
     };
     return this.apiService.post(config).pipe(
       map(async (result:any) => {
-        this.toastService.showMessage(result.message, 'success');
+        this._snackBar.open(result.message, '',{
+          duration: 2000,
+          verticalPosition: "top",
+          panelClass: "success"
+        })
         return await this.setUserInLocal(result);
       })
     )

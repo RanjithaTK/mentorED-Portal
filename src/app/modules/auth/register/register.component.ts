@@ -118,7 +118,6 @@ export class RegisterComponent implements OnInit {
 
       this.profileService.registrationOtp(formJson).subscribe(async (response: any) => {
         if(response){
-          this.toastService.showMessage(response.message, 'success');
           this.router.navigate(['/auth/otp'], { state: { type: "signup", formData: formJson } });
         }
       })
