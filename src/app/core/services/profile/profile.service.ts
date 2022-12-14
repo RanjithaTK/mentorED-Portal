@@ -35,22 +35,32 @@ export class ProfileService {
             if (data) {
               resolve(JSON.parse(data));
             } else {
-              var res = await this.getProfileDetailsAPI();
-              await this.localStorage.saveLocalData(
-                localKeys.USER_DETAILS,
-                JSON.stringify(res)
-              );
-              data = _.get(data, "user");
-              resolve(data);
+              this.getProfileDetails().subscribe((user) => {
+                this.getProfileDetailsWithRole(user._id, user.isAMentor).subscribe((user)=>{
+                  resolve(user);
+                })
+              })
             }
           });
-      } catch (error) {}
+      } catch (error) { }
     });
   }
 
-  getProfileDetailsAPI() {
+  getProfileDetails() {
     const config = {
       url: API_CONSTANTS.PROFILE_DETAILS,
+      payload: {},
+    };
+    return this.apiService.get(config).pipe(
+      map((result: any) => {
+        return result.result;
+      })
+    );
+  }
+
+  getProfileDetailsWithRole(id: string, isAMentor: boolean) {
+    const config = {
+      url: (isAMentor === true) ? API_CONSTANTS.MENTOR_PROFILE_DETAILS + id : API_CONSTANTS.MENTEE_PROFILE_DETAILS + id,
       payload: {},
     };
     return this.apiService.get(config).pipe(
@@ -72,14 +82,7 @@ export class ProfileService {
     };
     return this.apiService.post(config).pipe(
       map(async (response: any) => {
-        let profileData = await this.getProfileDetailsAPI();
-        await this.localStorage.saveLocalData(
-          localKeys.USER_DETAILS,
-          JSON.stringify(profileData)
-        );
-        this.userService.userEvent.next(profileData);
-        this._location.back();
-        return profileData;
+          return response;
       })
     );
   }

@@ -19,7 +19,8 @@ import {
   SessionCardComponent, 
   StarRatingComponent, 
   RoleSelectionCardComponent, 
-  CountdownTimerComponent 
+  CountdownTimerComponent, 
+  ProfileHeaderComponent
 } from './components/index';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
@@ -38,7 +39,10 @@ import { GenericDetailsComponent } from './components/generic-details/generic-de
     RoleSelectionCardComponent,
     CountdownTimerComponent,
     NoDataFoundComponent,
-    GenericDetailsComponent
+    GenericDetailsComponent,
+    ProfileHeaderComponent
+
+    
   ],
   imports: [
     CommonModule,
@@ -61,7 +65,8 @@ import { GenericDetailsComponent } from './components/generic-details/generic-de
     FlexLayoutModule,
     MatToolbarModule,
     FormsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule
   ],
   exports: [
     MatButtonModule,
@@ -87,7 +92,9 @@ import { GenericDetailsComponent } from './components/generic-details/generic-de
     FormsModule,
     NoDataFoundComponent,
     MatMenuModule,
-    GenericDetailsComponent
+    GenericDetailsComponent,
+    ProfileHeaderComponent
+
   ]
 })
 export class SharedModule { }
