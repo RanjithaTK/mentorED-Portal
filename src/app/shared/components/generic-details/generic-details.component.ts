@@ -13,7 +13,6 @@ export class GenericDetailsComponent implements OnInit {
     return Array.isArray(arr)
  }
   ngOnInit(): void {
-    console.log(this.details)
   }
   
 }
