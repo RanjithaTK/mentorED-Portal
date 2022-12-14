@@ -8,6 +8,7 @@ import { ProfileService } from 'src/app/core/services/profile/profile.service'
 })
 export class ProfilePageComponent implements OnInit {
   details: any = {
+    buttonLabel: "EDIT_PROFILE",
     form: [
       {
         title: 'ABOUT',
