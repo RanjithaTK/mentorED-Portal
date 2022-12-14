@@ -74,5 +74,6 @@
     "KEY_AREAS_OF_EXPERTISE":"Areas of expertise",
     "EDUCATION_QUALIFICATION":"Education qualification",
     "YEARS":" years",
-    "SECRET_CODE_TOAST_MESSAGE" : "Please refer to the on-boarding email for your secret code"
+    "SECRET_CODE_TOAST_MESSAGE" : "Please refer to the on-boarding email for your secret code",
+    "SESSIONS":" sessions"
 }

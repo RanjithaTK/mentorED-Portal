@@ -1,82 +1,41 @@
-@import"../../../../variables";
+@import '../../../../variables';
 
-  img {
-    width:130px;
-    height:130px;
-    border-radius: 100px
-  }
-  .title{
-    font-weight: 500;
-    padding-top: 2%;
-    font-size: large;
-  }
-  .description{
-    text-align: center;
-    font-weight: 400;
-    font-size:medium;
-    padding-top: 1%;
-  }
-  .description-year{
-    border: 1px solid $theme;
-    // text-align: center;
-    font-weight: 600;
-    color: $theme;
-    font-size: smaller;
-    padding: 3px;
-    margin-top: 1%;
-    padding-top: 1%;
-    border-radius: 5px;
-    width: 10%;
-    // align-items: center
-  }
-  .section{
-    padding-top: 2%;
-  }
-  .wrapper{
-    border: 1px solid $theme;
-    text-align: center;
-    font-weight: 600;
-    color: $theme;
-    font-size: smaller;
-    padding: 5px;
-    // padding-top: 1%;
-    border-radius: 5px;
-    display: inline-block
-  }
-  .sub-title{
-    padding-top: 2%;
-    font-weight: 500;
-    font-size: large
-  }
-  .edit-button{
-    margin-top: 1%;
-    // padding-top: 1%;
-    width:25%;
-    // height:1%;
-    border-radius: 8px;
-    align-items: center;
-    background-color: $theme;
-    color: $white;
-    border: transparent;
-    padding-top: 2px;
-    // padding: 1%
-  }
-  .edit-text{
-    text-align: center;
-    // padding: 2px
-    font-size: smaller;
-    padding-top: 3%;
-  }
-  .edit-icon{
-    transform: scale(0.6);
-    // padding-bottom: 9%;
-  }
-  .location-icon{
-    color: $theme;
-    // padding-bottom: 6%;
-    margin-right: 4%;
-    padding-right: 25%;
-  }
-  .star-icon{
-    color: gold;
-  }
+img {
+  width: 110px;
+  height: 110px;
+  border-radius: 100px;
+}
+.title {
+  font-weight: 500;
+  padding-top: 1%;
+  font-size: medium;
+}
+
+.edit-button {
+  margin: 1%;
+  min-width: 25%;
+  border-radius: 8px;
+  align-items: center;
+  background-color: $theme;
+  color: $white;
+  border: transparent;
+  padding: 2px 6px 2px 6px;
+}
+.edit-text {
+  text-align: center;
+  font-size: smaller;
+}
+.edit-icon {
+  transform: scale(0.6);
+}
+.location-icon {
+  color: $theme;
+  margin-right: 4%;
+  padding-right: 25%;
+  padding-bottom: 5%;
+}
+.star-icon {
+  color: gold;
+  padding-bottom: 2%;
+  padding-right: 7px;
+}

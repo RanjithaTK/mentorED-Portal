@@ -1,31 +1,38 @@
 <mat-card-header fxLayout="column" fxLayoutAlign="center center">
-<div>
-  <img src="{{ details?.image }}" alt="profilepic" />
-</div>
-<div class="title">{{ details?.data.name | titlecase }}</div>
-<div
-  fxLayout="row"
-  fxLayoutAlign="space-around center"
-  class="title"
-  *ngFor="let location of details?.data?.location"
->
-  <mat-icon class="location-icon">room</mat-icon>
-  <div>{{ location?.label }}</div>
-</div>
-<div fxLayout="row" fxLayoutAlign="space-around center" class="title">
-  <mat-icon class="star-icon">grade</mat-icon>
+  <div>
+    <img [src]="details?.data?.image" alt="profilepic" />
+  </div>
+  <div class="title">{{ details?.data.name | titlecase }}</div>
+  <div
+    fxLayout="row"
+    fxLayoutAlign="space-around center"
+    class="title"
+    *ngFor="let location of details?.data?.location"
+  >
+    <mat-icon class="location-icon">room</mat-icon>
+    <div>{{ location?.label }}</div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-around center" class="title">
+    <mat-icon class="star-icon">grade</mat-icon>
 
-  <div>{{ details?.data?.rating?.average }}</div>
-</div>
+    <div>
+      {{ details?.data?.rating?.average + '  ' }}({{
+        details?.data?.sessionsHosted + ('SESSIONS' | translate)
+      }})
+    </div>
+  </div>
 
-<button
-  class="edit-button"
-  fxLayoutAlign="center"
-  fxLayout="row"
-  fxFlex.lt-md="20%"
-  fxFlex.lt-sm="8%"
->
-  <mat-icon class="edit-icon">mode_edit_outline</mat-icon>
-  <div class="edit-text">Edit profile</div>
-</button>
+  <button
+    class="edit-button"
+    fxLayoutAlign="center"
+    fxLayout="row"
+    fxFlex.md="10%"
+    fxFlex.lt-md="10%"
+    fxLayoutAlign="center center"
+  >
+    <mat-icon class="edit-icon" fxLayoutAlign="center center">
+      mode_edit_outline
+    </mat-icon>
+    <div class="edit-text" fxLayoutAlign="center center">Edit profile</div>
+  </button>
 </mat-card-header>

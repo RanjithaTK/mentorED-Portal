@@ -1,5 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-profile-header',
   templateUrl: './profile-header.component.html',
@@ -7,7 +7,7 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class ProfileHeaderComponent implements OnInit {
   @Input() details: any
-  constructor() { }
+  constructor(private translate:TranslateService) { }
   public isArray(arr:any ) {
     return Array.isArray(arr)
  }
