@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { concat, delay, of } from 'rxjs';
 
 @Component({
@@ -8,6 +8,7 @@ import { concat, delay, of } from 'rxjs';
 })
 export class CountdownTimerComponent implements OnInit {
 
+  @Output() countTimer = new EventEmitter()
   @Input() timeLimit = 60;
   minutes: any = 0;
   seconds: any = 0
@@ -30,6 +31,9 @@ export class CountdownTimerComponent implements OnInit {
     )).subscribe(x => {
       this.minutes = Math.floor(x / 60);
       this.seconds = x % 60;
+      if(x == 0){
+        this.countTimer.emit()
+      }
     });
   }
 

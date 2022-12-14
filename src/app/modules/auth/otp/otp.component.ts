@@ -75,4 +75,7 @@ export class OtpComponent implements OnInit {
       }))
     }
   }
+  timerEvent(){
+    this.enableResendOtp = true
+  }
 }
