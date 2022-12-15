@@ -19,11 +19,10 @@ export class AuthService {
   constructor(
     private apiService: ApiService,
     private userService: UserService,
-    private toastService:ToastService,
     private localStorage: LocalStorageService,
     private router: Router,
     private profile: ProfileService,
-    private _snackBar: MatSnackBar
+    private toastService: ToastService
     ) { }
 
     async createAccount(formData: any) {
@@ -33,11 +32,7 @@ export class AuthService {
       };
       return this.apiService.post(config).pipe(
         map((result:any) => {
-          this._snackBar.open(result.message, '',{
-            duration: 2000,
-            verticalPosition: "top",
-            panelClass: "success"
-          })
+          this.toastService.showMessage(result.message,'success')
           this.setUserInLocal(result).then(()=>{
             return result;
           })
@@ -52,11 +47,7 @@ export class AuthService {
     };
     return this.apiService.post(config).pipe(
       map(async (result:any) => {
-        this._snackBar.open(result.message, '',{
-          duration: 2000,
-          verticalPosition: "top",
-          panelClass: "success"
-        })
+        this.toastService.showMessage(result.message,'success')
         return await this.setUserInLocal(result);
       })
     )

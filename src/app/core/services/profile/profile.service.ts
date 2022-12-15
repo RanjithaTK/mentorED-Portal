@@ -93,11 +93,7 @@ export class ProfileService {
     };
     return this.apiService.post(config).pipe(
       map((result: any) => {
-        this._snackBar.open(result.message,'',{
-          duration: 2000,
-          verticalPosition: "top",
-          panelClass: "success"
-        })
+        this.toastService.showMessage(result.message,'success')
         return result;
       })
     );
@@ -109,11 +105,7 @@ export class ProfileService {
     };
     return this.apiService.post(config).pipe(
       map((result: any) => {
-        this._snackBar.open(result.message,'',{
-          duration: 2000,
-          verticalPosition: "top",
-          panelClass: "success"
-        })
+        this.toastService.showMessage(result.message,'success')
         return result;
       })
     );

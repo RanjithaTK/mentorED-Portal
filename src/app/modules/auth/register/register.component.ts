@@ -6,7 +6,6 @@ import { ProfileService } from 'src/app/core/services/profile/profile.service';
 import { ToastService } from 'src/app/core/services/toast/toast.service';
 import { DynamicFormComponent } from 'src/app/shared/components';
 import { TranslateService } from '@ngx-translate/core'
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -94,8 +93,7 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private profileService: ProfileService,
     private toastService: ToastService,
-    private translate: TranslateService,
-    private _snackBar: MatSnackBar) { 
+    private translate: TranslateService,) { 
     routerParms.queryParams.subscribe(data =>{
       this.selectedRole = data['selectedRole'];
       if(this.selectedRole == "MENTOR"){
@@ -122,12 +120,7 @@ export class RegisterComponent implements OnInit {
         }
       })
     } else {
-      this._snackBar.open(this.translate.instant("PASSWORD_NOT_MATCH"),'',{
-        duration: 2000,
-        horizontalPosition: 'center',
-        verticalPosition: 'top',
-        panelClass: 'snack_bar'
-      })
+      this.toastService.showMessage(this.translate.get('PASSWORD_NOT_MATCH'), 'warning')
     }
   }
 

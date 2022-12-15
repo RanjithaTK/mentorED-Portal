@@ -78,11 +78,6 @@ export class ApiService {
    
   }
   errorToast(message:any) {
-    this._snackBar.open(message,'',{
-      duration:2000,
-      verticalPosition: 'top',
-      panelClass: 'snack_bar'
-    })
-
+    this.toastService.showMessage(message,'warning')
   }
 }
