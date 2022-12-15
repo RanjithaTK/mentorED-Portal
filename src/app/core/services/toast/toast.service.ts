@@ -12,7 +12,7 @@ export class ToastService {
   durationInSeconds = 2;
   constructor(private _snackBar: MatSnackBar, private translate: TranslateService) { }
 
-  showMessage(msg: any, cssclass: any = "success"?"snack-bar-success":"snack-bar-danger", options: any = {
+  showMessage(msg: any, cssclass: any = "success", options: any = {
     hp : 'center',
     vp : 'top', 
     duration : 2

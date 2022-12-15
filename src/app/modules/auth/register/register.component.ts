@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
         type: 'text',
         placeHolder: 'Enter full name',
         position: 'floating',
-        errorMessage:'This field can only contain alphabets',
+        errorMessage:'Enter your full name',
         validators: {
           required: true,
           pattern:'^[a-zA-Z ]*$',
@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
         value: '',
         placeHolder: 'Enter password',
         type: 'password',
-        errorMessage:'Please enter password with minimum 8 characters',
+        errorMessage:'Please enter password',
         validators: {
           required: true,
           minLength: 8,
@@ -61,7 +61,7 @@ export class RegisterComponent implements OnInit {
         value: '',
         placeHolder: 'Enter password again',
         type: 'password',
-        errorMessage:'Please enter same password as above',
+        errorMessage:'Please enter password',
         validators: {
           required: true,
           minLength: 8,
