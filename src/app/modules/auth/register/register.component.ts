@@ -6,7 +6,6 @@ import { ProfileService } from 'src/app/core/services/profile/profile.service';
 import { ToastService } from 'src/app/core/services/toast/toast.service';
 import { DynamicFormComponent } from 'src/app/shared/components';
 import { TranslateService } from '@ngx-translate/core'
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +24,7 @@ export class RegisterComponent implements OnInit {
         type: 'text',
         placeHolder: 'Enter full name',
         position: 'floating',
-        errorMessage:'Enter your full name',
+        errorMessage:'This field can only contain alphabets',
         validators: {
           required: true,
           pattern:'^[a-zA-Z ]*$',
@@ -49,7 +48,7 @@ export class RegisterComponent implements OnInit {
         value: '',
         placeHolder: 'Enter password',
         type: 'password',
-        errorMessage:'Please enter password',
+        errorMessage:'Please enter password with minimum 8 characters',
         validators: {
           required: true,
           minLength: 8,
@@ -58,11 +57,11 @@ export class RegisterComponent implements OnInit {
       },
       {
         name: 'cPassword',
-        label: 'Confirm Password',
+        label: 'Confirm password',
         value: '',
         placeHolder: 'Enter password again',
         type: 'password',
-        errorMessage:'Please enter password',
+        errorMessage:'Please enter same password as above',
         validators: {
           required: true,
           minLength: 8,
@@ -94,8 +93,7 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private profileService: ProfileService,
     private toastService: ToastService,
-    private translate: TranslateService,
-    private _snackBar: MatSnackBar) { 
+    private translate: TranslateService,) { 
     routerParms.queryParams.subscribe(data =>{
       this.selectedRole = data['selectedRole'];
       if(this.selectedRole == "MENTOR"){
@@ -118,17 +116,11 @@ export class RegisterComponent implements OnInit {
 
       this.profileService.registrationOtp(formJson).subscribe(async (response: any) => {
         if(response){
-          this.toastService.showMessage(response.message, 'success');
           this.router.navigate(['/auth/otp'], { state: { type: "signup", formData: formJson } });
         }
       })
     } else {
-      this._snackBar.open(this.translate.instant("PASSWORD_NOT_MATCH"),'',{
-        duration: 2000,
-        horizontalPosition: 'center',
-        verticalPosition: 'top',
-        panelClass: 'snack_bar'
-      })
+      this.toastService.showMessage(this.translate.get('PASSWORD_NOT_MATCH'), 'warning')
     }
   }
 

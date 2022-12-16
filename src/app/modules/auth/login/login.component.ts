@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         value: '',
         type: 'password',
         placeHolder: 'Enter password',
-        errorMessage: 'Minimum 8 characters needed',
+        errorMessage: 'Please enter your password',
         validators: {
           required: true,
           minLength: 8,
