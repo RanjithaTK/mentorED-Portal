@@ -7,7 +7,7 @@
         <div fxLayout="row wrap" fxLayoutGap="20px grid">
             <div *ngFor='let item of cardDetails| slice:start:lastIndex' fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%"
                 fxFlex.md="50%">
-                <app-session-card [cardData]="item"></app-session-card>
+                <app-session-card [cardData]="item" (buttonIsToggle)="buttonClick($event)"></app-session-card>
             </div>
         </div>
         <div fxFlex="50%" fxLayoutAlign="center">

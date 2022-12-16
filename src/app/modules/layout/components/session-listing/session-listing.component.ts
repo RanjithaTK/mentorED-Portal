@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/core/services';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants'
+import { SessionService } from 'src/app/core/services/session/session.service';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class SessionListingComponent implements OnInit {
   limit: any = 4;
   noData: any="NO_ALL_SESSION_CONTENT"
   loading: boolean = false;
-  constructor(private router: Router, private apiService: ApiService) {
+  constructor(private router: Router, private apiService: ApiService,private sessionService: SessionService) {
     this.selectedPage = router.url
 
   }
@@ -50,6 +51,20 @@ export class SessionListingComponent implements OnInit {
       this.loading = false;
     })
 
+  }
+  buttonClick(event:any){
+    switch(event.action.type){
+      case "enrollAction":
+        this.sessionService.enrollSession(event.data._id).subscribe((result)=>{
+          this.getAllSession()
+        }
+        )
+        break
+      case "joinAction":
+        this.sessionService.joinSession(event.data._id).subscribe((result)=>{
+        })
+        break
+    }
   }
 
 }
