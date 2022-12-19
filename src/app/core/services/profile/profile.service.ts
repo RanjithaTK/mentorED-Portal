@@ -1,5 +1,7 @@
 import { Location } from "@angular/common";
 import { Injectable } from "@angular/core";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { TranslateService } from "@ngx-translate/core";
 import * as _ from "lodash";
 import { map } from "rxjs";
 import { API_CONSTANTS } from "../../constants/apiUrlConstants";
@@ -16,7 +18,12 @@ export class ProfileService {
   constructor(
     private localStorage: LocalStorageService,
     private apiService: ApiService,
-    private toast: ToastService
+    private userService: UserService,
+    private _location: Location,
+    private toastService: ToastService,
+    private toast: ToastService,
+    private translate: TranslateService,
+    private _snackBar: MatSnackBar
   ) {}
 
   async profileDetails(): Promise<any> {
@@ -86,6 +93,7 @@ export class ProfileService {
     };
     return this.apiService.post(config).pipe(
       map((result: any) => {
+        this.toastService.showMessage(result.message,'success')
         return result;
       })
     );
@@ -97,7 +105,7 @@ export class ProfileService {
     };
     return this.apiService.post(config).pipe(
       map((result: any) => {
-        this.toast.showMessage(result.message, "success");
+        this.toastService.showMessage(result.message,'success')
         return result;
       })
     );

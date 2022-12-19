@@ -19,7 +19,8 @@ import {
   SessionCardComponent, 
   StarRatingComponent, 
   RoleSelectionCardComponent, 
-  CountdownTimerComponent 
+  CountdownTimerComponent, 
+  ProfileHeaderComponent
 } from './components/index';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
@@ -28,7 +29,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NoDataFoundComponent } from './components/no-data-found/no-data-found.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { GenericDetailsComponent } from './components/generic-details/generic-details.component';
-import { ProfileHeaderComponent } from './components/profile-header/profile-header.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +63,8 @@ import { ProfileHeaderComponent } from './components/profile-header/profile-head
     FlexLayoutModule,
     MatToolbarModule,
     FormsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule
   ],
   exports: [
     MatButtonModule,

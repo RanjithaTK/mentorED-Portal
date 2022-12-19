@@ -1,8 +1,8 @@
-<mat-card-header fxLayout="column" fxLayoutAlign="center center">
+<div fxLayout="column" fxLayoutAlign="center center">
   <div>
     <img [src]="details?.data?.image" alt="profilepic" />
   </div>
-  <div class="title">{{ details?.data.name | titlecase }}</div>
+  <div class="title">{{ details?.data?.name | titlecase }}</div>
   <div
     fxLayout="row"
     fxLayoutAlign="space-around center"
@@ -33,6 +33,6 @@
     <mat-icon class="edit-icon" fxLayoutAlign="center center">
       mode_edit_outline
     </mat-icon>
-    <div class="edit-text" fxLayoutAlign="center center">Edit profile</div>
+    <div class="edit-text" fxLayoutAlign="center center">{{details?.buttonLabel|translate}}</div>
   </button>
-</mat-card-header>
+</div>

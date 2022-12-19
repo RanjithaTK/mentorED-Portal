@@ -9,7 +9,7 @@ h1 {
 .resend-otp {
     color: $blue;
     padding: 5px;
-    cursor: pointer
+    pointer-events: none;
 }
 .checkbox {
     margin-top: 10px;
@@ -19,7 +19,8 @@ h1 {
     white-space: normal !important;
 }
 ::ng-deep .mat-checkbox-layout .mat-checkbox-label{
-    margin-left: 15px;
+    margin-left: 12px;
+    font-weight: 500;
 }
 .text-blue {
     color: $light-blue;
@@ -28,4 +29,12 @@ h1 {
 
 .login-button {
     margin: 25px auto;
+}
+
+.enable {
+    pointer-events: all;
+}
+
+::ng-deep .mat-checkbox-layout .mat-checkbox-label a{
+    font-weight: normal !important;
 }
