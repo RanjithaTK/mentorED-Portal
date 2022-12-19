@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import * as _ from 'lodash';
 import { catchError, map, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -21,7 +22,8 @@ export class ApiService {
   private timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   private httpHeaders: any;
 
-  constructor(private http: HttpClient,private toastService : ToastService,private userService: UserService, private localStorage: LocalStorageService, private injector: Injector) { 
+  constructor(private http: HttpClient,private toastService : ToastService,private userService: UserService, private localStorage: LocalStorageService, private injector: Injector,
+    private _snackBar: MatSnackBar) { 
     this.setHeader();
   }
 
@@ -76,7 +78,6 @@ export class ApiService {
    
   }
   errorToast(message:any) {
-    this.toastService.showMessage(message, "error")
-
+    this.toastService.showMessage(message,'warning')
   }
 }

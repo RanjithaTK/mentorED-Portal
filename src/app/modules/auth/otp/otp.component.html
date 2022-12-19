@@ -7,10 +7,10 @@
             <app-dynamic-form [jsonFormData]="formData" #otpForm fxFlex="50%"></app-dynamic-form>
         </div>
         <div fxLayout="row" fxLayoutAlign="center">
-            <app-countdown-timer [timeLimit]="timeLimit" #timer fxFlex="50%"></app-countdown-timer>
+            <app-countdown-timer [timeLimit]="timeLimit" #timer (countTimer)="timerEvent()" fxFlex="50%"></app-countdown-timer>
         </div>
         <div fxLayoutAlign="center">
-            <a class="resend-otp"  (click)="resendOTP()"
+            <a class="resend-otp" [ngClass]="{'enable': enableResendOtp}" (click)="resendOTP()"
                 fxLayout="row wrap">{{"RESEND_OTP"|translate}}</a>
         </div>
         <div fxLayout="row" fxLayoutAlign="center center">

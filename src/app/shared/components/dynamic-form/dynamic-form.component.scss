@@ -30,7 +30,6 @@ mat-error {
 mat-slider{
   width: 100%;
 }
-::ng-deep .warning{
-  background: $warning !important;
-  color: $white;
+::ng-deep .mat-form-field-label span{
+  color: $red;
 }

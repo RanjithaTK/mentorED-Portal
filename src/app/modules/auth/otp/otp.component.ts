@@ -68,13 +68,14 @@ export class OtpComponent implements OnInit {
     this.enableResendOtp = false;
     if(this.signupData.type == "signup"){
       this.profileService.registrationOtp(this.signupData.formData).subscribe((response => {
-        this.toast.showMessage(response.message,"success")
       }))
     }else{
       this.profileService.generateOtp({ email: this.signupData.formData.email, password:  this.signupData.formData.password})
       .subscribe((response => {
-        this.toast.showMessage(response.message,"success")
       }))
     }
+  }
+  timerEvent(){
+    this.enableResendOtp = true
   }
 }
