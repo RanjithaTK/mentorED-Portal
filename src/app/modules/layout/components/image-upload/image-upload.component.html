@@ -1,11 +1,11 @@
 <div class="container" fxLayoutAlign="center space-between" fxLayout="column">
     <div fxLayoutAlign="center" fxFlexOffset="20px">
-        <img fxFlex="12%" src="/assets/images/user.png" alt="">
+        <img fxFlex="12%" fxFlex.sm="16%" fxFlex.xs="20%" src="/assets/images/user.png" alt="">
     </div>
-    <div fxLayoutAlign="center" fxFlex fxFlexOffset="35px">
-        <button mat-raised-button color="primary" fxFlex="25%">Add image</button>
-    </div>
-    <div fxLayoutAlign="center" fxFlex fxFlexOffset="20px">
-        <button mat-raised-button color="primary" fxFlex="25%">Remove image</button>
+    <div fxLayout="row" fxFlexOffset="35px" fxLayoutAlign="center">
+        <div fxLayout="column" fxFlex="30" fxFlex.sm="40" fxFlex.xs="55" fxLayoutGap="20">
+            <button mat-raised-button color="primary">{{"ADD_IMAGE" | translate}}</button>
+            <button mat-raised-button color="primary">{{"REMOVE_IMAGE" | translate}}</button>
+        </div>
     </div>
 </div>
