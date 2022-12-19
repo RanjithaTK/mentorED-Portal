@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -13,7 +13,6 @@ export class GenericDetailsComponent implements OnInit {
     return Array.isArray(arr)
  }
   ngOnInit(): void {
-  console.log(this.details)
   }
   
 }
