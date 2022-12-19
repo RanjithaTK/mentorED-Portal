@@ -33,6 +33,6 @@
     <mat-icon class="edit-icon" fxLayoutAlign="center center">
       mode_edit_outline
     </mat-icon>
-    <div class="edit-text" fxLayoutAlign="center center">{{details?.buttonLabel|translate}}</div>
+    <div class="edit-text" fxLayoutAlign="center center" (click)="editProfile()">{{details?.buttonLabel|translate}}</div>
   </button>
 </div>
