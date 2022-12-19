@@ -1,7 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core'
-import { Router } from '@angular/router'
 import { TranslateService } from '@ngx-translate/core'
+import { localKeys } from 'src/app/core/constants/localStorage.keys'
 import { AuthService } from 'src/app/core/services/auth/auth.service'
+import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,10 +16,11 @@ export class HeaderComponent implements OnInit {
     { label: 'Hindi', value: 'hi' },
   ]
   selectedLanguage = 'en'
-  constructor(private translate: TranslateService, private authService: AuthService) {}
+  constructor(private translate: TranslateService, private authService: AuthService, private localStorage: LocalStorageService) {}
   ngOnInit(): void {
-    let user: any = localStorage.getItem('user')
-    this.letter = (user)?JSON.parse(user)?.name[0]:'U'
+    this.localStorage.getLocalData(localKeys.USER_DETAILS).then((data)=>{
+      this.letter = data?JSON.parse(data).name[0]:'U';
+    })
   }
   onClick() {
     this.menuToggleEvent.emit()
