@@ -9,8 +9,8 @@ export class DbService {
 
   constructor(private db: NgxIndexedDBService) { }
 
-  add(storeName:string, id:string, controls:any) {
-    return this.db.add(storeName,{ id: id, controls: controls }).pipe(
+  add(storeName:string, data:any) {
+    return this.db.add(storeName, data).pipe(
       map((form) => {
         return form
       }))
@@ -28,13 +28,30 @@ export class DbService {
     return this.db.getAll(storeName).pipe(
       map((forms)=>{
         return forms
-    }))
+      })
+    )
+  }
+
+  update(storeName:string, formData:any) {
+    return this.db.update(storeName, formData).pipe(
+      map((storeData)=>{
+        return storeData
+      })
+    )
   }
 
   clear(storeName:string) {
     return this.db.clear(storeName).pipe(
       map((isCleared)=>{
         return isCleared
-    }))
+      })
+    )
+  }
+
+  delete(storeName:string) {
+    return this.db.deleteObjectStore(storeName).pipe(
+      map((isCleared)=>{
+        return isCleared
+      }))
   }
 }
