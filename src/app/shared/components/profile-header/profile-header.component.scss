@@ -1,9 +1,19 @@
 @import '../../../../variables';
 
-img {
+.image {
   width: 110px;
   height: 110px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   border-radius: 100px;
+}
+.default-image{
+  width: 110px;
+  height: 110px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .title {
   font-weight: 500;
