@@ -60,3 +60,6 @@ mat-button {
 mat-drawer-content{
   background-color: $white;
 }
+.mat-drawer-content{
+  overflow-x: hidden;
+}
