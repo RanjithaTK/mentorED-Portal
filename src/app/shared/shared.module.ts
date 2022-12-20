@@ -41,8 +41,6 @@ import { GenericDetailsComponent } from './components/generic-details/generic-de
     NoDataFoundComponent,
     GenericDetailsComponent,
     ProfileHeaderComponent
-
-    
   ],
   imports: [
     CommonModule,
@@ -94,7 +92,6 @@ import { GenericDetailsComponent } from './components/generic-details/generic-de
     MatMenuModule,
     GenericDetailsComponent,
     ProfileHeaderComponent
-
   ]
 })
 export class SharedModule { }

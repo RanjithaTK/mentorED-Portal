@@ -25,6 +25,7 @@ import { FaqComponent } from './components/faq/faq.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { MatCardModule } from '@angular/material/card';
+import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MatCardModule } from '@angular/material/card';
     CreatedSessionsComponent,
     MentorDirectoryComponent,
     FaqComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    ImageUploadComponent
     
 
   ],

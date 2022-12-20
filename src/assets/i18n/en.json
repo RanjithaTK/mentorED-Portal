@@ -67,7 +67,7 @@
     "NO_ENROLL_SESSION_CONTENT":"Enroll for live session hosted by verified education leaders!",
     "NO_ALL_SESSION_CONTENT":"Sorry, no results found. Try searchng for something else.",
     "NO_CREATED_SESSION_CONTENT":"Share what you know with the community!",
-    "SESSIONS_ATTENDED":"Sessions Attended",
+    "SESSIONS_ATTENDED":" Sessions Attended",
     "ABOUT":"About",
     "DESIGNATION":"Designation",
     "YEAR_OF_EXPERIENCE":"Years of experience",
@@ -76,5 +76,7 @@
     "YEARS":" years",
     "SECRET_CODE_TOAST_MESSAGE" : "Please refer to the on-boarding email for your secret code",
     "SESSIONS":" sessions",
-    "EDIT_PROFILE":"Edit profile"
+    "EDIT_PROFILE":"Edit profile",
+    "ADD_IMAGE": "Add image",
+    "REMOVE_IMAGE": "Remove image"
 }
