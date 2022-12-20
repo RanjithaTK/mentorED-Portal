@@ -40,7 +40,7 @@ export class CreatedSessionsComponent implements OnInit {
 
   getUpcomingSessions(id: any) {
     const config = {
-      url: API_CONSTANTS.UPCOMING_SESSIONS + id + "?page=1&limit=100",
+      url: API_CONSTANTS.UPCOMING_SESSIONS + id+"?page=1&limit=100" ,
       payload: {}
     };
     this.loading = true;
@@ -55,7 +55,7 @@ export class CreatedSessionsComponent implements OnInit {
 
   getpastSessions() {
     const config = {
-      url: API_CONSTANTS.GET_SESSIONS_LIST + this.status + "?page=1&limit=100",
+      url: API_CONSTANTS.GET_SESSIONS_LIST + "1&limit=100&status=" + this.status,
       payload: {}
     };
     this.loading = true;

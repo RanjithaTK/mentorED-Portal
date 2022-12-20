@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/core/services';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants'
 import { SessionService } from 'src/app/core/services/session/session.service';
+import { localKeys } from 'src/app/core/constants/localStorage.keys';
+import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
 
 
 @Component({
@@ -22,13 +24,15 @@ export class SessionListingComponent implements OnInit {
   limit: any = 4;
   noData: any="NO_ALL_SESSION_CONTENT"
   loading: boolean = false;
-  constructor(private router: Router, private apiService: ApiService,private sessionService: SessionService) {
+  userDetails: any;
+
+  constructor(private router: Router, private apiService: ApiService,private sessionService: SessionService,private localStorage:LocalStorageService) {
     this.selectedPage = router.url
 
   }
 
-  ngOnInit(): void {
-    
+  async ngOnInit(){
+    this.userDetails= JSON.parse( await this.localStorage.getLocalData(localKeys.USER_DETAILS))
     this.cardHeading = (this.selectedPage == '/enrolled-sessions') ? "MY_SESSIONS" : "ALL_SESSIONS";
     this.getAllSession();
   }
