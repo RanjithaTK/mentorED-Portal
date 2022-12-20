@@ -2,13 +2,13 @@
   <div>
     <ng-template [ngIf]="details.data.image" [ngIfElse]="loggedOut">
       <div>
-        <img  class="image" [src]="details?.data?.image" alt="profilepic" />
+        <img  class="image default-image" [src]="details?.data?.image" alt="profilepic" />
       </div>
     </ng-template>
     
     <ng-template #loggedOut>
       <div>
-        <img class="default-image" src="/assets/images/user-circle-add.svg" /> 
+        <img class="image" src="/assets/images/user-circle-add.svg" /> 
       </div>
     </ng-template>
   </div>
@@ -33,7 +33,7 @@
     
   </div>
   <div *ngIf="!details?.data?.isAMentor" fxLayout="row" fxLayoutAlign="space-around center" class="title">
-    {{details?.data?.sessionsAttended}} session attended
+    {{details?.data?.sessionsAttended  + ('SESSIONS_ATTENDED' | translate)}}
   </div>
   <button
     class="edit-button"
