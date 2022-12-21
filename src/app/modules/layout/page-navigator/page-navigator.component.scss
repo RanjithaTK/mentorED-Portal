@@ -1,12 +1,14 @@
 @import "../../../../variables";
-.page-navigator-conatiner{
+.conatiner{
     background-color: $light-pink;
     margin-top: 5%;
-    padding: 2%;
+    padding: 20px;
     border-radius: 2rem 2rem 0 0;
-    gap: 20px;
-      overflow-x : auto;
-
+    overflow-x : auto;
+    max-height: 100px;
+}
+.navigation-container {
+  height: 55px;
 }
 .page-navigator-button{
     cursor: pointer;
@@ -17,4 +19,16 @@
 .active{
     background: $theme;
     color: $white;
+}
+h1 {
+  font-weight: 500;
+  font-size: 26px;
+  margin: 0px;
+}
+.back-button{
+  width: 65px !important;
+  height: 65px !important;
+  mat-icon {
+    font-size: 25px;
   }
+}

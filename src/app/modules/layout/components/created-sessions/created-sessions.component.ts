@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/core/services';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants'
+import { map } from 'rxjs';
 
 
 @Component({
@@ -24,9 +25,13 @@ export class CreatedSessionsComponent implements OnInit {
 
   ngOnInit(): void {
     let user: any = localStorage.getItem('user')
-    let id = JSON.parse(user)
-    this.getUpcomingSessions(id._id);
-    this.getPastSessions();
+    user = JSON.parse(user)
+    this.getUpcomingSessions(user._id).subscribe((upcomingSessions)=>{
+      this.upcomingCardDetails = upcomingSessions
+    })
+    this.getPastSessions().subscribe((pastSessions)=>{
+      this.pastCardDetails = pastSessions
+    })
 
   }
 
@@ -44,13 +49,12 @@ export class CreatedSessionsComponent implements OnInit {
       payload: {}
     };
     this.loading = true;
-    this.apiService.get(config).subscribe((data: any) => {
-      this.loading = false;
-      this.upcomingCardDetails = (data.result && data.result.length) ? data.result[0].data : [];
-    }, error => {
-      this.loading = false;
-    })
-
+    return this.apiService.get(config).pipe(
+      map((data: any) => {
+        this.loading = false;
+        return (data.result && data.result.length) ? data.result[0].data : [];
+      })
+    )
   }
 
   getPastSessions() {
@@ -59,12 +63,12 @@ export class CreatedSessionsComponent implements OnInit {
       payload: {}
     };
     this.loading = true;
-    this.apiService.get(config).subscribe((data: any) => {
-      this.loading = false;
-      this.pastCardDetails = data.result.data
-    }, error => {
-      this.loading = false;
-    })
+    return this.apiService.get(config).pipe(
+      map((data: any) => {
+        this.loading = false;
+        return data.result.data
+      })
+    )
   }
 
 }

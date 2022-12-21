@@ -33,17 +33,18 @@ const routes: Routes = [
       },
       {
         path: 'faq',
-        component: FaqComponent
+        component: FaqComponent,
+        data: {title: 'FAQ'}
       },
-
+      { path: 'profile',
+        component: ProfilePageComponent,
+        data: {title: 'My profile'}
+      },
       {
         path: '',
         redirectTo: 'home',
         pathMatch: 'full'
       },
-      { path: 'profile',
-        component: ProfilePageComponent
-      }
     ],
   },
 ]
