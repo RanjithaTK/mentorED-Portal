@@ -11,10 +11,9 @@ import { UserService } from 'src/app/core/services/user/user.service'
 })
 export class SessionCardComponent implements OnInit {
   @Input() cardData: any
-  @Input() localProfileId: any
+  @Input() isCreator: any
   @Output() buttonClick = new EventEmitter()
   buttonConfig: any
-  isCreator: boolean
   userData: any
   constructor(
     private localStorage: LocalStorageService,
@@ -23,7 +22,6 @@ export class SessionCardComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.isCreator = await this.checkIfCreator()
     this.setButtonConfig(this.isCreator)
   }
 
@@ -41,11 +39,6 @@ export class SessionCardComponent implements OnInit {
     this.buttonConfig.isEnabled =
       this.cardData.startDate - currentTimeInSeconds < 300 ? true : false
   }
-
-  async checkIfCreator() {
-    return this.cardData.userId ==this.localProfileId ? true : false
-  }
-
   buttonClicked(action: any, data: any) {
     let detail: any = { action: action, data: data }
     this.buttonClick.emit(detail)

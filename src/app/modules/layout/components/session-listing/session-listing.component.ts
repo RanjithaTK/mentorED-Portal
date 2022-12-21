@@ -5,7 +5,9 @@ import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants'
 import { SessionService } from 'src/app/core/services/session/session.service';
 import { localKeys } from 'src/app/core/constants/localStorage.keys';
 import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
-
+interface item {
+  userId?: string;
+}
 
 @Component({
   selector: 'app-session-listing',
@@ -14,7 +16,7 @@ import { LocalStorageService } from 'src/app/core/services/local-storage/local-s
 })
 export class SessionListingComponent implements OnInit {
   cardHeading: any;
-  cardDetails: any;
+  cardDetails: Array<item>;
   mySessions: any;
   allSessions: any;
   start: any = 0;
@@ -25,6 +27,8 @@ export class SessionListingComponent implements OnInit {
   noData: any="NO_ALL_SESSION_CONTENT"
   loading: boolean = false;
   userDetails: any;
+  sessionsCount: any;
+ 
 
   constructor(private router: Router, private apiService: ApiService,private sessionService: SessionService,private localStorage:LocalStorageService) {
     this.selectedPage = router.url
@@ -51,6 +55,7 @@ export class SessionListingComponent implements OnInit {
       if (!this.cardDetails.length) {
         this.noData = (this.selectedPage == '/enrolled-sessions') ? "NO_ENROLL_SESSION_CONTENT"  : "NO_ALL_SESSION_CONTENT";
       }
+      this.sessionsCount=this.cardDetails.length
     }, error => {
       this.loading = false;
     })

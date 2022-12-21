@@ -2,7 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/core/services';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants'
 import { map } from 'rxjs';
+import { localKeys } from 'src/app/core/constants/localStorage.keys';
+import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
+import { SessionService } from 'src/app/core/services/session/session.service';
 
+interface item {
+  userId?: string;
+}
 
 @Component({
   selector: 'app-created-sessions',
@@ -15,15 +21,18 @@ export class CreatedSessionsComponent implements OnInit {
   lastIndexUpcomingSessions: any = 2;
   lastIndexPastSessions: any = 2;
   upcomingCardDetails: any;
-  pastCardDetails: any;
+  pastCardDetails: Array<item>;
   page: any = 1;
   limit: any = 4;
   status: any = "completed";
   loading: boolean = false;
+  userDetails: any;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService,private sessionService: SessionService,private localStorage:LocalStorageService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.userDetails= JSON.parse( await this.localStorage.getLocalData(localKeys.USER_DETAILS))
+
     let user: any = localStorage.getItem('user')
     user = JSON.parse(user)
     this.getUpcomingSessions(user._id).subscribe((upcomingSessions)=>{
