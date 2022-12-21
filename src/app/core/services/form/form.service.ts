@@ -34,7 +34,6 @@ export class FormService {
 
   // check form versions
   checkFormVersionsWithLocal(localVersions: any, formVersions: any) {
-    console.log(_.isEqual(localVersions,formVersions))
     if(!_.isEqual(localVersions,formVersions)){
       this.dbService.clear('forms').subscribe();
       return false
