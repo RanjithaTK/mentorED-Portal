@@ -20,7 +20,7 @@ export class CreatedSessionsComponent implements OnInit {
   start: any = 0;
   lastIndexUpcomingSessions: any = 2;
   lastIndexPastSessions: any = 2;
-  upcomingCardDetails: any;
+  upcomingCardDetails: Array<item>;
   pastCardDetails: Array<item>;
   page: any = 1;
   limit: any = 4;
