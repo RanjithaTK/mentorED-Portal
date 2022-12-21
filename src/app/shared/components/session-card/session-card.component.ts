@@ -12,7 +12,7 @@ import { UserService } from 'src/app/core/services/user/user.service'
 export class SessionCardComponent implements OnInit {
   @Input() cardData: any
   @Input() localProfileId: any
-  @Output() buttonIsToggle = new EventEmitter()
+  @Output() buttonClick = new EventEmitter()
   buttonConfig: any
   isCreator: boolean
   userData: any
@@ -46,8 +46,8 @@ export class SessionCardComponent implements OnInit {
     return this.cardData.userId ==this.localProfileId ? true : false
   }
 
-  buttonToggle(action: any, data: any) {
+  buttonClicked(action: any, data: any) {
     let detail: any = { action: action, data: data }
-    this.buttonIsToggle.emit(detail)
+    this.buttonClick.emit(detail)
   }
 }

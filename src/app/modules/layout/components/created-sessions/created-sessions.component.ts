@@ -26,7 +26,7 @@ export class CreatedSessionsComponent implements OnInit {
     let user: any = localStorage.getItem('user')
     let id = JSON.parse(user)
     this.getUpcomingSessions(id._id);
-    this.getpastSessions();
+    this.getPastSessions();
 
   }
 
@@ -53,7 +53,7 @@ export class CreatedSessionsComponent implements OnInit {
 
   }
 
-  getpastSessions() {
+  getPastSessions() {
     const config = {
       url: API_CONSTANTS.GET_SESSIONS_LIST + "1&limit=100&status=" + this.status,
       payload: {}
