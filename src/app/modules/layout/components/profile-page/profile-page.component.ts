@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router';
 import { ProfileService } from 'src/app/core/services/profile/profile.service'
 
 @Component({
@@ -31,16 +32,23 @@ export class ProfilePageComponent implements OnInit {
         key: "educationQualification"
       }
     ],
-    menteeForm:['SESSIONS_ATTENDED'],
+    menteeForm: ['SESSIONS_ATTENDED'],
     data: {},
   };
 
-  constructor(private profileService: ProfileService) {}
+  constructor(private profileService: ProfileService,private router: Router) { }
 
   ngOnInit(): void {
     this.getDetails()
   }
   async getDetails() {
-    this.details.data = await this.profileService.profileDetails()
+    let userDetails = await this.profileService.profileDetails()
+    console.log(userDetails)
+
+    if(!userDetails.about){
+      this.router.navigate(['/edit-profile'])
+    }else{
+      this.details.data = userDetails;
+    }
   }
 }
