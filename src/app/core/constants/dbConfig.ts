@@ -1,7 +1,8 @@
 import { DBConfig } from 'ngx-indexed-db';
+import { environment } from 'src/environments/environment';
 
 export const DbConfig: DBConfig = {
-    name: 'MentorED-DB',
+    name: environment.app_name,
     version: 4,
     objectStoresMeta: [{
       store: 'forms',
