@@ -25,9 +25,7 @@ export class AppComponent {
   }
   isFormsUpdated() {
     this.localStorage.getLocalData(localKeys.FORM_VERSIONS).then((localVersions) => {
-      if (localVersions.length) {
-        this.form.getFormVersionsFromAPI(JSON.parse(localVersions))?.subscribe();
-      }
+      this.form.getFormVersionsFromAPI(JSON.parse(localVersions))?.subscribe();
     })
   }
 
