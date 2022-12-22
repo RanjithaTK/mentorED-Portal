@@ -39,7 +39,7 @@ const routes: Routes = [
       },
       { path: 'profile',
         component: ProfilePageComponent,
-        data: {title: 'My profile'}
+        data: {title: 'MY_PROFILE'}
       },
       {
         path: '',
@@ -48,7 +48,7 @@ const routes: Routes = [
       },
       { path: 'edit-profile',
         component: EditProfileComponent,
-        data: {title: 'Edit your profile'}
+        data: {title: 'EDIT_YOUR_PROFILE'}
       }
     ],
   },

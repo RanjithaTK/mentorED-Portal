@@ -79,5 +79,7 @@
     "EDIT_PROFILE":"Edit profile",
     "ADD_IMAGE": "Add image",
     "REMOVE_IMAGE": "Remove image",
-    "SUBMIT":"Submit"
+    "SUBMIT":"Submit",
+    "EDIT_YOUR_PROFILE":"Edit your profile",
+    "MY_PROFILE":"My profile"
 }
