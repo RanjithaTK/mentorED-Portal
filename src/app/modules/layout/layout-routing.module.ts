@@ -48,7 +48,7 @@ const routes: Routes = [
       },
       { path: 'edit-profile',
         component: EditProfileComponent,
-        data: {title: 'Edit profile'}
+        data: {title: 'Edit your profile'}
       }
     ],
   },
