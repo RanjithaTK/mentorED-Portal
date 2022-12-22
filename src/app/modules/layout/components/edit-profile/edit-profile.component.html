@@ -1,8 +1,11 @@
 <div class="wrapper" fxLayoutAlign="center">
-<mat-card fxFlex="60%" >
-   <app-dynamic-form [jsonFormData]="formData">
-
+<mat-card fxFlex="60%">
+   <app-image-upload></app-image-upload>
+   <hr/>
+   <app-dynamic-form *ngIf="formData" [jsonFormData]="formData">
    </app-dynamic-form>
-
+   <div class="button"  fxLayoutAlign="center" >
+   <button fxFlex="20%"  fxLayoutAlign="center" mat-raised-button color="primary">{{"SUBMIT" | translate}}</button>
+</div>
 </mat-card>
 </div>
