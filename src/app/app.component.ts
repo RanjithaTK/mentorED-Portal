@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { localKeys } from './core/constants/localStorage.keys';
 import { ApiService } from './core/services';
+import { FormService } from './core/services/form/form.service';
 import { LocalStorageService } from './core/services/local-storage/local-storage.service';
 import { UserService } from './core/services/user/user.service';
 
@@ -12,18 +13,25 @@ import { UserService } from './core/services/user/user.service';
 })
 export class AppComponent {
 
-  constructor(private translate: TranslateService, private localStorage: LocalStorageService, private userService: UserService, private apiService: ApiService) {
+  constructor(private translate: TranslateService, private localStorage: LocalStorageService, private userService: UserService, private apiService: ApiService, private form: FormService) {
     this.initializeApp();
   }
 
   initializeApp() {
-    this.setHttpHeaders();
-    this.languageSetting();
+    this.setHttpHeaders().then(() => {
+      this.languageSetting();
+      this.isFormsUpdated();
+    })
+  }
+  isFormsUpdated() {
+    this.localStorage.getLocalData(localKeys.FORM_VERSIONS).then((localVersions) => {
+      this.form.getFormVersionsFromAPI(JSON.parse(localVersions))?.subscribe();
+    })
   }
 
-  setHttpHeaders() {
-    this.apiService.setHeader();
-    this.userService.userEventEmitted$.subscribe(async ()=>{
+  async setHttpHeaders() {
+    await this.apiService.setHeader();
+    this.userService.userEventEmitted$.subscribe(async () => {
       await this.apiService.setHeader();
     })
   }

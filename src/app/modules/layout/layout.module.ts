@@ -26,6 +26,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { MatCardModule } from '@angular/material/card';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     MentorDirectoryComponent,
     FaqComponent,
     ProfilePageComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    ImageUploadComponent
     
 
   ],

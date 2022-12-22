@@ -33,6 +33,7 @@ export class SessionService {
     return this.apiService.get(config).pipe(
       map((result: any) => {
         this.toastService.showMessage(result.message, 'success')
+        window.open(result.result.link)
       }),
     )
   }

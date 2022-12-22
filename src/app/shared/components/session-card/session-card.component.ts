@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
 import { localKeys } from 'src/app/core/constants/localStorage.keys'
 import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service'
 import { TranslateService } from '@ngx-translate/core'
+import { UserService } from 'src/app/core/services/user/user.service'
 
 @Component({
   selector: 'app-session-card',
@@ -10,17 +11,17 @@ import { TranslateService } from '@ngx-translate/core'
 })
 export class SessionCardComponent implements OnInit {
   @Input() cardData: any
-  @Output() buttonIsToggle = new EventEmitter()
+  @Input() isCreator: any
+  @Output() buttonClick = new EventEmitter()
   buttonConfig: any
-  isCreator: boolean
   userData: any
   constructor(
     private localStorage: LocalStorageService,
     private translate: TranslateService,
+    private userService:UserService
   ) {}
 
   async ngOnInit() {
-    this.isCreator = await this.checkIfCreator()
     this.setButtonConfig(this.isCreator)
   }
 
@@ -38,14 +39,8 @@ export class SessionCardComponent implements OnInit {
     this.buttonConfig.isEnabled =
       this.cardData.startDate - currentTimeInSeconds < 300 ? true : false
   }
-
-  async checkIfCreator() {
-    this.userData = await this.localStorage.getLocalData(localKeys.USER_DETAILS)
-    return this.cardData.userId == this.userData._id ? true : false
-  }
-
-  buttonToggle(action: any, data: any) {
+  buttonClicked(action: any, data: any) {
     let detail: any = { action: action, data: data }
-    this.buttonIsToggle.emit(detail)
+    this.buttonClick.emit(detail)
   }
 }

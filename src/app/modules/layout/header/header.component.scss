@@ -7,6 +7,7 @@
 mat-toolbar {
   min-height: 80px;
   background: $white;
+  min-width: fit-content;
 }
 
 .language-icon {
@@ -39,6 +40,7 @@ input[type='search'] {
   font-size: 14px;
   border: 1px solid transparent;
   border-radius: inherit;
+  text-overflow: ellipsis;
 }
 .button {
   border-radius: 25px;

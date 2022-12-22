@@ -10,7 +10,7 @@
   margin-top: 11%;
 }
 .drawer {
-  width: 25%;
+  width: 35%;
 }
 
 .select {
@@ -59,4 +59,8 @@ mat-button {
 }
 mat-drawer-content{
   background-color: $white;
+  overflow: none !important;
+}
+.mat-drawer-content{
+  overflow-x: hidden;
 }

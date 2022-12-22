@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/core/services';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants'
+import { map } from 'rxjs';
+import { localKeys } from 'src/app/core/constants/localStorage.keys';
+import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
+import { SessionService } from 'src/app/core/services/session/session.service';
 
+interface item {
+  userId?: string;
+}
 
 @Component({
   selector: 'app-created-sessions',
@@ -13,20 +20,27 @@ export class CreatedSessionsComponent implements OnInit {
   start: any = 0;
   lastIndexUpcomingSessions: any = 2;
   lastIndexPastSessions: any = 2;
-  upcomingCardDetails: any;
-  pastCardDetails: any;
+  upcomingCardDetails: Array<item>;
+  pastCardDetails: Array<item>;
   page: any = 1;
   limit: any = 4;
   status: any = "completed";
   loading: boolean = false;
+  userDetails: any;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService,private sessionService: SessionService,private localStorage:LocalStorageService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.userDetails= JSON.parse( await this.localStorage.getLocalData(localKeys.USER_DETAILS))
+
     let user: any = localStorage.getItem('user')
-    let id = JSON.parse(user)
-    this.getUpcomingSessions(id._id);
-    this.getpastSessions();
+    user = JSON.parse(user)
+    this.getUpcomingSessions(user._id).subscribe((upcomingSessions)=>{
+      this.upcomingCardDetails = upcomingSessions
+    })
+    this.getPastSessions().subscribe((pastSessions)=>{
+      this.pastCardDetails = pastSessions
+    })
 
   }
 
@@ -40,31 +54,30 @@ export class CreatedSessionsComponent implements OnInit {
 
   getUpcomingSessions(id: any) {
     const config = {
-      url: API_CONSTANTS.UPCOMING_SESSIONS + id + "?page=1&limit=100",
+      url: API_CONSTANTS.UPCOMING_SESSIONS + id+"?page=1&limit=100" ,
       payload: {}
     };
     this.loading = true;
-    this.apiService.get(config).subscribe((data: any) => {
-      this.loading = false;
-      this.upcomingCardDetails = (data.result && data.result.length) ? data.result[0].data : [];
-    }, error => {
-      this.loading = false;
-    })
-
+    return this.apiService.get(config).pipe(
+      map((data: any) => {
+        this.loading = false;
+        return (data.result && data.result.length) ? data.result[0].data : [];
+      })
+    )
   }
 
-  getpastSessions() {
+  getPastSessions() {
     const config = {
-      url: API_CONSTANTS.GET_SESSIONS_LIST + this.status + "?page=1&limit=100",
+      url: API_CONSTANTS.GET_SESSIONS_LIST + "1&limit=100&status=" + this.status,
       payload: {}
     };
     this.loading = true;
-    this.apiService.get(config).subscribe((data: any) => {
-      this.loading = false;
-      this.pastCardDetails = data.result.data
-    }, error => {
-      this.loading = false;
-    })
+    return this.apiService.get(config).pipe(
+      map((data: any) => {
+        this.loading = false;
+        return data.result.data
+      })
+    )
   }
 
 }
