@@ -46,11 +46,9 @@ const routes: Routes = [
         redirectTo: 'home',
         pathMatch: 'full'
       },
-      { path: 'profile',
-        component: ProfilePageComponent
-      },
       { path: 'edit-profile',
-        component: EditProfileComponent
+        component: EditProfileComponent,
+        data: {title: 'Edit profile'}
       }
     ],
   },
