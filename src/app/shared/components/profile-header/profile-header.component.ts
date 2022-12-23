@@ -14,7 +14,8 @@ export class ProfileHeaderComponent implements OnInit {
  }
   ngOnInit(): void {
   }
-  onClickEditProfile(){
-    this.router.navigate(['/edit-profile'])
+  editProfile(){
+    this.router.navigate(["./edit-profile"])
   }
+
 }
