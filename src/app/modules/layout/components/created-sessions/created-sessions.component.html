@@ -6,7 +6,7 @@
 
             <h3 class="create-new-session-text" *ngIf="upcomingCardDetails?.length || pastCardDetails?.length">{{"CREATE_NEW_SESSION" | translate}}</h3>
             <div fxFlex="50%" fxLayout="row" fxLayoutAlign="center">
-                <button class="create-session-button" mat-button fxLayout="row">
+                <button class="create-session-button" mat-button fxLayout="row" (click)="createSession()">
                     <mat-icon class="create-session-button-icon">add_circle</mat-icon>
                     {{"CLICK_HERE_TO_CREATE_NEW_SESSION" | translate}}
                 </button>

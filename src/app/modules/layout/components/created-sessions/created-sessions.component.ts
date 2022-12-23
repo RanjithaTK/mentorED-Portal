@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/core/services';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants'
 import { map } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class CreatedSessionsComponent implements OnInit {
   status: any = "completed";
   loading: boolean = false;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit(): void {
     let user: any = localStorage.getItem('user')
@@ -69,6 +70,10 @@ export class CreatedSessionsComponent implements OnInit {
         return data.result.data
       })
     )
+  }
+
+  createSession() {
+    this.router.navigate(['/create-session'])
   }
 
 }
