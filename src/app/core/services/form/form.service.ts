@@ -49,10 +49,10 @@ export class FormService {
           if (!form) {
             return this.getFormFromServer(formBody).pipe(
               map((form) => {
-                return form.controls
+                return form
               }))
           }
-          return of(form.controls);
+          return of(form);
         })
       );
   }

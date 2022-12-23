@@ -16,7 +16,5 @@ export class RoleSelectionCardComponent implements OnInit {
   cardSelected(role: any) {
     this.cardOneSelected.emit(role)
   }
-  buttonClick() {
-    //TODO navigate to register page
-  }
+  
 }
