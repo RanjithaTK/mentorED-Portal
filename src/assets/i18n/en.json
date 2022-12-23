@@ -83,5 +83,7 @@
     "PUBLISH": "Publish",
     "MY_PROFILE": "My profile",
     "ADD": "Add",
-    "CANCEL": "Cancel"
+    "CANCEL": "Cancel",
+    "SUBMIT":"Submit",
+    "EDIT_YOUR_PROFILE":"Edit your profile"
 }

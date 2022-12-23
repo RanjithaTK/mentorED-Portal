@@ -25,6 +25,7 @@ import { FaqComponent } from './components/faq/faq.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { MatCardModule } from '@angular/material/card';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { CreateSessionComponent } from './components/create-session/create-session.component';
 
@@ -40,9 +41,8 @@ import { CreateSessionComponent } from './components/create-session/create-sessi
     FaqComponent,
     ProfilePageComponent,
     ImageUploadComponent,
-    CreateSessionComponent
-    
-
+    CreateSessionComponent,
+    EditProfileComponent
   ],
   imports: [
     CommonModule,
@@ -54,8 +54,6 @@ import { CreateSessionComponent } from './components/create-session/create-sessi
     FlexLayoutModule,
     MatButtonModule,
     TranslateModule,
-
-   
     MatListModule,
     MatIconModule,
     FlexLayoutModule,
@@ -63,7 +61,6 @@ import { CreateSessionComponent } from './components/create-session/create-sessi
     SharedModule,
     MatSidenavModule,
     MatCardModule
-
   ]
 
 
