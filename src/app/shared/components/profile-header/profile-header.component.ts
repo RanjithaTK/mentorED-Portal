@@ -1,6 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-profile-header',
   templateUrl: './profile-header.component.html',

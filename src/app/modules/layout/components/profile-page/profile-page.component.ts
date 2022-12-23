@@ -43,8 +43,6 @@ export class ProfilePageComponent implements OnInit {
   }
   async getDetails() {
     let userDetails = await this.profileService.profileDetails()
-    console.log(userDetails)
-
     if(!userDetails.about){
       this.router.navigate(['/edit-profile'])
     }else{
