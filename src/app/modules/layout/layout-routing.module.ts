@@ -7,6 +7,7 @@ import { SessionListingComponent } from './components/session-listing/session-li
 import { LayoutComponent } from './layout.component'
 import { PrivateGuard } from '../../core/guards/private.guard'
 import { ProfilePageComponent } from './components/profile-page/profile-page.component'
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component'
 
 const routes: Routes = [
   {
@@ -38,13 +39,17 @@ const routes: Routes = [
       },
       { path: 'profile',
         component: ProfilePageComponent,
-        data: {title: 'My profile'}
+        data: {title: 'MY_PROFILE'}
       },
       {
         path: '',
         redirectTo: 'home',
         pathMatch: 'full'
       },
+      { path: 'edit-profile',
+        component: EditProfileComponent,
+        data: {title: 'EDIT_YOUR_PROFILE'}
+      }
     ],
   },
 ]

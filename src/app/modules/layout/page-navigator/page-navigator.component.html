@@ -1,12 +1,14 @@
-<div class="conatiner" fxFlex="71%" fxFlex.xs="100%" fxFlex.sm="90%" fxFlex.md="90%">
-    <div *ngIf="pageTitle" class="navigation-container" fxLayoutAlign="start center" fxLayoutGap="5%">
+<div *ngIf="pageTitle" class="conatiner" fxFlex="71%" fxFlex.xs="100%" fxFlex.sm="90%" fxFlex.md="90%">
+    <div class="navigation-container" fxLayoutAlign="start center" fxLayoutGap="5%">
         <button class="back-button" mat-fab color="white" (click)="onBack()">
             <mat-icon>arrow_back</mat-icon>
         </button>
-        <h1 *ngIf="pageTitle" fxLayoutAlign="center center">{{pageTitle}}
+        <h1 *ngIf="pageTitle" fxLayoutAlign="center center">{{pageTitle|translate}}
         </h1>
     </div>
-    <div *ngIf="!pageTitle && labels" class="navigation-container" fxFlex="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+</div>
+<div *ngIf="!pageTitle && labels" class="conatiner" fxFlex="71%" fxFlex.xs="100%" fxFlex.sm="90%" fxFlex.md="90%">
+    <div class="navigation-container" fxFlex="row" fxLayoutAlign="center center" fxLayoutGap="15px">
         <div *ngFor='let page of navigationArray'>
             <button fxFlex.xs="40%"
                 *ngIf="(!mentorArray.includes(page.name) || (mentorArray.includes(page.name)&&userDetails?.isAMentor))&&!pageTitle"
