@@ -1,8 +1,6 @@
 @import '../../../../variables';
 .header-logo {
   max-width: 59px;
-  margin-left: 10px;
-  padding-left: 1%;
 }
 mat-toolbar {
   min-height: 80px;
@@ -117,8 +115,4 @@ mat-select {
 }
 ::ng-deep form {
   opacity: 1 !important;
-}
-.menu-icon {
-  margin-right: 10px;
-  padding-right: 4%;
 }
