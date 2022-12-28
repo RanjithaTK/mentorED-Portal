@@ -3,7 +3,7 @@ import { EDIT_PROFILE_FORM } from 'src/app/core/constants/formConstant';
 import { FormService } from 'src/app/core/services/form/form.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { ExitPopupComponent } from '../exit-popup/exit-popup.component';
+import { ExitPopupComponent } from '../../../../shared/components/exit-popup/exit-popup.component';
 import { DynamicFormComponent } from 'src/app/shared';
 
 

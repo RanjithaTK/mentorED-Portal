@@ -81,5 +81,9 @@
     "REMOVE_IMAGE": "Remove image",
     "SUBMIT":"Submit",
     "EDIT_YOUR_PROFILE":"Edit your profile",
-    "MY_PROFILE":"My profile"
+    "MY_PROFILE":"My profile",
+    "EXIT_THIS_PAGE":"Exit this page?",
+    "EXIT":"Exit",
+    "CANCEL":"Cancel",
+    "ARE_YOU_SURE_WANT_TO_EXIT":"Are you sure you want to exit? your data will not be saved."
 }

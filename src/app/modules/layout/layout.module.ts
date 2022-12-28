@@ -28,7 +28,7 @@ import { MatCardModule } from '@angular/material/card';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { ExitPopupComponent } from './components/exit-popup/exit-popup.component';
+import { ExitPopupComponent } from '../../shared/components/exit-popup/exit-popup.component';
 
 @NgModule({
   declarations: [
