@@ -40,7 +40,7 @@ export class CreatedSessionsComponent implements OnInit {
       await this.localStorage.getLocalData(localKeys.USER_DETAILS),
     )
 
-    let user: any = localStorage.getItem("user")
+    let user: any = localStorage.getItem('user')
     user = JSON.parse(user)
     this.getUpcomingSessions(user._id).subscribe((upcomingSessions)=>{
       this.upcomingCardDetails = upcomingSessions
