@@ -13,7 +13,7 @@
             <button fxFlex.xs="40%"
                 *ngIf="(!mentorArray.includes(page.name) || (mentorArray.includes(page.name)&&userDetails?.isAMentor))&&!pageTitle"
                 routerLink='{{page.url}}' routerLinkActive="active" class="page-navigator-button"
-                mat-raised-button>{{labels[page.label] | titlecase }}</button>
+                mat-raised-button>{{labels[page.label] | translate }}</button>
         </div>
     </div>
 </div>
