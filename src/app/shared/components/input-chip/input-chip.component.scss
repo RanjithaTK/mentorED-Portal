@@ -1,7 +1,19 @@
+@import '../../../../variables';
+
 mat-chip.mat-standard-chip::after {
     background: none !important;
 }
-
+mat-chip {
+    border: 1px solid $theme;
+}
+.add-chip {
+    background-color: $theme !important;
+    color: $white !important;
+}
+mat-icon {
+    font-size: 20px;
+    margin-right: 4px;
+}
 ::placeholder {
     color: var(--dark-grey);
     opacity: 1;
@@ -18,3 +30,7 @@ mat-chip.mat-standard-chip::after {
 input {
     padding: 6px;
 }
+::ng-deep .mat-chip-list-wrapper{
+    display: flex !important;
+    justify-content: left !important;
+  }
