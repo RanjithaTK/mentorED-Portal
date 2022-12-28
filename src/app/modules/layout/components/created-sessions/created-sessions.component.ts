@@ -1,33 +1,33 @@
-import { Component, OnInit } from '@angular/core'
-import { ApiService } from 'src/app/core/services'
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/core/services';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants'
-import { map } from 'rxjs'
-import { localKeys } from 'src/app/core/constants/localStorage.keys'
-import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service'
-import { SessionService } from 'src/app/core/services/session/session.service'
+import { map } from 'rxjs';
+import { localKeys } from 'src/app/core/constants/localStorage.keys';
+import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
+import { SessionService } from 'src/app/core/services/session/session.service';
 
 interface item {
-  userId?: string
+  userId?: string;
 }
 
 @Component({
   selector: 'app-created-sessions',
   templateUrl: './created-sessions.component.html',
-  styleUrls: ['./created-sessions.component.scss'],
+  styleUrls: ['./created-sessions.component.scss']
 })
 export class CreatedSessionsComponent implements OnInit {
-  noData: any = 'NO_CREATED_SESSION_CONTENT'
-  start: any = 0
-  lastIndexUpcomingSessions: any = 2
-  lastIndexPastSessions: any = 2
-  upcomingCardDetails: Array<item> = []
-  pastCardDetails: Array<item> = []
-  page: any = 1
-  limit: any = 2
-  status: any = 'completed'
-  loading: boolean = false
-  userDetails: any
-  showLoadMoreButton: boolean = false
+  noData: any = "NO_CREATED_SESSION_CONTENT";
+  start: any = 0;
+  lastIndexUpcomingSessions: any = 2;
+  lastIndexPastSessions: any = 2;
+  upcomingCardDetails: Array<item> = [];
+  pastCardDetails: Array<item> = [];
+  page: any = 1;
+  limit: any = 2;
+  status: any = "completed";
+  loading: boolean = false;
+  userDetails: any;
+  showLoadMoreButton: boolean = false;
 
   constructor(
     private apiService: ApiService,
@@ -40,9 +40,9 @@ export class CreatedSessionsComponent implements OnInit {
       await this.localStorage.getLocalData(localKeys.USER_DETAILS),
     )
 
-    let user: any = localStorage.getItem('user')
+    let user: any = localStorage.getItem("user")
     user = JSON.parse(user)
-    this.getUpcomingSessions(user._id).subscribe((upcomingSessions) => {
+    this.getUpcomingSessions(user._id).subscribe((upcomingSessions)=>{
       this.upcomingCardDetails = upcomingSessions
     })
     this.getPastSessions().subscribe()
