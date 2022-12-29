@@ -45,7 +45,7 @@ export class CreatedSessionsComponent implements OnInit {
     this.getUpcomingSessions(user._id).subscribe((upcomingSessions)=>{
       this.upcomingCardDetails = upcomingSessions
     })
-    this.getPastSessions().subscribe()
+    this.getPastSessions()
   }
 
   onClickViewMoreUpcomingSessions() {
@@ -54,7 +54,7 @@ export class CreatedSessionsComponent implements OnInit {
   }
   onClickViewMorePastSessions() {
     this.page = this.page + 1
-    this.getPastSessions().subscribe()
+    this.getPastSessions()
   }
 
   getUpcomingSessions(id: any) {
@@ -79,25 +79,18 @@ export class CreatedSessionsComponent implements OnInit {
   }
 
   getPastSessions() {
-    const config = {
-      url:
-        API_CONSTANTS.GET_SESSIONS_LIST +
-        this.page +
-        '&limit=' +
-        this.limit +
-        '&status=' +
-        this.status,
-      payload: {},
+    let obj ={
+      page:this.page,
+      limit:this.limit,
+      status:this.status
     }
     this.loading = true
-    return this.apiService.get(config).pipe(
-      map((data: any) => {
-        this.loading = false
+    this.sessionService.pastSession(obj).subscribe((data:any)=>{
+      this.loading = false
         this.pastCardDetails = this.pastCardDetails.concat(data.result.data)
         this.showLoadMoreButton =
           data.result.count == this.pastCardDetails.length ? false : true
-        return data.result.data
-      }),
-    )
+    })
+    
   }
 }
