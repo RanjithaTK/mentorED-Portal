@@ -51,4 +51,32 @@ export class SessionService {
       }),
     )
   }
+
+  pastSession(obj:any){
+    const config = {
+      url:
+        API_CONSTANTS.GET_SESSIONS_LIST +
+        obj.page +
+        '&limit=' +
+        obj.limit +
+        '&status=' +
+        obj.status,
+      payload: {},
+    }
+    return this.apiService.get(config).pipe(
+      map((result: any) => {
+       return result
+      })
+    )
+  }
+  allSession(obj:any){
+    const config={
+      url: API_CONSTANTS.SESSIONS+ obj.type+'&page='+ obj?.page + '&limit=' + obj?.limit,
+    }
+    return this.apiService.get(config).pipe(
+      map((result: any) => {
+       return result
+      })
+    )
+  }
 }

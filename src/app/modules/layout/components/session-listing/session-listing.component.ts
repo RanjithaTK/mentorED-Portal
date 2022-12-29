@@ -21,18 +21,23 @@ interface item {
 })
 export class SessionListingComponent implements OnInit {
   cardHeading: any;
-  cardDetails: Array<item>;
+  cardDetails: Array<item> = []
   mySessions: any;
   allSessions: any;
   start: any = 0;
   lastIndex: any = 4;
   selectedPage: any;
   page: any = 1;
-  limit: any = 4;
-  noData: any = "NO_ALL_SESSION_CONTENT"
+  limit: any = 4
+  noData: any="NO_ALL_SESSION_CONTENT"
   loading: boolean = false;
   userDetails: any;
-  sessionsCount: any;
+  sessionsCount = 0
+  allSession: any = []
+  showLoadMoreButton: boolean = false
+  dataCount = 0
+  type: any
+
   
   constructor(private router: Router, private apiService: ApiService, private form: FormService, private sessionService: SessionService,private localStorage:LocalStorageService) {
     this.selectedPage = router.url
@@ -41,42 +46,46 @@ export class SessionListingComponent implements OnInit {
   async ngOnInit(){
     this.userDetails= JSON.parse( await this.localStorage.getLocalData(localKeys.USER_DETAILS))
     this.cardHeading = (this.selectedPage == '/enrolled-sessions') ? "MY_SESSIONS" : "ALL_SESSIONS";
-    this.getAllSession().subscribe();
+    this.getAllSession()
   }
 
   onClickViewMore() {
-    this.lastIndex = this.cardDetails.length
+    this.page = this.page + 1
+    this.getAllSession()
   }
   getAllSession() {
-    let config = {
-      url: API_CONSTANTS.HOME_SESSION + this?.page + '&limit=' + this?.limit
-    };
-    this.loading = true;
-    return this.apiService.get(config).pipe(
-      map(((data: any) => {
-        this.loading = false;
-        this.cardDetails =  (this.selectedPage == '/enrolled-sessions') ? data.result.mySessions : data.result.allSessions;
-        if (!this.cardDetails.length) {
-          this.noData = (this.selectedPage == '/enrolled-sessions') ? "NO_ENROLL_SESSION_CONTENT"  : "NO_ALL_SESSION_CONTENT";
-        }
-        this.sessionsCount=this.cardDetails.length
-      }))
-    )
+    this.loading = true
+    let type = this.type == 'enrolled-sessions' ? true : false
+    let obj = {
+      type: type,
+      page: this.page,
+      limit: this.limit,
+    }
+    this.sessionService.allSession(obj).subscribe((data: any) => {
+      this.cardDetails = this.cardDetails.concat(data?.result[0]?.data)
+      if (!this.cardDetails.length) {
+        this.noData = (this.selectedPage == '/enrolled-sessions') ? "NO_ENROLL_SESSION_CONTENT"  : "NO_ALL_SESSION_CONTENT";
+      }
+      this.allSession = this.allSession.concat(data?.result[0]?.data)
+      this.sessionsCount = data?.result[0]?.count
+      this.showLoadMoreButton =
+        this.allSession?.length === this.sessionsCount ? false : true
+    })
   }
-  
-  buttonClick(event:any){
-    switch(event.action.type){
-      case "enrollAction":
-        this.sessionService.enrollSession(event.data._id).subscribe((result)=>{
-          this.getAllSession()
-        }
-        )
+  buttonClick(event: any) {
+    switch (event.action.type) {
+      case 'enrollAction':
+        this.sessionService
+          .enrollSession(event.data._id)
+          .subscribe((result) => {
+            this.getAllSession()
+          })
         break
-      case "joinAction":
-        this.sessionService.joinSession(event.data._id).subscribe((result)=>{
-        })
+      case 'joinAction':
+        this.sessionService
+          .joinSession(event.data._id)
+          .subscribe((result) => {})
         break
     }
   }
-
 }
