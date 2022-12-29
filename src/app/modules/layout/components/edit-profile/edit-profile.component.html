@@ -5,7 +5,7 @@
    <app-dynamic-form *ngIf="formData" [jsonFormData]="formData" #editProfile>
    </app-dynamic-form>
    <div class="button"  fxLayoutAlign="center" >
-   <button fxFlex="20%"  fxLayoutAlign="center" mat-raised-button color="primary">{{"SUBMIT" | translate}}</button>
+   <button fxFlex="20%"  fxLayoutAlign="center" mat-raised-button color="primary" (click)="onSubmit()" >{{"SUBMIT" | translate}}</button>
 </div>
 </mat-card>
 </div>
