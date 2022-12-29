@@ -1,8 +1,8 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog';
 import * as _ from 'lodash';
-import { map, of, Subject } from 'rxjs';
+import { map } from 'rxjs';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants';
 import { EDIT_PROFILE_FORM } from 'src/app/core/constants/formConstant';
 import { localKeys } from 'src/app/core/constants/localStorage.keys';
@@ -10,10 +10,7 @@ import { ApiService } from 'src/app/core/services';
 import { FormService } from 'src/app/core/services/form/form.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
 import { ProfileService } from 'src/app/core/services/profile/profile.service';
-import { SessionService } from 'src/app/core/services/session/session.service';
 import { DynamicFormComponent, DynamicFormData } from 'src/app/shared';
-import { InputDialogueBoxComponent } from 'src/app/shared/components/dialogue-box/dialogue-box.component';
-import { ExitPopupComponent } from 'src/app/shared/components/exit-popup/exit-popup.component';
 
 @Component({
   selector: 'app-edit-profile',

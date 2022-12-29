@@ -9,6 +9,7 @@ import { PrivateGuard } from '../../core/guards/private.guard'
 import { ProfilePageComponent } from './components/profile-page/profile-page.component'
 import { CreateSessionComponent } from './components/create-session/create-session.component'
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component'
+import { CanDeactivateGuard } from '../../core/guards/can-deactivate.guard'
 
 const routes: Routes = [
   {
@@ -47,7 +48,7 @@ const routes: Routes = [
         component: CreateSessionComponent,
         data: {title: 'CREATE_NEW_SESSION'}
       },
-      { path: 'edit-profile',
+      { path: 'edit-profile', canDeactivate:[CanDeactivateGuard],
         component: EditProfileComponent,
         data: {title: 'EDIT_YOUR_PROFILE'}
       },

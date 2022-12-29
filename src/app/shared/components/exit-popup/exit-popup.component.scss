@@ -31,7 +31,6 @@
 }
 .cancel-button-container{
     padding-left: 60%;
-
 }
 .exit-cancel-button{
     box-shadow: 1px 1px 1px 1px $grey;
@@ -40,15 +39,15 @@
 }
 .cancel-button{
     background-color:$theme;
-
  }
 button {
     outline: none;
   }
-
   ::ng-deep .mat-button-focus-overlay {
     display: none;
   }
 .exit-button:hover,  .cancel-button:hover{
     background-color:$theme;
 }
+
+
