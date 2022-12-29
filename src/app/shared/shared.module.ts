@@ -31,7 +31,6 @@ import { MatMenuModule} from '@angular/material/menu';
 import { GenericDetailsComponent } from './components/generic-details/generic-details.component';
 import { InputDialogueBoxComponent } from './components/dialogue-box/dialogue-box.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ExitPopupComponent } from './components/exit-popup/exit-popup.component';
 
 
 @NgModule({
@@ -46,7 +45,6 @@ import { ExitPopupComponent } from './components/exit-popup/exit-popup.component
     GenericDetailsComponent,
     ProfileHeaderComponent,
     InputDialogueBoxComponent,
-    ExitPopupComponent
   ],
   imports: [
     CommonModule,
