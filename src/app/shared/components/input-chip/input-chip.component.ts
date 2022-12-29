@@ -5,7 +5,7 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { UUID } from 'angular2-uuid';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogueBoxComponent } from '../dialogue-box/dialogue-box.component';
+import { InputDialogueBoxComponent } from '../dialogue-box/dialogue-box.component';
 
 @Component({
   selector: 'app-input-chip',
@@ -106,7 +106,7 @@ export class InputChipComponent implements ControlValueAccessor {
   }
 
   openDialogue() {
-    const dialogRef = this.dialog.open(DialogueBoxComponent, {
+    const dialogRef = this.dialog.open(InputDialogueBoxComponent, {
       data: {
         message: 'ADD_NEW',
         buttonText: {

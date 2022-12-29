@@ -22,10 +22,7 @@ export class ImageUploadComponent implements OnInit {
         this.defaultImg = '/assets/images/default-session-upload.svg'
     }
   }
-
-  imageUpload(event: any) {
-    if (event.target.files[0]) {
-      this.imageUploadEvent.emit(event.target.files[0])
-    }
+  imageUpload(event: Event): void {
+    this.imageUploadEvent.emit(event)
   }
 }
