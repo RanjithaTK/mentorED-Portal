@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/core/services';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants'
 import { map } from 'rxjs';
+import { Router } from '@angular/router';
 import { localKeys } from 'src/app/core/constants/localStorage.keys';
 import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
 import { SessionService } from 'src/app/core/services/session/session.service';
@@ -29,12 +30,7 @@ export class CreatedSessionsComponent implements OnInit {
   userDetails: any;
   showLoadMoreButton: boolean = false;
 
-  constructor(
-    private apiService: ApiService,
-    private sessionService: SessionService,
-    private localStorage: LocalStorageService,
-  ) {}
-
+  constructor(private apiService: ApiService,private sessionService: SessionService,private localStorage:LocalStorageService,  private router: Router) { }
   async ngOnInit(): Promise<void> {
     this.userDetails = JSON.parse(
       await this.localStorage.getLocalData(localKeys.USER_DETAILS),
@@ -93,4 +89,9 @@ export class CreatedSessionsComponent implements OnInit {
     })
     
   }
+
+  createSession() {
+    this.router.navigate(['/create-session'])
+  }
+
 }

@@ -2,9 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/core/services';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants'
+import { FormService } from 'src/app/core/services/form/form.service';
+import { CREATE_SESSION_FORM, EDIT_PROFILE_FORM, FAQ, HELP_VIDEOS, TERMS_AND_CONDITIONS_FORM } from 'src/app/core/constants/formConstant';
+import { map } from 'rxjs';
+import { DbService } from 'src/app/core/services/db/db.service';
 import { SessionService } from 'src/app/core/services/session/session.service';
-import { localKeys } from 'src/app/core/constants/localStorage.keys';
 import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
+import { localKeys } from 'src/app/core/constants/localStorage.keys';
+
 interface item {
   userId?: string;
 }
@@ -33,21 +38,14 @@ export class SessionListingComponent implements OnInit {
   dataCount = 0
   type: any
 
-  constructor(
-    private router: Router,
-    private apiService: ApiService,
-    private sessionService: SessionService,
-    private localStorage: LocalStorageService,
-  ) {
+  
+  constructor(private router: Router, private apiService: ApiService, private form: FormService, private sessionService: SessionService,private localStorage:LocalStorageService) {
     this.selectedPage = router.url
   }
 
   async ngOnInit(){
-    this.userDetails= JSON.parse(
-      await this.localStorage.getLocalData(localKeys.USER_DETAILS),
-    )
-    this.cardHeading =
-    this.selectedPage == '/enrolled-sessions' ? 'MY_SESSIONS' : 'ALL_SESSIONS'
+    this.userDetails= JSON.parse( await this.localStorage.getLocalData(localKeys.USER_DETAILS))
+    this.cardHeading = (this.selectedPage == '/enrolled-sessions') ? "MY_SESSIONS" : "ALL_SESSIONS";
     this.getAllSession()
   }
 
@@ -65,6 +63,9 @@ export class SessionListingComponent implements OnInit {
     }
     this.sessionService.allSession(obj).subscribe((data: any) => {
       this.cardDetails = this.cardDetails.concat(data?.result[0]?.data)
+      if (!this.cardDetails.length) {
+        this.noData = (this.selectedPage == '/enrolled-sessions') ? "NO_ENROLL_SESSION_CONTENT"  : "NO_ALL_SESSION_CONTENT";
+      }
       this.allSession = this.allSession.concat(data?.result[0]?.data)
       this.sessionsCount = data?.result[0]?.count
       this.showLoadMoreButton =

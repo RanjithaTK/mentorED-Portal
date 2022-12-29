@@ -14,6 +14,7 @@ export class LayoutComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
    }
 
    onLogout(){

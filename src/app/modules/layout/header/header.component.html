@@ -1,6 +1,6 @@
 <mat-toolbar class="mat-elevation-z3">
-  <div fxFlex fxLayout="row">
-    <div fxFlex fxFlexAlign="center">
+  <div fxFlex fxLayout="row" fxLayoutAlign="space-evenly center">
+    <div fxFlexAlign="center center">
       <img class="header-logo" src="/assets/images/MentorEd-logo.svg" />
     </div>
     <div
@@ -9,7 +9,8 @@
       fxLayoutAlign="center center"
       class="searchBar"
       fxFlex.md="40%"
-      fxFlex.xs="65"
+      fxFlex.xs="60"
+      fxFlex.sm="75"
     >
       <form fxFlex fxLayout="row" class="img-fluid hover-shadow">
         <mat-icon class="search-icon" matPrefix>search</mat-icon>
@@ -27,7 +28,7 @@
           fxFlex="13%"
           fxFlex.lt-lg="17%"
           fxFlex.lt-md="14%"
-          fxFlex.lt-sm="30%"
+          fxFlex.lt-sm="35%"
           class="button"
         >
           {{ 'SEARCH' | translate }}
@@ -68,8 +69,8 @@
         </mat-menu>
       </div>
     </div>
-
-    <mat-icon
+    <div fxLayoutAlign="center">
+      <mat-icon
       fxFlex
       fxFlexAlign="center"
       class="menu-icon"
@@ -77,11 +78,12 @@
       [fxHide.lg]="true"
       [fxHide.md]="true"
       (click)="onClick()"
-      fxFlex.sm="20"
-      fxFlex.xs="10"
+      fxFlex.sm="100"
+      fxFlex.xs="100"
     >
       menu
     </mat-icon>
+    </div>
   </div>
 </mat-toolbar>
 

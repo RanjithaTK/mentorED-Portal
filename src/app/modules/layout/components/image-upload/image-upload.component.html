@@ -1,11 +1,15 @@
 <div class="container" fxLayoutAlign="center space-between" fxLayout="column">
-    <div fxLayoutAlign="center" fxFlexOffset="20px">
-        <img fxFlex="12%" fxFlex.sm="16%" fxFlex.xs="20%" src="/assets/images/user-circle-add.svg" alt="">
+    <div fxLayoutAlign="center">
+        <img fxFlex="250px" fxFlex.sm="26%" fxFlex.xs="20%"
+            [src]="imgData?.image || defaultImg" alt="">
     </div>
-    <div fxLayout="row" fxFlexOffset="35px" fxLayoutAlign="center">
-        <div fxLayout="column" fxFlex="30" fxFlex.sm="40" fxFlex.xs="55" fxLayoutGap="20">
-            <button fxLayoutAlign="center" mat-raised-button color="primary">{{"ADD_IMAGE" | translate}}</button>
-            <button fxLayoutAlign="center" mat-raised-button color="primary">{{"REMOVE_IMAGE" | translate}}</button>
+    <div fxLayout="row" fxFlexOffset="15px" fxLayoutAlign="center center">
+        <div fxLayout="column" fxFlex="30" fxFlex.sm="40" fxFlex.xs="55" fxLayoutGap="20" fxLayoutAlign="center center">
+            <input type="file" (change)="imageUpload($event)" #fileUpload hidden>
+            <button mat-raised-button class="button-shadow" color="primary" (click)="fileUpload.click()">{{"ADD_IMAGE" | translate}}</button>
+            <button mat-raised-button class="button-shadow" color="primary" [disabled]="!imgData?.image">{{"REMOVE_IMAGE" |
+                translate}}</button>
         </div>
     </div>
 </div>
+<hr>
