@@ -25,6 +25,7 @@ export class SessionService {
       }),
     )
   }
+
   joinSession(id: any) {
     const config = {
       url: API_CONSTANTS.JOIN_SESSION + id,
@@ -34,6 +35,19 @@ export class SessionService {
       map((result: any) => {
         this.toastService.showMessage(result.message, 'success')
         window.open(result.result.link)
+      }),
+    )
+  }
+
+  createSession(formData:any, id?: string) {
+    const config = {
+      url: id == null ? API_CONSTANTS.CREATE_SESSION : API_CONSTANTS.CREATE_SESSION + `/${id}`,
+      payload: formData,
+    }
+    return this.apiService.post(config).pipe(
+      map((result: any) => {
+        this.toastService.showMessage(result.message, 'success')
+        return result.result;
       }),
     )
   }
