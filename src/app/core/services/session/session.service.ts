@@ -50,7 +50,6 @@ export class SessionService {
     }
     return this.apiService.get(config).pipe(
       map((result: any) => {
-       console.log(result)
        return result
       })
     )
