@@ -27,6 +27,7 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
 import { MatCardModule } from '@angular/material/card';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { CreateSessionComponent } from './components/create-session/create-session.component';
 
 @NgModule({
   declarations: [
@@ -39,10 +40,9 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
     MentorDirectoryComponent,
     FaqComponent,
     ProfilePageComponent,
-    EditProfileComponent,
-    ImageUploadComponent
-    
-
+    ImageUploadComponent,
+    CreateSessionComponent,
+    EditProfileComponent
   ],
   imports: [
     CommonModule,
@@ -54,8 +54,6 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
     FlexLayoutModule,
     MatButtonModule,
     TranslateModule,
-
-   
     MatListModule,
     MatIconModule,
     FlexLayoutModule,
@@ -63,7 +61,6 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
     SharedModule,
     MatSidenavModule,
     MatCardModule
-
   ]
 
 

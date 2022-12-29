@@ -7,6 +7,7 @@ import { SessionListingComponent } from './components/session-listing/session-li
 import { LayoutComponent } from './layout.component'
 import { PrivateGuard } from '../../core/guards/private.guard'
 import { ProfilePageComponent } from './components/profile-page/profile-page.component'
+import { CreateSessionComponent } from './components/create-session/create-session.component'
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component'
 
 const routes: Routes = [
@@ -42,13 +43,18 @@ const routes: Routes = [
         data: {title: 'MY_PROFILE'}
       },
       {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full'
+        path: 'create-session',
+        component: CreateSessionComponent,
+        data: {title: 'CREATE_NEW_SESSION'}
       },
       { path: 'edit-profile',
         component: EditProfileComponent,
         data: {title: 'EDIT_YOUR_PROFILE'}
+      },
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
       }
     ],
   },
