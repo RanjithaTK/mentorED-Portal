@@ -30,7 +30,7 @@ export class CreatedSessionsComponent implements OnInit {
   userDetails: any;
   showLoadMoreButton: boolean = false;
 
-  constructor(private apiService: ApiService,private sessionService: SessionService,private localStorage:LocalStorageService,  private router: Router) { }
+  constructor(private apiService: ApiService, private sessionService: SessionService, private localStorage: LocalStorageService, private router: Router) { }
   async ngOnInit(): Promise<void> {
     this.userDetails = JSON.parse(
       await this.localStorage.getLocalData(localKeys.USER_DETAILS),
@@ -38,9 +38,7 @@ export class CreatedSessionsComponent implements OnInit {
 
     let user: any = localStorage.getItem('user')
     user = JSON.parse(user)
-    this.getUpcomingSessions(user._id).subscribe((upcomingSessions)=>{
-      this.upcomingCardDetails = upcomingSessions
-    })
+    this.getUpcomingSessions(user._id).subscribe()
     this.getPastSessions()
   }
 
@@ -68,8 +66,9 @@ export class CreatedSessionsComponent implements OnInit {
     return this.apiService.get(config).pipe(
       map((data: any) => {
         this.loading = false
-        this.upcomingCardDetails = this.upcomingCardDetails.concat(data.result.data)
-        return data.result && data.result.length ? data.result[0].data : []
+        this.upcomingCardDetails = this.upcomingCardDetails.concat(data.result[0].data)
+        this.showLoadMoreButton = data.result.count == this.upcomingCardDetails.length ? false : true;
+        return data
       }),
     )
   }
@@ -83,9 +82,8 @@ export class CreatedSessionsComponent implements OnInit {
     this.loading = true
     this.sessionService.pastSession(obj).subscribe((data:any)=>{
       this.loading = false
-        this.pastCardDetails = this.pastCardDetails.concat(data.result.data)
-        this.showLoadMoreButton =
-          data.result.count == this.pastCardDetails.length ? false : true
+      this.pastCardDetails = this.pastCardDetails.concat(data.result.data)
+      this.showLoadMoreButton = data.result.count == this.pastCardDetails.length ? false : true
     })
     
   }

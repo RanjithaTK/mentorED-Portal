@@ -25,7 +25,7 @@
                             <app-session-card [cardData]="item" [isCreator]="userDetails?._id==item?.userId"></app-session-card>
                         </div>
                     </div>
-                    <div fxFlex="50%" fxLayoutAlign="center" class="view-more-button-container">
+                    <div fxFlex="50%" fxLayoutAlign="center" class="view-more-button-container" *ngIf="showLoadMoreButton">
                         <button class="view-more" fxFlex="50%" mat-raised-button color="primary"
                             (click)="onClickViewMoreUpcomingSessions()">{{"VIEW_MORE"|translate}}</button>
                     </div>
