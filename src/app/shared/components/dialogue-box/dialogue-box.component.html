@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>{{"ADD_NEW"|translate}}</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <input matInput [(ngModel)]="data">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">{{"CANCEL"|translate}}</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>{{"ADD"|translate}}</button>
+</div>
