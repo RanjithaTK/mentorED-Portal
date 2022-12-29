@@ -1,11 +1,10 @@
 <div class="wrapper" fxLayoutAlign="center">
 <mat-card fxFlex="60%">
-   <app-image-upload></app-image-upload>
-   <hr/>
-   <app-dynamic-form *ngIf="formData" [jsonFormData]="formData" #editProfile>
+   <app-image-upload [imgData]="imgData" (imageUploadEvent)="ImageUploadEvent($event)"></app-image-upload>
+   <app-dynamic-form *ngIf="formData" [jsonFormData]="formData" (onEnter)="onSubmit()" #editProfile>
    </app-dynamic-form>
    <div class="button"  fxLayoutAlign="center" >
-   <button fxFlex="20%"  fxLayoutAlign="center" mat-raised-button color="primary" (click)="onSubmit()" >{{"SUBMIT" | translate}}</button>
+   <button fxFlex="20%"  fxLayoutAlign="center" mat-raised-button color="primary" (click)="onSubmit()">{{"SUBMIT" | translate}}</button>
 </div>
 </mat-card>
 </div>

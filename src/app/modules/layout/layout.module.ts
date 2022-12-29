@@ -29,6 +29,7 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ExitPopupComponent } from '../../shared/components/exit-popup/exit-popup.component';
+import { CreateSessionComponent } from './components/create-session/create-session.component';
 
 @NgModule({
   declarations: [
@@ -43,9 +44,9 @@ import { ExitPopupComponent } from '../../shared/components/exit-popup/exit-popu
     ProfilePageComponent,
     EditProfileComponent,
     ImageUploadComponent,
-    ExitPopupComponent
-    
-
+    ExitPopupComponent,
+    CreateSessionComponent,
+    EditProfileComponent
   ],
   imports: [
     CommonModule,
@@ -58,7 +59,6 @@ import { ExitPopupComponent } from '../../shared/components/exit-popup/exit-popu
     MatButtonModule,
     TranslateModule,
     CoreModule,
-   
     MatListModule,
     MatIconModule,
     FlexLayoutModule,
@@ -66,8 +66,8 @@ import { ExitPopupComponent } from '../../shared/components/exit-popup/exit-popu
     SharedModule,
     MatSidenavModule,
     MatCardModule,
-    MatDialogModule
-
+    MatDialogModule,
+    MatCardModule
   ]
 
 

@@ -18,13 +18,9 @@
             cancel
         </mat-icon>
     </mat-chip>
-    <input
-        #add
-        [placeholder]="lowerCaseLabel"
-        [matChipInputFor]="chipList"
-        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-        [matChipInputAddOnBlur]="addOnBlur"
-        (blur)="add.value = ''"
-        (matChipInputTokenEnd)="addChip($event)">
+    <mat-chip #add class="add-chip" fxLayout="row" fxLayoutAlign="space-evenly center" (click)="openDialogue()">
+        <mat-icon fxLayoutAlign="start center">add_circle</mat-icon>
+        {{"ADD_NEW"|translate}}
+    </mat-chip>
 </mat-chip-list>
 </div>

@@ -4,6 +4,8 @@ import * as _ from 'lodash';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { UUID } from 'angular2-uuid';
 import { MatChipInputEvent } from '@angular/material/chips';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogueBoxComponent } from '../dialogue-box/dialogue-box.component';
 
 @Component({
   selector: 'app-input-chip',
@@ -29,7 +31,7 @@ export class InputChipComponent implements ControlValueAccessor {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   addOnBlur = true;
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
   
   onChange = (quantity:any) => {};
 
@@ -48,7 +50,7 @@ export class InputChipComponent implements ControlValueAccessor {
       this._selectAll = true;
     }
   }
-  
+
   registerOnChange(onChange: any) {
     this.onChange = onChange;
   }
@@ -102,5 +104,30 @@ export class InputChipComponent implements ControlValueAccessor {
       this.control.options.push(obj)
     }
   }
+
+  openDialogue() {
+    const dialogRef = this.dialog.open(DialogueBoxComponent, {
+      data: {
+        message: 'ADD_NEW',
+        buttonText: {
+          ok: 'OK',
+          cancel: 'CANCEL'
+        }
+      },
+    });
+    dialogRef.afterClosed().subscribe(
+      (chip) => {
+        if (chip && chip!=='') {
+          let obj = {
+            label: chip,
+            value: UUID.UUID(),
+          };
+          this.control.options.push(obj)
+          this.onChipClick(obj);
+        }
+      }
+    );    
+  }
+  
 }
 
