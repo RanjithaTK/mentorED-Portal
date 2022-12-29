@@ -28,7 +28,7 @@ export class SessionListingComponent implements OnInit {
   lastIndex: any = 4;
   selectedPage: any;
   page: any = 1;
-  limit: any = 2
+  limit: any = 4
   noData: any="NO_ALL_SESSION_CONTENT"
   loading: boolean = false;
   userDetails: any;
