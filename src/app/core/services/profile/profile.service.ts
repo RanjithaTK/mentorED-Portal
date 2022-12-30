@@ -86,10 +86,11 @@ export class ProfileService {
       map((response: any) => {
         this.toastService.showMessage(response.message,'success')
         this.localStorage.getLocalData(localKeys.USER_DETAILS).then((user:any) =>{
-           this.getProfileDetailsWithRole(JSON.parse(user)._id,JSON.parse(user).isAMentor).subscribe()
+           return this.getProfileDetailsWithRole(JSON.parse(user)._id,JSON.parse(user).isAMentor).subscribe((user)=>{
+            this._location.back();
+           })
         });
-        
-          return response;
+        return response;
       })
     );
   }

@@ -1,8 +1,8 @@
 @import '../../../../variables';
 
 .image {
-  width: 120px;
-  height: 120px;
+  width: 125px;
+  height: 125px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -11,8 +11,8 @@
 }
 .title {
   font-weight: 400;
-  padding-top: 1%;
-  font-size: 22px;
+  padding-top: 14px;
+  font-size: 23px;
 }
 
 .edit-button {
@@ -44,4 +44,8 @@
   color: gold;
   padding-bottom: 2%;
   padding-right: 7px;
+}
+.inline-label{
+  white-space: nowrap;
+  font-size: 21px;
 }

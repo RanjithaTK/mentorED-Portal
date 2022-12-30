@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog';
@@ -23,6 +24,7 @@ import { ExitPopupComponent } from 'src/app/shared/components/exit-popup/exit-po
 })
 export class EditProfileComponent implements OnInit,CanComponentDeactivate{
   private win: any = window;
+  @ViewChild('editProfile') editProfile: DynamicFormComponent;
   imgData = {
     type: 'profile',
     image: '',
@@ -30,12 +32,11 @@ export class EditProfileComponent implements OnInit,CanComponentDeactivate{
   }
   path: any;
   localImage: any;
-  @ViewChild('editProfile') editProfile: DynamicFormComponent;
   public formData: any;
   showForm: any = false;
   type = 'profile'
-  
-  constructor(private formService: FormService, private profileService: ProfileService, private localStorage: LocalStorageService, private apiService: ApiService, private http: HttpClient, private dialog: MatDialog) {
+
+  constructor(private formService: FormService, private profileService: ProfileService, private localStorage: LocalStorageService, private apiService: ApiService, private http: HttpClient, private dialog: MatDialog, private location: Location) {
   }
 
   ngOnInit(): void {
@@ -63,10 +64,12 @@ export class EditProfileComponent implements OnInit,CanComponentDeactivate{
       // }
   }
   onSubmit() {
-    if (this.imgData.image && !this.imgData.isUploaded) {
-      this.getImageUploadUrl(this.localImage).subscribe()
-    } else {
-      this.profileService.profileUpdate(this.editProfile.myForm.value).subscribe()
+    if (this.editProfile.myForm.valid) {
+      if (this.imgData.image && !this.imgData.isUploaded) {
+        this.getImageUploadUrl(this.localImage).subscribe()
+      } else {
+        this.profileService.profileUpdate(this.editProfile.myForm.value).subscribe();
+      }
     }
   }
   getImageUploadUrl(file: any) {
@@ -75,29 +78,19 @@ export class EditProfileComponent implements OnInit,CanComponentDeactivate{
     }
     return this.apiService.get(config).pipe(
       map((result: any) => {
-        this.upload(file, result.result).subscribe((result) => {
-          console.log(result)
+        return this.upload(file, result.result).subscribe(() => {
+          this.imgData.isUploaded = true;
+          this.editProfile.myForm.value.append('image', result.result.signedUrl)
+          this.onSubmit();
         })
       }))
-
   }
 
  
   upload(file: any, path: any) {
-    var options = {
-      fileKey: file.name,
-      fileName: file.name,
-      chunkedMode: false,
-      mimeType: 'image/png',
-      headers: new HttpHeaders({
-        "Content-Type": "multipart/form-data",
-        "x-ms-blob-type": (file.cloudStorage === "AZURE") ? "BlockBlob" : "",
-      }),
-      httpMethod: "PUT",
-    }
     const imageForm = new FormData();
     imageForm.append('image', file);
-    return this.http.post(path.signedUrl, imageForm);
+    return this.http.put(path.signedUrl, imageForm);
   }
 
   ImageUploadEvent(event: any) {
@@ -121,6 +114,7 @@ export class EditProfileComponent implements OnInit,CanComponentDeactivate{
     }
   }
   preFillData(existingData: any) {
+    this.imgData.image = (existingData['image']) ? existingData['image'] : '';
     for (let i = 0; i < this.formData.controls.length; i++) {
       this.formData.controls[i].value = existingData[this.formData.controls[i].name];
       this.formData.controls[i].options = _.unionBy(this.formData.controls[i].options, this.formData.controls[i].value, 'value');

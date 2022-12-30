@@ -20,12 +20,12 @@
     *ngFor="let location of details?.data?.location"
   >
     <mat-icon class="location-icon">room</mat-icon>
-    <div>{{ location?.label }}</div>
+    <div class="inline-label">{{ location?.label }}</div>
   </div>
   <div fxLayout="row" fxLayoutAlign="space-around center" class="title" *ngIf="details?.data?.isAMentor">
     <mat-icon class="star-icon">grade</mat-icon>
 
-    <div >
+    <div *ngIf="details?.data?.isAMentor" class="inline-label">
       {{ details?.data?.rating?.average + '  ' }}({{
         details?.data?.sessionsHosted + ('SESSIONS' | translate)
       }})

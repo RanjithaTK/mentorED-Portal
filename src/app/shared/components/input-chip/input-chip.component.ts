@@ -43,9 +43,12 @@ export class InputChipComponent implements ControlValueAccessor {
 
   writeValue(value: any[]) {
     this.selectedChips = new Set();
-    this.control.options.map((chip:any) =>
-      _.some(value, chip) ? this.selectedChips.add(chip) : null
-    );
+    this.control.options.map((chip:any) => {
+      if(_.some(value, chip)){
+        this.selectedChips.add(chip);
+        chip.selected = !chip.selected;
+      }
+    })
     if (this.selectedChips.size === this.control.options.length) {
       this._selectAll = true;
     }
@@ -79,6 +82,7 @@ export class InputChipComponent implements ControlValueAccessor {
     }  else {
       return
     }
+    chip.selected = !chip.selected;
     (!this.selectedChips.size) ? this.onChange([]) : this.onChange([...this.selectedChips]);
     this._selectAll = (this.selectedChips.size !== this.control.options.length) ? false : true;
   }
