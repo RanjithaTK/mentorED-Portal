@@ -1,15 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/core/services';
-import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants'
 import { FormService } from 'src/app/core/services/form/form.service';
-import {
-  CREATE_SESSION_FORM,
-  EDIT_PROFILE_FORM,
-  FAQ,
-  HELP_VIDEOS,
-  TERMS_AND_CONDITIONS_FORM,
-} from 'src/app/core/constants/formConstant'
 import { map } from 'rxjs';
 import { DbService } from 'src/app/core/services/db/db.service';
 import { SessionService } from 'src/app/core/services/session/session.service';
@@ -33,7 +25,7 @@ export class SessionListingComponent implements OnInit {
   start: any = 0;
   lastIndex: any = 4;
   selectedPage: any;
-  page: any;
+  page: any=1;
   limit: any = 4;
   noData: any
   loading: boolean = false;
@@ -54,7 +46,6 @@ export class SessionListingComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.page = 1
     this.localStorage
       .getLocalData(localKeys.USER_DETAILS)
       .then((userDetails) => {
