@@ -28,7 +28,7 @@ export class SessionListingComponent implements OnInit {
   lastIndex: any = 4;
   selectedPage: any;
   page: any = 1;
-  limit: any = 4
+  limit: any = 4;
   noData: any="NO_ALL_SESSION_CONTENT"
   loading: boolean = false;
   userDetails: any;
@@ -68,8 +68,7 @@ export class SessionListingComponent implements OnInit {
       }
       this.allSession = this.allSession.concat(data?.result[0]?.data)
       this.sessionsCount = data?.result[0]?.count
-      this.showLoadMoreButton =
-        this.allSession?.length === this.sessionsCount ? false : true
+      this.showLoadMoreButton = this.allSession?.length === this.sessionsCount ? false : true
     })
   }
   buttonClick(event: any) {
