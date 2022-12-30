@@ -1,35 +1,45 @@
 <mat-toolbar class="mat-elevation-z3">
-  <div fxFlex fxLayout="row" fxLayoutAlign="space-evenly center">
-    <div fxFlex="20" fxFlex.lt-sm="15" fxFlex.sm="10" fxFlexAlign="center center">
+  <div fxFlex fxLayout="row wrap" fxLayoutAlign="space-evenly center">
+    <div
+      fxFlexAlign="center center"
+      fxLayoutAlign.sm="start center"
+      fxLayoutAlign.xs="start center"
+    >
       <img class="header-logo" src="/assets/images/MentorEd-logo.svg" />
     </div>
     <div
-      fxFlex="54%"
-      fxFlex.lt-lg="100%"
-      fxLayoutAlign="center center"
-      class="searchBar"
-      fxFlex.md="40%"
-      fxFlex.xs="60"
-      fxFlex.sm="75"
+      fxFlex="63%"
+      fxFlex.lt-lg="70%"
+      fxLayoutAlign="end center"
+      fxLayoutAlign.sm="center center"
+      fxLayoutAlign.xs="center center"
+      fxFlex.md="62%"
+      fxFlex.sm="78%"
+      fxFlex.lt-xs="70%"
     >
-      <form fxFlex fxLayout="row" class="img-fluid hover-shadow">
+      <form fxFlex="53%" fxFlex.xs="80%" *ngIf="showSearchbar" fxLayout="row">
         <mat-icon class="search-icon" matPrefix>search</mat-icon>
         <input
           fxFlex="70%"
-          fxFlex.lt-md="50%"
+          fxFlex.lt-md="48%"
+          fxLayoutAlign="start center"
           matInput
           type="search"
           placeholder="Search for sessions, mentor profile"
-          #searchInput
           autocomplete="off"
           class="search-input"
+          name="search"
+          (change)="checkInput()"
+          [(ngModel)]="searchText"
         />
         <button
           fxFlex="13%"
-          fxFlex.lt-lg="17%"
-          fxFlex.lt-md="14%"
-          fxFlex.lt-sm="35%"
+          fxFlex.lg="16%"
+          fxFlex.md="21%"
+          fxFlex.sm="25%"
+          fxFlex.xs="30%"
           class="button"
+          (click)="onSearch()"
         >
           {{ 'SEARCH' | translate }}
         </button>
@@ -43,7 +53,14 @@
       [fxHide.xs]="true"
     >
       <span fxFlex></span>
-      <div class="menu-button" fxLayoutAlign="space-around">
+      <div 
+        fxFlex.md="40%"
+        fxFlex="42%"
+        fxFlex.md="53%"
+        fxFlex.sm="35%"
+        class="menu-button"
+        fxLayoutAlign="space-around center"
+      >
         <mat-icon class="language-icon">language</mat-icon>
         <mat-select
           class="options"
