@@ -19,20 +19,24 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        component: SessionListingComponent
+        component: SessionListingComponent,
+        data: {showSearchbar: true},
       },
 
       {
         path: 'enrolled-sessions',
-        component: SessionListingComponent
+        component: SessionListingComponent,
+        data: {showSearchbar: true},
       },
       {
         path: 'created-sessions',
-        component: CreatedSessionsComponent
+        component: CreatedSessionsComponent,
+        data: {showSearchbar: true},
       },
       {
         path: 'mentor-directory',
-        component: MentorDirectoryComponent
+        component: MentorDirectoryComponent,
+        data: {showSearchbar: true},
       },
       {
         path: 'faq',
@@ -51,7 +55,6 @@ const routes: Routes = [
       { path: 'edit-profile',
         component: EditProfileComponent,
         data: {title: 'EDIT_YOUR_PROFILE'},
-        canDeactivate: [CanDeactivateGuard]
       },
       {
         path: '',
