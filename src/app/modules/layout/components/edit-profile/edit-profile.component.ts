@@ -1,9 +1,9 @@
 import { Location } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core'
-import { MatDialog } from '@angular/material/dialog';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core'
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import * as _ from 'lodash';
-import { map } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants';
 import { EDIT_PROFILE_FORM } from 'src/app/core/constants/formConstant';
 import { localKeys } from 'src/app/core/constants/localStorage.keys';
@@ -11,15 +11,16 @@ import { ApiService } from 'src/app/core/services';
 import { FormService } from 'src/app/core/services/form/form.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
 import { ProfileService } from 'src/app/core/services/profile/profile.service';
-import { DynamicFormComponent } from 'src/app/shared';
+import { DynamicFormComponent, DynamicFormData } from 'src/app/shared';
 import { ExitPopupComponent } from 'src/app/shared/components/exit-popup/exit-popup.component';
-
+import { CanLeave } from '../../../../core/interfaces/canLeave';
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.scss'],
 })
-export class EditProfileComponent implements OnInit {
+export class EditProfileComponent implements OnInit, CanLeave {
+  private win: any = window;
   @ViewChild('editProfile') editProfile: DynamicFormComponent;
   imgData = {
     type: 'profile',
@@ -31,7 +32,7 @@ export class EditProfileComponent implements OnInit {
   public formData: any;
   showForm: any = false;
   type = 'profile'
-
+  isSaved: any = false;
   constructor(private formService: FormService, private profileService: ProfileService, private localStorage: LocalStorageService, private apiService: ApiService, private http: HttpClient, private dialog: MatDialog, private location: Location) {
   }
 
@@ -45,8 +46,18 @@ export class EditProfileComponent implements OnInit {
         })
       }
     })
+
+  }
+  @HostListener('window:beforeunload')
+ canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+    if (!this.isSaved) {
+      return false;
+    } else {
+      return true;
+    }
   }
   onSubmit() {
+    this.isSaved = true;
     if (this.editProfile.myForm.valid) {
       if (this.imgData.image && !this.imgData.isUploaded) {
         this.getImageUploadUrl(this.localImage).subscribe()
@@ -68,6 +79,8 @@ export class EditProfileComponent implements OnInit {
         })
       }))
   }
+
+
   upload(file: any, path: any) {
     const imageForm = new FormData();
     imageForm.append('image', file);
@@ -83,7 +96,6 @@ export class EditProfileComponent implements OnInit {
       this.imgData.isUploaded = false;
     }
   }
-
   preFillData(existingData: any) {
     this.imgData.image = (existingData['image']) ? existingData['image'] : '';
     for (let i = 0; i < this.formData.controls.length; i++) {

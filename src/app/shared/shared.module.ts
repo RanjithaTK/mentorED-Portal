@@ -45,6 +45,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     GenericDetailsComponent,
     ProfileHeaderComponent,
     InputDialogueBoxComponent,
+    // ExitPopupComponent
   ],
   imports: [
     CommonModule,

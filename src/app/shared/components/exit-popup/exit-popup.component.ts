@@ -7,9 +7,14 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./exit-popup.component.scss']
 })
 export class ExitPopupComponent implements OnInit {
-  public dialogRef: MatDialogRef<ExitPopupComponent>
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<ExitPopupComponent>) { }
 
   ngOnInit(): void {
+  }
+  onClickExit(){
+    this.dialogRef.close(true);
+  }
+  onClickCancel(){
+    this.dialogRef.close(false);
   }
 }
