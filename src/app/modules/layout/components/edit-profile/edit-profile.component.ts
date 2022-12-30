@@ -1,23 +1,27 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core'
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog';
+import { CanDeactivate } from '@angular/router';
 import * as _ from 'lodash';
 import { map } from 'rxjs';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants';
 import { EDIT_PROFILE_FORM } from 'src/app/core/constants/formConstant';
 import { localKeys } from 'src/app/core/constants/localStorage.keys';
+import { CanComponentDeactivate } from 'src/app/core/guards/can-deactivate.guard';
 import { ApiService } from 'src/app/core/services';
 import { FormService } from 'src/app/core/services/form/form.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
 import { ProfileService } from 'src/app/core/services/profile/profile.service';
 import { DynamicFormComponent, DynamicFormData } from 'src/app/shared';
+import { ExitPopupComponent } from 'src/app/shared/components/exit-popup/exit-popup.component';
+
 
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.scss'],
 })
-export class EditProfileComponent implements OnInit {
+export class EditProfileComponent implements OnInit,CanComponentDeactivate{
   private win: any = window;
   imgData = {
     type: 'profile',
@@ -30,7 +34,7 @@ export class EditProfileComponent implements OnInit {
   public formData: any;
   showForm: any = false;
   type = 'profile'
-
+  
   constructor(private formService: FormService, private profileService: ProfileService, private localStorage: LocalStorageService, private apiService: ApiService, private http: HttpClient, private dialog: MatDialog) {
   }
 
@@ -44,6 +48,19 @@ export class EditProfileComponent implements OnInit {
         })
       }
     })
+    
+  }
+  @HostListener('window:beforeunload', ['$event'])
+   onWindowClose(event: any): void {
+   console.log(this.editProfile.myForm.value)
+    console.log(this.editProfile.myForm.dirty)
+    this.canDeactivate()
+      // if (this.editProfile.myForm.dirty) {
+      //   event.preventDefault();
+      //  event.returnValue = false;
+      // }else{
+      //   event.returnValue = true;
+      // }
   }
   onSubmit() {
     if (this.imgData.image && !this.imgData.isUploaded) {
@@ -64,6 +81,8 @@ export class EditProfileComponent implements OnInit {
       }))
 
   }
+
+ 
   upload(file: any, path: any) {
     var options = {
       fileKey: file.name,
@@ -90,7 +109,17 @@ export class EditProfileComponent implements OnInit {
       this.imgData.isUploaded = false;
     }
   }
-
+  canDeactivate() {
+    console.log(this.editProfile.myForm.value)
+    console.log(this.editProfile.myForm.dirty)
+    // const confirmResult = this.dialog.open(ExitPopupComponent,{})
+    const confirmResult = confirm('Are you sure you want to leave this page ? ');
+      if (this.editProfile.myForm.dirty) {
+        return false;
+      } else {
+        return true;
+    }
+  }
   preFillData(existingData: any) {
     for (let i = 0; i < this.formData.controls.length; i++) {
       this.formData.controls[i].value = existingData[this.formData.controls[i].name];

@@ -46,7 +46,7 @@ import { ExitPopupComponent } from './components/exit-popup/exit-popup.component
     GenericDetailsComponent,
     ProfileHeaderComponent,
     InputDialogueBoxComponent,
-    ExitPopupComponent
+    // ExitPopupComponent
   ],
   imports: [
     CommonModule,
