@@ -1,16 +1,16 @@
 <div class="exit-popup-container">
-    <mat-icon class="mat-cancel-icon" mat-dialog-close >cancel_circle_outline</mat-icon>
+    <mat-icon class="mat-cancel-icon" mat-dialog-close (click)="onClickCancel()">cancel_circle_outline</mat-icon>
     <div class="text-container">
         <h1 class="text-exit-page">{{'EXIT_THIS_PAGE' | translate}}</h1>
         <h2>{{'ARE_YOU_SURE_WANT_TO_EXIT' | translate}}</h2>
     </div>
     <div fxLayout="row" class="exit-conatiner">
         <div mat-dialog-actions>
-            <button class="exit-cancel-button" mat-button mat-dialog-close >{{'EXIT' | translate}}</button>
+            <button class="exit-cancel-button" mat-button mat-dialog-close (click)="onClickExit()">{{'EXIT' | translate}}</button>
         </div>
         <div mat-dialog-actions class="cancel-button-container">
             <button class="cancel-button exit-cancel-button" mat-button mat-dialog-close 
-                >{{'CANCEL' | translate}}</button>
+               (click)="onClickCancel()" >{{'CANCEL' | translate}}</button>
         </div>
     </div>
 </div>
