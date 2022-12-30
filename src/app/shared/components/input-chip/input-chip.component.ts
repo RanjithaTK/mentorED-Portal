@@ -46,7 +46,7 @@ export class InputChipComponent implements ControlValueAccessor {
     this.control.options.map((chip:any) => {
       if(_.some(value, chip)){
         this.selectedChips.add(chip);
-        chip.selected = !chip.selected;
+        chip.selected = true;
       }
     })
     if (this.selectedChips.size === this.control.options.length) {
