@@ -91,19 +91,19 @@ export class EditProfileComponent implements OnInit, CanLeave {
     return this.http.put(path.signedUrl, imageForm);
   }
 
-  ImageUploadEvent(event: any) {
-    this.localImage = event.target.files[0];
-    var reader = new FileReader();
-    reader.readAsDataURL(event.target.files[0]);
-    reader.onload = (file: any) => {
-      this.imgData.image = file.target.result
-      this.imgData.isUploaded = false;
+  ImageEvent(event: any) {
+    if(event){
+      this.localImage = event.target.files[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (file: any) => {
+        this.imgData.image = file.target.result
+        this.imgData.isUploaded = false;
+      }
+    } else {
+      this.localImage = this.imgData.image = '';
+      this.imgData.isUploaded = true;
     }
-  }
-
-  imageRemoveEvent() {
-    this.localImage = this.imgData.image = '';
-    this.imgData.isUploaded = true;
   }
 
   preFillData(existingData: any) {
