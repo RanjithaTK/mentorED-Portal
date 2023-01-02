@@ -52,7 +52,7 @@ const routes: Routes = [
         component: CreateSessionComponent,
         data: {title: 'CREATE_NEW_SESSION'}
       },
-      { path: 'edit-profile',
+      { path: 'edit-profile',canDeactivate: [CanDeactivateGuard],
         component: EditProfileComponent,
         data: {title: 'EDIT_YOUR_PROFILE'},
       },

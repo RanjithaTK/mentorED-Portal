@@ -24,7 +24,7 @@ export class CreatedSessionsComponent implements OnInit {
   upcomingCardDetails: Array<item> = [];
   pastCardDetails: Array<item> = [];
   page: any = 1;
-  limit: any = 4;
+  limit: any = 2;
   status: any = "completed";
   loading: boolean = false;
   userDetails: any;

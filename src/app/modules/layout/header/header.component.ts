@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit {
       this.letter = data?JSON.parse(data).name[0]:'U';
     })
   }
+  onSearch(){}
   onClick() {
     this.menuToggleEvent.emit()
   }
