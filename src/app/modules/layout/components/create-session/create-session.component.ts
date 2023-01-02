@@ -34,7 +34,7 @@ export class CreateSessionComponent implements OnInit {
     })
   }
 
-  ImageEvent(event: any) {
+  imageEvent(event: any) {
     if(event){
       this.localImage = event.target.files[0];
       var reader = new FileReader();
