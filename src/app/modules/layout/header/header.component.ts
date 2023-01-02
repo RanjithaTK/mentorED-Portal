@@ -39,11 +39,16 @@ export class HeaderComponent implements OnInit {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd),)
     .subscribe(() => {
       const child: any = this.activatedRoute.firstChild;
-      console.log(child)
       this.showSearchbar = (child.snapshot.data['showSearchbar'])?child.snapshot.data['showSearchbar'] : false;
     })
   }
   checkInput(){
     this.searchText=this.searchText.replace(/^ +/gm, '')
+  }
+  onSearch() {
+    
+  }
+  languageEvent() {
+    this.translate.use(this.selectedLanguage).subscribe()
   }
 }
