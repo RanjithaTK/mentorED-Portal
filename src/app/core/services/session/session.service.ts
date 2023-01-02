@@ -71,7 +71,7 @@ export class SessionService {
   }
   allSession(obj:any){
     const config={
-      url: API_CONSTANTS.SESSIONS+ obj.type+'&page='+ obj?.page + '&limit=' + obj?.limit,
+      url: API_CONSTANTS.SESSIONS+ obj.enrolled+'&page='+ obj?.page + '&limit=' + obj?.limit,
     }
     return this.apiService.get(config).pipe(
       map((result: any) => {
