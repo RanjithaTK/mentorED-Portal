@@ -23,13 +23,15 @@ export class CreatedSessionsComponent implements OnInit {
   lastIndexPastSessions: any = 2;
   upcomingCardDetails: Array<item> = [];
   pastCardDetails: Array<item> = [];
-  page: any = 1;
+  pagePast: any = 1;
+  pageUpcoming:any =1
   limit: any = 2;
   status: any = "completed";
   loading: boolean = false;
   userDetails: any;
-  showLoadMoreButton: boolean = false;
-
+  showLoadMoreButtonPastSession: boolean = false;
+  showLoadMoreButtonUpcomingSession: boolean = false;
+  buttonContent:any = 'LIVE';
   constructor(private apiService: ApiService, private sessionService: SessionService, private localStorage: LocalStorageService, private router: Router) { }
   async ngOnInit(): Promise<void> {
     this.userDetails = JSON.parse(
@@ -38,44 +40,37 @@ export class CreatedSessionsComponent implements OnInit {
 
     let user: any = localStorage.getItem('user')
     user = JSON.parse(user)
-    this.getUpcomingSessions(user._id).subscribe()
+    this.getUpcomingSessions(user._id)
     this.getPastSessions()
   }
 
   onClickViewMoreUpcomingSessions() {
-    this.page = this.page + 1
-    this.getUpcomingSessions(this.userDetails._id).subscribe()
+    this.pageUpcoming = this.pageUpcoming + 1
+    this.getUpcomingSessions(this.userDetails._id)
   }
   onClickViewMorePastSessions() {
-    this.page = this.page + 1
+    this.pagePast = this.pagePast + 1
     this.getPastSessions()
   }
 
   getUpcomingSessions(id: any) {
-    const config = {
-      url:
-        API_CONSTANTS.UPCOMING_SESSIONS +
-        id +
-        '?page=' +
-        this.page +
-        '&limit=' +
-        this.limit,
-      payload: {},
+    let obj ={
+      id:id,
+      page:this.pageUpcoming,
+      limit:this.limit,
+      status:this.status
     }
     this.loading = true
-    return this.apiService.get(config).pipe(
-      map((data: any) => {
-        this.loading = false
+    this.sessionService.upComingSession(obj).subscribe((data:any)=>{
+      this.loading = false
         this.upcomingCardDetails = this.upcomingCardDetails.concat(data.result[0].data)
-        this.showLoadMoreButton = data.result.count == this.upcomingCardDetails.length ? false : true;
-        return data
-      }),
-    )
+        this.showLoadMoreButtonUpcomingSession = data.result[0].count == this.upcomingCardDetails.length ? false : true;
+    })
   }
 
   getPastSessions() {
     let obj ={
-      page:this.page,
+      page:this.pagePast,
       limit:this.limit,
       status:this.status
     }
@@ -83,7 +78,7 @@ export class CreatedSessionsComponent implements OnInit {
     this.sessionService.pastSession(obj).subscribe((data:any)=>{
       this.loading = false
       this.pastCardDetails = this.pastCardDetails.concat(data.result.data)
-      this.showLoadMoreButton = data.result.count == this.pastCardDetails.length ? false : true
+      this.showLoadMoreButtonPastSession = data.result.count == this.pastCardDetails.length ? false : true
     })
     
   }
