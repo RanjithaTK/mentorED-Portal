@@ -69,6 +69,23 @@ export class SessionService {
       })
     )
   }
+  upComingSession(obj:any){
+    const config = {
+      url:
+        API_CONSTANTS.UPCOMING_SESSIONS +
+        obj.id +
+        '?page=' +
+        obj.page +
+        '&limit=' +
+        obj.limit,
+      payload: {},
+    }
+    return this.apiService.get(config).pipe(
+      map((data: any) => {
+        return data
+      }),
+    )
+  }
   allSession(obj:any){
     const config={
       url: API_CONSTANTS.SESSIONS+ obj.enrolled+'&page='+ obj?.page + '&limit=' + obj?.limit,
