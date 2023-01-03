@@ -51,4 +51,7 @@ export class HeaderComponent implements OnInit {
   languageEvent() {
     this.translate.use(this.selectedLanguage).subscribe()
   }
+  goToProfile() {
+    this.router.navigate(['/profile']);
+  }
 }

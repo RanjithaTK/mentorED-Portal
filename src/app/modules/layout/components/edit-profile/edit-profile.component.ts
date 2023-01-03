@@ -73,7 +73,7 @@ export class EditProfileComponent implements OnInit, CanLeave {
       map((result: any) => {
         return this.upload(file, result.result).subscribe(() => {
           this.imgData.isUploaded = true;
-          this.editProfile.myForm.value.append('image', result.result.signedUrl)
+          this.editProfile.myForm.value.image = result.result.filePath
           this.onSubmit();
         })
       }))
