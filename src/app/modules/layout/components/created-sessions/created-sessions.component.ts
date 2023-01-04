@@ -83,10 +83,7 @@ export class CreatedSessionsComponent implements OnInit {
     
   }
   buttonClick(event: any){
-    console.log(event)
-    this.sessionService.startSession(event.data._id).subscribe((result) => {
-      console.log(result)
-    })
+    this.sessionService.startSession(event.data._id).subscribe((result) => {})
   }
   createSession() {
     this.router.navigate(['/create-session'])
