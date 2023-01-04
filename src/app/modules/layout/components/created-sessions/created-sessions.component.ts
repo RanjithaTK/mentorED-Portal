@@ -31,7 +31,6 @@ export class CreatedSessionsComponent implements OnInit {
   userDetails: any;
   showLoadMoreButtonPastSession: boolean = false;
   showLoadMoreButtonUpcomingSession: boolean = false;
-  buttonContent:any = 'LIVE';
   constructor(private apiService: ApiService, private sessionService: SessionService, private localStorage: LocalStorageService, private router: Router) { }
   async ngOnInit(): Promise<void> {
     this.userDetails = JSON.parse(

@@ -1,10 +1,11 @@
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import * as _ from 'lodash';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants';
 import { CREATE_SESSION_FORM } from 'src/app/core/constants/formConstant';
+import { CanLeave } from '../../../../core/interfaces/canLeave';
 import { ApiService } from 'src/app/core/services';
 import { FormService } from 'src/app/core/services/form/form.service';
 import { SessionService } from 'src/app/core/services/session/session.service';
@@ -15,7 +16,7 @@ import { DynamicFormComponent } from 'src/app/shared';
   templateUrl: './create-session.component.html',
   styleUrls: ['./create-session.component.scss']
 })
-export class CreateSessionComponent implements OnInit {
+export class CreateSessionComponent implements OnInit,CanLeave {
   @ViewChild('createSession') createSession: DynamicFormComponent;
   imgData = {
     type: 'session',
@@ -25,9 +26,16 @@ export class CreateSessionComponent implements OnInit {
   defaultImageArray = []
   formData: any;
   localImage: any;
-
+  isSaved:any = false;
   constructor(private form: FormService, private apiService: ApiService, private http: HttpClient, private sessionService: SessionService, private location: Location) { }
-
+  @HostListener('window:beforeunload')
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+     if (!this.isSaved) {
+       return false;
+     } else {
+       return true;
+     }
+   }
   ngOnInit(): void {
     this.form.getForm(CREATE_SESSION_FORM).subscribe((form)=>{
       this.formData = form;
@@ -50,11 +58,18 @@ export class CreateSessionComponent implements OnInit {
   }
 
   onSubmit() {
+    this.isSaved = true;
     if (this.createSession.myForm.valid) {
       if (this.imgData.image && !this.imgData.isUploaded) {
         this.getImageUploadUrl(this.localImage).subscribe()
       } else {
-        this.sessionService.createSession(this.createSession.myForm.value).subscribe((result)=>{
+        const form = Object.assign({}, this.createSession.myForm.value);
+        form.startDate = new Date(form.startDate).getTime() / 1000.0;
+        form.endDate = new Date(form.endDate).getTime() / 1000.0;
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        form.timeZone = timezone;
+        this.createSession.myForm.markAsPristine();
+        this.sessionService.createSession(form).subscribe((result)=>{
           this.location.back();
         });
       }

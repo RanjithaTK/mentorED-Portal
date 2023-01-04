@@ -1,3 +1,4 @@
+@import "../../../../variables";
 .card-details {
     padding: 2%;
 }
@@ -19,7 +20,7 @@
     cursor: pointer;
     text-decoration: underline;
     font-weight: 500;
-    color: rgb(56, 143, 224);
+    color: $light-blue;
 
 }
 
@@ -28,7 +29,7 @@
     border-radius: 25px;
     text-align: center;
     justify-content: center;
-    color: white;
+    color: $white;
     font-weight: 100;
 
 }
@@ -54,4 +55,15 @@
 }
 .status-badge {
     margin-left: 10px !important;
+}
+.primary{
+background-color:$theme;
+}
+.secondary{
+    background-color:$green;
+}
+.liveTag{
+    background-color:$light-blue;
+    padding:  0 10px 0 10px;
+   float: left;
 }
