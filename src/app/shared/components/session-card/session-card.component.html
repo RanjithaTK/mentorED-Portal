@@ -6,8 +6,6 @@
         </div>
     </div>
     <div fxFlex="100%" class="card-details" fxLayout="column">
-        <div *ngIf="buttonConfig?.isEnabled  && cardData?.status != 'completed'"><div  class="liveTag"> {{'LIVE' | translate}}</div></div>
-        <ng-content></ng-content>
         <div>
             <mat-icon class="status-badge" *ngIf="cardData?.status=='live'" matBadge="Live"></mat-icon>
             <p class="card-detail-bold">{{cardData?.title | titlecase}}</p>
