@@ -96,8 +96,9 @@ export class SessionListingComponent implements OnInit {
           })
         break
       case 'joinAction':
+        let id = this.selectedPage == '/enrolled-sessions' ? event.data.sessionId : event.data._id
         this.sessionService
-          .joinSession(event.data._id)
+          .joinSession(id)
           .subscribe((result) => {})
         break
     }

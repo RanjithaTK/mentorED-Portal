@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
+import * as moment from 'moment'
 
 @Component({
   selector: 'app-session-card',
@@ -29,7 +30,8 @@ export class SessionCardComponent implements OnInit {
     }
     let currentTimeInSeconds = Math.floor(Date.now() / 1000)
     this.buttonConfig.isEnabled =
-      this.cardData.startDate - currentTimeInSeconds < 300 ? true : false
+      (this.cardData.startDate - currentTimeInSeconds) < 300 ? true : false
+    this.cardData.startDate = (this.cardData.startDate>0)?moment.unix(this.cardData.startDate).toLocaleString():this.cardData.startDate;
   }
   buttonClicked(action: any, data: any) {
     let detail: any = { action: action, data: data }

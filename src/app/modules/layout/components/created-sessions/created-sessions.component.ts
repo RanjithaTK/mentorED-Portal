@@ -29,18 +29,18 @@ export class CreatedSessionsComponent implements OnInit {
   status: any = "completed";
   loading: boolean = false;
   userDetails: any;
+  user:any;
   showLoadMoreButtonPastSession: boolean = false;
   showLoadMoreButtonUpcomingSession: boolean = false;
-  buttonContent:any = 'LIVE';
   constructor(private apiService: ApiService, private sessionService: SessionService, private localStorage: LocalStorageService, private router: Router) { }
   async ngOnInit(): Promise<void> {
     this.userDetails = JSON.parse(
       await this.localStorage.getLocalData(localKeys.USER_DETAILS),
     )
 
-    let user: any = localStorage.getItem('user')
-    user = JSON.parse(user)
-    this.getUpcomingSessions(user._id)
+    this.user = localStorage.getItem('user')
+    this.user = JSON.parse(this.user)
+    this.getUpcomingSessions(this.user._id)
     this.getPastSessions()
   }
 
@@ -82,7 +82,9 @@ export class CreatedSessionsComponent implements OnInit {
     })
     
   }
-
+  buttonClick(event: any){
+    this.sessionService.startSession(event.data._id).subscribe((result) => {})
+  }
   createSession() {
     this.router.navigate(['/create-session'])
   }
