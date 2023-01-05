@@ -49,7 +49,7 @@ export class EditProfileComponent implements OnInit, CanLeave {
   }
   @HostListener('window:beforeunload')
  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
-    if (!this.isSaved) {
+    if (!this.isSaved && this.editProfile.myForm.touched) {
       return false;
     } else {
       return true;

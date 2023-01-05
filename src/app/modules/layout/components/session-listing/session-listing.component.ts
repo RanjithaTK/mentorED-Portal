@@ -53,7 +53,7 @@ export class SessionListingComponent implements OnInit {
         this.getAllSession().subscribe()
       })
     this.cardHeading =
-      this.selectedPage == '/enrolled-sessions' ? 'MY_SESSIONS' : 'ALL_SESSIONS'
+      this.selectedPage == '/enrolled-sessions' ? 'ENROLLED_SESSIONS' : 'ALL_SESSIONS'
   }
 
   onClickViewMore() {
