@@ -67,7 +67,7 @@ export class EditProfileComponent implements OnInit, CanLeave {
   }
   getImageUploadUrl(file: any) {
     let config = {
-      url: API_CONSTANTS.GET_IMAGE_UPLOAD_URL + file.name
+      url: API_CONSTANTS.GET_IMAGE_UPLOAD_URL + file.name.replaceAll(/\s/g,'').toLowerCase()
     }
     return this.apiService.get(config).pipe(
       map((result: any) => {
@@ -81,14 +81,12 @@ export class EditProfileComponent implements OnInit, CanLeave {
 
 
   upload(file: any, path: any) {
-    const imageForm = new FormData();
-    imageForm.append('image', file);
     var options = {
       headers: {
         "Content-Type": "multipart/form-data"
       },
     };
-    return this.http.put(path.signedUrl, imageForm);
+    return this.http.put(path.signedUrl, file, options);
   }
 
   imageEvent(event: any) {

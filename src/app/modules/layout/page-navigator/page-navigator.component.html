@@ -7,13 +7,12 @@
         </h1>
     </div>
 </div>
-<div *ngIf="!pageTitle && labels" class="conatiner" fxFlex="71%" fxFlex.xs="100%" fxFlex.sm="90%" fxFlex.md="90%">
+<div *ngIf="!pageTitle" class="conatiner" fxFlex="71%" fxFlex.xs="100%" fxFlex.sm="90%" fxFlex.md="90%">
     <div class="navigation-container" fxFlex="row" fxLayoutAlign="center center" fxLayoutGap="15px">
         <div *ngFor='let page of navigationArray'>
             <button fxFlex.xs="40%"
-                *ngIf="(!mentorArray.includes(page.name) || (mentorArray.includes(page.name)&&userDetails?.isAMentor))&&!pageTitle"
                 routerLink='{{page.url}}' routerLinkActive="active" class="page-navigator-button"
-                mat-raised-button>{{labels[page.label] | translate }}</button>
+                mat-raised-button>{{page.label | translate }}</button>
         </div>
     </div>
 </div>
