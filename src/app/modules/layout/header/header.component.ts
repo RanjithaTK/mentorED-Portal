@@ -17,12 +17,15 @@ export class HeaderComponent implements OnInit {
     { label: 'English', value: 'en' },
     { label: 'Hindi', value: 'hi' },
   ]
-  selectedLanguage = 'en'
+  selectedLanguage: string;
   showSearchbar = false;
   searchText: string
 
   constructor(private translate: TranslateService, private authService: AuthService, private localStorage: LocalStorageService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.checkForSearchbar();
+    this.localStorage.getLocalData(localKeys.SELECTED_LANGUAGE).then((lang)=>{
+      this.selectedLanguage = lang;
+    })
   }
   ngOnInit(): void {
     this.localStorage.getLocalData(localKeys.USER_DETAILS).then((data)=>{
@@ -49,7 +52,9 @@ export class HeaderComponent implements OnInit {
     
   }
   languageEvent() {
-    this.translate.use(this.selectedLanguage).subscribe()
+    this.localStorage.saveLocalData(localKeys.SELECTED_LANGUAGE, this.selectedLanguage).then(()=>{
+      this.translate.use(this.selectedLanguage).subscribe()
+    })
   }
   goToProfile() {
     this.router.navigate(['/profile']);

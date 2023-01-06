@@ -77,7 +77,7 @@ export class CreateSessionComponent implements OnInit,CanLeave {
   }
   getImageUploadUrl(file: any) {
     let config = {
-      url: API_CONSTANTS.GET_IMAGE_UPLOAD_URL + file.name
+      url: API_CONSTANTS.GET_IMAGE_UPLOAD_URL + file.name.replaceAll(/\s/g,'').toLowerCase()
     }
     return this.apiService.get(config).pipe(
       map((result: any) => {
@@ -89,8 +89,11 @@ export class CreateSessionComponent implements OnInit,CanLeave {
       }))
   }
   upload(file: any, path: any) {
-    const imageForm = new FormData();
-    imageForm.append('image', file);
-    return this.http.put(path.signedUrl, imageForm);
+    var options = {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      },
+    };
+    return this.http.put(path.signedUrl, file);
   }
 }

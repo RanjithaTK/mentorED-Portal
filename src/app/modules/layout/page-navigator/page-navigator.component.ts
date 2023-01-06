@@ -39,10 +39,6 @@ export class PageNavigatorComponent implements OnInit {
     this.profileService.profileDetails().then((userDetails) => {
       this.userDetails = userDetails;
     })
-    this.translate.get(this.navigationArray.map(label => label.label)).subscribe(values => {
-      this.labels = Object.assign({}, values);;
-    })
- 
   }
 
   setTitle() {

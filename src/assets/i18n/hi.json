@@ -1,5 +1,11 @@
 {
     "AUTH_WELCOME_MSG": "MentorED में आपका स्वागत है",
     "LOGIN": "लॉग इन करें",
-    "VIEW_MORE": "और देखें"
+    "VIEW_MORE": "और देखें",
+    "ALL_SESSIONS": "आपका स्वागत है",
+    "MY_SESSIONS": "आपका स्वागत है",
+    "HOME": "और देखें",
+    "ENROLLED_SESSIONS": "लॉग इन करें",
+    "CREATED_SESSIONS": "और देखें",
+    "MENTOR_DIRECTORY": "लॉग इन करें"
 }
