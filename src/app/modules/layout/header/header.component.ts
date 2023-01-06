@@ -17,14 +17,14 @@ export class HeaderComponent implements OnInit {
     { label: 'English', value: 'en' },
     { label: 'Hindi', value: 'hi' },
   ]
-  selectedLanguage: string;
+  selectedLanguage: string = 'en';
   showSearchbar = false;
   searchText: string
 
   constructor(private translate: TranslateService, private authService: AuthService, private localStorage: LocalStorageService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.checkForSearchbar();
     this.localStorage.getLocalData(localKeys.SELECTED_LANGUAGE).then((lang)=>{
-      this.selectedLanguage = lang;
+      if(lang)this.selectedLanguage = lang;
     })
   }
   ngOnInit(): void {
