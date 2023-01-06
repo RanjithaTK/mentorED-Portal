@@ -11,7 +11,6 @@
     <div class="navigation-container" fxFlex="row" fxLayoutAlign="center center" fxLayoutGap="15px">
         <div *ngFor='let page of navigationArray'>
             <button fxFlex.xs="40%"
-                *ngIf="(!mentorArray.includes(page.name) || (mentorArray.includes(page.name)&&userDetails?.isAMentor))&&!pageTitle"
                 routerLink='{{page.url}}' routerLinkActive="active" class="page-navigator-button"
                 mat-raised-button>{{page.label | translate }}</button>
         </div>
