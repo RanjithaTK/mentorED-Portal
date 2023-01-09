@@ -5,7 +5,7 @@
             <app-dynamic-form *ngIf="formData" [jsonFormData]="formData" #createSession></app-dynamic-form>
         </div>
         <div fxLayoutAlign="center center">
-            <button mat-raised-button class="button-shadow" color="primary" (click)="onSubmit()">{{"PUBLISH" | translate}}</button>
+            <button mat-raised-button class="button-shadow" color="primary" [disabled]="createSession && !createSession.myForm.valid" (click)="onSubmit()">{{"PUBLISH" | translate}}</button>
         </div>
     </mat-card>
 </div>  
