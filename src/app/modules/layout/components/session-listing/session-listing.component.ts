@@ -92,6 +92,7 @@ export class SessionListingComponent implements OnInit {
         this.sessionService
           .enrollSession(event.data._id)
           .subscribe((result) => {
+            this.cardDetails = []
             this.getAllSession().subscribe()
           })
         break

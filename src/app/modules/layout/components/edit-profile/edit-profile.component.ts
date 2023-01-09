@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core'
+import { ChangeDetectorRef, Component, HostListener, OnInit, ViewChild } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog';
 import * as _ from 'lodash';
 import { map, Observable } from 'rxjs';
@@ -32,28 +32,28 @@ export class EditProfileComponent implements OnInit, CanLeave {
   showForm: any = false;
   type = 'profile'
   isSaved: any = false;
-  constructor(private formService: FormService, private profileService: ProfileService, private localStorage: LocalStorageService, private apiService: ApiService, private http: HttpClient, private dialog: MatDialog, private location: Location) {
+  constructor(private formService: FormService, private profileService: ProfileService, private localStorage: LocalStorageService, private apiService: ApiService, private http: HttpClient, private changeDetRef: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
-    this.localStorage.getLocalData(localKeys.USER_DETAILS).then((user) => {
-      if (user) {
-        this.imgData.image = (user.image) ? user.image : '';
-        this.formService.getForm(EDIT_PROFILE_FORM).subscribe((form) => {
-          this.formData = form
+    this.formService.getForm(EDIT_PROFILE_FORM).subscribe((form) => {
+      this.formData = form  
+      this.localStorage.getLocalData(localKeys.USER_DETAILS).then((user) => {
+        if (user) {
+          this.imgData.image = (user.image) ? user.image : '';
           this.preFillData(JSON.parse(user));
-        })
-      }
+          this.changeDetRef.detectChanges();
+        }
+      })
     })
-
   }
   @HostListener('window:beforeunload')
  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
     if (!this.isSaved && this.editProfile.myForm.touched) {
-      return false;
-    } else {
-      return true;
-    }
+        return false;
+      } else {
+        return true;
+      }
   }
   onSubmit() {
     this.isSaved = true;
