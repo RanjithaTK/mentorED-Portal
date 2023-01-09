@@ -1,3 +1,5 @@
+<mat-slide-toggle [(ngModel)]="_selectAll"
+    (change)="selectAll()"></mat-slide-toggle>
 <div role="group">
     <mat-chip-list
     #chipList 
@@ -13,7 +15,7 @@
         {{chip?.label}}
         <mat-icon 
             matChipRemove 
-            *ngIf="chip.selected"
+            *ngIf="this.selectedChips.has(chip)"
             (click)="onChipClick(chip)">
             cancel
         </mat-icon>
