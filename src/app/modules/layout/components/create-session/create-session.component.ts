@@ -29,31 +29,22 @@ export class CreateSessionComponent implements OnInit,CanLeave {
   formData: any;
   localImage: any;
   isSaved:any = false;
-  constructor(private form: FormService, private router: Router, private apiService: ApiService, private changeDetRef: ChangeDetectorRef , private http: HttpClient, private sessionService: SessionService, private location: Location,private profileService: ProfileService) { }
+  constructor(private form: FormService, private router: Router, private apiService: ApiService, private changeDetRef: ChangeDetectorRef , private http: HttpClient, private sessionService: SessionService, private location: Location) { }
   @HostListener('window:beforeunload')
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
     if (!this.isSaved && this.createSession.myForm.dirty) {
-       return false;
+       return window.confirm("Are you sure you want to exit? your data will not be saved.");
      } else {
        return true;
      }
    }
   ngOnInit(): void {
-    this.getDetails().then((userDetails)=>{
-      if(userDetails.about){
-        this.form.getForm(CREATE_SESSION_FORM).subscribe((form)=>{
-          this.formData = form;
-          this.changeDetRef.detectChanges();
-        }) 
-      }else{
-        this.router.navigate(['/edit-profile'])
-      }
-    })
-    
+    this.form.getForm(CREATE_SESSION_FORM).subscribe((form)=>{
+      this.formData = form;
+      this.changeDetRef.detectChanges();
+    })  
   }
-  async getDetails() {
-    return await this.profileService.profileDetails()
-  }
+ 
   imageEvent(event: any) {
     if(event){
       this.localImage = event.target.files[0];

@@ -49,8 +49,8 @@ export class EditProfileComponent implements OnInit, CanLeave {
   }
   @HostListener('window:beforeunload')
  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
-    if (!this.isSaved && this.editProfile.myForm.touched) {
-      return false;
+    if (!this.isSaved && this.editProfile.myForm.dirty) {
+      return window.confirm("Are you sure you want to exit? your data will not be saved.");
     } else {
       return true;
     }
