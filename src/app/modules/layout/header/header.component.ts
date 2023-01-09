@@ -5,6 +5,7 @@ import { filter } from 'rxjs'
 import { localKeys } from 'src/app/core/constants/localStorage.keys'
 import { AuthService } from 'src/app/core/services/auth/auth.service'
 import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service'
+import { ProfileService } from 'src/app/core/services/profile/profile.service'
 import { ToastService } from 'src/app/core/services/toast/toast.service'
 @Component({
   selector: 'app-header',
@@ -22,7 +23,7 @@ export class HeaderComponent implements OnInit {
   showSearchbar = false;
   searchText: string
 
-  constructor(private translate: TranslateService, private authService: AuthService, private localStorage: LocalStorageService, private router: Router, private activatedRoute: ActivatedRoute, private toast: ToastService) {
+  constructor(private translate: TranslateService, private authService: AuthService, private localStorage: LocalStorageService, private router: Router, private activatedRoute: ActivatedRoute, private toast: ToastService,private profileService: ProfileService) {
     this.checkForSearchbar();
     this.localStorage.getLocalData(localKeys.SELECTED_LANGUAGE).then((lang)=>{
       if(lang)this.selectedLanguage = lang;
@@ -60,6 +61,16 @@ export class HeaderComponent implements OnInit {
     })
   }
   goToProfile() {
-    this.router.navigate(['/profile']);
+    this.getDetails().then((userDetails)=>{
+      if(userDetails.about){
+        this.router.navigate(['/profile']);
+      }else{
+         this.router.navigate(['/edit-profile'])
+      }
+    })
+   
+  }
+  async getDetails() {
+    return await this.profileService.profileDetails()
   }
 }
