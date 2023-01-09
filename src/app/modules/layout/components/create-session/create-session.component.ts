@@ -32,8 +32,7 @@ export class CreateSessionComponent implements OnInit,CanLeave {
   constructor(private form: FormService, private router: Router, private apiService: ApiService, private changeDetRef: ChangeDetectorRef , private http: HttpClient, private sessionService: SessionService, private location: Location,private profileService: ProfileService) { }
   @HostListener('window:beforeunload')
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
-    const confirmResult = confirm("Are you sure you want to exit? your data will not be saved.");
-    if (!this.isSaved && this.createSession.myForm.dirty && confirmResult != true) {
+    if (!this.isSaved && this.createSession.myForm.dirty) {
        return false;
      } else {
        return true;
