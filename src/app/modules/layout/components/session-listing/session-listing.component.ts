@@ -63,7 +63,7 @@ export class SessionListingComponent implements OnInit {
         this.getAllSession().subscribe()
       })
     this.cardHeading =
-      this.selectedPage == '/enrolled-sessions' ? 'MY_SESSIONS' : 'ALL_SESSIONS'
+      this.selectedPage == '/enrolled-sessions' ? 'ENROLLED_SESSIONS' : 'ALL_SESSIONS'
   }
 
   onClickViewMore() {
@@ -103,12 +103,14 @@ export class SessionListingComponent implements OnInit {
         this.sessionService
           .enrollSession(event.data._id)
           .subscribe((result) => {
+            this.cardDetails = []
             this.getAllSession().subscribe()
           })
         break
       case 'joinAction':
+        let id = this.selectedPage == '/enrolled-sessions' ? event.data.sessionId : event.data._id
         this.sessionService
-          .joinSession(event.data._id)
+          .joinSession(id)
           .subscribe((result) => {})
         break
     }

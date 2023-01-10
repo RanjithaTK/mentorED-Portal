@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { localKeys } from 'src/app/core/constants/localStorage.keys';
 import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
 import { SessionService } from 'src/app/core/services/session/session.service';
+import { ProfileService } from 'src/app/core/services/profile/profile.service';
 
 interface item {
   userId?: string;
@@ -29,18 +30,18 @@ export class CreatedSessionsComponent implements OnInit {
   status: any = "completed";
   loading: boolean = false;
   userDetails: any;
+  user:any;
   showLoadMoreButtonPastSession: boolean = false;
   showLoadMoreButtonUpcomingSession: boolean = false;
-  buttonContent:any = 'LIVE';
-  constructor(private apiService: ApiService, private sessionService: SessionService, private localStorage: LocalStorageService, private router: Router) { }
+  constructor(private apiService: ApiService, private sessionService: SessionService, private localStorage: LocalStorageService, private router: Router,private profileService: ProfileService) { }
   async ngOnInit(): Promise<void> {
     this.userDetails = JSON.parse(
       await this.localStorage.getLocalData(localKeys.USER_DETAILS),
     )
 
-    let user: any = localStorage.getItem('user')
-    user = JSON.parse(user)
-    this.getUpcomingSessions(user._id)
+    this.user = localStorage.getItem('user')
+    this.user = JSON.parse(this.user)
+    this.getUpcomingSessions(this.user._id)
     this.getPastSessions()
   }
 
@@ -82,9 +83,21 @@ export class CreatedSessionsComponent implements OnInit {
     })
     
   }
-
+  buttonClick(event: any){
+    this.sessionService.startSession(event.data._id).subscribe((result) => {})
+  }
   createSession() {
-    this.router.navigate(['/create-session'])
+    this.getDetails().then((userDetails)=>{
+      if(userDetails.about){
+        this.router.navigate(['/create-session'])
+      }else{
+        this.router.navigate(['/edit-profile'])
+      }
+    })
+   
+  }
+  async getDetails() {
+    return await this.profileService.profileDetails()
   }
 
 }

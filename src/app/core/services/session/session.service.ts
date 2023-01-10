@@ -38,7 +38,18 @@ export class SessionService {
       }),
     )
   }
-
+startSession(id: any){
+  const config = {
+    url: API_CONSTANTS.START_SESSION + id,
+    payload: {},
+  }
+  return this.apiService.get(config).pipe(
+    map((result: any) => {
+      this.toastService.showMessage(result.message, 'success')
+      window.open(result.result.link)
+    }),
+  )
+}
   createSession(formData:any, id?: string) {
     const config = {
       url: id == null ? API_CONSTANTS.CREATE_SESSION : API_CONSTANTS.CREATE_SESSION + `/${id}`,
