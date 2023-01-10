@@ -46,7 +46,17 @@ export class HeaderComponent implements OnInit {
     this.searchText=this.searchText.replace(/^ +/gm, '')
   }
   onSearch() {
-    
+
+    this.router.navigate([], {
+      
+      queryParams: {
+        searchText: this.searchText,
+      }
+    });
+  }
+  search(){
+    this.router.navigate(['/home-search']);
+
   }
   languageEvent() {
     this.translate.use(this.selectedLanguage).subscribe()

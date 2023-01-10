@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/core/services';
 import { FormService } from 'src/app/core/services/form/form.service';
 import { map } from 'rxjs';
@@ -34,11 +34,13 @@ export class SessionListingComponent implements OnInit {
   showLoadMoreButton: boolean = false
   dataCount = 0
   isEnrolledSessions: any
+  searchText: any=""
+
 
   constructor(
     private router: Router,
     private apiService: ApiService,
-    private form: FormService,
+    private activatedRoute: ActivatedRoute,
     private sessionService: SessionService,
     private localStorage:LocalStorageService,
   ) {
@@ -46,6 +48,14 @@ export class SessionListingComponent implements OnInit {
   }
 
   ngOnInit(){
+    this.activatedRoute.queryParams
+      .subscribe(params => {
+        console.log(params['searchText']);
+        // this.searchText=params['searchText']
+        // this.allSessions = [] 
+        // this.getAllSession().subscribe()
+      }
+    );
     this.localStorage
       .getLocalData(localKeys.USER_DETAILS)
       .then((userDetails) => {
@@ -68,6 +78,7 @@ export class SessionListingComponent implements OnInit {
       enrolled: this.isEnrolledSessions,
       page: this.page,
       limit: this.limit,
+      searchText: this.searchText,
     }
     return this.sessionService.allSession(obj).pipe(
       map((data: any) => {

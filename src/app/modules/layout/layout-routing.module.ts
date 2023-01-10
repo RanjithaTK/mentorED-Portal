@@ -10,6 +10,7 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
 import { CreateSessionComponent } from './components/create-session/create-session.component'
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component'
 import { CanDeactivateGuard } from '../../core/guards/can-deactivate.guard'
+import { HomeSearchComponent } from './components/home-search/home-search.component'
 
 const routes: Routes = [
   {
@@ -62,6 +63,11 @@ const routes: Routes = [
         path: '',
         redirectTo: 'home',
         pathMatch: 'full'
+      },
+      {
+        path: 'home-search',
+        component: HomeSearchComponent,
+        data: {showSearchbar: true},
       }
     ],
   },

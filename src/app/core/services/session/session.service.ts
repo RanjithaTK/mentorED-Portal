@@ -88,10 +88,12 @@ export class SessionService {
   }
   allSession(obj:any){
     const config={
-      url: API_CONSTANTS.SESSIONS+ obj.enrolled+'&page='+ obj?.page + '&limit=' + obj?.limit,
+      url: API_CONSTANTS.SESSIONS+ obj.enrolled+'&page='+ obj?.page + '&limit=' + obj?.limit + '&search=' + btoa(obj?.searchText)
     }
+    console.log(config)
     return this.apiService.get(config).pipe(
       map((result: any) => {
+        console.log(result)
        return result
       })
     )
