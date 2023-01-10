@@ -86,7 +86,7 @@ export class CreateSessionComponent implements OnInit,CanLeave {
       map((result: any) => {
         return this.upload(file, result.result).subscribe(() => {
           this.imgData.isUploaded = true;
-          this.createSession.myForm.value.append('image', result.result.signedUrl)
+          this.createSession.myForm.value.image = result.result.filePath;
           this.onSubmit();
         })
       }))
