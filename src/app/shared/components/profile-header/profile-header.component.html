@@ -1,6 +1,16 @@
 <div fxLayout="column" fxLayoutAlign="center center">
   <div>
-    <img [src]="details?.data?.image" alt="profilepic" />
+    <ng-template [ngIf]="details.data.image" [ngIfElse]="loggedOut">
+      <div>
+        <img class="image" [ngClass]="{'round-image':details?.data?.image}" [src]="details?.data?.image" alt="profilepic" />
+      </div>
+    </ng-template>
+    
+    <ng-template #loggedOut>
+      <div>
+        <img class="image" src="/assets/images/user-circle-add.svg" /> 
+      </div>
+    </ng-template>
   </div>
   <div class="title">{{ details?.data?.name | titlecase }}</div>
   <div
@@ -10,25 +20,28 @@
     *ngFor="let location of details?.data?.location"
   >
     <mat-icon class="location-icon">room</mat-icon>
-    <div>{{ location?.label }}</div>
+    <div class="inline-label">{{ location?.label }}</div>
   </div>
-  <div fxLayout="row" fxLayoutAlign="space-around center" class="title">
-    <mat-icon class="star-icon">grade</mat-icon>
-
-    <div>
-      {{ details?.data?.rating?.average + '  ' }}({{
+  <div fxLayout="row" fxLayoutAlign="space-around center" class="title" *ngIf="details?.data?.isAMentor">
+    <mat-icon *ngIf="details?.data?.rating?.average" class="star-icon">grade</mat-icon>
+    <label class="inline-label">
+      <span *ngIf="details?.data?.rating?.average">{{ details?.data?.rating?.average + '  ' }}</span>({{
         details?.data?.sessionsHosted + ('SESSIONS' | translate)
       }})
-    </div>
+    </label>
+    
   </div>
-
+  <div *ngIf="!details?.data?.isAMentor" fxLayout="row" fxLayoutAlign="space-around center" class="title">
+    {{details?.data?.sessionsAttended  + ('SESSIONS_ATTENDED' | translate)}}
+  </div>
   <button
-    class="edit-button"
+    class="edit-button button-shadow"
     fxLayoutAlign="center"
     fxLayout="row"
     fxFlex.md="10%"
     fxFlex.lt-md="10%"
     fxLayoutAlign="center center"
+    (click)="editProfile()"
   >
     <mat-icon class="edit-icon" fxLayoutAlign="center center">
       mode_edit_outline

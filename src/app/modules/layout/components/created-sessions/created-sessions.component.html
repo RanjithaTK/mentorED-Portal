@@ -4,7 +4,7 @@
             <app-no-data-found [data]="noData" *ngIf="!upcomingCardDetails?.length && !pastCardDetails?.length && !loading" fxLayoutAlign="center"></app-no-data-found>
             <h3 class="create-new-session-text" *ngIf="upcomingCardDetails?.length || pastCardDetails?.length">{{"CREATE_NEW_SESSION" | translate}}</h3>
             <div fxFlex="50%" fxLayout="row" fxLayoutAlign="center">
-                <button class="create-session-button" mat-button fxLayout="row">
+                <button class="create-session-button" mat-button fxLayout="row" (click)="createSession()">
                     <mat-icon class="create-session-button-icon">add_circle</mat-icon>
                     {{"CLICK_HERE_TO_CREATE_NEW_SESSION" | translate}}
                 </button>
@@ -14,16 +14,17 @@
             <hr fxFlex="95%">
         </div>
         <div fxLayoutAlign="center" >
-            <div fxFlex="90%" fxFlex.xs="100%" fxLayout="column" >
+            <div fxFlex="90%" fxFlex.xs="100%" fxLayout="column" fxLayoutGap="20px">
                 <div fxLayout="column" fxLayoutAlign="center" *ngIf="upcomingCardDetails?.length ">
                     <h3 class="create-sessions-text">{{"UPCOMING_SESSIONS" | translate}}</h3>
                     <div fxLayout="row wrap" fxLayoutGap="20px grid">
-                        <div *ngFor='let item of upcomingCardDetails| slice:start:lastIndexUpcomingSessions' fxFlex="50%"
+                        <div *ngFor='let item of upcomingCardDetails' fxFlex="50%"
                             fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="50%">
-                            <app-session-card [cardData]="item"></app-session-card>
+                            <app-session-card [cardData]="item" (buttonClick)="buttonClick($event)">
+                            </app-session-card>
                         </div>
                     </div>
-                    <div fxFlex="50%" fxLayoutAlign="center" class="view-more-button-container">
+                    <div fxFlex="50%" fxLayoutAlign="center" class="view-more-button-container" *ngIf="showLoadMoreButtonUpcomingSession">
                         <button class="view-more" fxFlex="50%" mat-raised-button color="primary"
                             (click)="onClickViewMoreUpcomingSessions()">{{"VIEW_MORE"|translate}}</button>
                     </div>
@@ -31,12 +32,12 @@
                 <div fxLayout="column" fxLayoutAlign="center" *ngIf=" pastCardDetails?.length">
                     <h3 class="create-sessions-text">{{"PAST_SESSIONS" | translate}}</h3>
                     <div fxLayout="row wrap" fxLayoutGap="20px grid">
-                        <div *ngFor='let item of pastCardDetails| slice:start:lastIndexPastSessions' fxFlex="50%"
+                        <div *ngFor='let item of pastCardDetails' fxFlex="50%"
                             fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="50%">
-                            <app-session-card [cardData]="item" [status]="status"></app-session-card>
+                            <app-session-card [cardData]="item"></app-session-card>
                         </div>
                     </div>
-                    <div fxFlex="50%" fxLayoutAlign="center" class="view-more-button-container">
+                    <div fxFlex="50%" fxLayoutAlign="center" class="view-more-button-container" *ngIf="showLoadMoreButtonPastSession">
                         <button class="view-more" fxFlex="50%" mat-raised-button color="primary"
                             (click)="onClickViewMorePastSessions()">{{"VIEW_MORE"|translate}}</button>
                     </div>

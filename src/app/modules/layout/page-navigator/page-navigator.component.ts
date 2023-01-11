@@ -1,6 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { Location} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { filter } from 'rxjs';
+import { ProfileService } from 'src/app/core/services/profile/profile.service';
+
 
 
 @Component({
@@ -10,40 +15,45 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class PageNavigatorComponent implements OnInit {
 
-
   pageNavigatorArray: any;
-  mentorArray = [{ 'name': 'home', 'url': '/home', 'label': 'HOME' },
+ 
+  mentorNavigationArray = [{ 'name': 'home', 'url': '/home', 'label': 'HOME' },
   { 'name': 'enrolled sessions', 'url': '/enrolled-sessions', 'label': 'ENROLLED_SESSIONS' },
   { 'name': 'created sessions', 'url': '/created-sessions', 'label': 'CREATED_SESSIONS' },
   { 'name': 'mentor directory', 'url': '/mentor-directory', 'label': 'MENTOR_DIRECTORY' }]
-  menteeArray = [{ 'name': 'home', 'url': '/home', 'label': 'HOME' },
+
+  menteeNavigationArray = [{ 'name': 'home', 'url': '/home', 'label': 'HOME' },
   { 'name': 'enrolled sessions', 'url': '/enrolled-sessions', 'label': 'ENROLLED_SESSIONS' },
   { 'name': 'mentor directory', 'url': '/mentor-directory', 'label': 'MENTOR_DIRECTORY' }]
+
   labels: any;
-  pageNavigationLabel: any = ['HOME', 'ENROLLED_SESSIONS', 'CREATED_SESSIONS', 'MENTOR_DIRECTORY']
-  selectedPage: any;
-  faq = false;
-  constructor(private router: Router, private translate: TranslateService) {
-    this.selectedPage = router.url
-  }
+  appTitle = this.titleService.getTitle();
+  pageTitle: any;
+  userDetails: any;
+  navigationArray: any;
+ 
 
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private translate: TranslateService, private profileService: ProfileService, private titleService: Title, private location: Location) {
+    this.setTitle();
+   
+  }
+  
   ngOnInit(): void {
-    let userDetails: any = localStorage.getItem('user')
-    let user = userDetails?JSON.parse(userDetails):{};
-    this.pageNavigatorArray = (user.isAMentor) ? this.mentorArray : this.menteeArray;
-    this.translate.get(this.pageNavigationLabel).subscribe(
-      values => {
-        this.labels = Object.assign({}, values);;
-      }
-
-    )
-
-    if (this.selectedPage == '/faq') {
-      this.faq = true;
-    } else {
-      this.faq = false;
-    }
+    this.profileService.profileDetails().then((userDetails) => {
+      this.userDetails = userDetails;
+      this.navigationArray = (userDetails.isAMentor)?this.mentorNavigationArray:this.menteeNavigationArray;
+    })
   }
 
+  setTitle() {
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd),
+    ).subscribe(() => {
+      const child: any = this.activatedRoute.firstChild;
+      this.pageTitle = (child.snapshot.data['title'])?child.snapshot.data['title']:"";
+    })
+  }
+  onBack(){
+    this.location.back()
+  }
 
 }

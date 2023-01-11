@@ -1,35 +1,15 @@
 @import '../../../../variables';
 .title {
   font-weight: 500;
-  font-size: small;
+  font-size: medium;
 }
 .data {
-  padding: 1% 0 0 0;
+  padding: 7px 0px;
 }
 .description {
   text-align: center;
-  align-items: center;
-  background-color: $white;
-  padding: 1%;
-  font-weight: 400;
+  font-size: 16px;
 }
-mat-label {
+mat-chip {
   border: 1px solid $theme;
-  background-color: $white;
-  color: $theme;
-  border-radius: 5px;
-  font-size: smaller;
-  padding: 4px;
-}
-
-span {
-  background-color: $white;
-}
-.mat-chip.mat-standard-chip {
-  background-color: $white;
-}
-.details {
-  text-align: center;
-  font-size: small;
-  font-weight: 400;
 }

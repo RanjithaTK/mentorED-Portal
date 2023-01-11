@@ -18,10 +18,9 @@
     </div>
   </mat-drawer>
   <mat-drawer-content>
-    <app-header (menuToggleEvent)="drawer.toggle()"></app-header>
-
-    <div>
-      <app-page-navigator></app-page-navigator>
+    <div class="static-header">
+      <app-header (menuToggleEvent)="drawer.toggle()"></app-header>
+      <app-page-navigator fxLayout="row" fxLayoutAlign="center center"></app-page-navigator>
     </div>
     <div class="layout-sections">
       <div class="router-container">

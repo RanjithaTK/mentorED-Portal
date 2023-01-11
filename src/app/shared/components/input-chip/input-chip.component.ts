@@ -4,6 +4,8 @@ import * as _ from 'lodash';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { UUID } from 'angular2-uuid';
 import { MatChipInputEvent } from '@angular/material/chips';
+import { MatDialog } from '@angular/material/dialog';
+import { InputDialogueBoxComponent } from '../dialogue-box/dialogue-box.component';
 
 @Component({
   selector: 'app-input-chip',
@@ -29,26 +31,26 @@ export class InputChipComponent implements ControlValueAccessor {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   addOnBlur = true;
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
   
   onChange = (quantity:any) => {};
 
   onTouched = () => {};
 
   ngOnInit() { 
-    this.lowerCaseLabel = 'Add '+ this.control.label.toLowerCase();
+    this.lowerCaseLabel = 'Add new '+ this.control.label.toLowerCase();
   }
 
   writeValue(value: any[]) {
     this.selectedChips = new Set();
-    this.control.options.map((chip:any) =>
+    this.control.options.map((chip:any) => {
       _.some(value, chip) ? this.selectedChips.add(chip) : null
-    );
+    })
     if (this.selectedChips.size === this.control.options.length) {
       this._selectAll = true;
     }
   }
-  
+
   registerOnChange(onChange: any) {
     this.onChange = onChange;
   }
@@ -77,6 +79,7 @@ export class InputChipComponent implements ControlValueAccessor {
     }  else {
       return
     }
+    chip.selected = !chip.selected;
     (!this.selectedChips.size) ? this.onChange([]) : this.onChange([...this.selectedChips]);
     this._selectAll = (this.selectedChips.size !== this.control.options.length) ? false : true;
   }
@@ -102,5 +105,31 @@ export class InputChipComponent implements ControlValueAccessor {
       this.control.options.push(obj)
     }
   }
+
+  openDialogue() {
+    const dialogRef = this.dialog.open(InputDialogueBoxComponent, {
+      data: {
+        message: this.lowerCaseLabel,
+        buttonText: {
+          ok: 'OK',
+          cancel: 'CANCEL'
+        }
+      },
+      width: '900px'
+    });
+    dialogRef.afterClosed().subscribe(
+      (chip) => {
+        if (chip && chip!=='') {
+          let obj = {
+            label: chip,
+            value: UUID.UUID(),
+          };
+          this.control.options.push(obj)
+          this.onChipClick(obj);
+        }
+      }
+    );    
+  }
+  
 }
 

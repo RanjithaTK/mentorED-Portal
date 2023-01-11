@@ -11,7 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule} from '@angular/material/select';
-import { FlexLayoutModule } from '@angular/flex-layout'
+import { CoreModule, FlexLayoutModule } from '@angular/flex-layout'
 import { MatButtonModule } from '@angular/material/button';
 import { TranslateModule } from '@ngx-translate/core'; 
 
@@ -25,7 +25,11 @@ import { FaqComponent } from './components/faq/faq.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { MatCardModule } from '@angular/material/card';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ExitPopupComponent } from '../../shared/components/exit-popup/exit-popup.component';
+import { CreateSessionComponent } from './components/create-session/create-session.component';
 
 @NgModule({
   declarations: [
@@ -38,9 +42,11 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
     MentorDirectoryComponent,
     FaqComponent,
     ProfilePageComponent,
-    ImageUploadComponent
-    
-
+    EditProfileComponent,
+    ImageUploadComponent,
+    ExitPopupComponent,
+    CreateSessionComponent,
+    EditProfileComponent
   ],
   imports: [
     CommonModule,
@@ -52,16 +58,16 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
     FlexLayoutModule,
     MatButtonModule,
     TranslateModule,
-
-   
+    CoreModule,
     MatListModule,
     MatIconModule,
     FlexLayoutModule,
     MatButtonModule,
     SharedModule,
     MatSidenavModule,
+    MatCardModule,
+    MatDialogModule,
     MatCardModule
-
   ]
 
 

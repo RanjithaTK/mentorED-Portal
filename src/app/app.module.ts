@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +10,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from './modules/layout/layout.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgxIndexedDBModule, DBConfig } from 'ngx-indexed-db';
+import { DbConfig } from './core/constants/dbConfig';
+
+const dbConfig:DBConfig = DbConfig;
 
 export function translateHttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -35,8 +39,11 @@ export function translateHttpLoaderFactory(httpClient: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    NgxIndexedDBModule.forRoot(dbConfig)
   ],
-  providers: [],
+  providers: [
+    Title
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

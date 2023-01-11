@@ -2,24 +2,11 @@
     <form [formGroup]="myForm" (keyup.enter)="onSubmit()">
         <div *ngFor="let control of jsonFormData?.controls" class="form-group">
 
-            <!-- field labels -->
-            <label 
-                class="form-field-label" 
-                [ngClass]="{
-                    'form-field-invalid':myForm.get(control?.name)?.touched && myForm.get(control?.name)?.invalid
-                }"
-                *ngIf="['chip', 'rating', 'date'].includes(control?.type)"
-                >
-                {{control?.label}}
-                <mat-icon *ngIf="control?.validators?.required"
-                    class="error-icon-star">star
-                </mat-icon>
-            </label>
-
             <!-- field -->
-            <mat-form-field *ngIf="textBoxTypes.includes(control?.type)" appearance="outline">
-                <mat-label>{{control?.label}}</mat-label>
+            <mat-form-field *ngIf="textBoxTypes.includes(control?.type)" [appearance]="uiConfig.appearance" [floatLabel]='uiConfig.floatLabel'>
+                <mat-label [ngClass]="{'large':uiConfig.appearance=='fill'}">{{control?.label}}</mat-label>
                 <input matInput 
+                    [ngClass]="{'field-large':uiConfig.appearance=='fill'}"
                     [placeholder]="control?.placeHolder"
                     [type]="control?.type"
                     [formControlName]="control?.name" 
@@ -44,9 +31,10 @@
                 </mat-error>
             </mat-form-field>
 
-            <mat-form-field *ngIf="control?.type==='textarea'" appearance="outline">
-                <mat-label>{{control?.label}}</mat-label>
+            <mat-form-field *ngIf="control?.type==='textarea'" [appearance]="uiConfig.appearance" [floatLabel]='uiConfig.floatLabel'>
+                <mat-label [ngClass]="{'large':uiConfig.appearance=='fill'}">{{control?.label}}</mat-label>
                 <textarea matInput 
+                    [ngClass]="{'field-large':uiConfig.appearance=='fill'}"
                     [formControlName]="control?.name"
                     [placeholder]="control?.placeHolder"
                     [maxlength]="control?.validators?.maxLength"
@@ -62,16 +50,17 @@
                 </mat-error>
             </mat-form-field>
 
-            <mat-form-field *ngIf="control?.type==='select'" appearance="outline">
-                <mat-label>{{control?.label}}</mat-label>
-                <mat-select 
+            <mat-form-field *ngIf="control?.type==='select'" [appearance]="uiConfig.appearance" [floatLabel]='uiConfig.floatLabel'>
+                <mat-label [ngClass]="{'large':uiConfig.appearance=='fill'}">{{control?.label}}</mat-label>
+                <mat-select
+                    [ngClass]="{'field-large':uiConfig.appearance=='fill'}" 
                     [value]="control?.value"
                     [formControlName]="control?.name"
                     [compareWith]="compareWith"
                     [required]="control?.validators?.required">
                     <mat-option
                         *ngFor="let option of control?.options"
-                        [value]="option.value">
+                        [value]="option">
                         {{option.label}}
                     </mat-option>
                 </mat-select>
@@ -85,8 +74,8 @@
                 </mat-error>
             </mat-form-field>
 
-            <mat-form-field *ngIf="control?.type === 'toggle'" appearance="outline">
-                <mat-label>{{control?.label}}</mat-label>
+            <mat-form-field *ngIf="control?.type === 'toggle'" [appearance]="uiConfig.appearance" [floatLabel]='uiConfig.floatLabel'>
+                <mat-label [ngClass]="{'large':uiConfig.appearance=='fill'}">{{control?.label}}</mat-label>
                 <mat-slide-toggle
                     [formControlName]="control?.name" 
                     [checked]="control?.value"
@@ -106,8 +95,8 @@
                 </mat-error>
             </mat-form-field>
 
-            <mat-form-field *ngIf="control?.type==='range'" appearance="outline">
-                <mat-label>{{control?.label}}</mat-label>
+            <mat-form-field *ngIf="control?.type==='range'" [appearance]="uiConfig.appearance" [floatLabel]='uiConfig.floatLabel'>
+                <mat-label [ngClass]="{'large':uiConfig.appearance=='fill'}">{{control?.label}}</mat-label>
                 <mat-slider
                     thumbLabel
                     [step]="control?.step"
@@ -130,7 +119,8 @@
                 </mat-error>
             </mat-form-field>
 
-            <mat-form-field *ngIf="control?.type==='chip'" appearance="outline">
+            <mat-form-field *ngIf="control?.type==='chip'" [appearance]="uiConfig.appearance" [floatLabel]='uiConfig.floatLabel'>
+                <mat-label [ngClass]="{'large':uiConfig.appearance=='fill', 'required':control.validators.required}">{{control?.label}}</mat-label>
                 <app-input-chip
                     [formControlName]="control?.name"
                     [chipControl]="control">
@@ -148,7 +138,8 @@
                 </mat-error>
             </mat-form-field>
 
-            <mat-form-field *ngIf="control?.type === 'rating'" appearance="outline">
+            <mat-form-field *ngIf="control?.type === 'rating'" [appearance]="uiConfig.appearance" [floatLabel]='uiConfig.floatLabel'>
+                <mat-label [ngClass]="{'large':uiConfig.appearance=='fill'}">{{control?.label}}</mat-label>
                 <app-star-rating
                     [formControlName]="control.name"
                     [label]="control.label"
@@ -167,9 +158,11 @@
                 </mat-error>
             </mat-form-field>
 
-            <mat-form-field *ngIf="control?.type==='date'" appearance="outline">
-                <input matInput autocomplete="off"
+            <mat-form-field *ngIf="control?.type==='date'" [appearance]="uiConfig.appearance" [floatLabel]='uiConfig.floatLabel'>
+                <mat-label [ngClass]="{'large':uiConfig.appearance=='fill'}">{{control?.label}}</mat-label>
+                <input class="date-input" matInput autocomplete="off"
                     #date
+                    [ngClass]="{'field-large':uiConfig.appearance=='fill'}"
                     [owlDateTimeTrigger]="dt"
                     [owlDateTime]="dt"
                     [placeholder]="control?.placeHolder"
@@ -179,6 +172,7 @@
                     [min]="(control.name === dependedChild)?dependedChildDate:currentDate"
                     [readonly]="control?.readonly"
                     [required]="control?.validators?.required">
+                    <mat-icon class="calender-icon" matIconSuffix (click)="date.click()">calendar_today</mat-icon>
                 <owl-date-time #dt
                     [hour12Timer]="true"
                     (afterPickerClosed)="dateSelected(control, date)">

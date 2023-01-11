@@ -17,7 +17,7 @@ interface JsonFormValidators {
   pattern?: string;
   nullValidator?: boolean;
 }
-interface JsonFormControlOptions {
+export interface JsonFormControlOptions {
   min?: string;
   max?: string;
   step?: string;
@@ -51,6 +51,10 @@ export interface DynamicFormData {
 export class DynamicFormComponent implements OnInit {
   @Output() onEnter = new EventEmitter();
   @Input() jsonFormData: any;
+  @Input() uiConfig: any = {
+    appearance: 'outline',
+    floatLabel: 'auto'
+  };
   textBoxTypes = ['email', 'number', 'text', 'password', 'search', 'tel', 'secretCode'];
   public myForm: FormGroup = this.fb.group({});
   showForm:boolean = false
@@ -141,6 +145,7 @@ export class DynamicFormComponent implements OnInit {
   }
   
   onSubmit() {
+    console.log(this.myForm.valid, this.myForm.value)
     this.isFormValid();
     this.onEnter.emit(this.isFormValid())
   }

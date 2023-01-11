@@ -69,8 +69,9 @@ export class ProfileService {
         this.localStorage.saveLocalData(
           localKeys.USER_DETAILS,
           JSON.stringify(data)
-        );
-        return data;
+        ).then(() =>{
+          return data;
+        })
       })
     );
   }
@@ -80,9 +81,16 @@ export class ProfileService {
       url: API_CONSTANTS.PROFILE_UPDATE,
       payload: formData,
     };
+   
     return this.apiService.post(config).pipe(
-      map(async (response: any) => {
-          return response;
+      map((response: any) => {
+        this.toastService.showMessage(response.message,'success')
+        this.localStorage.getLocalData(localKeys.USER_DETAILS).then((user:any) =>{
+           return this.getProfileDetailsWithRole(JSON.parse(user)._id,JSON.parse(user).isAMentor).subscribe((user)=>{
+            this._location.back();
+           })
+        });
+        return response;
       })
     );
   }

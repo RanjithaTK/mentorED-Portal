@@ -49,3 +49,34 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background: $red !important;
   color: $white !important;
 }
+.mat-chip {
+  height: 45px !important;
+  color: $theme !important;
+  font-size: 16px !important;
+  border-radius: 25px !important;
+  background-color: $white !important;
+}
+.mat-chip.mat-standard-chip.mat-chip-selected.mat-primary {
+  color: $white !important;
+  background-color: $theme !important;
+}
+mat-chip{
+  text-align: center;
+}
+.mat-select-value-text{
+  font-size: 16px;
+  color: $black;
+  letter-spacing: .3px;
+}
+.mat-badge-content {
+  min-width: 45px !important;
+  max-height: 20px !important;
+  border-radius: 0px !important;
+  margin-top: 10px;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  background-color: $light-blue !important;
+}
+.mat-dialog-container {
+  border-radius: 25px !important;
+}

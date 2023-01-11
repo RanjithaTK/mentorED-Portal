@@ -1,21 +1,24 @@
 @import '../../../../variables';
 
-img {
-  width: 110px;
-  height: 110px;
-  border-radius: 100px;
+.image {
+  width: 125px;
+  height: 125px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-top: 10px;
 }
 .title {
-  font-weight: 500;
-  padding-top: 1%;
-  font-size: medium;
+  font-weight: 400;
+  padding-top: 14px;
+  font-size: 23px;
 }
 
 .edit-button {
   margin: 1%;
-  min-width: 25%;
+  min-width: 21%;
   border-radius: 8px;
-  align-items: center;
+  min-height: 35px;
   background-color: $theme;
   color: $white;
   border: transparent;
@@ -23,19 +26,28 @@ img {
 }
 .edit-text {
   text-align: center;
-  font-size: smaller;
+  font-size: 14px;
+  margin-left: 2px;
 }
 .edit-icon {
   transform: scale(0.6);
+  font-size: 29px;
+  font-weight: bold;
 }
 .location-icon {
   color: $theme;
   margin-right: 4%;
-  padding-right: 25%;
-  padding-bottom: 5%;
+  padding-right: 8px;
 }
 .star-icon {
   color: gold;
   padding-bottom: 2%;
   padding-right: 7px;
+}
+.inline-label{
+  white-space: nowrap;
+  font-size: 21px;
+}
+.round-image {
+  border-radius: 100px;
 }

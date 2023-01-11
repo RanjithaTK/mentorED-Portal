@@ -1,7 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/core/services';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants'
+import { map } from 'rxjs';
+import { Router } from '@angular/router';
+import { localKeys } from 'src/app/core/constants/localStorage.keys';
+import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
+import { SessionService } from 'src/app/core/services/session/session.service';
+import { ProfileService } from 'src/app/core/services/profile/profile.service';
 
+interface item {
+  userId?: string;
+}
 
 @Component({
   selector: 'app-created-sessions',
@@ -13,58 +22,82 @@ export class CreatedSessionsComponent implements OnInit {
   start: any = 0;
   lastIndexUpcomingSessions: any = 2;
   lastIndexPastSessions: any = 2;
-  upcomingCardDetails: any;
-  pastCardDetails: any;
-  page: any = 1;
-  limit: any = 4;
+  upcomingCardDetails: Array<item> = [];
+  pastCardDetails: Array<item> = [];
+  pagePast: any = 1;
+  pageUpcoming:any =1
+  limit: any = 2;
   status: any = "completed";
   loading: boolean = false;
+  userDetails: any;
+  user:any;
+  showLoadMoreButtonPastSession: boolean = false;
+  showLoadMoreButtonUpcomingSession: boolean = false;
+  constructor(private apiService: ApiService, private sessionService: SessionService, private localStorage: LocalStorageService, private router: Router,private profileService: ProfileService) { }
+  async ngOnInit(): Promise<void> {
+    this.userDetails = JSON.parse(
+      await this.localStorage.getLocalData(localKeys.USER_DETAILS),
+    )
 
-  constructor(private apiService: ApiService) { }
-
-  ngOnInit(): void {
-    let user: any = localStorage.getItem('user')
-    let id = JSON.parse(user)
-    this.getUpcomingSessions(id._id);
-    this.getpastSessions();
-
+    this.user = localStorage.getItem('user')
+    this.user = JSON.parse(this.user)
+    this.getUpcomingSessions(this.user._id)
+    this.getPastSessions()
   }
 
   onClickViewMoreUpcomingSessions() {
-
-    this.lastIndexUpcomingSessions = this.upcomingCardDetails.length
+    this.pageUpcoming = this.pageUpcoming + 1
+    this.getUpcomingSessions(this.userDetails._id)
   }
   onClickViewMorePastSessions() {
-    this.lastIndexPastSessions = this.pastCardDetails.length
+    this.pagePast = this.pagePast + 1
+    this.getPastSessions()
   }
 
   getUpcomingSessions(id: any) {
-    const config = {
-      url: API_CONSTANTS.UPCOMING_SESSIONS + id + "?page=1&limit=100",
-      payload: {}
-    };
-    this.loading = true;
-    this.apiService.get(config).subscribe((data: any) => {
-      this.loading = false;
-      this.upcomingCardDetails = (data.result && data.result.length) ? data.result[0].data : [];
-    }, error => {
-      this.loading = false;
+    let obj ={
+      id:id,
+      page:this.pageUpcoming,
+      limit:this.limit,
+      status:this.status
+    }
+    this.loading = true
+    this.sessionService.upComingSession(obj).subscribe((data:any)=>{
+      this.loading = false
+        this.upcomingCardDetails = this.upcomingCardDetails.concat(data.result[0].data)
+        this.showLoadMoreButtonUpcomingSession = data.result[0].count == this.upcomingCardDetails.length ? false : true;
     })
-
   }
 
-  getpastSessions() {
-    const config = {
-      url: API_CONSTANTS.GET_SESSIONS_LIST + this.status + "1&limit=100",
-      payload: {}
-    };
-    this.loading = true;
-    this.apiService.get(config).subscribe((data: any) => {
-      this.loading = false;
-      this.pastCardDetails = data.result.data
-    }, error => {
-      this.loading = false;
+  getPastSessions() {
+    let obj ={
+      page:this.pagePast,
+      limit:this.limit,
+      status:this.status
+    }
+    this.loading = true
+    this.sessionService.pastSession(obj).subscribe((data:any)=>{
+      this.loading = false
+      this.pastCardDetails = this.pastCardDetails.concat(data.result.data)
+      this.showLoadMoreButtonPastSession = data.result.count == this.pastCardDetails.length ? false : true
     })
+    
+  }
+  buttonClick(event: any){
+    this.sessionService.startSession(event.data._id).subscribe((result) => {})
+  }
+  createSession() {
+    this.getDetails().then((userDetails)=>{
+      if(userDetails.about){
+        this.router.navigate(['/create-session'])
+      }else{
+        this.router.navigate(['/edit-profile'])
+      }
+    })
+   
+  }
+  async getDetails() {
+    return await this.profileService.profileDetails()
   }
 
 }
