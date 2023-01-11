@@ -30,7 +30,6 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
 import {MatDialogModule} from '@angular/material/dialog';
 import { ExitPopupComponent } from '../../shared/components/exit-popup/exit-popup.component';
 import { CreateSessionComponent } from './components/create-session/create-session.component';
-import { HomeSearchComponent } from './components/home-search/home-search.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +46,7 @@ import { HomeSearchComponent } from './components/home-search/home-search.compon
     ImageUploadComponent,
     ExitPopupComponent,
     CreateSessionComponent,
-    EditProfileComponent,
-    HomeSearchComponent
+    EditProfileComponent
   ],
   imports: [
     CommonModule,

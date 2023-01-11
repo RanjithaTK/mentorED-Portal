@@ -52,17 +52,16 @@ export class HeaderComponent implements OnInit {
   }
   onSearch() {
 
-    this.router.navigate([], {
+    this.router.navigate(['/home'], {
       
       queryParams: {
         searchText: this.searchText,
       }
     });
   }
-  search(){
-    this.router.navigate(['/home-search']);
-
-  }
+  // search(){
+  //   this.router.navigate(['/home-search']);
+  // }
   languageEvent() {
     this.localStorage.saveLocalData(localKeys.SELECTED_LANGUAGE, this.selectedLanguage).then(()=>{
       this.translate.use(this.selectedLanguage).subscribe(()=>{

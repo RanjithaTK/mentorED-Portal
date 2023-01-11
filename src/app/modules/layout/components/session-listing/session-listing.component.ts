@@ -51,9 +51,11 @@ export class SessionListingComponent implements OnInit {
     this.activatedRoute.queryParams
       .subscribe(params => {
         console.log(params['searchText']);
-        // this.searchText=params['searchText']
-        // this.allSessions = [] 
-        // this.getAllSession().subscribe()
+        if(params['searchText']){
+          this.searchText=params['searchText']
+          this.getSearchSessions()
+        }
+        
       }
     );
     this.localStorage
@@ -64,6 +66,10 @@ export class SessionListingComponent implements OnInit {
       })
     this.cardHeading =
       this.selectedPage == '/enrolled-sessions' ? 'ENROLLED_SESSIONS' : 'ALL_SESSIONS'
+  }
+  getSearchSessions(){
+    this.cardDetails=[]
+    this.getAllSession().subscribe()
   }
 
   onClickViewMore() {
