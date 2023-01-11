@@ -13,8 +13,8 @@ export class SessionCardComponent implements OnInit {
   @Input() cardData: any;
   @Input() status: any;
   buttonConfig:any;
-  isCreator: boolean;
   userData: any;
+  @Input() isCreator: any
   constructor(private localStorage:LocalStorageService,private translate: TranslateService) { }
   @Output() buttonClick = new EventEmitter()
 
