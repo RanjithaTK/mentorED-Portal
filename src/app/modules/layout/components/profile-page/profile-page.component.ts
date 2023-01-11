@@ -36,18 +36,18 @@ export class ProfilePageComponent implements OnInit {
     data: {},
   };
 
-  constructor(private profileService: ProfileService,private router: Router) { }
+  constructor(private router: Router, private profileService: ProfileService) { }
 
   ngOnInit(): void {
     this.getDetails().then((userDetails)=>{
       if(userDetails.about){
-        this.details.data = userDetails;
-      }else{
-        this.router.navigate(['/edit-profile'])
+        this.details.data = userDetails
       }
     })
+   
   }
   async getDetails() {
     return await this.profileService.profileDetails()
   }
+  
 }

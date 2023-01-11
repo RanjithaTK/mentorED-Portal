@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core'
+import { ChangeDetectorRef, Component, HostListener, OnInit, ViewChild } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog';
 import * as _ from 'lodash';
 import { map, Observable } from 'rxjs';
@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/core/services';
 import { FormService } from 'src/app/core/services/form/form.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
 import { ProfileService } from 'src/app/core/services/profile/profile.service';
+import { ToastService } from 'src/app/core/services/toast/toast.service';
 import { DynamicFormComponent } from 'src/app/shared';
 import { ExitPopupComponent } from 'src/app/shared/components/exit-popup/exit-popup.component';
 import { CanLeave } from '../../../../core/interfaces/canLeave';
@@ -36,25 +37,25 @@ export class EditProfileComponent implements OnInit, CanLeave {
     floatLabel: 'always'
   }
   isSaved: any = false;
-  constructor(private formService: FormService, private profileService: ProfileService, private localStorage: LocalStorageService, private apiService: ApiService, private http: HttpClient, private dialog: MatDialog, private location: Location) {
+  constructor(private formService: FormService, private profileService: ProfileService, private localStorage: LocalStorageService, private apiService: ApiService, private http: HttpClient, private changeDetRef: ChangeDetectorRef, private toastService: ToastService) {
   }
 
   ngOnInit(): void {
-    this.localStorage.getLocalData(localKeys.USER_DETAILS).then((user) => {
-      if (user) {
-        this.imgData.image = (user.image) ? user.image : '';
-        this.formService.getForm(EDIT_PROFILE_FORM).subscribe((form) => {
-          this.formData = form
+    this.formService.getForm(EDIT_PROFILE_FORM).subscribe((form) => {
+      this.formData = form  
+      this.localStorage.getLocalData(localKeys.USER_DETAILS).then((user) => {
+        if (user) {
+          this.imgData.image = (user.image) ? user.image : '';
           this.preFillData(JSON.parse(user));
-        })
-      }
+          this.changeDetRef.detectChanges();
+        }
+      })
     })
-
   }
   @HostListener('window:beforeunload')
  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
-    if (!this.isSaved && this.editProfile.myForm.touched) {
-      return false;
+    if (!this.isSaved && this.editProfile.myForm.dirty) {
+      return window.confirm("Are you sure you want to exit? your data will not be saved.");
     } else {
       return true;
     }
@@ -67,6 +68,9 @@ export class EditProfileComponent implements OnInit, CanLeave {
       } else {
         this.profileService.profileUpdate(this.editProfile.myForm.value).subscribe();
       }
+    }else{
+      let fillRequiredField = 'PLEASE_FILL_REQUIRED_FIELDS'
+      this.toastService.showMessage(fillRequiredField, 'error')
     }
   }
   getImageUploadUrl(file: any) {

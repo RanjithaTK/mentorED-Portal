@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import * as _ from 'lodash';
 import { map, Observable } from 'rxjs';
 import { API_CONSTANTS } from 'src/app/core/constants/apiUrlConstants';
@@ -10,6 +10,8 @@ import { ApiService } from 'src/app/core/services';
 import { FormService } from 'src/app/core/services/form/form.service';
 import { SessionService } from 'src/app/core/services/session/session.service';
 import { DynamicFormComponent } from 'src/app/shared';
+import { ProfileService } from 'src/app/core/services/profile/profile.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-session',
@@ -31,11 +33,11 @@ export class CreateSessionComponent implements OnInit,CanLeave {
     appearance: 'fill',
     floatLabel: 'always'
   }
-  constructor(private form: FormService, private apiService: ApiService, private http: HttpClient, private sessionService: SessionService, private location: Location) { }
+  constructor(private form: FormService, private apiService: ApiService, private changeDetRef: ChangeDetectorRef, private http: HttpClient, private sessionService: SessionService, private location: Location) { }
   @HostListener('window:beforeunload')
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
-     if (!this.isSaved && this.createSession.myForm.dirty) {
-       return false;
+    if (!this.isSaved && this.createSession.myForm.dirty) {
+       return window.confirm("Are you sure you want to exit? your data will not be saved.");
      } else {
        return true;
      }
@@ -43,10 +45,10 @@ export class CreateSessionComponent implements OnInit,CanLeave {
   ngOnInit(): void {
     this.form.getForm(CREATE_SESSION_FORM).subscribe((form)=>{
       this.formData = form;
-      console.log(form)
-    })
+      this.changeDetRef.detectChanges();
+    })  
   }
-
+ 
   imageEvent(event: any) {
     if(event){
       this.localImage = event.target.files[0];
@@ -88,7 +90,7 @@ export class CreateSessionComponent implements OnInit,CanLeave {
       map((result: any) => {
         return this.upload(file, result.result).subscribe(() => {
           this.imgData.isUploaded = true;
-          this.createSession.myForm.value.append('image', result.result.signedUrl)
+          this.createSession.myForm.value.image = result.result.filePath;
           this.onSubmit();
         })
       }))
