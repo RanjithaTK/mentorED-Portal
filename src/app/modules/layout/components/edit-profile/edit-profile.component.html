@@ -1,5 +1,5 @@
 <div class="wrapper" fxLayoutAlign="center">
-<mat-card fxFlex="60%">
+<mat-card fxFlex="60%" fxLayout="column" fxLayoutAlign="center center">
    <app-image-upload [imgData]="imgData" (imageEvent)="imageEvent($event)"></app-image-upload>
    <div class="form-wrapper">
       <app-dynamic-form *ngIf="formData" [jsonFormData]="formData" (onEnter)="onSubmit()" [uiConfig]="uiConfig" #editProfile>
