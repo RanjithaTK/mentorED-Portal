@@ -30,10 +30,9 @@ mat-icon {
 input {
     padding: 6px;
 }
-::ng-deep .mat-chip-list-wrapper{
-    display: flex !important;
-    justify-content: left !important;
-  }
   mat-slide-toggle {
     float: right;
+  }
+  .wrapper {
+    margin-top: 15px;
   }

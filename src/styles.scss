@@ -60,9 +60,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: $white !important;
   background-color: $theme !important;
 }
-.mat-chip-list-wrapper{
-  display: flex !important;
-  justify-content: center !important;
+mat-chip{
+  text-align: center;
 }
 .mat-select-value-text{
   font-size: 16px;
@@ -77,4 +76,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-size: 11px !important;
   font-weight: 500 !important;
   background-color: $light-blue !important;
+}
+.mat-dialog-container {
+  border-radius: 25px !important;
 }

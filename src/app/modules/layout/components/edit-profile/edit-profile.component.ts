@@ -32,6 +32,10 @@ export class EditProfileComponent implements OnInit, CanLeave {
   public formData: any;
   showForm: any = false;
   type = 'profile'
+  uiConfig = {
+    appearance: 'fill',
+    floatLabel: 'always'
+  }
   isSaved: any = false;
   constructor(private formService: FormService, private profileService: ProfileService, private localStorage: LocalStorageService, private apiService: ApiService, private http: HttpClient, private changeDetRef: ChangeDetectorRef, private toastService: ToastService) {
   }
@@ -102,9 +106,11 @@ export class EditProfileComponent implements OnInit, CanLeave {
         this.imgData.image = file.target.result
         this.imgData.isUploaded = false;
       }
+      this.toastService.showMessage("IMAGE_ADDED_SUCCESSFULLY", "success")
     } else {
       this.localImage = this.imgData.image = '';
       this.imgData.isUploaded = true;
+      this.toastService.showMessage("IMAGE_REMOVED_SUCCESSFULLY", "success")
     }
   }
 

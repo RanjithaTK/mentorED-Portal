@@ -29,7 +29,11 @@ export class CreateSessionComponent implements OnInit,CanLeave {
   formData: any;
   localImage: any;
   isSaved:any = false;
-  constructor(private form: FormService, private router: Router, private apiService: ApiService, private changeDetRef: ChangeDetectorRef , private http: HttpClient, private sessionService: SessionService, private location: Location) { }
+  uiConfig = {
+    appearance: 'fill',
+    floatLabel: 'always'
+  }
+  constructor(private form: FormService, private apiService: ApiService, private changeDetRef: ChangeDetectorRef, private http: HttpClient, private sessionService: SessionService, private location: Location) { }
   @HostListener('window:beforeunload')
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
     if (!this.isSaved && this.createSession.myForm.dirty) {
