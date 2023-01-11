@@ -31,6 +31,10 @@ export class EditProfileComponent implements OnInit, CanLeave {
   public formData: any;
   showForm: any = false;
   type = 'profile'
+  uiConfig = {
+    appearance: 'fill',
+    floatLabel: 'always'
+  }
   isSaved: any = false;
   constructor(private formService: FormService, private profileService: ProfileService, private localStorage: LocalStorageService, private apiService: ApiService, private http: HttpClient, private dialog: MatDialog, private location: Location) {
   }

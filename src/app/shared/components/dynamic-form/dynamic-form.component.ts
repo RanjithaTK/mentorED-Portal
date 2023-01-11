@@ -51,6 +51,10 @@ export interface DynamicFormData {
 export class DynamicFormComponent implements OnInit {
   @Output() onEnter = new EventEmitter();
   @Input() jsonFormData: any;
+  @Input() uiConfig: any = {
+    appearance: 'outline',
+    floatLabel: 'auto'
+  };
   textBoxTypes = ['email', 'number', 'text', 'password', 'search', 'tel', 'secretCode'];
   public myForm: FormGroup = this.fb.group({});
   showForm:boolean = false

@@ -1,4 +1,7 @@
 mat-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 2%;
     min-width: 54%;
     padding: 0 auto;
@@ -14,5 +17,5 @@ mat-card{
     width: 230px;
 }
 .form-wrapper {
-    min-width: 80%;
+    width: 75%;
 }

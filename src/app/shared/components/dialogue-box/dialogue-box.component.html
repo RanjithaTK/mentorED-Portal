@@ -1,10 +1,11 @@
-<h1 mat-dialog-title>{{"ADD_NEW"|translate}}</h1>
+<mat-icon fxLayoutAlign="center center" class="close align-right" (click)="cancel()">close</mat-icon>
+<mat-label mat-dialog-title>{{dialogueData?.message}}</mat-label>
 <div mat-dialog-content>
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="outline">
     <input matInput [(ngModel)]="data">
   </mat-form-field>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="cancel()">{{"CANCEL"|translate}}</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>{{"ADD"|translate}}</button>
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between">
+  <button mat-raised-button class="btn" (click)="cancel()">{{"CANCEL"|translate}}</button>
+  <button mat-raised-button class="btn btn-primary" [mat-dialog-close]="data" cdkFocusInitial>{{"OK"|translate}}</button>
 </div>

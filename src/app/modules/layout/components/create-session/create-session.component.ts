@@ -27,6 +27,10 @@ export class CreateSessionComponent implements OnInit,CanLeave {
   formData: any;
   localImage: any;
   isSaved:any = false;
+  uiConfig = {
+    appearance: 'fill',
+    floatLabel: 'always'
+  }
   constructor(private form: FormService, private apiService: ApiService, private http: HttpClient, private sessionService: SessionService, private location: Location) { }
   @HostListener('window:beforeunload')
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
@@ -39,6 +43,7 @@ export class CreateSessionComponent implements OnInit,CanLeave {
   ngOnInit(): void {
     this.form.getForm(CREATE_SESSION_FORM).subscribe((form)=>{
       this.formData = form;
+      console.log(form)
     })
   }
 

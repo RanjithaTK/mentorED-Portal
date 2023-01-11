@@ -38,7 +38,7 @@ export class InputChipComponent implements ControlValueAccessor {
   onTouched = () => {};
 
   ngOnInit() { 
-    this.lowerCaseLabel = 'Add '+ this.control.label.toLowerCase();
+    this.lowerCaseLabel = 'Add new '+ this.control.label.toLowerCase();
   }
 
   writeValue(value: any[]) {
@@ -109,12 +109,13 @@ export class InputChipComponent implements ControlValueAccessor {
   openDialogue() {
     const dialogRef = this.dialog.open(InputDialogueBoxComponent, {
       data: {
-        message: 'ADD_NEW',
+        message: this.lowerCaseLabel,
         buttonText: {
           ok: 'OK',
           cancel: 'CANCEL'
         }
       },
+      width: '900px'
     });
     dialogRef.afterClosed().subscribe(
       (chip) => {

@@ -1,28 +1,30 @@
-<mat-slide-toggle [(ngModel)]="_selectAll"
+<div class="wrapper">
+    <mat-slide-toggle [(ngModel)]="_selectAll"
     (change)="selectAll()"></mat-slide-toggle>
-<div role="group">
-    <mat-chip-list
-    #chipList 
-    multiple
-    [required]="control?.validators.required"
-    [disabled]="disabled">
-    <mat-chip 
-        *ngFor="let chip of control?.options"
-        [removable]="control?.removable"
-        [value]="chip.value"
-        (click)="onChipClick(chip)"
-        [selected]="this.selectedChips.has(chip)">
-        {{chip?.label}}
-        <mat-icon 
-            matChipRemove 
-            *ngIf="this.selectedChips.has(chip)"
-            (click)="onChipClick(chip)">
-            cancel
-        </mat-icon>
-    </mat-chip>
-    <mat-chip #add class="add-chip" fxLayout="row" fxLayoutAlign="space-evenly center" (click)="openDialogue()">
-        <mat-icon fxLayoutAlign="start center">add_circle</mat-icon>
-        {{"ADD_NEW"|translate}}
-    </mat-chip>
-</mat-chip-list>
+    <div role="group">
+        <mat-chip-list
+        #chipList 
+        multiple
+        [required]="control?.validators.required"
+        [disabled]="disabled">
+        <mat-chip 
+            *ngFor="let chip of control?.options"
+            [removable]="control?.removable"
+            [value]="chip.value"
+            (click)="onChipClick(chip)"
+            [selected]="this.selectedChips.has(chip)">
+            {{chip?.label}}
+            <mat-icon 
+                matChipRemove 
+                *ngIf="this.selectedChips.has(chip)"
+                (click)="onChipClick(chip)">
+                cancel
+            </mat-icon>
+        </mat-chip>
+        <mat-chip #add class="add-chip" fxLayout="row" fxLayoutAlign="space-evenly center" (click)="openDialogue()">
+            <mat-icon fxLayoutAlign="start center">add_circle</mat-icon>
+            {{"ADD_NEW"|translate}}
+        </mat-chip>
+    </mat-chip-list>
+    </div>
 </div>

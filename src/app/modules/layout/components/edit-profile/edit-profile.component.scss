@@ -4,3 +4,11 @@
 .button{
     padding-top: 6%;
 }
+.form-wrapper {
+    width: 75%;
+}
+mat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -2,7 +2,7 @@
     <mat-card fxLayout="column">
         <app-image-upload [imgData]="imgData" (imageEvent)="imageEvent($event)"></app-image-upload>
         <div class="form-wrapper" fxFlex="80%">
-            <app-dynamic-form *ngIf="formData" [jsonFormData]="formData" #createSession></app-dynamic-form>
+            <app-dynamic-form *ngIf="formData" [jsonFormData]="formData" [uiConfig]="uiConfig" #createSession></app-dynamic-form>
         </div>
         <div fxLayoutAlign="center center">
             <button mat-raised-button class="button-shadow" color="primary" (click)="onSubmit()">{{"PUBLISH" | translate}}</button>
