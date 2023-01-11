@@ -106,9 +106,11 @@ export class EditProfileComponent implements OnInit, CanLeave {
         this.imgData.image = file.target.result
         this.imgData.isUploaded = false;
       }
+      this.toastService.showMessage("IMAGE_ADDED_SUCCESSFULLY", "success")
     } else {
       this.localImage = this.imgData.image = '';
       this.imgData.isUploaded = true;
+      this.toastService.showMessage("IMAGE_REMOVED_SUCCESSFULLY", "success")
     }
   }
 
