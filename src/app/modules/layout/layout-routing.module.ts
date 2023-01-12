@@ -50,12 +50,12 @@ const routes: Routes = [
       {
         path: 'create-session',
         component: CreateSessionComponent,
-        data: {title: 'CREATE_NEW_SESSION'},
+        data: {title: 'CREATE_NEW_SESSION', onBackUrl:"/created-sessions"},
         canDeactivate: [CanDeactivateGuard]
       },
       { path: 'edit-profile',
         component: EditProfileComponent,
-        data: {title: 'EDIT_YOUR_PROFILE'},
+        data: {title: 'EDIT_YOUR_PROFILE', onBackUrl:'/profile'},
         canDeactivate: [CanDeactivateGuard]
       },
       {
