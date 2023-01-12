@@ -1,6 +1,8 @@
 @import "/src/variables";
 
-
+@media only screen and (min-width: 600px) {
+  .body {display: grid !important;}
+}
 .shadow {
   min-height: 110px;
   width: 100%;
