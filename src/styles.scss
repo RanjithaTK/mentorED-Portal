@@ -80,3 +80,17 @@ mat-chip{
 .mat-dialog-container {
   border-radius: 25px !important;
 }
+.owl-dt-popup {
+  max-width: 65% !important;
+  overflow: scroll !important;
+}
+.owl-dt-container {
+  border: 1px solid black;
+}
+@media only screen and (orientation: landscape) {
+  .owl-dt-container {
+    height: fit-content !important;
+    border: 1px solid black;
+    margin-top: 15%;
+  }
+}
