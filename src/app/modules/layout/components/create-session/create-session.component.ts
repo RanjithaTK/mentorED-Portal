@@ -13,8 +13,6 @@ import { DynamicFormComponent } from 'src/app/shared';
 import { ProfileService } from 'src/app/core/services/profile/profile.service';
 import { Router } from '@angular/router';
 import { ToastService } from 'src/app/core/services/toast/toast.service';
-import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
-import { localKeys } from 'src/app/core/constants/localStorage.keys';
 
 @Component({
   selector: 'app-create-session',
