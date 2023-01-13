@@ -33,16 +33,20 @@ export class CreatedSessionsComponent implements OnInit {
   user:any;
   showLoadMoreButtonPastSession: boolean = false;
   showLoadMoreButtonUpcomingSession: boolean = false;
-  constructor(private apiService: ApiService, private sessionService: SessionService, private localStorage: LocalStorageService, private router: Router,private profileService: ProfileService) { }
+  constructor(
+    private apiService: ApiService,
+    private sessionService: SessionService,
+    private localStorage: LocalStorageService,
+    private router: Router,
+    private profileService: ProfileService,
+  ) {}
   async ngOnInit(): Promise<void> {
     this.userDetails = JSON.parse(
       await this.localStorage.getLocalData(localKeys.USER_DETAILS),
     )
-
     this.user = localStorage.getItem('user')
     this.user = JSON.parse(this.user)
-    this.getUpcomingSessions(this.user._id)
-    this.getPastSessions()
+    this.getSessions()
   }
 
   onClickViewMoreUpcomingSessions() {
@@ -53,35 +57,54 @@ export class CreatedSessionsComponent implements OnInit {
     this.pagePast = this.pagePast + 1
     this.getPastSessions()
   }
+getSessions(){
+  let obj ={
+    page:this.pagePast,
+    limit:this.limit,
+    status:this.status
+  }
+  this.sessionService.pastSession(obj).subscribe((data:any)=>{
+    this.loading=false
+    this.pastCardDetails=this.pastCardDetails.concat(data.result.data)
+    this.showLoadMoreButtonPastSession =
+        data.result.count == this.pastCardDetails.length ? false : true
+    this.getUpcomingSessions(this.user._id)
 
+  })
+}
   getUpcomingSessions(id: any) {
-    let obj ={
-      id:id,
-      page:this.pageUpcoming,
-      limit:this.limit,
-      status:this.status
+    let obj = {
+      id: id,
+      page: this.pageUpcoming,
+      limit:(!this.pastCardDetails.length)?4:this.limit,
+      status: this.status,
     }
     this.loading = true
-    this.sessionService.upComingSession(obj).subscribe((data:any)=>{
+    this.sessionService.upComingSession(obj).subscribe((data: any) => {
       this.loading = false
-        this.upcomingCardDetails = this.upcomingCardDetails.concat(data.result[0].data)
-        this.showLoadMoreButtonUpcomingSession = data.result[0].count == this.upcomingCardDetails.length ? false : true;
+      this.upcomingCardDetails = this.upcomingCardDetails.concat(
+        data.result[0].data,
+      )
+      this.showLoadMoreButtonUpcomingSession =
+        !(data.result[0].count == this.upcomingCardDetails.length )
     })
   }
 
   getPastSessions() {
-    let obj ={
-      page:this.pagePast,
-      limit:this.limit,
-      status:this.status
+    let obj = {
+      page: this.pagePast,
+      limit: this.limit,
+      status: this.status,
     }
     this.loading = true
-    this.sessionService.pastSession(obj).subscribe((data:any)=>{
+    this.sessionService.pastSession(obj).subscribe((data:any) => {
       this.loading = false
       this.pastCardDetails = this.pastCardDetails.concat(data.result.data)
-      this.showLoadMoreButtonPastSession = data.result.count == this.pastCardDetails.length ? false : true
+      this.showLoadMoreButtonPastSession =
+        data.result.count == this.pastCardDetails.length ? false : true
+        this.showLoadMoreButtonUpcomingSession=(!this.pastCardDetails.length)?false:true
+
     })
-    
   }
   buttonClick(event: any){
     this.sessionService.startSession(event.data._id).subscribe((result) => {})
@@ -94,10 +117,8 @@ export class CreatedSessionsComponent implements OnInit {
         this.router.navigate(['/edit-profile'])
       }
     })
-   
   }
   async getDetails() {
     return await this.profileService.profileDetails()
   }
-
 }
