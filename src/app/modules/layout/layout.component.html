@@ -10,6 +10,12 @@
         </mat-select>
       </div>
       <div class="menu-button" fxLayoutAlign="space-evenly center">
+        <mat-button fxFlex="100%" fxLayoutAlign="space-evenly center" (click)="goToProfile();drawer.toggle()">
+          <mat-icon>account_circle</mat-icon>
+          <span>{{"MY_PROFILE"|translate}}</span>
+        </mat-button>
+      </div>
+      <div class="menu-button" fxLayoutAlign="space-evenly center">
         <mat-button fxFlex="100%" fxLayoutAlign="space-evenly center" (click)="onLogout()">
           <mat-icon class="icon">exit_to_app</mat-icon>
           {{"LOGOUT"|translate}}
@@ -20,10 +26,10 @@
   <mat-drawer-content>
     <div class="static-header">
       <app-header (menuToggleEvent)="drawer.toggle()"></app-header>
-      <app-page-navigator fxLayout="row" fxLayoutAlign="center center"></app-page-navigator>
     </div>
     <div class="layout-sections">
       <div class="router-container">
+      <app-page-navigator fxLayout="row" fxLayoutAlign="center center"></app-page-navigator>
         <router-outlet></router-outlet>
       </div>
       <div class="footer">

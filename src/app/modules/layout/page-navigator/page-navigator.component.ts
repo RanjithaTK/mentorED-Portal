@@ -48,7 +48,6 @@ export class PageNavigatorComponent implements OnInit {
   setTitle() {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd),
     ).subscribe(() => {
-      debugger
       const child: any = this.activatedRoute.firstChild;
       this.pageTitle = (child.snapshot.data['title'])?child.snapshot.data['title']:"";
       this.onBackUrl = (child.snapshot.data['onBackUrl'])?child.snapshot.data['onBackUrl']:"";
