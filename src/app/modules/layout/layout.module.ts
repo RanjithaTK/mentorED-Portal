@@ -30,6 +30,7 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
 import {MatDialogModule} from '@angular/material/dialog';
 import { ExitPopupComponent } from '../../shared/components/exit-popup/exit-popup.component';
 import { CreateSessionComponent } from './components/create-session/create-session.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { CreateSessionComponent } from './components/create-session/create-sessi
     ImageUploadComponent,
     ExitPopupComponent,
     CreateSessionComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    LogoutComponent
   ],
   imports: [
     CommonModule,

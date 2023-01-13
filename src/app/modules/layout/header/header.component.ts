@@ -37,8 +37,8 @@ export class HeaderComponent implements OnInit {
   onClick() {
     this.menuToggleEvent.emit()
   }
-  onLogout(){
-    this.authService.logoutAccount()
+  onLogout(){ 
+    this.router.navigate(['/logout']);
   }
   checkForSearchbar() {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd),)

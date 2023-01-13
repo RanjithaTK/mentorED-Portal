@@ -21,7 +21,7 @@ export class LayoutComponent implements OnInit {
    }
 
    onLogout(){
-    this.authService.logoutAccount()
+    this.router.navigate(['/logout']);
   }
 
   goToProfile() {

@@ -10,6 +10,7 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
 import { CreateSessionComponent } from './components/create-session/create-session.component'
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component'
 import { CanDeactivateGuard } from '../../core/guards/can-deactivate.guard'
+import { LogoutComponent } from './components/logout/logout.component'
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
       { path: 'profile',
         component: ProfilePageComponent,
         data: {title: 'MY_PROFILE'}
+      },
+      {
+        path: 'logout',
+        component: LogoutComponent
       },
       {
         path: 'create-session',
