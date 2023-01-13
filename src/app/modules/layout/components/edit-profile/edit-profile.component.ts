@@ -44,9 +44,11 @@ export class EditProfileComponent implements OnInit, CanLeave {
     this.formService.getForm(EDIT_PROFILE_FORM).subscribe((form) => {
       this.formData = form  
       this.localStorage.getLocalData(localKeys.USER_DETAILS).then((user) => {
-        this.imgData = user ? user.image : '';
-        this.preFillData(JSON.parse(user));
-        this.changeDetRef.detectChanges();
+        if (user) {
+          this.imgData = user ? user.image : '';
+          this.preFillData(JSON.parse(user));
+          this.changeDetRef.detectChanges();
+        }
       })
     })
   }
