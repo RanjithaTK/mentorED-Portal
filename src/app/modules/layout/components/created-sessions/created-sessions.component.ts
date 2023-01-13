@@ -94,7 +94,7 @@ getSessions(){
     let obj ={
       page:this.pagePast,
       limit:this.limit,
-      status:this.status,
+      status:this.status
     }
     this.loading = true
     this.sessionService.pastSession(obj).subscribe((data:any) => {
