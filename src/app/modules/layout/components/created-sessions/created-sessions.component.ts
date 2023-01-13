@@ -73,14 +73,14 @@ getSessions(){
   })
 }
   getUpcomingSessions(id: any) {
-    let obj = {
-      id: id,
-      page: this.pageUpcoming,
+    let obj ={
+      id:id,
+      page:this.pageUpcoming,
       limit:(!this.pastCardDetails.length)?4:this.limit,
-      status: this.status,
+      status:this.status,
     }
     this.loading = true
-    this.sessionService.upComingSession(obj).subscribe((data: any) => {
+    this.sessionService.upComingSession(obj).subscribe((data:any)=>{
       this.loading = false
       this.upcomingCardDetails = this.upcomingCardDetails.concat(
         data.result[0].data,
