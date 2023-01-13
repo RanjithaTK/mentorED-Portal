@@ -77,7 +77,7 @@ getSessions(){
       id:id,
       page:this.pageUpcoming,
       limit:(!this.pastCardDetails.length)?4:this.limit,
-      status:this.status,
+      status:this.status
     }
     this.loading = true
     this.sessionService.upComingSession(obj).subscribe((data:any)=>{
