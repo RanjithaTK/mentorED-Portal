@@ -32,6 +32,7 @@ import { GenericDetailsComponent } from './components/generic-details/generic-de
 import { InputDialogueBoxComponent } from './components/dialogue-box/dialogue-box.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatBadgeModule } from '@angular/material/badge';
+import { NumberOnlyDirective } from './directives/onlyNumbers';
 
 
 @NgModule({
@@ -46,7 +47,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     GenericDetailsComponent,
     ProfileHeaderComponent,
     InputDialogueBoxComponent,
-    // ExitPopupComponent
+    NumberOnlyDirective
   ],
   imports: [
     CommonModule,

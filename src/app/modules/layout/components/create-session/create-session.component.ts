@@ -12,6 +12,7 @@ import { SessionService } from 'src/app/core/services/session/session.service';
 import { DynamicFormComponent } from 'src/app/shared';
 import { ProfileService } from 'src/app/core/services/profile/profile.service';
 import { Router } from '@angular/router';
+import { ToastService } from 'src/app/core/services/toast/toast.service';
 
 @Component({
   selector: 'app-create-session',
@@ -33,7 +34,7 @@ export class CreateSessionComponent implements OnInit,CanLeave {
     appearance: 'fill',
     floatLabel: 'always'
   }
-  constructor(private form: FormService, private apiService: ApiService, private changeDetRef: ChangeDetectorRef, private http: HttpClient, private sessionService: SessionService, private location: Location) { }
+  constructor(private form: FormService, private apiService: ApiService, private changeDetRef: ChangeDetectorRef, private http: HttpClient, private sessionService: SessionService, private location: Location, private toast: ToastService) { }
   @HostListener('window:beforeunload')
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
     if (!this.isSaved && this.createSession.myForm.dirty) {
@@ -58,9 +59,11 @@ export class CreateSessionComponent implements OnInit,CanLeave {
         this.imgData.image = file.target.result
         this.imgData.isUploaded = false;
       }
+      this.toast.showMessage("IMAGE_ADDED_SUCCESSFULLY", "success")
     } else {
       this.localImage = this.imgData.image = '';
       this.imgData.isUploaded = true;
+      this.toast.showMessage("IMAGE_REMOVED_SUCCESSFULLY", "success")
     }
   }
 

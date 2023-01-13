@@ -10,6 +10,7 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
 import { CreateSessionComponent } from './components/create-session/create-session.component'
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component'
 import { CanDeactivateGuard } from '../../core/guards/can-deactivate.guard'
+import { LogoutComponent } from './components/logout/logout.component'
 
 const routes: Routes = [
   {
@@ -48,14 +49,18 @@ const routes: Routes = [
         data: {title: 'MY_PROFILE'}
       },
       {
+        path: 'logout',
+        component: LogoutComponent
+      },
+      {
         path: 'create-session',
         component: CreateSessionComponent,
-        data: {title: 'CREATE_NEW_SESSION'},
+        data: {title: 'CREATE_NEW_SESSION', onBackUrl:"/created-sessions"},
         canDeactivate: [CanDeactivateGuard]
       },
       { path: 'edit-profile',
         component: EditProfileComponent,
-        data: {title: 'EDIT_YOUR_PROFILE'},
+        data: {title: 'EDIT_YOUR_PROFILE', onBackUrl:'/profile'},
         canDeactivate: [CanDeactivateGuard]
       },
       {

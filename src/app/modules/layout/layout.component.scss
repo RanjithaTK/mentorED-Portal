@@ -5,13 +5,13 @@
 }
 .router-container {
   min-height: 60vh;
-  padding-top: 17rem;
+  padding-top: 8rem;
 }
 .static-header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index:1;
+  z-index:2;
   background-color: $white;
 }
 .footer {

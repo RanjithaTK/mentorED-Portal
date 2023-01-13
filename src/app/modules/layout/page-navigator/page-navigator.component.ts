@@ -31,7 +31,7 @@ export class PageNavigatorComponent implements OnInit {
   pageTitle: any;
   userDetails: any;
   navigationArray: any;
- 
+  onBackUrl:any;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private translate: TranslateService, private profileService: ProfileService, private titleService: Title, private location: Location) {
     this.setTitle();
@@ -50,10 +50,15 @@ export class PageNavigatorComponent implements OnInit {
     ).subscribe(() => {
       const child: any = this.activatedRoute.firstChild;
       this.pageTitle = (child.snapshot.data['title'])?child.snapshot.data['title']:"";
+      this.onBackUrl = (child.snapshot.data['onBackUrl'])?child.snapshot.data['onBackUrl']:"";
     })
   }
   onBack(){
-    this.location.back()
+    if(this.onBackUrl){
+      this.router.navigate([this.onBackUrl], { replaceUrl: true })
+    } else {
+      this.location.back()
+    }
   }
 
 }
