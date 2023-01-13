@@ -45,7 +45,7 @@ export class EditProfileComponent implements OnInit, CanLeave {
       this.formData = form  
       this.localStorage.getLocalData(localKeys.USER_DETAILS).then((user) => {
         if (user) {
-          this.imgData = user ? user.image : '';
+          this.imgData.image = (user.image) ? user.image : '';
           this.preFillData(JSON.parse(user));
           this.changeDetRef.detectChanges();
         }
@@ -115,7 +115,7 @@ export class EditProfileComponent implements OnInit, CanLeave {
   }
 
   preFillData(existingData: any) {
-    this.imgData.image = (existingData['image']) ? existingData['image'] : '';  
+    this.imgData.image = (existingData['image']) ? existingData['image'] : '';
     for (let i = 0; i < this.formData.controls.length; i++) {
       this.formData.controls[i].value = existingData[this.formData.controls[i].name];
       this.formData.controls[i].options = _.unionBy(this.formData.controls[i].options, this.formData.controls[i].value, 'value');
