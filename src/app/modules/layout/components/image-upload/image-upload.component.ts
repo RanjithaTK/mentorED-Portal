@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ToastService } from 'src/app/core/services/toast/toast.service';
 
 @Component({
   selector: 'app-image-upload',
@@ -10,7 +11,7 @@ export class ImageUploadComponent implements OnInit {
   @Output() imageEvent = new EventEmitter();
   defaultImg: any;
 
-  constructor() { }
+  constructor(private toast: ToastService) { }
 
   ngOnInit(): void {
     switch (this.imgData.type) {
@@ -22,8 +23,17 @@ export class ImageUploadComponent implements OnInit {
         this.defaultImg = '/assets/images/default-session-upload.svg'
     }
   }
-  imageUpload(event: Event): void {
-    this.imageEvent.emit(event)
+  imageUpload(event: any): void {
+    switch(event.target.files[0].type){
+      case "image/png":
+        this.imageEvent.emit(event);
+        break;
+      case "image/jpeg":
+        this.imageEvent.emit(event);
+        break;
+      default:
+        this.toast.showMessage("FORMAT_IS_WRONG", "error")
+    }
   }
   imageRemove(){
     this.imageEvent.emit()

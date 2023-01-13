@@ -13,6 +13,8 @@ import { DynamicFormComponent } from 'src/app/shared';
 import { ProfileService } from 'src/app/core/services/profile/profile.service';
 import { Router } from '@angular/router';
 import { ToastService } from 'src/app/core/services/toast/toast.service';
+import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
+import { localKeys } from 'src/app/core/constants/localStorage.keys';
 
 @Component({
   selector: 'app-create-session',
@@ -34,7 +36,7 @@ export class CreateSessionComponent implements OnInit,CanLeave {
     appearance: 'fill',
     floatLabel: 'always'
   }
-  constructor(private form: FormService, private apiService: ApiService, private changeDetRef: ChangeDetectorRef, private http: HttpClient, private sessionService: SessionService, private location: Location, private toast: ToastService) { }
+  constructor(private form: FormService, private apiService: ApiService, private changeDetRef: ChangeDetectorRef, private http: HttpClient, private sessionService: SessionService, private location: Location, private toast: ToastService, private localStorage: LocalStorageService) { }
   @HostListener('window:beforeunload')
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
     if (!this.isSaved && this.createSession.myForm.dirty) {
@@ -46,6 +48,13 @@ export class CreateSessionComponent implements OnInit,CanLeave {
   ngOnInit(): void {
     this.form.getForm(CREATE_SESSION_FORM).subscribe((form)=>{
       this.formData = form;
+      this.localStorage.getLocalData(localKeys.IMAGE).then((img)=>{
+        if(img){
+          this.imgData = JSON.parse(img);
+          this.imgData.isUploaded = false;
+        }
+        this.changeDetRef.detectChanges();
+      })
       this.changeDetRef.detectChanges();
     })  
   }
@@ -58,6 +67,7 @@ export class CreateSessionComponent implements OnInit,CanLeave {
       reader.onload = (file: any) => {
         this.imgData.image = file.target.result
         this.imgData.isUploaded = false;
+        this.localStorage.saveLocalData(localKeys.IMAGE,JSON.stringify(this.imgData))
       }
       this.toast.showMessage("IMAGE_ADDED_SUCCESSFULLY", "success")
     } else {
@@ -80,6 +90,7 @@ export class CreateSessionComponent implements OnInit,CanLeave {
         form.timeZone = timezone;
         this.createSession.myForm.markAsPristine();
         this.sessionService.createSession(form).subscribe((result)=>{
+          this.localStorage.removeLocalData([localKeys.IMAGE]);
           this.location.back();
         });
       }
@@ -105,5 +116,9 @@ export class CreateSessionComponent implements OnInit,CanLeave {
       },
     };
     return this.http.put(path.signedUrl, file);
+  }
+
+  ngOnDestroy() {
+    this.localStorage.removeLocalData([localKeys.IMAGE])
   }
 }

@@ -13,7 +13,9 @@
             [value]="chip.value"
             (click)="onChipClick(chip)"
             [selected]="this.selectedChips.has(chip)">
-            {{chip?.label}}
+            <div class="chip">
+                {{chip?.label}}
+            </div>
             <mat-icon 
                 matChipRemove 
                 *ngIf="this.selectedChips.has(chip)"

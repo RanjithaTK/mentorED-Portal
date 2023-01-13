@@ -45,9 +45,14 @@ export class EditProfileComponent implements OnInit, CanLeave {
       this.formData = form  
       this.localStorage.getLocalData(localKeys.USER_DETAILS).then((user) => {
         if (user) {
-          this.imgData.image = (user.image) ? user.image : '';
-          this.preFillData(JSON.parse(user));
-          this.changeDetRef.detectChanges();
+          this.localStorage.getLocalData(localKeys.IMAGE).then((img)=>{
+            if(img){
+              this.imgData = img ? JSON.parse(img) : user.image;
+              this.imgData.isUploaded = false;
+            }
+            this.preFillData(JSON.parse(user));
+            this.changeDetRef.detectChanges();
+          })
         }
       })
     })
@@ -66,7 +71,9 @@ export class EditProfileComponent implements OnInit, CanLeave {
       if (this.imgData.image && !this.imgData.isUploaded) {
         this.getImageUploadUrl(this.localImage).subscribe()
       } else {
-        this.profileService.profileUpdate(this.editProfile.myForm.value).subscribe();
+        this.profileService.profileUpdate(this.editProfile.myForm.value).subscribe(()=>{
+          this.localStorage.removeLocalData([localKeys.IMAGE])
+        });
       }
     }else{
       let fillRequiredField = 'PLEASE_FILL_REQUIRED_FIELDS'
@@ -105,6 +112,7 @@ export class EditProfileComponent implements OnInit, CanLeave {
       reader.onload = (file: any) => {
         this.imgData.image = file.target.result
         this.imgData.isUploaded = false;
+        this.localStorage.saveLocalData(localKeys.IMAGE,JSON.stringify(this.imgData))
       }
       this.toastService.showMessage("IMAGE_ADDED_SUCCESSFULLY", "success")
     } else {
@@ -115,11 +123,16 @@ export class EditProfileComponent implements OnInit, CanLeave {
   }
 
   preFillData(existingData: any) {
-    this.imgData.image = (existingData['image']) ? existingData['image'] : '';
+    if(!this.imgData.image && existingData['image']) {
+      this.imgData.image = existingData['image'];
+    }
     for (let i = 0; i < this.formData.controls.length; i++) {
       this.formData.controls[i].value = existingData[this.formData.controls[i].name];
       this.formData.controls[i].options = _.unionBy(this.formData.controls[i].options, this.formData.controls[i].value, 'value');
     }
     this.showForm = true;
+  }
+  ngOnDestroy() {
+    this.localStorage.removeLocalData([localKeys.IMAGE])
   }
 }

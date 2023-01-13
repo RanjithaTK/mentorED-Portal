@@ -3,5 +3,6 @@ export const localKeys = {
     TOKEN : 'token',
     USER_DETAILS : 'user',
     REMEMBER_ME: 'rememberMe',
-    FORM_VERSIONS: 'formVersions'
+    FORM_VERSIONS: 'formVersions',
+    IMAGE: 'image'
 }
