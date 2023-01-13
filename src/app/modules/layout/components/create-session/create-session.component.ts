@@ -48,6 +48,7 @@ export class CreateSessionComponent implements OnInit,CanLeave {
   ngOnInit(): void {
     this.form.getForm(CREATE_SESSION_FORM).subscribe((form)=>{
       this.formData = form;
+      this.changeDetRef.detectChanges();
     })  
   }
  
