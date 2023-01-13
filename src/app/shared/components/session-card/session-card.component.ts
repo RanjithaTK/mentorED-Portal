@@ -1,3 +1,6 @@
+import { localKeys } from 'src/app/core/constants/localStorage.keys';
+import { LocalStorageService } from 'src/app/core/services/local-storage/local-storage.service';
+import { TranslateService } from '@ngx-translate/core'
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
 import * as moment from 'moment'
 
@@ -7,17 +10,17 @@ import * as moment from 'moment'
   styleUrls: ['./session-card.component.scss'],
 })
 export class SessionCardComponent implements OnInit {
-  @Input() cardData: any
+  @Input() cardData: any;
+  @Input() status: any;
+  buttonConfig:any;
+  userData: any;
   @Input() isCreator: any
+  constructor(private localStorage:LocalStorageService,private translate: TranslateService) { }
   @Output() buttonClick = new EventEmitter()
-  buttonConfig: any
-  userData: any
-  constructor() {}
 
   async ngOnInit() {
     this.setButtonConfig(this.isCreator)
   }
-
   setButtonConfig(isCreator: boolean) {
     if (isCreator) {
       this.buttonConfig = { label: 'START', type: 'startAction' }
