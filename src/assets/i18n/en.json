@@ -94,5 +94,6 @@
     "OK": "Ok",
     "PLEASE_FILL_REQUIRED_FIELDS":"Please fill all required fields",
     "IMAGE_ADDED_SUCCESSFULLY": "Image added successfully",
-    "IMAGE_REMOVED_SUCCESSFULLY": "Image removed successfully"
+    "IMAGE_REMOVED_SUCCESSFULLY": "Image removed successfully",
+    "FORMAT_IS_WRONG": "Uploaded file format is invalid"
 }

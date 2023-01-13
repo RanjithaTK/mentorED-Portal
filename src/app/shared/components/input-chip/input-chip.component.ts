@@ -115,7 +115,7 @@ export class InputChipComponent implements ControlValueAccessor {
           cancel: 'CANCEL'
         }
       },
-      width: '900px'
+      width: '800px'
     });
     dialogRef.afterClosed().subscribe(
       (chip) => {
