@@ -109,7 +109,9 @@ export class InputChipComponent implements ControlValueAccessor {
   openDialogue() {
     const dialogRef = this.dialog.open(InputDialogueBoxComponent, {
       data: {
-        message: this.lowerCaseLabel,
+        header: this.lowerCaseLabel,
+        subHeader: (this.control.name=='recommendedFor')?'WHO_IS_THIS_SESSION_FOR':'',
+        required: this.control.validators.required,
         buttonText: {
           ok: 'OK',
           cancel: 'CANCEL'

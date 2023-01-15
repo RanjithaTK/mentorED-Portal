@@ -16,8 +16,19 @@ mat-label {
     border-radius: 25px !important;
     padding: 0px 35px !important;
     margin-bottom: 15px !important;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 7px 8px -8px black;
 }
 .btn-primary {
     background-color: $theme;
     color: $white;
+}
+.sub-header {
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+.star-required {
+    color: $red;
 }
