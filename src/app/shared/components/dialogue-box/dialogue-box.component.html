@@ -1,6 +1,6 @@
 <mat-icon fxLayoutAlign="center center" class="close align-right" (click)="cancel()">close</mat-icon>
 <mat-label mat-dialog-title>{{dialogueData?.header}}</mat-label>
-<mat-label mat-dialog-title class="sub-header">{{dialogueData?.subHeader | translate}}</mat-label>
+<mat-label mat-dialog-title class="sub-header">{{dialogueData?.subHeader | translate}}<span *ngIf="dialogueData?.subHeader" class="star-required">*</span></mat-label>
 <div mat-dialog-content>
   <mat-form-field appearance="outline">
     <input matInput [(ngModel)]="data" [required]="dialogueData?.required">
