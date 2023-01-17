@@ -83,6 +83,7 @@ mat-chip{
 .owl-dt-popup {
   max-width: 65% !important;
   overflow: scroll !important;
+  max-height: 65% !important;
 }
 .owl-dt-container {
   border: 1px solid black;
@@ -91,6 +92,5 @@ mat-chip{
   .owl-dt-container {
     height: fit-content !important;
     border: 1px solid black;
-    margin-top: 15%;
   }
 }
