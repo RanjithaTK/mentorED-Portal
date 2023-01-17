@@ -6,7 +6,7 @@
       </app-dynamic-form>
    </div>
    <div class="button"  fxLayoutAlign="center" >
-   <button mat-raised-button class="button-shadow" color="primary" (click)="onSubmit()">{{"SUBMIT" | translate}}</button>
+   <button mat-raised-button class="button-shadow" color="primary" [disabled]="editProfile && !editProfile.myForm.valid"  (click)="onSubmit()">{{"SUBMIT" | translate}}</button>
 </div>
 </mat-card>
 </div>
