@@ -30,6 +30,10 @@ export class ProfilePageComponent implements OnInit {
       {
         title: "EDUCATION_QUALIFICATION",
         key: "educationQualification"
+      },
+      {
+        title: "LANGUAGES",
+        key: "languages"
       }
     ],
     menteeForm: ['SESSIONS_ATTENDED'],
