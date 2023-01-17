@@ -96,5 +96,6 @@
     "IMAGE_ADDED_SUCCESSFULLY": "Image added successfully",
     "IMAGE_REMOVED_SUCCESSFULLY": "Image removed successfully",
     "FORMAT_IS_WRONG": "Uploaded file format is invalid",
-    "WHO_IS_THIS_SESSION_FOR": "Who is this session for?"
+    "WHO_IS_THIS_SESSION_FOR": "Who is this session for?",
+    "LANGUAGES": "Languages"
 }
