@@ -29,12 +29,13 @@ export class ToastService {
       panelClass: cssclass
     });
   }
-  openSnackBar(cssClass: any = 'success'){
+  showIconMessage(toastConfig: any,cssClass: any = 'success'){
     this._snackBar.openFromComponent(ToastMessageComponent, {
       duration: this.durationInSeconds * 1000,
       verticalPosition: 'top',
       horizontalPosition: 'center',
-      panelClass: cssClass
+      panelClass: cssClass,
+      data: toastConfig
     })
   }
 }
