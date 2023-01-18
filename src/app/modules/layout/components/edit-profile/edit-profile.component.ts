@@ -54,7 +54,7 @@ export class EditProfileComponent implements OnInit, CanLeave {
   }
   @HostListener('window:beforeunload')
  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
-    if (!this.isSaved && this.editProfile.myForm.dirty || this.imgData.image ) {
+    if (!this.isSaved && this.editProfile.myForm.dirty || (!this.imgData.isUploaded) ) {
       return window.confirm("Are you sure you want to exit? your data will not be saved.");
     } else {
       return true;
@@ -107,6 +107,7 @@ export class EditProfileComponent implements OnInit, CanLeave {
         this.imgData.isUploaded = false;
       }
       this.toastService.showMessage("IMAGE_ADDED_SUCCESSFULLY", "success")
+      
     } else {
       this.localImage = this.imgData.image = '';
       this.imgData.isUploaded = true;
