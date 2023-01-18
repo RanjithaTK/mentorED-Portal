@@ -16,7 +16,7 @@
         <div fxLayoutAlign="center" >
             <div fxFlex="90%" fxFlex.xs="100%" fxLayout="column" fxLayoutGap="20px">
                 <div fxLayout="column" fxLayoutAlign="center" *ngIf="upcomingCardDetails?.length ">
-                    <h3 class="create-sessions-text">{{"UPCOMING_SESSIONS" | translate}}</h3>
+                    <h3 class="create-sessions-text">{{"LIVE" | translate}}/{{"UPCOMING_SESSIONS" | translate}}</h3>
                     <div fxLayout="row wrap" fxLayoutGap="20px grid">
                         <div *ngFor='let item of upcomingCardDetails' fxFlex="50%"
                             fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="50%">
