@@ -163,8 +163,8 @@ export class DynamicFormComponent implements OnInit {
     control.showPasswordIcon = true;
   }
 
-  alertToast(){
-    this.toastService.showMessage(this.translate.get('SECRET_CODE_TOAST_MESSAGE'), 'snack_icon')
+  alertToast(control: any){
+    this.toastService.showIconMessage(control,'warning')
   }
 
   dateSelected(control:any, date:any) {

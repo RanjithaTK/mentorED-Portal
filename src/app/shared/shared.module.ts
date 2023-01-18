@@ -33,6 +33,7 @@ import { InputDialogueBoxComponent } from './components/dialogue-box/dialogue-bo
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatBadgeModule } from '@angular/material/badge';
 import { NumberOnlyDirective } from './directives/onlyNumbers';
+import { ToastMessageComponent } from './components/toast-message/toast-message.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { NumberOnlyDirective } from './directives/onlyNumbers';
     GenericDetailsComponent,
     ProfileHeaderComponent,
     InputDialogueBoxComponent,
-    NumberOnlyDirective
+    NumberOnlyDirective,
+    ToastMessageComponent
   ],
   imports: [
     CommonModule,

@@ -19,7 +19,7 @@
                 </mat-icon>
                 <mat-icon matSuffix 
                     *ngIf="control?.type === 'secretCode'" 
-                    (click)="alertToast()">info
+                    (click)="alertToast(control)">info
                 </mat-icon>
                 <mat-error *ngIf="control?.showValidationError && myForm.get(control?.name)?.touched && myForm.get(control?.name)?.invalid">
                     <mat-icon 

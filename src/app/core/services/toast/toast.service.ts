@@ -4,6 +4,7 @@ import {
 } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
 import * as _ from 'lodash';
+import { ToastMessageComponent } from 'src/app/shared/components/toast-message/toast-message.component';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +28,14 @@ export class ToastService {
       duration: options.duration * 1000,
       panelClass: cssclass
     });
+  }
+  showIconMessage(toastConfig: any,cssClass: any = 'success'){
+    this._snackBar.openFromComponent(ToastMessageComponent, {
+      duration: this.durationInSeconds * 1000,
+      verticalPosition: 'top',
+      horizontalPosition: 'center',
+      panelClass: cssClass,
+      data: toastConfig
+    })
   }
 }
