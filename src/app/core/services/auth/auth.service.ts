@@ -6,6 +6,7 @@ import { map } from 'rxjs';
 import { API_CONSTANTS } from '../../constants/apiUrlConstants';
 import { localKeys } from '../../constants/localStorage.keys';
 import { ApiService } from '../api/api.service';
+import { DbService } from '../db/db.service';
 import { LocalStorageService } from '../local-storage/local-storage.service';
 import { ProfileService } from '../profile/profile.service';
 import { ToastService } from '../toast/toast.service';
@@ -22,7 +23,8 @@ export class AuthService {
     private localStorage: LocalStorageService,
     private router: Router,
     private profile: ProfileService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private dbService: DbService
     ) { }
 
     async createAccount(formData: any) {
@@ -55,6 +57,7 @@ export class AuthService {
 
   logoutAccount() {
     this.localStorage.removeLocalData([localKeys.USER_DETAILS,localKeys.TOKEN,localKeys.SELECTED_LANGUAGE]);
+    this.dbService.delete('forms').subscribe()
     this.userService.token='';
     this.userService.userEvent.next({});
     this.router.navigate(['/auth/login']);
