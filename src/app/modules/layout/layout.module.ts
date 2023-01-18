@@ -31,6 +31,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ExitPopupComponent } from '../../shared/components/exit-popup/exit-popup.component';
 import { CreateSessionComponent } from './components/create-session/create-session.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     ExitPopupComponent,
     CreateSessionComponent,
     EditProfileComponent,
-    LogoutComponent
+    LogoutComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
