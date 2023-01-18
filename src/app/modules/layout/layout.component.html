@@ -3,7 +3,7 @@
     <div fxLayout="column" fxLayoutAlign="center">
       <div class="menu-button" fxLayoutAlign="space-evenly center">
         <mat-icon class="icon">language</mat-icon>
-        <mat-select fxFlexAlign="center" [(value)]="selectedLanguage">
+        <mat-select fxFlexAlign="center" [(value)]="selectedLanguage" (selectionChange)="languageEvent()">
           <mat-option fxFlex class="options" [value]="option.value" *ngFor="let option of options">
             {{ option.label }}
           </mat-option>
