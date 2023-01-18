@@ -83,8 +83,8 @@ startSession(id: any){
   upComingSession(obj:any){
     const config = {
       url:
-        API_CONSTANTS.UPCOMING_SESSIONS +
-        obj.id +
+        API_CONSTANTS.GET_SESSIONS_LIST +
+        "?status='published'"+
         '?page=' +
         obj.page +
         '&limit=' +

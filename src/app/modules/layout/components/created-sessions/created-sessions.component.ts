@@ -83,10 +83,10 @@ getSessions(){
     this.sessionService.upComingSession(obj).subscribe((data:any)=>{
       this.loading = false
       this.upcomingCardDetails = this.upcomingCardDetails.concat(
-        data.result[0].data,
+        data.result.data,
       )
       this.showLoadMoreButtonUpcomingSession =
-        !(data.result[0].count == this.upcomingCardDetails.length )
+        !(data.result.count == this.upcomingCardDetails.length )
     })
   }
 
