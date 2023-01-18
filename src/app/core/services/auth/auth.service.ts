@@ -66,7 +66,7 @@ export class AuthService {
     this.userService.userEvent.next(data.result.user);
     await this.localStorage.saveLocalData(localKeys.TOKEN, JSON.stringify(token));
     await this.localStorage.saveLocalData(localKeys.USER_DETAILS, JSON.stringify(data.result.user));
-    await this.localStorage.saveLocalData(localKeys.SELECTED_LANGUAGE, data.result.user.preferredLanguage);
+    await this.localStorage.saveLocalData(localKeys.SELECTED_LANGUAGE, (data.result.user.preferredLanguage)?data.result.user.preferredLanguage:'en');
     return this.profile.getProfileDetailsWithRole(data.result.user._id, data.result.user.isAMentor).subscribe((user)=>{
       return user
     })
