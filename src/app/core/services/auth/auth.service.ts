@@ -57,7 +57,6 @@ export class AuthService {
 
   logoutAccount() {
     this.localStorage.removeLocalData([localKeys.USER_DETAILS,localKeys.TOKEN,localKeys.SELECTED_LANGUAGE]);
-    this.dbService.delete('forms').subscribe()
     this.userService.token='';
     this.userService.userEvent.next({});
     this.router.navigate(['/auth/login']);
