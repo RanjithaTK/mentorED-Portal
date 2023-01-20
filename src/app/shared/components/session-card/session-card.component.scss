@@ -67,3 +67,9 @@ background-color:$theme;
     padding:  0 10px 0 10px;
    float: left;
 }
+.text-ellipse{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 200px;
+}
