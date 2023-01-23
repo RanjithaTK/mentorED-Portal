@@ -11,9 +11,7 @@ export class MentorCardComponent implements OnInit {
   @Output() onClickEvent = new EventEmitter();
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
-    console.log(this.cardData)
-  }
+  ngOnInit(): void {}
   onClickCiewProfile(mentor:any){
     let value = {
       data: mentor,

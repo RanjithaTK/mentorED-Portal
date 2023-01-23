@@ -47,9 +47,7 @@ details: any = {
   }
 
   ngOnInit(): void {
-    console.log(this.mentorId.mentorID) 
     this.mentorProfile.getMentorDetails(this.mentorId.mentorID).subscribe((data:any)=>{
-      console.log(data)
       this.details.data = data;
     })
   }

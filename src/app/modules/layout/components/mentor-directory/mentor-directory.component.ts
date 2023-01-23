@@ -33,7 +33,6 @@ export class MentorDirectoryComponent implements OnInit {
     
   }
   eventAction(event:any) {
-    console.log(event.data._id, "event");
     switch (event.type) {
       case 'cardSelect':
         this.router.navigate(["/mentor-profile"],{ state: { mentorID: event.data._id } })
