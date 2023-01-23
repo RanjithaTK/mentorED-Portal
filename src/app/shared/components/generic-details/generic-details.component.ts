@@ -9,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class GenericDetailsComponent implements OnInit {
   @Input() details: any
-  layoutAlign:any
+  @Input() layoutAlign:any
   selectedPage:any;
   constructor(private translate:TranslateService, private router:Router) {
     this.selectedPage = router.url
@@ -17,10 +17,6 @@ export class GenericDetailsComponent implements OnInit {
   public isArray(arr:any ) {
     return Array.isArray(arr)
  }
-  ngOnInit(): void {
-    if(this.selectedPage == '/profile'){
-      this.layoutAlign = "center center"
-    }
-  }
+  ngOnInit(): void {}
   
 }
