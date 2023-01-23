@@ -16,13 +16,10 @@
         <div fxLayout="column" fxFlex="40%" fxLayoutGap="1px" fxLayoutAlign="center">
           <div fxLayoutAlign="center" >
             <p  class="mentor-name text-ellipse">{{ cardData?.name}}</p>
-          </div>
-            <!-- <p fxLayoutAlign="center" *ngFor="let label of cardData?.designation;  let isLast=last" class="mentor-designation"> {{label?.label}}{{isLast ? '' : ', '}}</p> -->
-            
+          </div>        
             <div fxLayout="row" *ngIf="cardData?.rating?.average" fxLayoutGap="1px" fxLayoutAlign="center center">
                 <mat-icon class="star-icon">grade</mat-icon>
                 <div class="session-font">{{cardData?.rating?.average}}</div>
-                <!-- <div class="session-font">({{cardData.session}}+session)</div> -->
             </div>
         </div>
         
