@@ -97,5 +97,9 @@
     "IMAGE_REMOVED_SUCCESSFULLY": "Image removed successfully",
     "FORMAT_IS_WRONG": "Uploaded file format is invalid",
     "WHO_IS_THIS_SESSION_FOR": "Who is this session for?",
-    "LANGUAGES": "Languages"
+    "LANGUAGES": "Languages",
+    "MENTOR_PROFILE":"Mentor profile",
+    "SHARE_PROFILE":"Share profile",
+    "RATING":"Rating",
+    "SESSIONs_HOSTED":"Sessions hosted"
 }

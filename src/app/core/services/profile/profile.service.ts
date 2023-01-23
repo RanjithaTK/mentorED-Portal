@@ -118,4 +118,26 @@ export class ProfileService {
       })
     );
   }
+
+  getMentorDirectory(obj:any){
+    const config = {
+      url: API_CONSTANTS.MENTORS_DIRECTORY + obj?.page + '&limit=' + obj?.limit 
+    };
+    return this.apiService.get(config).pipe(
+      map((data: any) => {
+        return data;
+      })
+    );
+  }
+  getMentorDetails(id:string){
+    const config = {
+      url: API_CONSTANTS.MENTOR_PROFILE_DETAILS + id
+    };
+    return this.apiService.post(config).pipe(
+      map((result: any) => {
+        return result.result;
+      })
+    );
+    
+  }
 }
