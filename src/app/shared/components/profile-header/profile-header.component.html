@@ -40,9 +40,9 @@
   <div *ngIf="!details?.data?.isAMentor" fxLayout="row" class="title">
     {{details?.data?.sessionsAttended  + ('SESSIONS_ATTENDED' | translate)}}
   </div>
-  <div *ngIf="details?.data?.isAMentor && mentorDirectory" fxLayout="row" fxLayoutGap="2px" class="title" fxLayoutAlign="center center">
+  <div *ngIf="details?.data?.isAMentor && mentorDirectory" fxLayout="row" fxLayoutGap="3px" class="title" fxLayoutAlign="center center">
     <mat-icon class="location-icon">videocam</mat-icon>
-    <span>{{ details?.data?.sessionsHosted + '  + ' }}</span>
+    <span>{{ details?.data?.sessionsHosted}}</span>
     {{('SESSIONs_HOSTED' | translate)}}
   </div>
   <button
