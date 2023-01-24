@@ -12,3 +12,10 @@
 mat-chip {
   border: 1px solid $theme;
 }
+.mat-chip-container {
+  overflow: hidden;
+  text-align: center;
+  padding: 10px;
+  margin: 5px;
+  max-height: 45px;
+}
