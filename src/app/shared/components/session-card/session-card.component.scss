@@ -42,7 +42,9 @@
 
 .card-detail-bold {
     font-weight: 500;
-
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .image {

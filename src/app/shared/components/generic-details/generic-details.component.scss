@@ -8,7 +8,16 @@
 }
 .description {
   font-size: 16px;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
 }
 mat-chip {
   border: 1px solid $theme;
+  text-align: center;
+  display: block;
+  float: left;
+  clear: left;
 }
