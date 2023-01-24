@@ -41,6 +41,7 @@ details: any = {
   menteeForm: ['SESSIONS_ATTENDED'],
   data: {},
 };
+layout= 'start start'
   constructor(private router: Router, private mentorProfile:MentorService) { 
     this.mentorId = this.router.getCurrentNavigation()?.extras.state;
     

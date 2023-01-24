@@ -9,7 +9,6 @@
 .description {
   font-size: 16px;
   max-width: 50%;
-  text-align: center;
 }
 mat-chip {
   border: 1px solid $theme;
@@ -18,4 +17,7 @@ mat-chip {
   display: block;
   float: left;
   clear: left;
+}
+.align-center{
+  text-align: center;
 }
