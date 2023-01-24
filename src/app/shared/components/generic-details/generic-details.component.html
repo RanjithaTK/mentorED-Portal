@@ -3,9 +3,9 @@
   <div class="title">
     {{ detail?.title | translate }}
   </div>
-  <div *ngIf="isArray((details?.data)[detail?.key]); else elseBlock" class="about">
+  <div *ngIf="isArray((details?.data)[detail?.key]); else elseBlock">
     <mat-chip-list>
-      <mat-chip *ngFor="let chip of (details?.data)[detail?.key]" [fxLayoutAlign]="layoutAlign" fxLayoutAlign="start center">
+      <mat-chip *ngFor="let chip of (details?.data)[detail?.key]" [fxLayoutAlign]="layoutAlign">
         {{ chip.label }}
       </mat-chip>
     </mat-chip-list>
