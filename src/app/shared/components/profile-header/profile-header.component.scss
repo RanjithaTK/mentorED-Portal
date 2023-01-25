@@ -12,6 +12,10 @@
   font-weight: 400;
   padding-top: 14px;
   font-size: 23px;
+  max-width: 50%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
 }
 
 .edit-button {
