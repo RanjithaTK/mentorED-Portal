@@ -84,9 +84,8 @@ startSession(id: any){
     const config = {
       url:
         API_CONSTANTS.GET_SESSIONS_LIST +
-        "?status='published,live'"+
-        '?page=' +
         obj.page +
+        "&status=published,live"+
         '&limit=' +
         obj.limit,
       payload: {},

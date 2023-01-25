@@ -103,5 +103,9 @@
     "LANGUAGES": "Languages",
     "TOTAL_SESSION_HOSTED":"Total session hosted",
     "TOTAL_SESSION_CREATED":"Total session created",
-    "SESSION_OVERVIEW":"Session Overview"
+    "SESSION_OVERVIEW":"Session Overview",
+    "MENTOR_PROFILE":"Mentor profile",
+    "SHARE_PROFILE":"Share profile",
+    "RATING":"Rating",
+    "SESSIONs_HOSTED":" Sessions hosted"
 }

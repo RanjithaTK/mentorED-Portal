@@ -3,7 +3,7 @@
     <div fxLayout="column" fxLayoutAlign="center">
       <div class="menu-button" fxLayoutAlign="space-evenly center">
         <mat-icon class="icon">language</mat-icon>
-        <mat-select fxFlexAlign="center" [(value)]="selectedLanguage">
+        <mat-select fxFlexAlign="center" [(value)]="selectedLanguage" (selectionChange)="languageEvent()">
           <mat-option fxFlex class="options" [value]="option.value" *ngFor="let option of options">
             {{ option.label }}
           </mat-option>
@@ -27,10 +27,12 @@
     <div class="static-header">
       <app-header (menuToggleEvent)="drawer.toggle()"></app-header>
     </div>
-    <div class="layout-sections">
+    <div >
       <div class="router-container">
       <app-page-navigator fxLayout="row" fxLayoutAlign="center center"></app-page-navigator>
-        <router-outlet></router-outlet>
+      <div class="layout-sections">
+        <router-outlet ></router-outlet>
+      </div>
       </div>
       <div class="footer">
         <app-footer></app-footer>

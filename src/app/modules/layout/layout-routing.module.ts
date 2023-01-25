@@ -12,6 +12,7 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { CanDeactivateGuard } from '../../core/guards/can-deactivate.guard'
 import { LogoutComponent } from './components/logout/logout.component'
 import { DashboardComponent } from './components/dashboard/dashboard.component'
+import { MentorProfileComponent } from './components/mentor-profile/mentor-profile.component'
 
 const routes: Routes = [
   {
@@ -56,6 +57,11 @@ const routes: Routes = [
       {
         path: 'logout',
         component: LogoutComponent
+      },
+      {
+        path: 'mentor-profile',
+        component: MentorProfileComponent,
+        data: {title: 'MENTOR_PROFILE'}
       },
       {
         path: 'create-session',
