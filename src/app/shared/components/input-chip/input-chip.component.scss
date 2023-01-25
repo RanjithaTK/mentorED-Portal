@@ -47,3 +47,6 @@ input {
 .mat-chip-remove.mat-icon{
     width: 25px !important;
 }
+::ng-deep .mat-chip-list-wrapper {
+    justify-content: left;
+}
