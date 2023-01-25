@@ -1,1 +1,93 @@
-<p>dashboard works!</p>
+<div fxLayoutAlign="center" class="wrapper">
+  <mat-card
+    fxFlex="50%"
+    fxFlex.xs="48%"
+    fxFlex.sm="50%"
+    class="card"
+    fxLayout="column"
+    fxLayoutAlign="center"
+  >
+    <div fxFlex class="button-wrapper" *ngIf="isMentor" fxLayoutGap="10%">
+      <button
+        mat-raised-button
+        fxFlex="10%"
+        class="button"
+        *ngFor="let button of buttonConfig"
+        (click)="buttonClick(button)"
+      >
+        {{ button?.label | translate }}
+      </button>
+    </div>
+    <div fxFlex="row" fxLayoutAlign="space-between" class="session-wrapper">
+      <h2 class="session">{{"SESSION_OVERVIEW" | translate}}</h2>
+
+      <mat-select
+        class="options"
+        fxFlexAlign="center"
+        class="filter"
+        fxFlex="13%"
+        [(ngModel)]="selectedFilter"
+      >
+        <mat-option
+          [value]="filter.key"
+          *ngFor="let filter of filters"
+          class="label"
+        >
+          {{ filter.key }}
+        </mat-option>
+      </mat-select>
+    </div>
+    <div fxFlex="row" fxLayoutAlign="space-around" *ngIf="isMentor">
+      <mat-card
+        class="wrapper-card"
+        fxFlex.xs="40%"
+        fxFlex.sm="38%"
+        fxFlex.md="38%"
+      >
+        <h2>{{ 'TOTAL_SESSION_CREATED' | translate }}</h2>
+        <h2 fxLayoutAlign="center">
+          {{ chartData.chart.data.datasets[0].data[0] }}
+        </h2>
+      </mat-card>
+      <mat-card
+        class="wrapper-card"
+        fxFlex.xs="40%"
+        fxFlex.sm="38%"
+        fxFlex.md="38%"
+      >
+        <h2>{{ 'TOTAL_SESSION_HOSTED' | translate }}</h2>
+        <h2 fxLayoutAlign="center">
+          {{ chartData.chart.data.datasets[0].data[1] }}
+        </h2>
+      </mat-card>
+    </div>
+    <div fxFlex="row" fxLayoutAlign="space-around" *ngIf="!isMentor">
+      <mat-card
+        class="wrapper-card"
+        fxFlex.xs="40%"
+        fxFlex.sm="38%"
+        fxFlex.md="38%"
+      >
+        <h2>{{ 'TOTAL_SESSION_ENROLLED' | translate }}</h2>
+        <h2 fxLayoutAlign="center">
+          {{ chartData.chart.data.datasets[0].data[0] }}
+        </h2>
+      </mat-card>
+      <mat-card
+        class="wrapper-card"
+        fxFlex.xs="40%"
+        fxFlex.sm="38%"
+        fxFlex.md="38%"
+      >
+        <h2>{{ 'TOTAL_SESSION_ATTENDED' | translate }}</h2>
+        <h2 fxLayoutAlign="center">
+          {{ chartData.chart.data.datasets[0].data[1] }}
+        </h2>
+      </mat-card>
+    </div>
+
+    <span layout="row"><hr flex /></span>
+    <div>pi chart</div>
+    <!-- <sl-pie-chart></sl-pie-chart> -->
+  </mat-card>
+</div>
