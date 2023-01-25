@@ -88,6 +88,7 @@ mat-chip{
 }
 .owl-dt-container {
   border: 1px solid black;
+  height: fit-content !important;
 }
 @media only screen and (orientation: landscape) {
   .owl-dt-container {
