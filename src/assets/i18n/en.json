@@ -101,5 +101,10 @@
     "MENTOR_PROFILE":"Mentor profile",
     "SHARE_PROFILE":"Share profile",
     "RATING":"Rating",
-    "SESSIONs_HOSTED":" Sessions hosted"
+    "SESSIONs_HOSTED":" Sessions hosted",
+    "SESSION_DETAIL": "Session details",
+    "RECOMMENDED_FOR": "Recommented for",
+    "CATEGORIES": "Categories",
+    "MEDIUM": "Medium",
+    "DESCRIPTION": "Description"
 }

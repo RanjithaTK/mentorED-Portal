@@ -106,4 +106,14 @@ startSession(id: any){
       })
     )
   }
+  getSessionDetailsAPI(id: any) {
+    const config = {
+    url: API_CONSTANTS.GET_SESSION_DETAILS + id
+    }
+    return this.apiService.get(config).pipe(
+    map((result:any) => {
+    return result
+    })
+    )
+    }
 }
