@@ -11,11 +11,14 @@ import { ApiService } from '../../../../core/services/api/api.service'
   styleUrls: ['./mentor-directory.component.scss']
 })
 export class MentorDirectoryComponent implements OnInit {
-  page: any;
-  limit: any;
+  page: any = 1;
+  limit: any = 1000;
   mentors:any = [];
   mentorsCount:any;
-  constructor(private mentorService:MentorService, private apiService:ApiService,private router: Router) { }
+  selectedAlphabet:any = "All"
+  selectedMentors:any;
+  alphabetsArray:any = ["All","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+  constructor(private mentorService:MentorService, private apiService: ApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.getMentor().subscribe()
@@ -27,16 +30,27 @@ export class MentorDirectoryComponent implements OnInit {
     }
     return this.mentorService.getMentorDirectory(obj).pipe(
       map((data: any) => {
-        this.mentors = this.mentors.concat(data.result.data);
-      this.mentorsCount = data.result.count;
+        this.mentors = data.result.data;
+        this.mentorsCount = data.result.count;
       }))
-    
   }
   eventAction(event:any) {
     switch (event.type) {
       case 'cardSelect':
-        this.router.navigate(["/mentor-profile"],{ state: { mentorID: event.data._id } })
+        this.router.navigate(["/mentor-profile"], { queryParams: { mentorID: event.data._id } })
         break;
+    }
+  }
+  onClickAlphabet(a:any){
+    this.selectedAlphabet = a;
+    if (this.selectedAlphabet == 'All') {
+      this.selectedMentors = this.mentors
+    } else {
+      this.mentors.forEach((ele: any) => {
+        if (ele.key == this.selectedAlphabet) {
+          this.selectedMentors = ele;
+        }
+      });
     }
   }
 }
