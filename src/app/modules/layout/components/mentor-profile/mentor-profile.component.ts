@@ -50,7 +50,7 @@ export class MentorProfileComponent implements OnInit {
   showLoadMoreButtonUpcomingSession: boolean = false;
   page = 1;
   limit = 1;
-  noData:any;
+  noData:any='NO_MENTOR_UPCOMING_SESSIONS_CONTENT';
   constructor(private router: Router, private route: ActivatedRoute, private mentorProfile: MentorService, private sessionService: SessionService) {
     this.route.queryParams.subscribe(
       params => {
