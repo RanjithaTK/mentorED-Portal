@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from "@angular/core";
 import * as _ from "lodash";
 import { SessionService } from "src/app/core/services/session/session.service";
 import { ActivatedRoute, Router } from "@angular/router";
+import * as moment from "moment";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: "app-session-detail",
@@ -11,90 +13,71 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class SessionDetailComponent implements OnInit {
   cardData: any;
 
-  layout = "center center";
-
   details = {
     buttonLabel: "Enroll",
     form: [
       {
-        title: "DESCRIPTION",
-        key: "description",
-      },
-      {
-        title: "CATEGORIES",
-        key: "categories",
+        title: "RECOMENDED_FOR",
+        key: "recommendedFor",
       },
       {
         title: "MEDIUM",
         key: "medium",
+      },{
+        title: "MENTOR_NAME",
+        key: "mentorName",
+      },
+      {
+        title: "SESSION_DATE",
+        key: "startDate",
+      },
+      {
+        title: "SESSION_TIME",
+        key: "startTime",
       },
     ],
     data: {
       image: [],
-      description: "",
-      recommendedFor: [
-        {
-          value: "Teachers",
-          label: "Teachers",
-        },
-        {
-          value: "Block Officers",
-          label: "Block Officers",
-        },
-      ],
-      medium: [
-        {
-          value: "English",
-          label: "English",
-        },
-        {
-          value: "Hindi",
-          label: "Hindi",
-        },
-      ],
-      categories: [
-        {
-          value: "Educational Leadership",
-          label: "Educational Leadership",
-        },
-        {
-          value: "School Process",
-          label: "School Process",
-        },
-        {
-          value: "Communication",
-          label: "Communication",
-        },
-        {
-          value: "SQAA",
-          label: "SQAA",
-        },
-        {
-          value: "Professional Development",
-          label: "Professional Development",
-        },
-      ],
+      description: '',
       mentorName: null,
-      status: null,
-      isEnrolled: null,
-      title: "",
-      startDate: "",
+      status:null,
+      isEnrolled:null,
+      title:"",
+      startDate:"",
+      startTime: ""
     },
   };
   id: any;
+  readableStartDate: any;
+  startDate: any;
+  endDate: any;
+  layout = 'start start'
+  title: any;
 
   constructor(
     private router: Router,
     private sessionService: SessionService,
-    private route: ActivatedRoute
-  ) {}
-
-  ngOnInit(): void {
+    private route: ActivatedRoute,
+    private titleService: Title
+  ) {
     this.route.queryParams.subscribe((params) => {
       this.id = params["id"];
     });
-    this.sessionService.getSessionDetailsAPI(this.id).subscribe((data: any) => {
-      console.log(" data :", data);
+  }
+
+  ngOnInit(): void {
+    this.sessionService.getSessionDetailsAPI(this.id).subscribe((response: any) => {
+      this.titleService.setTitle(response.title)
+      this.details.form.unshift({
+        title: response.title,
+        key: 'description'
+      })
+      let readableStartDate = moment.unix(response.startDate).format("DD/MM/YYYY");
+      let readableStartTime = moment.unix(response.startDate).format("hh:MM");
+      this.details.data = Object.assign({}, response);
+      this.details.data.startDate = readableStartDate
+      this.details.data.startTime = readableStartTime
     });
+    
   }
 }

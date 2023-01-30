@@ -47,7 +47,6 @@ export class SessionCardComponent implements OnInit {
       data: cardData._id,
       type: 'cardSelect',
     }
-    console.log("value :", value.data)
     this.router.navigate(["/session-detail"], { queryParams: {id: value.data}})
   }
 

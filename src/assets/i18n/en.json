@@ -103,8 +103,11 @@
     "RATING":"Rating",
     "SESSIONs_HOSTED":" Sessions hosted",
     "SESSION_DETAIL": "Session details",
-    "RECOMMENDED_FOR": "Recommented for",
+    "RECOMENDED_FOR": "Recomented For",
     "CATEGORIES": "Categories",
     "MEDIUM": "Medium",
-    "DESCRIPTION": "Description"
+    "DESCRIPTION": "Description",
+    "SESSION_DATE": "Session Date",
+    "SESSION_TIME": "Session Time",
+    "MENTOR_NAME": "Mentor Name"
 }
