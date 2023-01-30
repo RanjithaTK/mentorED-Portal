@@ -71,7 +71,8 @@ const routes: Routes = [
         canDeactivate: [CanDeactivateGuard]
       },
       { path: 'session-detail',
-      component: SessionDetailComponent,
+        component: SessionDetailComponent,
+        data: {title: 'SESSION_DETAIL', onBackUrl:'/profile'}
     },
       {
         path: '',

@@ -45,9 +45,9 @@ export class PageNavigatorComponent implements OnInit {
     })
   }
 
-  ngAfterContentChecked(){
-    this.pageTitle = this.titleService.getTitle()
-  }
+  // ngAfterContentChecked(){
+  //   this.pageTitle = this.titleService.getTitle()
+  // }
 
   setTitle() {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd),
