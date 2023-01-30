@@ -1,4 +1,4 @@
-<div fxLayout="column" fxLayoutGap="10px" [fxLayoutAlign]="layoutAlign">
+<div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign.sm="center center" fxLayoutAlign.xs="center center" fxLayoutAlign="{{layoutAlign}}">
   <div>
     <ng-template [ngIf]="details.data.image" [ngIfElse]="loggedOut">
       <div>
@@ -12,7 +12,7 @@
       </div>
     </ng-template>
   </div>
-  <div class="title">{{ details?.data?.name | titlecase }}</div>
+  <div class="title text-ellipse" fxLayoutAlign.sm="center center" fxLayoutAlign.xs="center center" fxLayoutAlign="{{layoutAlign}}">{{ details?.data?.name | titlecase }}</div>
   <div
     fxLayout="row"
     class="title"
@@ -40,7 +40,7 @@
   <div *ngIf="!details?.data?.isAMentor" fxLayout="row" class="title">
     {{details?.data?.sessionsAttended  + ('SESSIONS_ATTENDED' | translate)}}
   </div>
-  <div *ngIf="details?.data?.isAMentor && mentorDirectory" fxLayout="row" fxLayoutGap="3px" class="title" fxLayoutAlign="center center">
+  <div *ngIf="details?.data?.isAMentor && mentorDirectory" fxLayout="row" fxLayoutGap="3px" class="title">
     <mat-icon class="location-icon">videocam</mat-icon>
     <span>{{ details?.data?.sessionsHosted}}</span>
     {{('SESSIONs_HOSTED' | translate)}}
