@@ -58,7 +58,7 @@ export class MentorProfileComponent implements OnInit {
       }
     )}
   ngOnInit(): void {
-    this.mentorProfile.getMentorDetails(this.mentorId.mentorID).subscribe((data: any) => {
+    this.mentorProfile.getMentorDetails(this.mentorId.mentorID).subscribe((data:any)=>{
       this.details.data = data;
     })
     this.getUpcomingSession()

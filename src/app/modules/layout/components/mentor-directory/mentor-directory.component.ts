@@ -11,8 +11,8 @@ import { ApiService } from '../../../../core/services/api/api.service'
   styleUrls: ['./mentor-directory.component.scss']
 })
 export class MentorDirectoryComponent implements OnInit {
-  page:any = 1;
-  limit:any = 1000;
+  page: any = 1;
+  limit: any = 1000;
   mentors:any = [];
   mentorsCount:any;
   selectedAlphabet:any = "All"
