@@ -118,4 +118,16 @@ startSession(id: any){
     })
     )
     }
+  mentorUpComingSession(obj:any){
+    const config = {
+      url: API_CONSTANTS.UPCOMING_SESSIONS +obj.id +'?&page='+ obj?.page + '&limit=' + obj?.limit,
+      payload: {}
+    };
+    return this.apiService.post(config).pipe(
+      map((result: any) => {
+        this.toastService.showMessage(result.message, 'success')
+        return result;
+      }),
+    )
+  }
 }

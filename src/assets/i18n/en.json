@@ -109,5 +109,7 @@
     "DESCRIPTION": "Description",
     "SESSION_DATE": "Session Date",
     "SESSION_TIME": "Session Time",
-    "MENTOR_NAME": "Mentor Name"
+    "MENTOR_NAME": "Mentor Name",
+    "UPCOMING_SESSIONS_BY_MENTOR":"Upcoming sessions by mentor",
+    "NO_MENTOR_UPCOMING_SESSIONS_CONTENT":"Mentor has not scheduled any sessions. Check out other verified mentors from mentor directory."
 }
