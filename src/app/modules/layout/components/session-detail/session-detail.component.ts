@@ -3,7 +3,6 @@ import * as _ from "lodash";
 import { SessionService } from "src/app/core/services/session/session.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import * as moment from "moment";
-import { Title } from '@angular/platform-browser';
 import { Location } from "@angular/common";
 
 @Component({
@@ -59,7 +58,6 @@ export class SessionDetailComponent implements OnInit {
     private router: Router,
     private sessionService: SessionService,
     private route: ActivatedRoute,
-    private titleService: Title,
     private location: Location
   ) {
     if(!this.router.getCurrentNavigation()?.extras.state){
@@ -70,7 +68,6 @@ export class SessionDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.sessionService.getSessionDetailsAPI(this.id.id).subscribe((response: any) => {
-      this.titleService.setTitle(response.title)
       this.details.form.unshift({
         title: response.title,
         key: 'description'
