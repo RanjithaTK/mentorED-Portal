@@ -49,7 +49,7 @@ export class MentorProfileComponent implements OnInit {
   mentorUpComingSession: Array<item> = [];
   showLoadMoreButtonUpcomingSession: boolean = false;
   page = 1;
-  limit = 1;
+  limit = 4;
   noData:any='NO_MENTOR_UPCOMING_SESSIONS_CONTENT';
   constructor(private router: Router, private route: ActivatedRoute, private mentorProfile: MentorService, private sessionService: SessionService) {
     this.route.queryParams.subscribe(
@@ -74,11 +74,27 @@ export class MentorProfileComponent implements OnInit {
         data.result[0].data
       )
       this.showLoadMoreButtonUpcomingSession =
-        !(data.result.count == this.mentorUpComingSession.length)
+        !(data.result[0].count == this.mentorUpComingSession.length)
     })
   }
 
   buttonClick(event: any) {
+    switch (event.action.type) {
+      case 'enrollAction':
+        this.sessionService
+          .enrollSession(event.data._id)
+          .subscribe((result) => {
+            this.mentorUpComingSession = []
+            this.getUpcomingSession()
+          })
+        break
+      case 'joinAction':
+        let id = event.data._id;
+        this.sessionService
+          .joinSession(id)
+          .subscribe((result) => {})
+        break
+    }
   }
   onClickViewMoreUpcomingSessions() {
     this.page = this.page + 1
