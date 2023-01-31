@@ -109,10 +109,10 @@ startSession(id: any){
   }
   getSessionDetailsAPI(id: any) {
     const config = {
-    url: API_CONSTANTS.GET_SESSION_DETAILS + id
+      url: API_CONSTANTS.GET_SESSION_DETAILS + id
     }
     return this.apiService.get(config).pipe(
-    map((data:any) => {
+      map((data:any) => {
       let result = _.get(data, 'result');
       return result
     })

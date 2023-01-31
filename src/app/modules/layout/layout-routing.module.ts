@@ -72,7 +72,7 @@ const routes: Routes = [
       },
       { path: 'session-detail',
         component: SessionDetailComponent,
-        data: {title: 'SESSION_DETAIL', onBackUrl:'/profile'}
+        data: {title: 'SESSION_DETAIL'}
     },
       {
         path: '',
