@@ -113,11 +113,11 @@ startSession(id: any){
     }
     return this.apiService.get(config).pipe(
       map((data:any) => {
-      let result = _.get(data, 'result');
-      return result
-    })
+        let result = _.get(data, 'result');
+        return result
+      })
     )
-    }
+  }
   mentorUpComingSession(obj:any){
     const config = {
       url: API_CONSTANTS.UPCOMING_SESSIONS +obj.id +'?&page='+ obj?.page + '&limit=' + obj?.limit,
