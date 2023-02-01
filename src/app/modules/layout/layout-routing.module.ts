@@ -70,10 +70,10 @@ const routes: Routes = [
         data: {title: 'EDIT_YOUR_PROFILE', onBackUrl:'/profile'},
         canDeactivate: [CanDeactivateGuard]
       },
-      { path: 'session-detail',
+      { path: 'session-detail/:id',
         component: SessionDetailComponent,
         data: {title: 'SESSION_DETAIL'}
-    },
+      },
       {
         path: '',
         redirectTo: 'home',

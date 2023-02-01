@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from "@angular/core";
 import * as _ from "lodash";
 import { SessionService } from "src/app/core/services/session/session.service";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import * as moment from "moment";
-import { Location } from "@angular/common";
 
 @Component({
   selector: "app-session-detail",
@@ -58,16 +57,14 @@ export class SessionDetailComponent implements OnInit {
     private router: Router,
     private sessionService: SessionService,
     private route: ActivatedRoute,
-    private location: Location
   ) {
-    if(!this.router.getCurrentNavigation()?.extras.state){
-      this.location.back();
-    }
-    this.id = this.router.getCurrentNavigation()?.extras.state;
+    this.route.params.subscribe((params: Params) => {
+      this.id = params['id'];
+    })
   }
 
   ngOnInit(): void {
-    this.sessionService.getSessionDetailsAPI(this.id.id).subscribe((response: any) => {
+    this.sessionService.getSessionDetailsAPI(this.id).subscribe((response: any) => {
       this.details.form.unshift({
         title: response.title,
         key: 'description'
