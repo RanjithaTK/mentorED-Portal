@@ -30,7 +30,6 @@ export class ProfileHeaderComponent implements OnInit {
   }
   shareProfile(){
     this.url = (this.pLocation as any).location.href;
-    console.log(this.url)
     this.dialog.open(ShareProfilePopupComponent, {
       data: { defaultValue: this.url},
        });
