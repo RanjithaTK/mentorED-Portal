@@ -7,7 +7,7 @@
         <div class="url text-ellipse">
             {{data.defaultValue}}
         </div>
-        <div class="copy-link text-ellipse" [ngClass]="{'class-green': this.copyLink== 'COPIED_LINK'}"
+        <div class="copy-link" fxLayoutAlign="center" [ngClass]="{'class-green': this.copyLink== 'COPIED_LINK'}"
             (click)="copyToClipBoard()">
             {{copyLink | translate}}
         </div>
