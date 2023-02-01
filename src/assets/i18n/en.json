@@ -103,5 +103,7 @@
     "RATING":"Rating",
     "SESSIONs_HOSTED":" Sessions hosted",
     "UPCOMING_SESSIONS_BY_MENTOR":"Upcoming sessions by mentor",
-    "NO_MENTOR_UPCOMING_SESSIONS_CONTENT":"Mentor has not scheduled any sessions. Check out other verified mentors from mentor directory."
+    "NO_MENTOR_UPCOMING_SESSIONS_CONTENT":"Mentor has not scheduled any sessions. Check out other verified mentors from mentor directory.",
+    "COPY_LINK":"Copy link",
+    "COPIED_LINK":"Copied link"
 }

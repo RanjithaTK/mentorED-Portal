@@ -1,0 +1,33 @@
+@import "../../../../variables";
+
+.mat-cancel-icon {
+    color: $theme;
+    background-color: $white;
+}
+
+.url-container {
+    border: 1px solid $grey;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.url {
+    padding: 5px;
+}
+
+.text-ellipse {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.copy-link {
+    padding: 5px;
+    border: 1px solid $grey;
+    border-radius: 10px;
+}
+
+.class-green {
+    background-color: $green ;
+    color: $white;
+}
