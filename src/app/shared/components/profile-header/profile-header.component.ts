@@ -2,7 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { MentorService } from 'src/app/core/services/mentor/mentor.service';
-import { ShareProfilePopupComponent } from '../share-profile-popup/share-profile-popup.component';
+import { SharePopupComponent } from '../share-popup/share-popup.component';
 import { MatDialog } from '@angular/material/dialog';
 import { PlatformLocation } from '@angular/common';
 
@@ -30,7 +30,7 @@ export class ProfileHeaderComponent implements OnInit {
   }
   shareProfile(){
     this.url = (this.pLocation as any).location.href;
-    this.dialog.open(ShareProfilePopupComponent, {
+    this.dialog.open(SharePopupComponent, {
       data: { defaultValue: this.url},
        });
   }

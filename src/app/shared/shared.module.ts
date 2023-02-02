@@ -35,7 +35,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { NumberOnlyDirective } from './directives/onlyNumbers';
 import { ToastMessageComponent } from './components/toast-message/toast-message.component';
 import { MentorCardComponent } from './components/mentor-card/mentor-card.component';
-import { ShareProfilePopupComponent } from './components/share-profile-popup/share-profile-popup.component';
+import { SharePopupComponent } from './components/share-popup/share-popup.component';
 
 
 @NgModule({
@@ -53,7 +53,7 @@ import { ShareProfilePopupComponent } from './components/share-profile-popup/sha
     NumberOnlyDirective,
     ToastMessageComponent,
     MentorCardComponent,
-    ShareProfilePopupComponent
+    SharePopupComponent
   ],
   imports: [
     CommonModule,
