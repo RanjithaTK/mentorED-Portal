@@ -7,6 +7,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class ShareProfilePopupComponent implements OnInit {
   copyLink: any = 'COPY_LINK'
+  hoverStatus:any = true;
   constructor(@Inject(MAT_DIALOG_DATA)
   public data: { defaultValue: any }, public dialogRef: MatDialogRef<ShareProfilePopupComponent>
   ) { }
@@ -19,6 +20,7 @@ export class ShareProfilePopupComponent implements OnInit {
   copyToClipBoard() {
     navigator.clipboard.writeText(this.data.defaultValue).then(() => {
       this.copyLink = 'COPIED_LINK'
+      this.hoverStatus = false
     }, () => {
       console.error('Failed to copy');
     });

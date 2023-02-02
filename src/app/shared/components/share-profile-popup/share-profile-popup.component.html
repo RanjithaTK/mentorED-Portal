@@ -1,15 +1,15 @@
 <div class="share-popup-conatiner" fxLayout="column">
     <div fxLayout="row">
-        <p fxFlex="95%">{{'COPY_LINK' | translate}}</p>
+        <h2 fxFlex="95%">{{'COPY_LINK' | translate}}</h2>
         <mat-icon class="mat-cancel-icon" mat-dialog-close (click)="onClickCancel()">cancel_circle_outline</mat-icon>
     </div>
     <div class="url-container" fxLayout="row" fxLayoutGap="0px">
         <div class="url text-ellipse">
             {{data.defaultValue}}
         </div>
-        <div class="copy-link" fxLayoutAlign="center" [ngClass]="{'class-green': this.copyLink== 'COPIED_LINK'}"
+        <div class="copy-link" fxLayoutAlign="center" [ngClass]="{'class-green': this.copyLink== 'COPIED_LINK', 'hover-class': this.hoverStatus == true}"
             (click)="copyToClipBoard()">
-            {{copyLink | translate}}
+                {{copyLink | translate}}         
         </div>
     </div>
 </div>
