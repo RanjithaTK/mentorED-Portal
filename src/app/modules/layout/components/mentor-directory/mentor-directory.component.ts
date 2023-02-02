@@ -19,7 +19,6 @@ export class MentorDirectoryComponent implements OnInit {
   selectedMentors:any;
   noData:any = 'NO_MENTOR_IN_MENTOR_DIRECTORY_CONTENT'
   noselectedMentors:any = false;
-  presentSelectedMentors:any = false;
   alphabetsArray:any = ["All","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
   constructor(private mentorService:MentorService, private apiService: ApiService, private router: Router) { }
 
@@ -46,7 +45,7 @@ export class MentorDirectoryComponent implements OnInit {
   }
   onClickAlphabet(a:any){
     this.noselectedMentors = false;
-    this.presentSelectedMentors = false;
+    this.selectedMentors =[]
     this.selectedAlphabet = a;
     if (this.selectedAlphabet == 'All') {
       this.selectedMentors = this.mentors
@@ -54,10 +53,9 @@ export class MentorDirectoryComponent implements OnInit {
       this.mentors.forEach((ele: any) => {
         if (ele.key == this.selectedAlphabet) {
           this.selectedMentors = ele;
-          this.presentSelectedMentors = true;
         }
       });
-      if(!this.presentSelectedMentors){
+      if(this.selectedMentors.length == 0){
         this.noselectedMentors = true;
       }
     }
