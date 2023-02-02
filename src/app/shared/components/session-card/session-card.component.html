@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="sub-card-details" fxLayout="row">
-            <p class="sub-card-view-details">View details</p>
+            <p class="sub-card-view-details" (click)="onCardClick(cardData)">View details</p>
             <button *ngIf="cardData?.status != 'completed'" class="sub-card-details-button" mat-raised-button
               [ngClass]=" buttonConfig?.label=='ENROLL' ? 'primary' : 'secondary'" [disabled]="!buttonConfig?.isEnabled && buttonConfig?.label !='ENROLL'"  (click)="buttonClicked(buttonConfig,cardData)">{{ buttonConfig?.label | translate}}</button>
         

@@ -1,0 +1,17 @@
+<div class="main-div" fxLayoutAlign="center center">
+    <div fxLayout="row" fxFlex="79" fxLayoutGap="20px" class="container" fxFlexAlign="center center" fxLayout.xs="column" fxFlex.xs="100" fxFlex.sm="100">
+        <div class="card-images" fxFlex="35%" fxFlexAlign="center center" fxLayout="column" fxLayoutGap="10px">
+            <div class="image">
+                <img class="image-inside" *ngIf="!details?.data?.image?.length || !details?.data?.image; else elseBlock" src="../../../assets/images/session-default-img.png"/>
+                <ng-template #elseBlock>
+                    <img class="image-inside" src="{{details.data.image}}"/>
+                </ng-template>
+            </div>
+            <div>
+                <button class="enroll-button" mat-raised-button color="primary" >{{details.buttonLabel}}</button>
+            </div>
+        </div>
+        <div fxFlex="65%" fxLayout="column" fxLayoutGap="10px" class="session-data">
+        <app-generic-details [details]="details" [layoutAlign]="layout"></app-generic-details>
+    </div>
+</div>

@@ -32,6 +32,7 @@ import { ExitPopupComponent } from '../../shared/components/exit-popup/exit-popu
 import { CreateSessionComponent } from './components/create-session/create-session.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { MentorProfileComponent } from './components/mentor-profile/mentor-profile.component';
+import { SessionDetailComponent } from './components/session-detail/session-detail.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { MentorProfileComponent } from './components/mentor-profile/mentor-profi
     CreateSessionComponent,
     EditProfileComponent,
     LogoutComponent,
-    MentorProfileComponent
+    MentorProfileComponent,
+    SessionDetailComponent
   ],
   imports: [
     CommonModule,
