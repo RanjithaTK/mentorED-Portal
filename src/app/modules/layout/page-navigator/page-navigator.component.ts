@@ -1,10 +1,12 @@
-import { Location} from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Location, PlatformLocation} from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs';
 import { ProfileService } from 'src/app/core/services/profile/profile.service';
+import { SharePopupComponent } from 'src/app/shared/components/share-popup/share-popup.component';
 
 
 
@@ -32,8 +34,10 @@ export class PageNavigatorComponent implements OnInit {
   userDetails: any;
   navigationArray: any;
   onBackUrl:any;
+  url: any;
+  showShareButton: any;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private translate: TranslateService, private profileService: ProfileService, private titleService: Title, private location: Location) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private translate: TranslateService, private profileService: ProfileService, private titleService: Title, private location: Location,private pLocation: PlatformLocation,public dialog: MatDialog,) {
     this.setTitle();
    
   }
@@ -51,6 +55,7 @@ export class PageNavigatorComponent implements OnInit {
       const child: any = this.activatedRoute.firstChild;
       this.pageTitle = (child.snapshot.data['title'])?child.snapshot.data['title']:"";
       this.onBackUrl = (child.snapshot.data['onBackUrl'])?child.snapshot.data['onBackUrl']:"";
+      this.showShareButton = child.snapshot.data['showShareButton']
     })
   }
   onBack(){
@@ -59,6 +64,12 @@ export class PageNavigatorComponent implements OnInit {
     } else {
       this.location.back()
     }
+  }
+  shareButton() {
+    this.url = (this.pLocation as any).location.href;
+    this.dialog.open(SharePopupComponent, {
+      data: { defaultValue: this.url},
+       });
   }
 
 }
