@@ -20,13 +20,13 @@ export class PageNavigatorComponent implements OnInit {
   pageNavigatorArray: any;
  
   mentorNavigationArray = [{ 'name': 'home', 'url': '/home', 'label': 'HOME' },
-  { 'name': 'enrolled sessions', 'url': '/enrolled-sessions', 'label': 'ENROLLED_SESSIONS' },
-  { 'name': 'created sessions', 'url': '/created-sessions', 'label': 'CREATED_SESSIONS' },
-  { 'name': 'mentor directory', 'url': '/mentor-directory', 'label': 'MENTOR_DIRECTORY' }]
+  { 'name': 'enrolled sessions', 'url': '/enrolled-sessions', 'label': 'HOME' },
+  { 'name': 'created sessions', 'url': '/created-sessions', 'label': 'HOME' },
+  { 'name': 'mentor directory', 'url': '/mentor-directory', 'label': 'HOME' }]
 
   menteeNavigationArray = [{ 'name': 'home', 'url': '/home', 'label': 'HOME' },
-  { 'name': 'enrolled sessions', 'url': '/enrolled-sessions', 'label': 'ENROLLED_SESSIONS' },
-  { 'name': 'mentor directory', 'url': '/mentor-directory', 'label': 'MENTOR_DIRECTORY' }]
+  { 'name': 'enrolled sessions', 'url': '/enrolled-sessions', 'label': 'HOME' },
+  { 'name': 'mentor directory', 'url': '/mentor-directory', 'label': 'HOME' }]
 
   labels: any;
   appTitle = this.titleService.getTitle();
