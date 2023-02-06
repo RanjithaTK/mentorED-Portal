@@ -3,6 +3,7 @@ import { LocalStorageService } from 'src/app/core/services/local-storage/local-s
 import { TranslateService } from '@ngx-translate/core'
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
 import * as moment from 'moment'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-session-card',
@@ -15,7 +16,7 @@ export class SessionCardComponent implements OnInit {
   buttonConfig:any;
   userData: any;
   @Input() isCreator: any
-  constructor(private localStorage:LocalStorageService,private translate: TranslateService) { }
+  constructor(private localStorage:LocalStorageService,private translate: TranslateService, private router: Router) { }
   @Output() buttonClick = new EventEmitter()
 
   async ngOnInit() {
@@ -40,4 +41,13 @@ export class SessionCardComponent implements OnInit {
     let detail: any = { action: action, data: data }
     this.buttonClick.emit(detail)
   }
+  
+  onCardClick(cardData: any){
+    let value = {
+      data: cardData._id,
+      type: 'cardSelect',
+    }
+    this.router.navigate([`/${"session-detail"}/${value.data}`])
+  }
+
 }

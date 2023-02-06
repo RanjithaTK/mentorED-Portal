@@ -34,6 +34,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MentorProfileComponent } from './components/mentor-profile/mentor-profile.component';
 import { SlReportsLibraryModule} from '@shikshalokam/sl-reports-library'
+import { SessionDetailComponent } from './components/session-detail/session-detail.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { SlReportsLibraryModule} from '@shikshalokam/sl-reports-library'
     EditProfileComponent,
     LogoutComponent,
     DashboardComponent,
-    MentorProfileComponent
+    MentorProfileComponent,
+    SessionDetailComponent
   ],
   imports: [
     CommonModule,

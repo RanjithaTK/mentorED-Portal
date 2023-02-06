@@ -13,6 +13,7 @@ import { CanDeactivateGuard } from '../../core/guards/can-deactivate.guard'
 import { LogoutComponent } from './components/logout/logout.component'
 import { DashboardComponent } from './components/dashboard/dashboard.component'
 import { MentorProfileComponent } from './components/mentor-profile/mentor-profile.component'
+import { SessionDetailComponent } from './components/session-detail/session-detail.component'
 
 const routes: Routes = [
   {
@@ -73,6 +74,10 @@ const routes: Routes = [
         component: EditProfileComponent,
         data: {title: 'EDIT_YOUR_PROFILE', onBackUrl:'/profile'},
         canDeactivate: [CanDeactivateGuard]
+      },
+      { path: 'session-detail/:id',
+        component: SessionDetailComponent,
+        data: {title: 'SESSION_DETAIL'}
       },
       {
         path: '',

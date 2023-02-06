@@ -107,5 +107,18 @@
     "MENTOR_PROFILE":"Mentor profile",
     "SHARE_PROFILE":"Share profile",
     "RATING":"Rating",
-    "SESSIONs_HOSTED":" Sessions hosted"
+    "SESSIONS_HOSTED":" Sessions hosted",
+    "RECOMENDED_FOR": "Recomented For",
+    "CATEGORIES": "Categories",
+    "MEDIUM": "Medium",
+    "DESCRIPTION": "Description",
+    "SESSION_DATE": "Session Date",
+    "SESSION_TIME": "Session Time",
+    "MENTOR_NAME": "Mentor Name",
+    "UPCOMING_SESSIONS_BY_MENTOR":"Upcoming sessions by mentor",
+    "NO_MENTOR_UPCOMING_SESSIONS_CONTENT":"Mentor has not scheduled any sessions. Check out other verified mentors from mentor directory.",
+    "COPY_LINK":"Copy link",
+    "COPIED_LINK":"Copied link",
+    "NO_MENTOR_IN_MENTOR_DIRECTORY_CONTENT":"No mentors in this category. Please look for mentors in other sessions of directory.",
+    "SESSION_DETAIL": "Session details"
 }
