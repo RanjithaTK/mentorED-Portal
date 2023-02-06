@@ -114,5 +114,6 @@
     "COPY_LINK":"Copy link",
     "COPIED_LINK":"Copied link",
     "NO_MENTOR_IN_MENTOR_DIRECTORY_CONTENT":"No mentors in this category. Please look for mentors in other sessions of directory.",
-    "SESSION_DETAIL": "Session details"
+    "SESSION_DETAIL": "Session details",
+    "SHARE_SESSION": "Share session"
 }

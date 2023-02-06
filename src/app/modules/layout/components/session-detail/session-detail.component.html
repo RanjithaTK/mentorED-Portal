@@ -1,17 +1,18 @@
 <div class="main-div" fxLayoutAlign="center center">
     <div fxLayout="row" fxFlex="79" fxLayoutGap="20px" class="container" fxFlexAlign="center center" fxLayout.xs="column" fxFlex.xs="100" fxFlex.sm="100">
-        <div class="card-images" fxFlex="35%" fxFlexAlign="center center" fxLayout="column" fxLayoutGap="10px">
-            <div class="image">
+        <div class="card-images" fxFlex="26%" fxFlex.sm="30%" fxFlexAlign="center center" fxLayout="column" fxLayoutGap="20px">
+            <div class="image" fxFlex="42">
                 <img class="image-inside" *ngIf="!details?.data?.image?.length || !details?.data?.image; else elseBlock" src="../../../assets/images/session-default-img.png"/>
                 <ng-template #elseBlock>
                     <img class="image-inside" src="{{details.data.image}}"/>
                 </ng-template>
             </div>
-            <div>
-                <button class="enroll-button" mat-raised-button color="primary" >{{details.buttonLabel}}</button>
+            <div fxFlex="25">
+                <button *ngIf="!isEnrolled" (click)="isEnrolled = true" class="enroll-button" mat-raised-button color="primary" >{{details.enrollButton}}</button>
+                <button *ngIf="isEnrolled" (click)="isEnrolled = false" class="enroll-button" mat-raised-button color="primary" >{{details.unEnrollButton}}</button>
             </div>
         </div>
-        <div fxFlex="65%" fxLayout="column" fxLayoutGap="10px" class="session-data">
-        <app-generic-details [details]="details" [layoutAlign]="layout"></app-generic-details>
-    </div>
+        <div fxFlex="75%" fxLayoutGap="10px" class="session-data">
+            <app-generic-details [details]="details" [layoutAlign]="layout"></app-generic-details>
+        </div>
 </div>
