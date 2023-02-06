@@ -1,5 +1,5 @@
 ---
-- hosts: MentorED portal
+- hosts: elevate
   vars:
     project_path: /opt/frontend/mentorED-Portal
     tasks:
