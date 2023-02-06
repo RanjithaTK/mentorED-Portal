@@ -110,4 +110,4 @@
   </mat-card>
 </div>
 
-  <app-no-data-found *ngIf="!chartData.chart.data.datasets[0].data[0]" fxLayoutAlign="center center"></app-no-data-found>
+  <app-no-data-found *ngIf="!loading" *ngIf="!chartData.chart.data.datasets[0].data[0]" fxLayoutAlign="center center"></app-no-data-found>
