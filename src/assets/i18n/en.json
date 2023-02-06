@@ -120,6 +120,6 @@
     "DASHBOARD":"Dashboard",
     "TOTAL_SESSION_HOSTED":"Total session hosted",
     "TOTAL_SESSION_CREATED":"Total session created",
-    "SESSION_OVERVIEW":"Session Overview"
-
+    "SESSION_OVERVIEW":"Session Overview",
+    "SHARE_SESSION": "Share session"
 }

@@ -77,7 +77,7 @@ const routes: Routes = [
       },
       { path: 'session-detail/:id',
         component: SessionDetailComponent,
-        data: {title: 'SESSION_DETAIL'}
+        data: {title: 'SESSION_DETAIL', showShareButton: true}
       },
       {
         path: '',

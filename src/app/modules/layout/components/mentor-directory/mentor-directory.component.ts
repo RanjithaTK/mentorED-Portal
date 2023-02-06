@@ -17,6 +17,7 @@ export class MentorDirectoryComponent implements OnInit {
   mentorsCount:any;
   selectedAlphabet:any = "All"
   selectedMentors:any;
+  allMentors:any = [];
   noData:any = 'NO_MENTOR_IN_MENTOR_DIRECTORY_CONTENT'
   noselectedMentors:any = false;
   alphabetsArray:any = ["All","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
@@ -33,6 +34,9 @@ export class MentorDirectoryComponent implements OnInit {
     return this.mentorService.getMentorDirectory(obj).pipe(
       map((data: any) => {
         this.mentors = data.result.data;
+        data.result.data.forEach((data:any) => {
+          this.allMentors = this.allMentors.concat(data.values)
+        });
         this.mentorsCount = data.result.count;
       }))
   }

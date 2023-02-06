@@ -11,9 +11,11 @@ import * as moment from "moment";
 })
 export class SessionDetailComponent implements OnInit {
   cardData: any;
+  isEnrolled = false
 
   details = {
-    buttonLabel: "Enroll",
+    enrollButton: "Enroll",
+    unEnrollButton: "Un-enroll",
     form: [
       {
         title: "RECOMENDED_FOR",
