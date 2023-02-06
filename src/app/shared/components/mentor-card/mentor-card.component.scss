@@ -7,7 +7,7 @@
   background-position: center;
 }
 .mat-card-container{
-    height: 200px;
+    height: 180px;
 }
 .vertical-line{
     border-left: 1px solid $black;
@@ -15,8 +15,10 @@
 .view-button{
     float: right;
     border-radius: 100px;
+    padding: 0 30px 0 30px;
+    color: rgb(248, 248, 248);
 }
-.mentor-name{
+.card-data-heading {
     font-size: medium;
     font-weight: 500;
 }
@@ -44,6 +46,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    margin: 0%;
     
 }
 .about-container{
@@ -53,4 +56,5 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: rgb(45,43,41);
 }
