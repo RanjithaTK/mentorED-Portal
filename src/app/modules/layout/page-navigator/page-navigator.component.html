@@ -10,8 +10,9 @@
             mat-raised-button
             *ngIf="showShareButton"
             fxFlex="15"
-            fxFlex.xs="50"
-            fxFlex.sm="20"
+            fxFlex.xs="40"
+            fxFlex.sm="25"
+            fxFlex.gt-sm="16"
             (click)="shareButton()">
             <mat-icon color="primary">share</mat-icon>
             {{'SHARE_SESSION' | translate}}
