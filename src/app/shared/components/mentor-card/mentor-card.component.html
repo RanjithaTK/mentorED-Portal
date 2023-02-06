@@ -1,6 +1,6 @@
 <mat-card fxLayout="row" fxLayoutGap="10px" class="mat-card-container">
-    <div class="card-images" fxFlex="35%" fxLayout="column"> 
-        <div fxFlex="60%">
+    <div class="card-images" fxFlex="35%" fxLayout="column" fxLayoutGap="10px"> 
+        <div fxFlex="50%">
             <ng-template [ngIf]="cardData.image" [ngIfElse]="loggedOut">
               <div fxLayoutAlign="center">
                 <img class="image" [ngClass]="{'round-image':cardData?.image}" [src]="cardData?.image" alt="profilepic" />
@@ -12,15 +12,15 @@
                 <img class="image" src="/assets/images/user-circle-add.svg" /> 
               </div>
             </ng-template>
-          </div>
-        <div fxLayout="column" fxFlex="40%" fxLayoutGap="1px" fxLayoutAlign="center">
+        </div>
+        <div fxLayout="column" fxFlex="50%" fxLayoutGap="2px" fxLayoutAlign="center">
           <div fxLayoutAlign="center" >
-            <p  class="mentor-name text-ellipse">{{ cardData?.name}}</p>
+            <p  class="card-data-heading text-ellipse">{{ cardData?.name}}</p>
           </div>        
-            <div fxLayout="row" *ngIf="cardData?.rating?.average" fxLayoutGap="1px" fxLayoutAlign="center center">
+            <span fxLayout="row" *ngIf="cardData?.rating?.average" fxLayoutGap="1px" fxLayoutAlign="center center">
                 <mat-icon class="star-icon">grade</mat-icon>
                 <div class="session-font">{{cardData?.rating?.average}}</div>
-            </div>
+            </span>
         </div>
         
     </div>
@@ -28,8 +28,8 @@
     <div fxLayout="column" class="card-details">
       <div fxFlex="80%"fxLayout="column">
         <div   >
-            <h3>About</h3>
-            <p class="card-detail-bold  about-container">{{cardData?.about}}</p>
+            <h3 class="card-data-heading">About</h3>
+            <p class="about-container">{{cardData?.about}}</p>
         </div>
     </div>
     <div fxFlex="20%">
