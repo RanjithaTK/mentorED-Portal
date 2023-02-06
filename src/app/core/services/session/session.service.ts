@@ -3,6 +3,7 @@ import { API_CONSTANTS } from '../../constants/apiUrlConstants'
 import { map } from 'rxjs'
 import { ApiService } from '../api/api.service'
 import { ToastService } from '../toast/toast.service'
+import * as _ from 'lodash'
 
 @Injectable({
   providedIn: 'root',
@@ -104,6 +105,29 @@ startSession(id: any){
       map((result: any) => {
        return result
       })
+    )
+  }
+  getSessionDetailsAPI(id: any) {
+    const config = {
+      url: API_CONSTANTS.GET_SESSION_DETAILS + id
+    }
+    return this.apiService.get(config).pipe(
+      map((data:any) => {
+        let result = _.get(data, 'result');
+        return result
+      })
+    )
+  }
+  mentorUpComingSession(obj:any){
+    const config = {
+      url: API_CONSTANTS.UPCOMING_SESSIONS +obj.id +'?&page='+ obj?.page + '&limit=' + obj?.limit,
+      payload: {}
+    };
+    return this.apiService.post(config).pipe(
+      map((result: any) => {
+        this.toastService.showMessage(result.message, 'success')
+        return result;
+      }),
     )
   }
 }
