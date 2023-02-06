@@ -45,6 +45,9 @@ export class LayoutComponent implements OnInit {
       }
     })
   }
+  goToDashboard(){
+    this.router.navigate(['/dashboard'])
+  }
   async getDetails() {
     return await this.profileService.profileDetails()
   }

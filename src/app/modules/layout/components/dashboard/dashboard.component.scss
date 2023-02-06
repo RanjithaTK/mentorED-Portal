@@ -2,6 +2,8 @@
 
 .wrapper{
     padding-top: 2%;
+    padding-bottom: 20%;
+    margin-bottom: 20%;
 }
 .session-wrapper{
     padding-top: 6%;
@@ -24,7 +26,8 @@
 }
 
 mat-card{
-    align-items: center
+    align-items: center;
+    justify-content: center
 }
 .card {
     margin-top: 2%;
@@ -54,7 +57,10 @@ mat-card{
   .button-wrapper{
     justify-content:center;
   }
-  .mat-select-value-text{
-    color:white;
+  .options{
+    color:white !important;
     font-size: 12px
+  }
+  .piechart{
+max-height:90%
   }

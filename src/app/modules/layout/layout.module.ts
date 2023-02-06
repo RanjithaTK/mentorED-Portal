@@ -33,6 +33,7 @@ import { CreateSessionComponent } from './components/create-session/create-sessi
 import { LogoutComponent } from './components/logout/logout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MentorProfileComponent } from './components/mentor-profile/mentor-profile.component';
+import { SlReportsLibraryModule} from '@shikshalokam/sl-reports-library'
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { MentorProfileComponent } from './components/mentor-profile/mentor-profi
     MatSidenavModule,
     MatCardModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    SlReportsLibraryModule
   ]
 
 

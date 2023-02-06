@@ -112,7 +112,7 @@ input[type='search'] {
 ::ng-deep .mat-select-placeholder {
   font-size: 12px;
   padding-left: 20%;
-  color: $black;
+  color: $black !important;
 }
 mat-select {
   font-size: 12px;

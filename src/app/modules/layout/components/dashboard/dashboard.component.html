@@ -1,6 +1,12 @@
-<div fxLayoutAlign="center" class="wrapper">
+<div
+  fxLayoutAlign="center"
+  class="wrapper"
+  *ngIf="chartData.chart.data.datasets[0].data[0]"
+>
   <mat-card
-  fxFlex="55%" fxFlex.xs="98%" fxFlex.sm="80%"
+    fxFlex="55%"
+    fxFlex.xs="98%"
+    fxFlex.sm="80%"
     class="card"
     fxLayout="column"
     fxLayoutAlign="center"
@@ -10,12 +16,12 @@
         mat-raised-button
         fxFlex="10%"
         fxLayoutAlign="center center"
-    fxLayout="row"
-    fxFlex.md="10%"
-    fxFlex.sm="10%"
-    fxFlex.lt-md="10%"
-    fxFlex.lt-sm="10%"
-    fxFlex.lt-lg="10%"
+        fxLayout="row"
+        fxFlex.md="10%"
+        fxFlex.sm="10%"
+        fxFlex.lt-md="10%"
+        fxFlex.lt-sm="10%"
+        fxFlex.lt-lg="10%"
         class="button"
         *ngFor="let button of buttonConfig"
         (click)="buttonClick(button)"
@@ -23,8 +29,13 @@
         {{ button?.label | translate }}
       </button>
     </div>
-    <div fxFlex="row" fxLayoutAlign="space-between" class="session-wrapper" fxflex="15%">
-      <h2 class="session">{{"SESSION_OVERVIEW" | translate}}</h2>
+    <div
+      fxFlex="row"
+      fxLayoutAlign="space-between"
+      class="session-wrapper"
+      fxflex="15%"
+    >
+      <h2 class="session">{{'SESSION_OVERVIEW' | translate }}</h2>
 
       <mat-select
         class="options"
@@ -37,6 +48,7 @@
           [value]="filter.key"
           *ngFor="let filter of filters"
           class="label"
+          (click)="filterChangeHandler(filter.key)"
         >
           {{ filter.key }}
         </mat-option>
@@ -92,7 +104,10 @@
     </div>
 
     <span layout="row"><hr flex /></span>
-    <div>pi chart</div>
-    <!-- <sl-pie-chart></sl-pie-chart> -->
+    <div *ngIf="chartData" class="piechart">
+      <sl-pie-chart [data]="chartData"></sl-pie-chart>
+    </div>
   </mat-card>
 </div>
+
+  <app-no-data-found *ngIf="!chartData.chart.data.datasets[0].data[0]" fxLayoutAlign="center center"></app-no-data-found>
