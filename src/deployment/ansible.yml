@@ -15,7 +15,7 @@
     - name: pull latest code
       git:
         repo: https://github.com/ELEVATE-Project/mentorED-Portal.git
-        dest: "{{ release_path }}"
+        dest: "{{ project_path }}"
         version: "{{ gitBranch }}"
     - name: Update npm
       shell: npm i
