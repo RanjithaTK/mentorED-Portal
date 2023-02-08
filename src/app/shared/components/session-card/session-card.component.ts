@@ -47,7 +47,7 @@ export class SessionCardComponent implements OnInit {
       data: cardData._id,
       type: 'cardSelect',
     }
-    this.router.navigate([`/${"session-detail"}/${value.data}`])
+    this.router.navigate([`/${"session-detail"}/${value.data}`], { state: { title: cardData.title } })
   }
 
 }
