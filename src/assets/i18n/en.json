@@ -121,5 +121,8 @@
     "TOTAL_SESSION_HOSTED":"Total session hosted",
     "TOTAL_SESSION_CREATED":"Total session created",
     "SESSION_OVERVIEW":"Session Overview",
-    "SHARE_SESSION": "Share session"
+    "SHARE_SESSION": "Share session",
+    "TOTAL_SESSION_ENROLLED": "Total session enrolled",
+    "TOTAL_SESSION_ATTENDED": "Total session attended"
+
 }
