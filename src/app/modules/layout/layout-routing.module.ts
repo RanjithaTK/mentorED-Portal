@@ -11,6 +11,7 @@ import { CreateSessionComponent } from './components/create-session/create-sessi
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component'
 import { CanDeactivateGuard } from '../../core/guards/can-deactivate.guard'
 import { LogoutComponent } from './components/logout/logout.component'
+import { DashboardComponent } from './components/dashboard/dashboard.component'
 import { MentorProfileComponent } from './components/mentor-profile/mentor-profile.component'
 import { SessionDetailComponent } from './components/session-detail/session-detail.component'
 
@@ -49,6 +50,10 @@ const routes: Routes = [
       { path: 'profile',
         component: ProfilePageComponent,
         data: {title: 'MY_PROFILE'}
+      },
+      { path: 'dashboard',
+        component: DashboardComponent,
+        data: {title: 'DASHBOARD'}
       },
       {
         path: 'logout',

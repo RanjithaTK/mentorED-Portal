@@ -31,7 +31,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ExitPopupComponent } from '../../shared/components/exit-popup/exit-popup.component';
 import { CreateSessionComponent } from './components/create-session/create-session.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MentorProfileComponent } from './components/mentor-profile/mentor-profile.component';
+import { SlReportsLibraryModule} from '@shikshalokam/sl-reports-library'
 import { SessionDetailComponent } from './components/session-detail/session-detail.component';
 
 @NgModule({
@@ -51,6 +53,7 @@ import { SessionDetailComponent } from './components/session-detail/session-deta
     CreateSessionComponent,
     EditProfileComponent,
     LogoutComponent,
+    DashboardComponent,
     MentorProfileComponent,
     SessionDetailComponent
   ],
@@ -73,7 +76,8 @@ import { SessionDetailComponent } from './components/session-detail/session-deta
     MatSidenavModule,
     MatCardModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    SlReportsLibraryModule
   ]
 
 
