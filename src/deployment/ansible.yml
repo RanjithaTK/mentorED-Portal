@@ -12,8 +12,6 @@
       register: vaultCurl
     - name: Change directory
       shell: cd {{project_path}}
-    - name: Remove node modules and lock file
-      shell: rm -rf node_modules && rm package.lock.json
     - name: pull latest code
       shell: sudo git pull origin {{gitBranch}}
     - name: Update npm
