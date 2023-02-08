@@ -16,6 +16,12 @@
         </mat-button>
       </div>
       <div class="menu-button" fxLayoutAlign="space-evenly center">
+        <mat-button fxFlex="100%" fxLayoutAlign="space-evenly center" (click)="goToDashboard();drawer.toggle()">
+          <mat-icon>assessment</mat-icon>
+          <span>{{"DASHBOARD"|translate}}</span>
+        </mat-button>
+      </div>
+      <div class="menu-button" fxLayoutAlign="space-evenly center">
         <mat-button fxFlex="100%" fxLayoutAlign="space-evenly center" (click)="onLogout()">
           <mat-icon class="icon">exit_to_app</mat-icon>
           {{"LOGOUT"|translate}}

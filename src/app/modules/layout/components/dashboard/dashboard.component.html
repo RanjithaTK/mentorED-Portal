@@ -1,0 +1,113 @@
+<div
+  fxLayoutAlign="center"
+  class="wrapper"
+  *ngIf="chartData.chart.data.datasets[0].data[0]"
+>
+  <mat-card
+    fxFlex="55%"
+    fxFlex.xs="98%"
+    fxFlex.sm="80%"
+    class="card"
+    fxLayout="column"
+    fxLayoutAlign="center"
+  >
+    <div fxFlex class="button-wrapper" *ngIf="isMentor" fxLayoutGap="10%">
+      <button
+        mat-raised-button
+        fxFlex="10%"
+        fxLayoutAlign="center center"
+        fxLayout="row"
+        fxFlex.md="10%"
+        fxFlex.sm="10%"
+        fxFlex.lt-md="10%"
+        fxFlex.lt-sm="10%"
+        fxFlex.lt-lg="10%"
+        class="button"
+        *ngFor="let button of buttonConfig"
+        (click)="buttonClick(button)"
+      >
+        {{ button?.label | translate }}
+      </button>
+    </div>
+    <div
+      fxFlex="row"
+      fxLayoutAlign="space-between"
+      class="session-wrapper"
+      fxflex="15%"
+    >
+      <h2 class="session">{{'SESSION_OVERVIEW' | translate }}</h2>
+
+      <mat-select
+        class="options"
+        fxFlexAlign="center"
+        class="filter"
+        fxFlex="13%"
+        [(ngModel)]="selectedFilter"
+      >
+        <mat-option
+          [value]="filter.key"
+          *ngFor="let filter of filters"
+          class="label"
+          (click)="filterChangeHandler(filter.key)"
+        >
+          {{ filter.key }}
+        </mat-option>
+      </mat-select>
+    </div>
+    <div fxFlex="row" fxLayoutAlign="space-around" *ngIf="isMentor">
+      <mat-card
+        class="wrapper-card"
+        fxFlex.xs="40%"
+        fxFlex.sm="38%"
+        fxFlex.md="38%"
+      >
+        <h2>{{ 'TOTAL_SESSION_CREATED' | translate }}</h2>
+        <h2 fxLayoutAlign="center">
+          {{ chartData.chart.data.datasets[0].data[0] }}
+        </h2>
+      </mat-card>
+      <mat-card
+        class="wrapper-card"
+        fxFlex.xs="40%"
+        fxFlex.sm="38%"
+        fxFlex.md="38%"
+      >
+        <h2>{{ 'TOTAL_SESSION_HOSTED' | translate }}</h2>
+        <h2 fxLayoutAlign="center">
+          {{ chartData.chart.data.datasets[0].data[1] }}
+        </h2>
+      </mat-card>
+    </div>
+    <div fxFlex="row" fxLayoutAlign="space-around" *ngIf="!isMentor">
+      <mat-card
+        class="wrapper-card"
+        fxFlex.xs="40%"
+        fxFlex.sm="38%"
+        fxFlex.md="38%"
+      >
+        <h2>{{ 'TOTAL_SESSION_ENROLLED' | translate }}</h2>
+        <h2 fxLayoutAlign="center">
+          {{ chartData.chart.data.datasets[0].data[0] }}
+        </h2>
+      </mat-card>
+      <mat-card
+        class="wrapper-card"
+        fxFlex.xs="40%"
+        fxFlex.sm="38%"
+        fxFlex.md="38%"
+      >
+        <h2>{{ 'TOTAL_SESSION_ATTENDED' | translate }}</h2>
+        <h2 fxLayoutAlign="center">
+          {{ chartData.chart.data.datasets[0].data[1] }}
+        </h2>
+      </mat-card>
+    </div>
+
+    <span layout="row"><hr flex /></span>
+    <div *ngIf="chartData" class="piechart">
+      <sl-pie-chart [data]="chartData"></sl-pie-chart>
+    </div>
+  </mat-card>
+</div>
+
+  <app-no-data-found *ngIf="!chartData.chart.data.datasets[0].data[0] && !loading" fxLayoutAlign="center center"></app-no-data-found>

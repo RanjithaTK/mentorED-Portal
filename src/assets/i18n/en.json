@@ -115,5 +115,11 @@
     "COPIED_LINK":"Copied link",
     "NO_MENTOR_IN_MENTOR_DIRECTORY_CONTENT":"No mentors in this category. Please look for mentors in other sessions of directory.",
     "SESSION_DETAIL": "Session details",
+    "MENTEE_LABEL":"Mentee",
+    "MENTOR_LABEL":"Mentor",
+    "DASHBOARD":"Dashboard",
+    "TOTAL_SESSION_HOSTED":"Total session hosted",
+    "TOTAL_SESSION_CREATED":"Total session created",
+    "SESSION_OVERVIEW":"Session Overview",
     "SHARE_SESSION": "Share session"
 }
