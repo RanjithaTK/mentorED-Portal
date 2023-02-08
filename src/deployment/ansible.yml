@@ -16,8 +16,6 @@
       shell: rm node_modules && rm package.lock.json
     - name: pull latest code
       shell: sudo git pull origin {{gitBranch}}
-      update: yes
-      version: "{{ gitBranch }}"
     - name: Update npm
       shell: npm i
     - name: set permission
