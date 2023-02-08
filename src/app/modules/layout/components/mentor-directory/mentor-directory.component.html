@@ -1,7 +1,7 @@
 <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" fxLayoutAlign.sm="start" fxLayoutAlign.xs="start"
   class="alphabet-conatiner">
-  <div *ngFor="let a of alphabetsArray" class="alphabet" (click)="onClickAlphabet(a)"
-    [ngClass]="{'primary': this.selectedAlphabet==a}">{{a}}</div>
+  <div *ngFor="let alphabet of alphabetsArray" class="alphabet" (click)="onClickAlphabet(alphabet)"
+    [ngClass]="{'primary': this.selectedAlphabet==alphabet}">{{alphabet}}</div>
 </div>
 <div class="create-session-horizontal-line" fxLayoutAlign="center">
   <hr fxFlex="95%">
