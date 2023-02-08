@@ -54,10 +54,6 @@ export class PageNavigatorComponent implements OnInit {
     ).subscribe(() => {
       const child: any = this.activatedRoute.firstChild;
       this.pageTitle = (child.snapshot.data['title'])?child.snapshot.data['title']:"";
-      if(this.router.getCurrentNavigation()?.extras.state){
-        let titleData:any = this.router.getCurrentNavigation()?.extras.state
-        this.pageTitle = titleData['title'];
-      }
       this.onBackUrl = (child.snapshot.data['onBackUrl'])?child.snapshot.data['onBackUrl']:"";
       this.showShareButton = child.snapshot.data['showShareButton']
     })
