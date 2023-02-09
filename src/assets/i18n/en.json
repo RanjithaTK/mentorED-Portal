@@ -65,7 +65,7 @@
     "PASSWORD_NOT_MATCH":"Password and confirm password did not match",
     "LOGOUT":"Logout",
     "NO_ENROLL_SESSION_CONTENT":"Enroll for live session hosted by verified education leaders!",
-    "NO_ALL_SESSION_CONTENT":"Sorry, no results found. Try searching for something else.",
+    "NO_ALL_SESSION_CONTENT":"Exciting sessions are being planned for you. Mentors will publish them soon!",
     "NO_CREATED_SESSION_CONTENT":"Share what you know with the community!",
     "SESSIONS_ATTENDED":" Sessions Attended",
     "ABOUT":"About",
@@ -115,5 +115,11 @@
     "COPIED_LINK":"Copied link",
     "NO_MENTOR_IN_MENTOR_DIRECTORY_CONTENT":"No mentors in this category. Please look for mentors in other sessions of directory.",
     "SESSION_DETAIL": "Session details",
+    "MENTEE_LABEL":"Mentee",
+    "MENTOR_LABEL":"Mentor",
+    "DASHBOARD":"Dashboard",
+    "TOTAL_SESSION_HOSTED":"Total session hosted",
+    "TOTAL_SESSION_CREATED":"Total session created",
+    "SESSION_OVERVIEW":"Session Overview",
     "SHARE_SESSION": "Share session"
 }

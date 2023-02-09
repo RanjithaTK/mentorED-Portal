@@ -83,6 +83,10 @@
             <mat-icon>account_circle</mat-icon>
             <span>{{"MY_PROFILE"|translate}}</span>
           </button>
+          <button mat-menu-item (click)="goToDashboard()">
+            <mat-icon>assessment</mat-icon>
+            <span>{{"DASHBOARD"|translate}}</span>
+          </button>
           <button mat-menu-item (click)="onLogout()">
             <mat-icon>exit_to_app</mat-icon>
             <span>{{"LOGOUT"|translate}}</span>
