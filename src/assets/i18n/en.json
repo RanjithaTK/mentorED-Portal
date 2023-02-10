@@ -123,6 +123,8 @@
     "SESSION_OVERVIEW":"Session Overview",
     "SHARE_SESSION": "Share session",
     "TOTAL_SESSION_ENROLLED": "Total session enrolled",
-    "TOTAL_SESSION_ATTENDED": "Total session attended"
+    "TOTAL_SESSION_ATTENDED": "Total session attended",
+    "ENROLL_FOR_SESSION_TO_FILL_SPACE":"Enroll for sessions to fill this space",
+    "CONDUCT_LIVE_SESSION_TO_FILL_SPACE":"Conduct live sessions to fill this space"
 
 }

@@ -68,8 +68,8 @@ export class DashboardComponent implements OnInit {
       this.getReports().subscribe()
     })
     this.segment = 'mentee'
-      ? (this.noData = 'Enroll for sessions to fill this space')
-      : 'Conduct live sessions to fill this space'
+      ? this.noData = 'ENROLL_FOR_SESSION_TO_FILL_SPACE'
+      : 'CONDUCT_LIVE_SESSION_TO_FILL_SPACE'
   }
 
   getReports() {
