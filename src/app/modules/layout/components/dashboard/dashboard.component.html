@@ -114,7 +114,7 @@
       </div>
 
       <span layout="row"><hr flex /></span>
-      <div *ngIf="chartData" && !loading class="piechart">
+      <div *ngIf="chartData && !loading" class="piechart">
         <sl-pie-chart [data]="chartData"></sl-pie-chart>
       </div>
     </div>

@@ -119,8 +119,8 @@ export class DashboardComponent implements OnInit {
     this.segment = button.value
     this.noData =
       button.value == 'mentor'
-        ? 'Conduct live sessions to fill this space'
-        : 'Enroll for sessions to fill this space'
+        ? 'CONDUCT_LIVE_SESSION_TO_FILL_SPACE'
+        : 'ENROLL_FOR_SESSION_TO_FILL_SPACE'
     this.getReports().subscribe()
   }
   filterChangeHandler(event: any) {
