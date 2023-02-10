@@ -92,10 +92,10 @@ export class SessionDetailComponent implements OnInit {
   unEnrollDialogBox(){
     let dialogRef = this.dialog.open(ExitPopupComponent, {
       data: {
-        header: "Un-enroll session",
-        label: "Are you sure you want to un-enroll from this session ?",
-        unEnrollButton: "Un-enroll",
-        cancelButton: "Cancel"
+        header: "UN_ENROLL_SESSION",
+        label: "ARE_YOU_SURE_WANT_TO_UN_ENROLL",
+        unEnrollButton: "UN_ENROLL",
+        cancelButton: 'CANCEL'
       }
     });
     const result = dialogRef.componentInstance.buttonClick.subscribe(()=> {
